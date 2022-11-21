@@ -71,7 +71,7 @@ module Phlex
 							yield(
 								BufferedFormWith.new(form, buffer: @_target)
 							)
-						end
+						end.html_safe
 					}
 				end
 			end

@@ -8,4 +8,6 @@ module Phlex::Rails
 		loader.push_dir("#{__dir__}/rails", namespace: Phlex::Rails)
 		loader.setup
 	end
+
+	Phlex::HTML.include(Phlex::Rails::Renderable)
 end
