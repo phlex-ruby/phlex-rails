@@ -8,15 +8,24 @@ module Phlex
 			end
 
 			def render(renderable, *args, **kwargs, &block)
-				super if renderable.is_a?(Phlex::HTML)
-				super if renderable.is_a?(Class) && renderable < Phlex::HTML
+				return super if renderable.is_a?(Phlex::HTML)
+				return super if renderable.is_a?(Class) && renderable < Phlex::HTML
 
 				@_target << @_view_context.render(renderable, *args, **kwargs, &block)
 			end
 
 			def render_in(view_context, &block)
-				buffer = Buffer.new(view_context.output_buffer)
+				output_buffer = view_context.output_buffer
+
+				# Since https://github.com/rails/rails/pull/45731
+				if output_buffer.respond_to?(:raw_buffer)
+					buffer = output_buffer.raw_buffer
+				else
+					buffer = Buffer.new(output_buffer)
+				end
+
 				call(buffer, view_context: view_context, &block)
+
 				nil
 			end
 		end
