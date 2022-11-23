@@ -26,3 +26,6 @@ Style/MethodCallWithoutArgsParentheses:
 
 Style/MixinUsage:
   Enabled: false
+
+Style/ConditionalAssignment:
+  Enabled: false
