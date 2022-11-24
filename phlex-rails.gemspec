@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
 	spec.authors = ["Joel Drapper"]
 	spec.email = ["joel@drapper.me"]
 
-	spec.summary = "A framework for building views with a Ruby DSL."
+	spec.summary = "A Phlex adapter for Rails"
 	spec.description = "A high-performance view framework optimised for developer happiness."
 	spec.homepage = "https://www.phlex.fun"
 	spec.license = "MIT"
@@ -30,9 +30,9 @@ Gem::Specification.new do |spec|
 	spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
 	spec.require_paths = ["lib"]
 
-	spec.add_dependency "phlex"
-	spec.add_dependency "rails"
-	spec.add_dependency "zeitwerk"
+	spec.add_dependency "phlex", ">= 0.5"
+	spec.add_dependency "rails", ">= 6.1", "< 8"
+	spec.add_dependency "zeitwerk", "~> 2"
 
 	spec.metadata["rubygems_mfa_required"] = "true"
 end
