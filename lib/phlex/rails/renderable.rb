@@ -12,6 +12,8 @@ module Phlex
 				return super if renderable.is_a?(Class) && renderable < Phlex::HTML
 
 				@_target << @_view_context.render(renderable, *args, **kwargs, &block)
+
+				nil
 			end
 
 			def render_in(view_context, &block)
