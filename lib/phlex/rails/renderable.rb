@@ -17,18 +17,25 @@ module Phlex
 			end
 
 			def render_in(view_context, &block)
-				output_buffer = view_context.output_buffer
+				if block_given?
+					call(view_context: view_context) do |*args|
+						view_context.with_output_buffer(OutputBuffer.new(@_target)) do
+							original_length = @_target.length
+							output = yield(*args)
+							unchanged = (original_length == @_target.length)
 
-				# Since https://github.com/rails/rails/pull/45731
-				if output_buffer.respond_to?(:raw_buffer)
-					buffer = output_buffer.raw_buffer
+							if unchanged
+								if output.is_a?(ActiveSupport::SafeBuffer)
+									unsafe_raw(output)
+								else
+									text(output)
+								end
+							end
+						end
+					end.html_safe
 				else
-					buffer = Buffer.new(output_buffer)
+					call(view_context: view_context).html_safe
 				end
-
-				call(buffer, view_context: view_context, &block)
-
-				nil
 			end
 		end
 	end
