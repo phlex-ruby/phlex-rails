@@ -9,5 +9,5 @@ module Phlex::Rails
 		loader.setup
 	end
 
-	Phlex::HTML.include(Phlex::Rails::Renderable)
+	Phlex::HTML.prepend(Phlex::Rails::Renderable)
 end
