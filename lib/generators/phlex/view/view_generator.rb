@@ -17,7 +17,7 @@ module Phlex
 				::Rails.root.join("app/views/layout.rb").exist?
 			end
 
-			hook_for :test_framework
+			# hook_for :test_framework
 		end
 	end
 end
