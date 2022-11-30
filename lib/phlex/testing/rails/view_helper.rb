@@ -5,7 +5,7 @@ require "phlex/testing/view_helper"
 module Phlex::Testing
 	module Rails
 		module ViewHelper
-			include Phlex::Testing::ViewHelper
+			include ::Phlex::Testing::ViewHelper
 
 			def view_context
 				controller.view_context
