@@ -92,6 +92,30 @@ module Phlex
 				end
 			end
 
+			module ImageTag
+				def image_tag(*args)
+					if (output = @_view_context.image_tag(*args))
+						@_target << output
+					end
+				end
+			end
+
+			module AudioTag
+				def audio_tag(*args)
+					if (output = @_view_context.audio_tag(*args))
+						@_target << output
+					end
+				end
+			end
+
+			module VideoTag
+				def video_tag(*args)
+					if (output = @_view_context.video_tag(*args))
+						@_target << output
+					end
+				end
+			end
+
 			module PreloadLinkTag
 				def preload_link_tag(*args)
 					if (output = @_view_context.preload_link_tag(*args))
