@@ -4,8 +4,9 @@ require "phlex"
 require "phlex/rails/engine"
 
 module Phlex::Rails
-	Loader = Zeitwerk::Loader.for_gem(warn_on_extra_files: false).tap do |loader|
+	Loader = Zeitwerk::Loader.new.tap do |loader|
 		loader.push_dir("#{__dir__}/rails", namespace: Phlex::Rails)
+		loader.inflector = Zeitwerk::GemInflector.new(__FILE__)
 		loader.setup
 	end
 
