@@ -1,0 +1,14 @@
+<%= render Views::Blog.new do |v| %>
+
+  hidden
+
+  <% v.with_post do %><%= link_to "First Post", "/posts/1" %><% end %>
+
+  content
+
+  <% v.with_header do %><%= link_to "My blog", "/" %><% end %>
+
+  here
+
+  <% v.with_post do %><%= link_to "Last Post", "/posts/2" %><% end %>
+<% end %>

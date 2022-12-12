@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "cgi"
+
 module Phlex
 	module Rails
 		module Renderable
@@ -19,7 +21,7 @@ module Phlex
 			def render_in(view_context, &block)
 				if block_given?
 					call(view_context: view_context) do |*args|
-						view_context.with_output_buffer(OutputBuffer.new(@_target)) do
+						view_context.with_output_buffer(self) do
 							original_length = @_target.length
 							output = yield(*args)
 							unchanged = (original_length == @_target.length)
@@ -36,6 +38,34 @@ module Phlex
 				else
 					call(view_context: view_context).html_safe
 				end
+			end
+
+			def safe_append=(value)
+				return unless value
+
+				@_target << case value
+					when String then value
+					when Symbol then value.name
+					else value.to_s
+				end
+			end
+
+			def append=(value)
+				return unless value
+
+				if value.html_safe?
+					self.safe_append = value
+				else
+					@_target << case value
+						when String then CGI.escape_html(value)
+						when Symbol then CGI.escape_html(value.name)
+						else CGI.escape_html(value.to_s)
+					end
+				end
+			end
+
+			def capture
+				super.html_safe
 			end
 		end
 	end
