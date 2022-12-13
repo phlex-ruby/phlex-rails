@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "cgi"
-
 module Phlex
 	module Rails
 		module Renderable
@@ -57,9 +55,9 @@ module Phlex
 					self.safe_append = value
 				else
 					@_target << case value
-						when String then CGI.escape_html(value)
-						when Symbol then CGI.escape_html(value.name)
-						else CGI.escape_html(value.to_s)
+						when String then ERB::Util.html_escape(value)
+						when Symbol then ERB::Util.html_escape(value.name)
+						else ERB::Util.html_escape(value.to_s)
 					end
 				end
 			end
