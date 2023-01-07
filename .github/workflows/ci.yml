@@ -7,6 +7,7 @@ on:
 jobs:
   tests:
     strategy:
+      fail-fast: false
       matrix:
         os: ['ubuntu-latest', 'macos-latest']
         ruby-version: ['2.7', '3.0', '3.1', 'head']
@@ -19,6 +20,9 @@ jobs:
         with:
           ruby-version: ${{ matrix.ruby-version }}
           bundler-cache: false
+
+      - name: Update RubyGems
+        run: gem update --system
 
       - name: Install dependencies
         run: bundle install
