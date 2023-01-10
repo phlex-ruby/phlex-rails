@@ -17,6 +17,10 @@ module Phlex
 			end
 
 			def render_in(view_context, &block)
+				if defined?(ViewComponent::Base) && view_context.is_a?(ViewComponent::Base)
+					view_context = view_context.helpers
+				end
+
 				if block_given?
 					call(view_context: view_context) do |*args|
 						view_context.with_output_buffer(self) do
