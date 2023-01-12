@@ -67,7 +67,7 @@ module Phlex
 			end
 
 			def capture
-				super.html_safe
+				super&.html_safe
 			end
 
 			# Trick ViewComponent into thinking we're a ViewComponent to fix rendering output
