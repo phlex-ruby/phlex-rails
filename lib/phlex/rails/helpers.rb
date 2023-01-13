@@ -4,8 +4,8 @@ module Phlex
 	module Rails
 		module Helpers
 			module CSPMetaTag
-				def csp_meta_tag(**options)
-					if (output = @_view_context.csp_meta_tag(**options))
+				def csp_meta_tag(...)
+					if (output = @_view_context.csp_meta_tag(...))
 						@_target << output
 					end
 				end
@@ -77,64 +77,64 @@ module Phlex
 			end
 
 			module StylesheetLinkTag
-				def stylesheet_link_tag(*sources)
-					if (output = @_view_context.stylesheet_link_tag(*sources))
+				def stylesheet_link_tag(...)
+					if (output = @_view_context.stylesheet_link_tag(...))
 						@_target << output
 					end
 				end
 			end
 
 			module FaviconLinkTag
-				def favicon_link_tag(*args)
-					if (output = @_view_context.favicon_link_tag(*args))
+				def favicon_link_tag(...)
+					if (output = @_view_context.favicon_link_tag(...))
 						@_target << output
 					end
 				end
 			end
 
 			module ImageTag
-				def image_tag(*args)
-					if (output = @_view_context.image_tag(*args))
+				def image_tag(...)
+					if (output = @_view_context.image_tag(...))
 						@_target << output
 					end
 				end
 			end
 
 			module AudioTag
-				def audio_tag(*args)
-					if (output = @_view_context.audio_tag(*args))
+				def audio_tag(...)
+					if (output = @_view_context.audio_tag(...))
 						@_target << output
 					end
 				end
 			end
 
 			module VideoTag
-				def video_tag(*args)
-					if (output = @_view_context.video_tag(*args))
+				def video_tag(...)
+					if (output = @_view_context.video_tag(...))
 						@_target << output
 					end
 				end
 			end
 
 			module PreloadLinkTag
-				def preload_link_tag(*args)
-					if (output = @_view_context.preload_link_tag(*args))
+				def preload_link_tag(...)
+					if (output = @_view_context.preload_link_tag(...))
 						@_target << output
 					end
 				end
 			end
 
 			module JavaScriptIncludeTag
-				def javascript_include_tag(*sources)
-					if (output = @_view_context.javascript_include_tag(*sources))
+				def javascript_include_tag(...)
+					if (output = @_view_context.javascript_include_tag(...))
 						@_target << output
 					end
 				end
 			end
 
 			module JavaScriptImportmapTags
-				def javascript_importmap_tags
-					if (output = @_view_context.javascript_importmap_tags)
+				def javascript_importmap_tags(...)
+					if (output = @_view_context.javascript_importmap_tags(...))
 						@_target << output
 					end
 				end
