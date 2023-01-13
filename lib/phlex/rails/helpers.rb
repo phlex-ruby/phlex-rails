@@ -140,6 +140,14 @@ module Phlex
 				end
 			end
 
+			module JavaScriptImportModuleTag
+				def javascript_import_module_tag(...)
+					if (output = @_view_context.javascript_import_module_tag(...))
+						@_target << output
+					end
+				end
+			end
+
 			module ContentFor
 				def content_for(slot, &block)
 					@_view_context.content_for(slot, capture(&block))
