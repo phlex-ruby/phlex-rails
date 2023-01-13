@@ -11,6 +11,7 @@ module Phlex
 			include Helpers::ActionCableMetaTag
 			include Helpers::JavaScriptIncludeTag
 			include Helpers::JavaScriptImportmapTags
+			include Helpers::JavaScriptImportModuleTag
 		end
 	end
 end
