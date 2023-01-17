@@ -69,6 +69,22 @@ module Phlex
 			# Trick ViewComponent into thinking we're a ViewComponent to fix rendering output
 			def set_original_view_context(view_context)
 			end
+
+			private def yield_content(&block)
+				if block&.binding&.receiver == self
+					super
+				else
+					@_view_context.with_output_buffer(self) { super }
+				end
+			end
+
+			private def yield_content_with_args(*args, &block)
+				if block&.binding&.receiver == self
+					super
+				else
+					@_view_context.with_output_buffer(self) { super }
+				end
+			end
 		end
 	end
 end
