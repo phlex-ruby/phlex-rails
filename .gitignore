@@ -15,3 +15,4 @@ Gemfile.lock
 .covered.db
 .DS_Store
 /gemfiles
+.idea
