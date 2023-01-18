@@ -21,7 +21,15 @@ module Phlex
 					call(view_context: view_context) do |*args|
 						view_context.with_output_buffer(self) do
 							original_length = @_target.length
-							output = yield(*args)
+
+							if args.length == 1 && Phlex::HTML === args[0]
+								output = yield(
+									Unbuffered.call(args[0])
+								)
+							else
+								output = yield(*args)
+							end
+
 							unchanged = (original_length == @_target.length)
 
 							if unchanged
@@ -32,6 +40,8 @@ module Phlex
 								end
 							end
 						end
+
+						nil
 					end.html_safe
 				else
 					call(view_context: view_context).html_safe
@@ -71,7 +81,10 @@ module Phlex
 			end
 
 			private def yield_content(&block)
-				if block&.binding&.receiver == self
+				return unless block
+
+				case block.binding.receiver
+				when Phlex::HTML
 					super
 				else
 					@_view_context.with_output_buffer(self) { super }
@@ -79,7 +92,10 @@ module Phlex
 			end
 
 			private def yield_content_with_args(*args, &block)
-				if block&.binding&.receiver == self
+				return unless block
+
+				case block.binding.receiver
+				when Phlex::HTML
 					super
 				else
 					@_view_context.with_output_buffer(self) { super }
