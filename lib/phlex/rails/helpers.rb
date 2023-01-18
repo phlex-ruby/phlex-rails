@@ -63,6 +63,7 @@ module Phlex
 					alias_method :week_field, :__output_method__
 					alias_method :weekday_select, :__output_method__
 					alias_method :button, :__output_method__
+					alias_method :rich_text_area, :__output_method__
 				end
 
 				def form_with(*args, **kwargs, &block)
