@@ -29,3 +29,6 @@ Style/MixinUsage:
 
 Style/ConditionalAssignment:
   Enabled: false
+
+Lint/UnderscorePrefixedVariableName:
+  Enabled: false
