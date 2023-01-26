@@ -31,7 +31,7 @@ jobs:
         run: bundle exec appraisal install
 
       - name: Tests
-        run: bundle exec appraisal sus
+        run: bundle exec appraisal rspec
 
   rubocop:
         runs-on: 'ubuntu-latest'
