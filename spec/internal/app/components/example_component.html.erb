@@ -1,0 +1,9 @@
+<span>Before card</span>
+
+<%= render Views::Card.new do |c| %>
+  <span>Before title</span>
+  <%= c.title { "Hello" } %>
+  <span>After title</span>
+<% end %>
+
+<span>After card</span>
