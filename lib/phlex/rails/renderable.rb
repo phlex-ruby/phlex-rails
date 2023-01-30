@@ -24,7 +24,7 @@ module Phlex
 
 							if args.length == 1 && Phlex::HTML === args[0]
 								output = yield(
-									Unbuffered.call(args[0])
+									args[0].unbuffered
 								)
 							else
 								output = yield(*args)
