@@ -1,8 +1,6 @@
 <% module_namespacing do -%>
 module Views
   class <%= class_name %> < Phlex::HTML
-    include ApplicationView
-
     def template
       render Layout.new(title: "<%= class_name.gsub("::", " ") %>") do
         h1 { "👋 Hello World!" }

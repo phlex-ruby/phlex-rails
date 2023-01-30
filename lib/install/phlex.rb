@@ -15,18 +15,6 @@ unless application_configuration_content.match?(pattern)
 	)
 end
 
-unless Rails.root.join("app/views/application_view.rb").exist?
-	create_file(Rails.root.join("app/views/application_view.rb"), <<~RUBY)
-		# frozen_string_literal: true
-
-		module Views
-		  module ApplicationView
-		    include Rails.application.routes.url_helpers
-		  end
-		end
-	RUBY
-end
-
 tailwind_config_path = Rails.root.join("config/tailwind.config.js")
 
 if tailwind_config_path.exist?
