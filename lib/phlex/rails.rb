@@ -13,5 +13,6 @@ module Phlex::Rails
 
 	Phlex::HTML.prepend(Phlex::Rails::HTML::Overrides)
 
+	Phlex::HTML.extend(Phlex::Rails::HTML::ClassMethods)
 	Phlex::HTML.extend(Phlex::Rails::HTML::AppendMethodAddedWarning)
 end
