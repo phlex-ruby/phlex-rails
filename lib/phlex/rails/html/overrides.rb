@@ -5,7 +5,11 @@ module Phlex
 		module HTML
 			module Overrides
 				def helpers
-					@_view_context
+					if defined?(ViewComponent::Base) && @_view_context.is_a?(ViewComponent::Base)
+						@_view_context.helpers
+					else
+						@_view_context
+					end
 				end
 
 				def render(renderable, *args, **kwargs, &block)

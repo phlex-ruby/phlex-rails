@@ -29,7 +29,7 @@ module Phlex
 				input(
 					name: "authenticity_token",
 					type: "hidden",
-					value: @_view_context.form_authenticity_token
+					value: helpers.form_authenticity_token
 				)
 			end
 
@@ -42,11 +42,11 @@ module Phlex
 			end
 
 			def url
-				@_view_context.url_for(@model)
+				helpers.url_for(@model)
 			end
 
 			def field_name(*field)
-				@_view_context.field_name(ActiveModel::Naming.param_key(@model.class), *field)
+				helpers.field_name(ActiveModel::Naming.param_key(@model.class), *field)
 			end
 
 			input_field :url_field, type: "url"
