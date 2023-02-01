@@ -5,7 +5,7 @@ module Phlex
 		module Helpers
 			module CSPMetaTag
 				def csp_meta_tag(...)
-					if (output = @_view_context.csp_meta_tag(...))
+					if (output = helpers.csp_meta_tag(...))
 						@_target << output
 					end
 				end
@@ -13,7 +13,7 @@ module Phlex
 
 			module CSRFMetaTags
 				def csrf_meta_tags
-					if (output = @_view_context.csrf_meta_tags)
+					if (output = helpers.csrf_meta_tags)
 						@_target << output
 					end
 				end
@@ -21,7 +21,7 @@ module Phlex
 
 			module ActionCableMetaTag
 				def action_cable_meta_tag
-					if (output = @_view_context.action_cable_meta_tag)
+					if (output = helpers.action_cable_meta_tag)
 						@_target << output
 					end
 				end
@@ -67,7 +67,7 @@ module Phlex
 				end
 
 				def form_with(*args, **kwargs, &block)
-					@_target << @_view_context.form_with(*args, **kwargs) { |form|
+					@_target << helpers.form_with(*args, **kwargs) { |form|
 						capture do
 							yield(
 								BufferedFormWith.new(form, buffer: @_target)
@@ -79,7 +79,7 @@ module Phlex
 
 			module StylesheetLinkTag
 				def stylesheet_link_tag(...)
-					if (output = @_view_context.stylesheet_link_tag(...))
+					if (output = helpers.stylesheet_link_tag(...))
 						@_target << output
 					end
 				end
@@ -87,7 +87,7 @@ module Phlex
 
 			module FaviconLinkTag
 				def favicon_link_tag(...)
-					if (output = @_view_context.favicon_link_tag(...))
+					if (output = helpers.favicon_link_tag(...))
 						@_target << output
 					end
 				end
@@ -95,7 +95,7 @@ module Phlex
 
 			module ImageTag
 				def image_tag(...)
-					if (output = @_view_context.image_tag(...))
+					if (output = helpers.image_tag(...))
 						@_target << output
 					end
 				end
@@ -103,7 +103,7 @@ module Phlex
 
 			module AudioTag
 				def audio_tag(...)
-					if (output = @_view_context.audio_tag(...))
+					if (output = helpers.audio_tag(...))
 						@_target << output
 					end
 				end
@@ -111,7 +111,7 @@ module Phlex
 
 			module VideoTag
 				def video_tag(...)
-					if (output = @_view_context.video_tag(...))
+					if (output = helpers.video_tag(...))
 						@_target << output
 					end
 				end
@@ -119,7 +119,7 @@ module Phlex
 
 			module PreloadLinkTag
 				def preload_link_tag(...)
-					if (output = @_view_context.preload_link_tag(...))
+					if (output = helpers.preload_link_tag(...))
 						@_target << output
 					end
 				end
@@ -127,7 +127,7 @@ module Phlex
 
 			module JavaScriptIncludeTag
 				def javascript_include_tag(...)
-					if (output = @_view_context.javascript_include_tag(...))
+					if (output = helpers.javascript_include_tag(...))
 						@_target << output
 					end
 				end
@@ -135,7 +135,7 @@ module Phlex
 
 			module JavaScriptImportmapTags
 				def javascript_importmap_tags(...)
-					if (output = @_view_context.javascript_importmap_tags(...))
+					if (output = helpers.javascript_importmap_tags(...))
 						@_target << output
 					end
 				end
@@ -143,7 +143,7 @@ module Phlex
 
 			module JavaScriptImportModuleTag
 				def javascript_import_module_tag(...)
-					if (output = @_view_context.javascript_import_module_tag(...))
+					if (output = helpers.javascript_import_module_tag(...))
 						@_target << output
 					end
 				end
@@ -151,7 +151,7 @@ module Phlex
 
 			module ContentFor
 				def content_for(slot, &block)
-					@_view_context.content_for(slot, capture(&block))
+					helpers.content_for(slot, capture(&block))
 				end
 			end
 		end
