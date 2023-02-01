@@ -7,19 +7,12 @@ module Phlex::Rails
 	Loader = Zeitwerk::Loader.new.tap do |loader|
 		loader.push_dir("#{__dir__}/rails", namespace: Phlex::Rails)
 		loader.inflector = Zeitwerk::GemInflector.new(__FILE__)
+		loader.inflector.inflect("html" => "HTML")
 		loader.setup
 	end
 
-	module AppendMethodAddedWarning
-		def method_added(name)
-			if name == :append || name == :safe_append
-				raise Phlex::NameError, "You shouldn't redefine the #{name} method as it's required for safe HTML output."
-			end
+	Phlex::HTML.prepend(Phlex::Rails::HTML::Overrides)
 
-			super
-		end
-	end
-
-	Phlex::HTML.prepend(Phlex::Rails::Renderable)
-	Phlex::HTML.extend(Phlex::Rails::AppendMethodAddedWarning)
+	Phlex::HTML.extend(Phlex::Rails::HTML::ClassMethods)
+	Phlex::HTML.extend(Phlex::Rails::HTML::AppendMethodAddedWarning)
 end
