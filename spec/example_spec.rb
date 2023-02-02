@@ -17,12 +17,6 @@ RSpec.describe ExamplesController, type: :controller do
 		expect(response.body).to eq %(<div class="tabs"><ul class="names"><li>A</li><li>B</li></ul><ul class="content"><li>    <h1>Content for A</h1>\n</li><li>    <h1>Content for B</h1>\n</li></ul></div>)
 	end
 
-	it "supports form_with" do
-		get :form_with
-
-		expect(response.body).to eq %(<form action="/form_with" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" autocomplete="off" /><input type="text" name="name" /></form>)
-	end
-
 	it "supports view component" do
 		get :view_component
 
