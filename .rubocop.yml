@@ -16,6 +16,8 @@ Layout/CaseIndentation:
 Style/StringConcatenation:
   Enabled: false
 
+Layout/MultilineMethodCallBraceLayout:
+  Enabled: false
 
 
 Security/Eval:
