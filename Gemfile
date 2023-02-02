@@ -5,7 +5,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gemspec
 
-gem "phlex", github: "joeldrapper/phlex", branch: "main"
+gem "phlex", github: "joeldrapper/phlex"
+gem "phlex-testing-capybara", github: "joeldrapper/phlex-testing-capybara"
 gem "rspec-rails"
 gem "combustion"
 gem "rubocop"
