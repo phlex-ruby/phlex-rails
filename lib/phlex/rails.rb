@@ -10,7 +10,10 @@ module Phlex::Rails
 		loader.inflector.inflect(
 			"html" => "HTML",
 			"csp_meta_tag" => "CSPMetaTag",
-			"csrf_meta_tags" => "CSRFMetaTags"
+			"csrf_meta_tags" => "CSRFMetaTags",
+			"javascript_import_module_tag" => "JavaScriptImportModuleTag",
+			"javascript_importmap_tags" => "JavaScriptImportmapTags",
+			"javascript_include_tag" => "JavaScriptIncludeTag"
 		)
 		loader.setup
 	end
