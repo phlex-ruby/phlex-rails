@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Views
-	module Examples
+	module Helpers
 		class FormWith < Phlex::HTML
 			include Phlex::Rails::Helpers::FormWith
 
