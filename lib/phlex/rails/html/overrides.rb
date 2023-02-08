@@ -64,10 +64,9 @@ module Phlex
 				end
 
 				def append=(value)
-					return unless value
-
-					if value.html_safe?
-						self.safe_append = value
+					case value
+					when ActiveSupport::SafeBuffer
+						@_target << value
 					else
 						@_target << case value
 							when String then ERB::Util.html_escape(value)
