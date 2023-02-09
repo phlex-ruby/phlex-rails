@@ -74,7 +74,6 @@ module Phlex::Rails::HelperMacros
 						capture do
 							yield(
 								#{builder.name}.new(form,
-									buffer: @_target,
 									view: self
 								)
 							)

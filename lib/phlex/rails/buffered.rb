@@ -3,7 +3,7 @@
 require "forwardable"
 
 module Phlex::Rails
-	# A decorator that buffers all method calls and captures the blocks passed to them.
+	# A decorator that buffers all missing method calls and captures the blocks passed to them.
 	class Buffered < BasicObject
 		extend ::Forwardable
 
@@ -12,13 +12,12 @@ module Phlex::Rails
 			class_eval(<<-RUBY, __FILE__, __LINE__ + 1)
 				# frozen_string_literal: true
 
-				def #{method_name}
-					output = if block_given?
+				def #{method_name}(*args, **kwargs, &block)
+					output = if block
 						@object.#{method_name}(*args, **kwargs) { |builder|
 							@view.capture do
 								yield(
 									::#{builder.name}.new(builder,
-										buffer: @buffer,
 										view: @view
 									)
 								)
@@ -30,7 +29,7 @@ module Phlex::Rails
 
 					case output
 					when ::ActiveSupport::SafeBuffer
-						@buffer << output
+						@view.instance_variable_get(:@_target) << output
 					end
 
 					nil
@@ -39,9 +38,8 @@ module Phlex::Rails
 		end
 
 		# @api private
-		def initialize(object, buffer:, view:)
+		def initialize(object, view:)
 			@object = object
-			@buffer = buffer
 			@view = view
 		end
 
@@ -58,7 +56,7 @@ module Phlex::Rails
 
 			case output
 			when ::ActiveSupport::SafeBuffer
-				@buffer << output
+				@view.instance_variable_get(:@_target) << output
 			end
 
 			nil

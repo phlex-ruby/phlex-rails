@@ -54,7 +54,12 @@ module Phlex::Rails
 		# @!method search_field(...)
 		# @!method select(...)
 		# @!method submit(...)
-		# @!method telephone_field(...)
+		# @!method telephone_field(name, value = nil, **attributes)
+		# 	Outputs an input field of type <code>tel</code>.
+		# 	@param name [Symbol] the name of the field.
+		# 	@param value [String] the default value.
+		# 	@param attributes HTML attributes.
+		# 	@return [nil]
 		# @!method text_area(...)
 		# @!method text_field(...)
 		# @!method time_field(...)

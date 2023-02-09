@@ -15,12 +15,33 @@ RSpec.describe Phlex::Rails::Helpers::FormWith do
 
 			def template
 				form_with url: "/foo" do |f|
+					f.text_field :name
+
+					f.label :email do
+						f.text_field :email
+					end
+
+					f.label :foo do
+						span { "Hello" }
+					end
 				end
 			end
 		end
 	end
 
-	it "works" do
+	it "renders the form" do
 		expect(output).to have_css "form[action='/foo']"
+	end
+
+	it "supports text fields" do
+		expect(output).to have_css "form[action='/foo']>input[type='text'][name='name']"
+	end
+
+	it "supports labels" do
+		expect(output).to have_css "form[action='/foo']>label>input[type='text'][name='email']"
+	end
+
+	it "supports phlex in labels" do
+		expect(output).to have_css "form[action='/foo']>label>span", text: "Hello"
 	end
 end

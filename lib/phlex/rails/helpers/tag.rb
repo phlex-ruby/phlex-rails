@@ -10,7 +10,6 @@ module Phlex::Rails::Helpers::Tag
 		when ActionView::Helpers::TagHelper::TagBuilder
 			Phlex::Rails::Buffered.new(
 				result,
-				buffer: @_target,
 				view: self
 			)
 		end

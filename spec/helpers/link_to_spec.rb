@@ -7,37 +7,25 @@ RSpec.describe Phlex::Rails::Helpers::LinkTo do
 
 	let(:output) { render example.new }
 
-	context "with a simple link" do
-		let(:example) do
-			Class.new(Phlex::HTML) do
-				include Phlex::Rails::Helpers::LinkTo
+	let(:example) do
+		Class.new(Phlex::HTML) do
+			include Phlex::Rails::Helpers::LinkTo
 
-				def template
-					link_to "Home", "/home"
+			def template
+				link_to "Foo", "/foo"
+
+				link_to("/bar") do
+					h1 { "Bar" }
 				end
 			end
-		end
-
-		it "works" do
-			expect(output).to have_css "a[href='/home']", text: "Home"
 		end
 	end
 
-	context "with a block" do
-		let(:example) do
-			Class.new(Phlex::HTML) do
-				include Phlex::Rails::Helpers::LinkTo
+	it "supports positional content" do
+		expect(output).to have_css "a[href='/foo']", text: "Foo"
+	end
 
-				def template
-					link_to "/home" do
-						h1 { "Hi" }
-					end
-				end
-			end
-		end
-
-		it "works" do
-			expect(output).to have_css "a[href='/home']>h1", text: "Hi"
-		end
+	it "supports block content" do
+		expect(output).to have_css "a[href='/bar']>h1", text: "Bar"
 	end
 end
