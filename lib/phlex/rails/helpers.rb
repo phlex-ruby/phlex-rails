@@ -24,6 +24,7 @@ module Phlex::Rails::Helpers
 
 		# @!method asset_path(source, host: nil, protocol: nil, type: nil, skip_pipeline: nil, extname: nil)
 		# 	@param source [String]
+		# 	@param host [String]
 		# 	@param protocol [String] e.g. <code>"https"</code>
 		# 	@param type [Symbol] e.g. <code>:javascript</code>
 		# 	@param skip_pipeline [bool]
