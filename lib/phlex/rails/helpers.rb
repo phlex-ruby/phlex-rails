@@ -645,7 +645,7 @@ module Phlex::Rails::Helpers
 		define_output_helper_with_capture_block :link_to_if
 	end
 
-	module LinkUnless
+	module LinkToUnless
 		extend Phlex::Rails::HelperMacros
 
 		# @!method link_to_unless(...)
