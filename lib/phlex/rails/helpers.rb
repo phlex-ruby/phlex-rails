@@ -7,6 +7,7 @@ module Phlex::Rails::Helpers
 		# @!method action_cable_meta_tag
 		# 	Outputs an "action-cable-url" meta tag with the value of the URL specified in your configuration. Ensure this is above your JavaScript tag:
 		# 	@see https://api.rubyonrails.org/classes/ActionCable/Helpers/ActionCableHelper.html#method-i-action_cable_meta_tag
+		# 	@return [nil]
 		define_output_helper :action_cable_meta_tag
 	end
 
@@ -51,6 +52,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method audio_tag(...)
+		# 	@return [nil]
 		define_output_helper :audio_tag
 	end
 
@@ -65,6 +67,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method auto_discovery_link_tag(...)
+		# 	@return [nil]
 		define_output_helper :auto_discovery_link_tag
 	end
 
@@ -79,6 +82,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method button_tag(...)
+		# 	@return [nil]
 		define_output_helper_with_capture_block :button_tag
 	end
 
@@ -86,6 +90,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method button_to(...)
+		# 	@return [nil]
 		define_output_helper_with_capture_block :button_to
 	end
 
@@ -93,6 +98,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method check_box(...)
+		# 	@return [nil]
 		define_output_helper :check_box
 	end
 
@@ -100,6 +106,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method check_box_tag(...)
+		# 	@return [nil]
 		define_output_helper :check_box_tag
 	end
 
@@ -132,6 +139,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method collection_select(...)
+		# 	@return [nil]
 		define_output_helper :collection_select
 	end
 
@@ -139,6 +147,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method color_field(...)
+		# 	@return [nil]
 		define_output_helper :color_field
 	end
 
@@ -146,6 +155,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method color_field_tag(...)
+		# 	@return [nil]
 		define_output_helper :color_field_tag
 	end
 
@@ -184,6 +194,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method content_tag(...)
+		# 	@return [nil]
 		define_output_helper_with_capture_block :content_tag
 	end
 
@@ -205,6 +216,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method csp_meta_tag(...)
+		# 	@return [nil]
 		define_output_helper :csp_meta_tag
 	end
 
@@ -212,6 +224,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method csrf_meta_tags(...)
+		# 	@return [nil]
 		define_output_helper :csrf_meta_tags
 	end
 
@@ -240,6 +253,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method date_field(...)
+		# 	@return [nil]
 		define_output_helper :date_field
 	end
 
@@ -247,6 +261,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method date_field_tag(...)
+		# 	@return [nil]
 		define_output_helper :date_field_tag
 	end
 
@@ -254,6 +269,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method date_select(...)
+		# 	@return [nil]
 		define_output_helper :date_select
 	end
 
@@ -261,6 +277,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method datetime_field(...)
+		# 	@return [nil]
 		define_output_helper :datetime_field
 	end
 
@@ -268,6 +285,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method datetime_field_tag(...)
+		# 	@return [nil]
 		define_output_helper :datetime_field_tag
 	end
 
@@ -275,6 +293,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method datetime_local_field(...)
+		# 	@return [nil]
 		define_output_helper :datetime_local_field
 	end
 
@@ -282,6 +301,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method datetime_local_field_tag(...)
+		# 	@return [nil]
 		define_output_helper :datetime_local_field_tag
 	end
 
@@ -289,6 +309,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method datetime_select(...)
+		# 	@return [nil]
 		define_output_helper :datetime_select
 	end
 
@@ -296,6 +317,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method debug(...)
+		# 	@return [nil]
 		define_output_helper :debug
 	end
 
@@ -324,6 +346,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method email_field(...)
+		# 	@return [nil]
 		define_output_helper :email_field
 	end
 
@@ -331,6 +354,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method email_field_tag(...)
+		# 	@return [nil]
 		define_output_helper :email_field_tag
 	end
 
@@ -345,6 +369,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method error_wrapping(...)
+		# 	@return [nil]
 		define_output_helper :error_wrapping
 	end
 
@@ -366,6 +391,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method favicon_link_tag(...)
+		# 	@return [nil]
 		define_output_helper :favicon_link_tag
 	end
 
@@ -396,6 +422,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method field_set_tag(...)
+		# 	@return [nil]
 		define_output_helper_with_capture_block :field_set_tag
 	end
 
@@ -412,6 +439,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method file_field(...)
+		# 	@return [nil]
 		define_output_helper :file_field
 	end
 
@@ -419,6 +447,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method file_field_tag(...)
+		# 	@return [nil]
 		define_output_helper :file_field_tag
 	end
 
@@ -449,6 +478,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method form_tag(...)
+		# 	@return [nil]
 		define_output_helper_with_capture_block :form_tag
 	end
 
@@ -465,6 +495,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method grouped_collection_select(...)
+		# 	@return [nil]
 		define_output_helper :grouped_collection_select
 	end
 
@@ -472,6 +503,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method grouped_options_for_select(...)
+		# 	@return [nil]
 		define_output_helper :grouped_options_for_select
 	end
 
@@ -479,6 +511,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method hidden_field(...)
+		# 	@return [nil]
 		define_output_helper :hidden_field
 	end
 
@@ -486,6 +519,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method hidden_field_tag(...)
+		# 	@return [nil]
 		define_output_helper :hidden_field_tag
 	end
 
@@ -493,6 +527,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method highlight(...)
+		# 	@return [nil]
 		define_output_helper :highlight
 	end
 
@@ -507,6 +542,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method image_submit_tag(...)
+		# 	@return [nil]
 		define_output_helper :image_submit_tag
 	end
 
@@ -514,6 +550,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method image_tag(...)
+		# 	@return [nil]
 		define_output_helper :image_tag
 	end
 
@@ -528,6 +565,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method javascript_import_module_tag(...)
+		# 	@return [nil]
 		define_output_helper :javascript_import_module_tag
 	end
 
@@ -535,6 +573,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method javascript_importmap_tags(...)
+		# 	@return [nil]
 		define_output_helper :javascript_importmap_tags
 	end
 
@@ -542,6 +581,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method javascript_include_tag(...)
+		# 	@return [nil]
 		define_output_helper :javascript_include_tag
 	end
 
@@ -556,6 +596,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method javascript_tag(...)
+		# 	@return [nil]
 		define_output_helper_with_capture_block :javascript_tag
 	end
 
@@ -584,6 +625,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method label_tag(...)
+		# 	@return [nil]
 		define_output_helper_with_capture_block :label_tag
 	end
 
@@ -591,6 +633,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method link_to(...)
+		# 	@return [nil]
 		define_output_helper_with_capture_block :link_to
 	end
 
@@ -598,6 +641,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method link_to_if(...)
+		# 	@return [nil]
 		define_output_helper_with_capture_block :link_to_if
 	end
 
@@ -605,6 +649,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method link_to_unless(...)
+		# 	@return [nil]
 		define_output_helper_with_capture_block :link_to_unless
 	end
 
@@ -612,6 +657,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method link_to_unless_current(...)
+		# 	@return [nil]
 		define_output_helper_with_capture_block :link_to_unless_current
 	end
 
@@ -626,6 +672,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method mail_to(...)
+		# 	@return [nil]
 		define_output_helper_with_capture_block :mail_to
 	end
 
@@ -633,6 +680,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method month_field(...)
+		# 	@return [nil]
 		define_output_helper :month_field
 	end
 
@@ -640,6 +688,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method month_field_tag(...)
+		# 	@return [nil]
 		define_output_helper :month_field_tag
 	end
 
@@ -647,6 +696,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method number_field(...)
+		# 	@return [nil]
 		define_output_helper :number_field
 	end
 
@@ -654,6 +704,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method number_field_tag(...)
+		# 	@return [nil]
 		define_output_helper :number_field_tag
 	end
 
@@ -717,6 +768,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method option_groups_from_collection_for_select(...)
+		# 	@return [nil]
 		define_output_helper :option_groups_from_collection_for_select
 	end
 
@@ -724,6 +776,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method options_for_select(...)
+		# 	@return [nil]
 		define_output_helper :options_for_select
 	end
 
@@ -731,6 +784,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method options_from_collection_for_select(...)
+		# 	@return [nil]
 		define_output_helper :options_from_collection_for_select
 	end
 
@@ -738,6 +792,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method password_field(...)
+		# 	@return [nil]
 		define_output_helper :password_field
 	end
 
@@ -745,6 +800,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method password_field_tag(...)
+		# 	@return [nil]
 		define_output_helper :password_field_tag
 	end
 
@@ -801,6 +857,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method phone_field(...)
+		# 	@return [nil]
 		define_output_helper :phone_field
 	end
 
@@ -808,6 +865,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method phone_field_tag(...)
+		# 	@return [nil]
 		define_output_helper :phone_field_tag
 	end
 
@@ -815,6 +873,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method preload_link_tag(...)
+		# 	@return [nil]
 		define_output_helper :preload_link_tag
 	end
 
@@ -822,6 +881,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method phone_to(...)
+		# 	@return [nil]
 		define_output_helper_with_capture_block :phone_to
 	end
 
@@ -843,6 +903,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method radio_button(...)
+		# 	@return [nil]
 		define_output_helper :radio_button
 	end
 
@@ -850,6 +911,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method radio_button_tag(...)
+		# 	@return [nil]
 		define_output_helper :radio_button_tag
 	end
 
@@ -857,6 +919,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method range_field(...)
+		# 	@return [nil]
 		define_output_helper :range_field
 	end
 
@@ -864,6 +927,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method range_field_tag(...)
+		# 	@return [nil]
 		define_output_helper :range_field_tag
 	end
 
@@ -878,6 +942,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method rich_text_area(...)
+		# 	@return [nil]
 		define_output_helper :rich_text_area
 	end
 
@@ -899,6 +964,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method search_field(...)
+		# 	@return [nil]
 		define_output_helper :search_field
 	end
 
@@ -906,6 +972,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method search_field_tag(...)
+		# 	@return [nil]
 		define_output_helper :search_field_tag
 	end
 
@@ -913,6 +980,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method select(...)
+		# 	@return [nil]
 		define_output_helper :select
 	end
 
@@ -920,6 +988,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method select_tag(...)
+		# 	@return [nil]
 		define_output_helper :select_tag
 	end
 
@@ -927,6 +996,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method select_date(...)
+		# 	@return [nil]
 		define_output_helper :select_date
 	end
 
@@ -934,6 +1004,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method select_datetime(...)
+		# 	@return [nil]
 		define_output_helper :select_datetime
 	end
 
@@ -941,6 +1012,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method select_day(...)
+		# 	@return [nil]
 		define_output_helper :select_day
 	end
 
@@ -948,6 +1020,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method select_hour(...)
+		# 	@return [nil]
 		define_output_helper :select_hour
 	end
 
@@ -955,6 +1028,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method select_minute(...)
+		# 	@return [nil]
 		define_output_helper :select_minute
 	end
 
@@ -962,6 +1036,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method select_month(...)
+		# 	@return [nil]
 		define_output_helper :select_month
 	end
 
@@ -969,6 +1044,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method select_second(...)
+		# 	@return [nil]
 		define_output_helper :select_second
 	end
 
@@ -976,6 +1052,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method select_time(...)
+		# 	@return [nil]
 		define_output_helper :select_time
 	end
 
@@ -983,6 +1060,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method select_year(...)
+		# 	@return [nil]
 		define_output_helper :select_year
 	end
 
@@ -990,6 +1068,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method simple_format(...)
+		# 	@return [nil]
 		define_output_helper :simple_format
 	end
 
@@ -997,6 +1076,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method sms_to(...)
+		# 	@return [nil]
 		define_output_helper_with_capture_block :sms_to
 	end
 
@@ -1018,6 +1098,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method stylesheet_link_tag(...)
+		# 	@return [nil]
 		define_output_helper :stylesheet_link_tag
 	end
 
@@ -1039,6 +1120,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method submit_tag(...)
+		# 	@return [nil]
 		define_output_helper :submit_tag
 	end
 
@@ -1053,6 +1135,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method telephone_field(...)
+		# 	@return [nil]
 		define_output_helper :telephone_field
 	end
 
@@ -1060,6 +1143,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method telephone_field_tag(...)
+		# 	@return [nil]
 		define_output_helper :telephone_field_tag
 	end
 
@@ -1067,6 +1151,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method text_area(...)
+		# 	@return [nil]
 		define_output_helper :text_area
 	end
 
@@ -1074,6 +1159,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method text_area_tag(...)
+		# 	@return [nil]
 		define_output_helper :text_area_tag
 	end
 
@@ -1081,6 +1167,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method text_field(...)
+		# 	@return [nil]
 		define_output_helper :text_field
 	end
 
@@ -1088,6 +1175,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method text_field_tag(...)
+		# 	@return [nil]
 		define_output_helper :text_field_tag
 	end
 
@@ -1102,6 +1190,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method time_field(...)
+		# 	@return [nil]
 		define_output_helper :time_field
 	end
 
@@ -1109,6 +1198,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method time_field_tag(...)
+		# 	@return [nil]
 		define_output_helper :time_field_tag
 	end
 
@@ -1116,6 +1206,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method time_select(...)
+		# 	@return [nil]
 		define_output_helper :time_select
 	end
 
@@ -1123,6 +1214,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method time_tag(...)
+		# 	@return [nil]
 		define_output_helper :time_tag
 	end
 
@@ -1130,6 +1222,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method time_zone_options_for_select(...)
+		# 	@return [nil]
 		define_output_helper :time_zone_options_for_select
 	end
 
@@ -1137,6 +1230,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method time_zone_select(...)
+		# 	@return [nil]
 		define_output_helper :time_zone_select
 	end
 
@@ -1165,6 +1259,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method url_field(...)
+		# 	@return [nil]
 		define_output_helper :url_field
 	end
 
@@ -1172,6 +1267,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method url_field_tag(...)
+		# 	@return [nil]
 		define_output_helper :url_field_tag
 	end
 
@@ -1228,6 +1324,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method utf8_enforcer_tag(...)
+		# 	@return [nil]
 		define_output_helper :utf8_enforcer_tag
 	end
 
@@ -1242,6 +1339,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method video_tag(...)
+		# 	@return [nil]
 		define_output_helper :video_tag
 	end
 
@@ -1256,6 +1354,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method week_field(...)
+		# 	@return [nil]
 		define_output_helper :week_field
 	end
 
@@ -1263,6 +1362,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method week_field_tag(...)
+		# 	@return [nil]
 		define_output_helper :week_field_tag
 	end
 
@@ -1270,6 +1370,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method weekday_options_for_select(...)
+		# 	@return [nil]
 		define_output_helper :weekday_options_for_select
 	end
 
@@ -1277,6 +1378,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method weekday_select(...)
+		# 	@return [nil]
 		define_output_helper :weekday_select
 	end
 
@@ -1284,6 +1386,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method with_output_buffer(...)
+		# 	@return [nil]
 		define_output_helper_with_capture_block :with_output_buffer
 	end
 
