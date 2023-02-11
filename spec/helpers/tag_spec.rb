@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "view_helper"
+require "spec_helper"
 
 RSpec.describe Phlex::Rails::Helpers::Tag do
 	include ViewHelper

@@ -93,6 +93,10 @@ module Phlex
 					else
 						@_view_context.with_output_buffer(self) { super }
 					end
+
+				# If it's a C-level Proc from Symbol#to_proc, it won't have a binding
+				rescue ::ArgumentError
+					super
 				end
 
 				private def yield_content_with_args(*args, &block)
@@ -104,6 +108,10 @@ module Phlex
 					else
 						@_view_context.with_output_buffer(self) { super }
 					end
+
+				# If it's a C-level Proc from Symbol#to_proc, it won't have a binding
+				rescue ::ArgumentError
+					super
 				end
 			end
 		end
