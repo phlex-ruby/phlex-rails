@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "view_helper"
+require "spec_helper"
 
 Item = Struct.new(:id, :name_with_initial)
 

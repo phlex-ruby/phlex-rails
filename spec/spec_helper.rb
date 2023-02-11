@@ -9,6 +9,7 @@ Combustion.initialize! :action_controller, :action_view do
 end
 
 require "rspec/rails"
+require "view_helper"
 
 RSpec.configure do |config|
 	config.use_transactional_fixtures = true
