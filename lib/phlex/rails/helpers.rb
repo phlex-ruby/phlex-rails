@@ -342,6 +342,20 @@ module Phlex::Rails::Helpers
 		define_value_helper :distance_of_time_in_words_to_now
 	end
 
+	module DOMClass
+		extend Phlex::Rails::HelperMacros
+
+		# @!method dom_class(...)
+		define_value_helper :dom_class
+	end
+
+	module DOMID
+		extend Phlex::Rails::HelperMacros
+
+		# @!method dom_id(...)
+		define_value_helper :dom_id
+	end
+
 	module EmailField
 		extend Phlex::Rails::HelperMacros
 
