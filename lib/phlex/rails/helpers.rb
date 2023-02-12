@@ -1255,6 +1255,34 @@ module Phlex::Rails::Helpers
 		define_value_helper :truncate
 	end
 
+	module TurboFrameTag
+		extend Phlex::Rails::HelperMacros
+
+		# @!method turbo_frame_tag(...)
+		define_output_helper_with_capture_block :turbo_frame_tag
+	end
+
+	module TurboIncludeTags
+		extend Phlex::Rails::HelperMacros
+
+		# @!method turbo_include_tags(...)
+		define_output_helper :turbo_include_tags
+	end
+
+	module TurboStream
+		extend Phlex::Rails::HelperMacros
+
+		# @!method turbo_stream(...)
+		define_builder_yielding_helper :turbo_stream, Phlex::Rails::Buffered
+	end
+
+	module TurboStreamFrom
+		extend Phlex::Rails::HelperMacros
+
+		# @!method turbo_stream_from(...)
+		define_output_helper :turbo_stream_from
+	end
+
 	module URLField
 		extend Phlex::Rails::HelperMacros
 
