@@ -1,12 +1,9 @@
+# frozen_string_literal: true
+
 <% module_namespacing do -%>
-module Views
-  class <%= class_name %>::<%= @action.camelize %> < Phlex::HTML
-    def template
-      <%= "# " unless @has_layout %>render Layout.new(title: "<%= class_name.gsub("::", " ").titlecase %> - <%= @action.titlecase %>") do
-        h1 { "<%= class_name %>#<%= @action %>" }
-        p { "Find me in <%= @path %>" }
-      <%= "# " unless @has_layout %>end
-    end
+class <%= class_name %>::<%= @action.classify %>View < ApplicationView
+  def template
+    h1 { "<%= class_name %> <%= @action %>" }
+    p { "Find me in <%= @path %>" }
   end
-end
-<% end %>
+end<% end %>

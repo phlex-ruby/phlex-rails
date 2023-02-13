@@ -2,8 +2,7 @@ Description:
   Generates a Phlex view with the given name
 
 Example:
-  rails generate phlex:view Sidebar
+  rails generate phlex:view Articles::Index
 
 This will create:
-  app/views/sidebar.rb
-  spec/views/sidebar_spec.rb or test/views/sidebar_test.rb
+  app/views/articles/index_view.rb

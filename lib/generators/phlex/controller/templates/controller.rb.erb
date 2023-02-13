@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 <% module_namespacing do -%>
 class <%= class_name %>Controller < <%= parent_class_name.classify %>
 <% actions.each do |action| -%>
   def <%= action %>
-    render Views::<%= class_name %>::<%= action.camelize %>.new
+    render <%= class_name %>::<%= action.camelize %>View.new
   end
 <%= "\n" unless action == actions.last -%>
 <% end -%>

@@ -6,5 +6,5 @@ Example:
 
 This will create:
   app/controllers/articles_controller.rb
-  app/views/articles/index.rb
-  app/views/articles/show.rb
+  app/views/articles/index_view.rb
+  app/views/articles/show_view.rb
