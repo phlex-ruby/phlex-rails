@@ -7,6 +7,10 @@ module Phlex
 				def render_in(...)
 					new.render_in(...)
 				end
+
+				def format
+					:html
+				end
 			end
 		end
 	end
