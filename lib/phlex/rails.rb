@@ -15,4 +15,6 @@ module Phlex::Rails
 
 	Phlex::HTML.extend(Phlex::Rails::HTML::ClassMethods)
 	Phlex::HTML.extend(Phlex::Rails::HTML::AppendMethodAddedWarning)
+
+	Phlex::HTML.include(Phlex::Rails::Helpers::ContentFor)
 end
