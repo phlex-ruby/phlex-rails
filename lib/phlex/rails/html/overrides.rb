@@ -4,6 +4,10 @@ module Phlex
 	module Rails
 		module HTML
 			module Overrides
+				def format
+					:html
+				end
+
 				def helpers
 					if defined?(ViewComponent::Base) && @_view_context.is_a?(ViewComponent::Base)
 						@_view_context.helpers
@@ -53,6 +57,7 @@ module Phlex
 					end
 				end
 
+				# @api private
 				def safe_append=(value)
 					return unless value
 
@@ -63,6 +68,7 @@ module Phlex
 					end
 				end
 
+				# @api private
 				def append=(value)
 					case value
 					when ActiveSupport::SafeBuffer
