@@ -13,7 +13,17 @@ module Phlex::Generators
 			inject_into_class(
 				APPLICATION_CONFIGURATION_PATH,
 				"Application",
-				%(    config.autoload_paths << "\#{root}/app/components"\n)
+				%(    config.autoload_paths << "\#{root}/app/views/components"\n)
+			)
+		end
+
+		def autoload_layouts
+			return unless APPLICATION_CONFIGURATION_PATH.exist?
+
+			inject_into_class(
+				APPLICATION_CONFIGURATION_PATH,
+				"Application",
+				%(    config.autoload_paths << "\#{root}/app/views/layouts"\n)
 			)
 		end
 
@@ -37,7 +47,11 @@ module Phlex::Generators
 		end
 
 		def create_application_component
-			template "application_component.rb", Rails.root.join("app/components/application_component.rb")
+			template "application_component.rb", Rails.root.join("app/views/components/application_component.rb")
+		end
+
+		def create_application_layout
+			template "application_layout.rb", Rails.root.join("app/views/layouts/application_layout.rb")
 		end
 
 		def create_application_view
