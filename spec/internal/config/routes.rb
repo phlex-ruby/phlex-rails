@@ -5,4 +5,7 @@ Rails.application.routes.draw do
 	get "view_component", to: "examples#view_component"
 	get "tabs", to: "examples#tabs"
 	get "card", to: "examples#card"
+
+	get "articles/index", to: "articles#index"
+	get "articles/show", to: "articles#show"
 end

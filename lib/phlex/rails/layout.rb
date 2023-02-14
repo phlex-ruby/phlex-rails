@@ -29,6 +29,8 @@ module Phlex::Rails
 					when ActiveSupport::SafeBuffer
 						component.unsafe_raw output
 					end
+
+					nil
 				end
 			end
 
