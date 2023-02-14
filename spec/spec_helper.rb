@@ -5,7 +5,9 @@ require "bundler"
 Bundler.require :default
 
 Combustion.initialize! :action_controller, :action_view do
-	config.autoload_paths << "#{root}/app"
+	config.autoload_paths << "#{root}/app/views"
+	config.autoload_paths << "#{root}/app/views/layouts"
+	config.autoload_paths << "#{root}/app/views/components"
 end
 
 require "rspec/rails"
