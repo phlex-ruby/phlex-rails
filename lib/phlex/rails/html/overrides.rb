@@ -69,6 +69,9 @@ module Phlex
 				end
 
 				# @api private
+				alias_method :safe_concat, :safe_append=
+
+				# @api private
 				def append=(value)
 					case value
 					when ActiveSupport::SafeBuffer
