@@ -2,7 +2,7 @@
 
 module Phlex
 	module Rails
-		module HTML
+		module SGML
 			module AppendMethodAddedWarning
 				def method_added(name)
 					if name == :append || name == :safe_append= || name == :safe_concat

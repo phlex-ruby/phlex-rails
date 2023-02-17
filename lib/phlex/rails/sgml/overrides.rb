@@ -2,12 +2,8 @@
 
 module Phlex
 	module Rails
-		module HTML
+		module SGML
 			module Overrides
-				def format
-					:html
-				end
-
 				def helpers
 					if defined?(ViewComponent::Base) && @_view_context.is_a?(ViewComponent::Base)
 						@_view_context.helpers
@@ -17,8 +13,8 @@ module Phlex
 				end
 
 				def render(renderable = nil, *args, **kwargs, &block)
-					return super if renderable.is_a?(Phlex::HTML)
-					return super if renderable.is_a?(Class) && renderable < Phlex::HTML
+					return super if renderable.is_a?(Phlex::SGML)
+					return super if renderable.is_a?(Class) && renderable < Phlex::SGML
 
 					if renderable
 						@_target << @_view_context.render(renderable, *args, **kwargs, &block)
@@ -35,7 +31,7 @@ module Phlex
 							view_context.with_output_buffer(self) do
 								original_length = @_target.length
 
-								if args.length == 1 && Phlex::HTML === args[0]
+								if args.length == 1 && Phlex::SGML === args[0]
 									output = yield(
 										args[0].unbuffered
 									)
@@ -101,7 +97,7 @@ module Phlex
 					return unless block
 
 					case block.binding.receiver
-					when Phlex::HTML
+					when Phlex::SGML
 						super
 					else
 						@_view_context.with_output_buffer(self) { super }
@@ -112,7 +108,7 @@ module Phlex
 					return unless block
 
 					case block.binding.receiver
-					when Phlex::HTML
+					when Phlex::SGML
 						super
 					else
 						@_view_context.with_output_buffer(self) { super }
