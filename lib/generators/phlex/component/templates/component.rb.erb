@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 <% module_namespacing do -%>
-class <%= class_name %>Component < ApplicationView
+class <%= class_name %>Component < ApplicationComponent
   def template
     h1 { "<%= class_name %>" }
     p { "Find me in <%= @path %>" }
