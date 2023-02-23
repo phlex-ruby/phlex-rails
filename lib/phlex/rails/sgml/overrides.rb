@@ -28,60 +28,27 @@ module Phlex
 				def render_in(view_context, &block)
 					if block_given?
 						call(view_context: view_context) do |*args|
-							view_context.with_output_buffer(self) do
-								original_length = @_target.length
+							original_length = @_target.length
 
-								if args.length == 1 && Phlex::SGML === args[0]
-									output = yield(
-										args[0].unbuffered
-									)
-								else
-									output = yield(*args)
-								end
-
-								unchanged = (original_length == @_target.length)
-
-								if unchanged
-									if output.is_a?(ActiveSupport::SafeBuffer)
-										unsafe_raw(output)
-									else
-										text(output)
-									end
-								end
+							if args.length == 1 && Phlex::SGML === args[0]
+								output = view_context.capture(
+									args[0].unbuffered, &block
+								)
+							else
+								output = view_context.capture(*args, &block)
 							end
 
-							nil
+							unchanged = (original_length == @_target.length)
+
+							if unchanged
+								case output
+								when ActiveSupport::SafeBuffer
+									@_target << output
+								end
+							end
 						end.html_safe
 					else
 						call(view_context: view_context).html_safe
-					end
-				end
-
-				# @api private
-				def safe_append=(value)
-					return unless value
-
-					@_target << case value
-						when String then value
-						when Symbol then value.name
-						else value.to_s
-					end
-				end
-
-				# @api private
-				alias_method :safe_concat, :safe_append=
-
-				# @api private
-				def append=(value)
-					case value
-					when ActiveSupport::SafeBuffer
-						@_target << value
-					else
-						@_target << case value
-							when String then ERB::Util.html_escape(value)
-							when Symbol then ERB::Util.html_escape(value.name)
-							else ERB::Util.html_escape(value.to_s)
-						end
 					end
 				end
 
@@ -91,28 +58,6 @@ module Phlex
 
 				# Trick ViewComponent into thinking we're a ViewComponent to fix rendering output
 				def set_original_view_context(view_context)
-				end
-
-				private def yield_content(&block)
-					return unless block
-
-					case block.binding.receiver
-					when Phlex::SGML
-						super
-					else
-						@_view_context.with_output_buffer(self) { super }
-					end
-				end
-
-				private def yield_content_with_args(*args, &block)
-					return unless block
-
-					case block.binding.receiver
-					when Phlex::SGML
-						super
-					else
-						@_view_context.with_output_buffer(self) { super }
-					end
 				end
 			end
 		end
