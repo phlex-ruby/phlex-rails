@@ -18,7 +18,6 @@ module Phlex
 
 	class SGML
 		extend Phlex::Rails::SGML::ClassMethods
-		extend Phlex::Rails::SGML::AppendMethodAddedWarning
 
 		prepend Phlex::Rails::SGML::Overrides
 	end
@@ -26,5 +25,9 @@ module Phlex
 	class HTML
 		extend Phlex::Rails::HTML::Format
 		include Phlex::Rails::HTML::Format
+	end
+
+	class Unbuffered
+		prepend ::Phlex::Rails::UnbufferedOverrides
 	end
 end

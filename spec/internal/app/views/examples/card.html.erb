@@ -1,4 +1,7 @@
 <%= render CardComponent do |c| %>
-  <%= c.title { "Hello" } %>
+  <%= c.title do %>
+  	<span>Hello</span>
+  <% end %>
+  
   <span>Body</span>
 <% end %>

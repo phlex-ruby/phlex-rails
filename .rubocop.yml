@@ -6,31 +6,7 @@ AllCops:
   TargetRubyVersion: 2.7
   Exclude:
     - "lib/phlex-rails.rb"
+  SuggestExtensions: false
 
-Style/PercentLiteralDelimiters:
-  Enabled: false
-
-Layout/CaseIndentation:
-  Enabled: false
-
-Style/StringConcatenation:
-  Enabled: false
-
-Layout/MultilineMethodCallBraceLayout:
-  Enabled: false
-
-
-Security/Eval:
-  Enabled: false
-
-Style/MethodCallWithoutArgsParentheses:
-  Enabled: false
-
-Style/MixinUsage:
-  Enabled: false
-
-Style/ConditionalAssignment:
-  Enabled: false
-
-Lint/UnderscorePrefixedVariableName:
+Style/MissingRespondToMissing:
   Enabled: false

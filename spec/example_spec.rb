@@ -8,7 +8,7 @@ RSpec.describe ExamplesController, type: :controller do
 	it "supports builder-style components" do
 		get :card
 
-		expect(response.body).to eq %(<article>\n  <h1 class="card-title">Hello</h1>\n  <span>Body</span>\n</article>)
+		expect(response.body).to eq %(<article>\n  <h1 class="card-title">\n  \t<span>Hello</span>\n</h1>  \n  <span>Body</span>\n</article>)
 	end
 
 	it "supports slot-style components" do
