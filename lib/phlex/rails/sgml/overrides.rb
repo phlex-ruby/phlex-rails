@@ -56,6 +56,15 @@ module Phlex
 					super&.html_safe
 				end
 
+				def plain(content)
+					case content
+					when ActiveSupport::SafeBuffer
+						@_target << content
+					else
+						super
+					end
+				end
+
 				# Trick ViewComponent into thinking we're a ViewComponent to fix rendering output
 				def set_original_view_context(view_context)
 				end
