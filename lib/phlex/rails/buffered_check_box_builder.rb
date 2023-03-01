@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Phlex::Rails
-	class BufferedCheckboxBuilder < Buffered
+	class BufferedCheckBoxBuilder < Buffered
 		# @!method object(...)
 		# @!method text(...)
 		# @!method value(...)

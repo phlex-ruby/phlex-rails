@@ -94,7 +94,7 @@ module Phlex::Rails::Helpers
 		define_output_helper_with_capture_block :button_to
 	end
 
-	module Checkbox
+	module CheckBox
 		extend Phlex::Rails::HelperMacros
 
 		# @!method check_box(...)
@@ -102,7 +102,7 @@ module Phlex::Rails::Helpers
 		define_output_helper :check_box
 	end
 
-	module CheckboxTag
+	module CheckBoxTag
 		extend Phlex::Rails::HelperMacros
 
 		# @!method check_box_tag(...)
@@ -117,13 +117,13 @@ module Phlex::Rails::Helpers
 		define_value_helper :class_names
 	end
 
-	module CollectionCheckboxes
+	module CollectionCheckBoxes
 		extend Phlex::Rails::HelperMacros
 
 		# @!method collection_check_boxes(...)
 		# 	@yield [builder]
-		# 	@yieldparam builder [Phlex::Rails::BufferedCheckboxBuilder]
-		define_builder_yielding_helper :collection_check_boxes, Phlex::Rails::BufferedCheckboxBuilder
+		# 	@yieldparam builder [Phlex::Rails::BufferedCheckBoxBuilder]
+		define_builder_yielding_helper :collection_check_boxes, Phlex::Rails::BufferedCheckBoxBuilder
 	end
 
 	module CollectionRadioButtons

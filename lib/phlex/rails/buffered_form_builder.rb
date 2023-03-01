@@ -87,7 +87,7 @@ module Phlex::Rails
 		# @!method collection_check_boxes(...)
 		# 	@yield [builder]
 		# 	@yieldparam builder [Phlex::Rails::BufferedCheckboxBuilder]
-		define_builder_yielding_method :collection_check_boxes, ::Phlex::Rails::BufferedCheckboxBuilder
+		define_builder_yielding_method :collection_check_boxes, ::Phlex::Rails::BufferedCheckBoxBuilder
 
 		# @!method collection_radio_buttons(...)
 		# 	@yield [builder]
