@@ -8,7 +8,7 @@ Documentation can be found at [www.phlex.fun](https://www.phlex.fun).
 
 ### Support ✋
 
-If you run into any trouble, please [start a discussion](https://github.com/joeldrapper/phlex/discussions/new), or [open an issue](https://github.com/joeldrapper/phlex/issues/new) if you think you’ve found a bug.
+If you run into any trouble, please [start a discussion](https://github.com/joeldrapper/phlex/discussions/new), or [open an issue](https://github.com/joeldrapper/phlex-rails/issues/new) if you think you’ve found a bug.
 
 ### Community 🙌
 
