@@ -1306,6 +1306,13 @@ module Phlex::Rails::Helpers
 		define_output_helper :url_field_tag
 	end
 
+	module URLFor
+		extend Phlex::Rails::HelperMacros
+
+		# @!method url_for(...)
+		define_value_helper :url_for
+	end
+
 	module URLOptions
 		extend Phlex::Rails::HelperMacros
 
