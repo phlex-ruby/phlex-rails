@@ -853,7 +853,7 @@ module Phlex::Rails::Helpers
 		define_value_helper :path_to_javascript
 	end
 
-	module PathToStyleSheet
+	module PathToStylesheet
 		extend Phlex::Rails::HelperMacros
 
 		# @!method path_to_stylesheet(...)
@@ -1108,7 +1108,7 @@ module Phlex::Rails::Helpers
 		define_value_helper :strip_tags
 	end
 
-	module StyleSheetLinkTag
+	module StylesheetLinkTag
 		extend Phlex::Rails::HelperMacros
 
 		# @!method stylesheet_link_tag(...)
@@ -1116,14 +1116,14 @@ module Phlex::Rails::Helpers
 		define_output_helper :stylesheet_link_tag
 	end
 
-	module StyleSheetPath
+	module StylesheetPath
 		extend Phlex::Rails::HelperMacros
 
 		# @!method stylesheet_path(...)
 		define_value_helper :stylesheet_path
 	end
 
-	module StyleSheetURL
+	module StylesheetURL
 		extend Phlex::Rails::HelperMacros
 
 		# @!method stylesheet_url(...)
@@ -1348,7 +1348,7 @@ module Phlex::Rails::Helpers
 		define_value_helper :url_to_javascript
 	end
 
-	module URLToStyleSheet
+	module URLToStylesheet
 		extend Phlex::Rails::HelperMacros
 
 		# @!method url_to_stylesheet(...)
