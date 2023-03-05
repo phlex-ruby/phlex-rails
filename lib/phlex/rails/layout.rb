@@ -25,8 +25,7 @@ module Phlex::Rails
 						output = yield
 					end
 
-					case output
-					when ActiveSupport::SafeBuffer
+					if output.is_a?(ActiveSupport::SafeBuffer)
 						component.unsafe_raw output
 					end
 

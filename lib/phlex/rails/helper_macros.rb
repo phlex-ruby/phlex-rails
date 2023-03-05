@@ -9,8 +9,7 @@ module Phlex::Rails::HelperMacros
 			def #{method_name}(...)
 				output = helpers.#{method_name}(...)
 
-				case output
-				when ActiveSupport::SafeBuffer
+				if output.is_a?(ActiveSupport::SafeBuffer)
 					@_target << output
 				end
 
@@ -30,8 +29,7 @@ module Phlex::Rails::HelperMacros
 					helpers.#{method_name}(*args, **kwargs)
 				end
 
-				case output
-				when ActiveSupport::SafeBuffer
+				if output.is_a?(ActiveSupport::SafeBuffer)
 					@_target << output
 				end
 
@@ -83,8 +81,7 @@ module Phlex::Rails::HelperMacros
 					helpers.#{method_name}(*args, **kwargs)
 				end
 
-				case output
-				when ActiveSupport::SafeBuffer
+				if output.is_a?(ActiveSupport::SafeBuffer)
 					@_target << output
 				end
 

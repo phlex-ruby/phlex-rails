@@ -27,8 +27,7 @@ module Phlex::Rails
 						@object.#{method_name}(*args, **kwargs)
 					end
 
-					case output
-					when ::ActiveSupport::SafeBuffer
+					if output.is_a?(::ActiveSupport::SafeBuffer)
 						@view.instance_variable_get(:@_target) << output
 					end
 
@@ -54,8 +53,7 @@ module Phlex::Rails
 				@object.public_send(*args, **kwargs)
 			end
 
-			case output
-			when ::ActiveSupport::SafeBuffer
+			if output.is_a?(::ActiveSupport::SafeBuffer)
 				@view.instance_variable_get(:@_target) << output
 			end
 

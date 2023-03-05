@@ -12,15 +12,13 @@ module Phlex
 					end
 				end
 
-				def render(renderable = nil, *args, **kwargs, &block)
+				def render(*args, **kwargs, &block)
+					renderable = args[0]
+					
 					return super if renderable.is_a?(Phlex::SGML)
 					return super if renderable.is_a?(Class) && renderable < Phlex::SGML
 
-					if renderable
-						@_target << @_view_context.render(renderable, *args, **kwargs, &block)
-					else
-						@_target << @_view_context.render(*args, **kwargs, &block)
-					end
+					@_target << @_view_context.render(*args, **kwargs, &block)
 
 					nil
 				end
@@ -38,13 +36,8 @@ module Phlex
 								output = view_context.capture(*args, &block)
 							end
 
-							unchanged = (original_length == @_target.length)
-
-							if unchanged
-								case output
-								when ActiveSupport::SafeBuffer
-									@_target << output
-								end
+							if (original_length == @_target.length) && output.is_a?(ActiveSupport::SafeBuffer)
+								@_target << output
 							end
 						end.html_safe
 					else
