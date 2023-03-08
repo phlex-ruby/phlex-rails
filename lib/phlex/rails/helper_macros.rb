@@ -11,7 +11,7 @@ module Phlex::Rails::HelperMacros
 
 				case output
 				when ActiveSupport::SafeBuffer
-					@_target << output
+					@_context.target << output
 				end
 
 				nil
@@ -32,7 +32,7 @@ module Phlex::Rails::HelperMacros
 
 				case output
 				when ActiveSupport::SafeBuffer
-					@_target << output
+					@_context.target << output
 				end
 
 				nil
@@ -85,7 +85,7 @@ module Phlex::Rails::HelperMacros
 
 				case output
 				when ActiveSupport::SafeBuffer
-					@_target << output
+					@_context.target << output
 				end
 
 				nil
