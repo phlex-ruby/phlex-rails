@@ -8,7 +8,11 @@ module Phlex::Rails::UnbufferedOverrides
 				@object.capture do
 					if b
 						@object.public_send(name, *a, **k) do |*aa|
-							@object.helpers.capture(*aa, &b)
+							if aa.length == 1 && aa[0].is_a?(Phlex::SGML)
+								@object.helpers.capture(aa[0].unbuffered, &b)
+							else
+								@object.helpers.capture(*aa, &b)
+							end
 						end
 					else
 						@object.public_send(name, *a, **k)
