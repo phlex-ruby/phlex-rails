@@ -12,12 +12,16 @@ module Phlex
 					end
 				end
 
-				def render(renderable = nil, *args, **kwargs, &block)
-					return super if renderable.is_a?(Phlex::SGML)
-					return super if renderable.is_a?(Class) && renderable < Phlex::SGML
+				def render(*args, **kwargs, &block)
+					renderable = args[0]
 
-					if renderable
-						@_context.target << @_view_context.render(renderable, *args, **kwargs, &block)
+					case renderable
+					when Phlex::SGML, Proc
+						return super
+					when Class
+						return super if renderable < Phlex::SGML
+					when Enumerable
+						return super unless renderable.is_a?(ActiveRecord::Relation)
 					else
 						@_context.target << @_view_context.render(*args, **kwargs, &block)
 					end
