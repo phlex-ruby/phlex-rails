@@ -10,3 +10,6 @@ AllCops:
 
 Style/MissingRespondToMissing:
   Enabled: false
+
+Style/RescueStandardError:
+  Enabled: false
