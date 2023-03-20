@@ -69,6 +69,17 @@ module Phlex
 					end
 				end
 
+				# @api experimental
+				def await(task)
+					if task.is_a?(ActiveRecord::Relation)
+						flush unless task.loaded?
+
+						task
+					else
+						super
+					end
+				end
+
 				# Trick ViewComponent into thinking we're a ViewComponent to fix rendering output
 				def set_original_view_context(view_context)
 				end
