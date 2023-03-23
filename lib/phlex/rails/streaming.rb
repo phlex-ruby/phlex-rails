@@ -14,9 +14,11 @@ module Phlex::Rails::Streaming
 
 		self.response_body = Enumerator.new do |buffer|
 			view.call(buffer, view_context: view_context)
-		rescue
+		rescue => e
 			buffer << %('">)
 			buffer << view_context.javascript_tag(nonce: true) { %(window.location = "/500.html").html_safe }
+
+			raise e
 		end
 	end
 end
