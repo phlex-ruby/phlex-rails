@@ -34,7 +34,7 @@ module Phlex
 						call(view_context: view_context) do |*args|
 							original_length = @_context.target.length
 
-							if args.length == 1 && Phlex::SGML === args[0]
+							if args.length == 1 && Phlex::SGML === args[0] && within_template_context?(block.binding)
 								output = view_context.capture(
 									args[0].unbuffered, &block
 								)
@@ -82,6 +82,16 @@ module Phlex
 
 				# Trick ViewComponent into thinking we're a ViewComponent to fix rendering output
 				def set_original_view_context(view_context)
+				end
+
+				private
+
+				def within_template_context?(eval_context_binding)
+					eval_context_binding.eval("defined?(output_buffer)") ||
+								eval_context_binding.local_variable_defined?(:_erbout) ||
+								eval_context_binding.local_variable_defined?(:_hamlout) ||
+								eval_context_binding.local_variable_defined?(:__in_erb_template) ||
+								eval_context_binding.local_variable_defined?(:_buf)
 				end
 			end
 		end
