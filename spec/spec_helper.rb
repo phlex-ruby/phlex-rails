@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require "active_support"
 require "phlex/rails"
 require "bundler"
 Bundler.require :default
