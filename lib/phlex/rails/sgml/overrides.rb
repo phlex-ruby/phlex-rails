@@ -60,7 +60,7 @@ module Phlex
 					super&.html_safe
 				end
 
-				def plain(content)
+				def __text__(content)
 					case content
 					when ActiveSupport::SafeBuffer
 						@_context.target << content
