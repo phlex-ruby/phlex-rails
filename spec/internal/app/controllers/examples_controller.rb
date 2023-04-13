@@ -6,6 +6,7 @@ class ExamplesController < ActionController::Base
 	end
 
 	def view_component; end
+	def templateless_view_component; end
 	def tabs; end
 	def card; end
 end

@@ -34,7 +34,7 @@ module Phlex
 						call(view_context: view_context) do |*args|
 							original_length = @_context.target.length
 
-							if args.length == 1 && Phlex::SGML === args[0]
+							if args.length == 1 && Phlex::SGML === args[0] && !block.source_location&.[](0)&.end_with?(".rb")
 								output = view_context.capture(
 									args[0].unbuffered, &block
 								)
