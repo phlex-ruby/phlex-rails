@@ -887,7 +887,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		# @!method pluralize(...)
-		# 	@return [nil]
+		# 	@return [String]
 		define_value_helper :pluralize
 	end
 
