@@ -883,6 +883,14 @@ module Phlex::Rails::Helpers
 		define_output_helper :phone_field_tag
 	end
 
+	module Pluralize
+		extend Phlex::Rails::HelperMacros
+
+		# @!method pluralize(...)
+		# 	@return [nil]
+		define_value_helper :pluralize
+	end
+
 	module PreloadLinkTag
 		extend Phlex::Rails::HelperMacros
 
