@@ -60,6 +60,7 @@ module Phlex
 					super&.html_safe
 				end
 
+				# @api private
 				def __text__(content)
 					case content
 					when ActiveSupport::SafeBuffer
@@ -69,7 +70,7 @@ module Phlex
 					end
 				end
 
-				# @api experimental
+				# @api private
 				def await(task)
 					if task.is_a?(ActiveRecord::Relation)
 						flush unless task.loaded?
@@ -81,6 +82,7 @@ module Phlex
 				end
 
 				# Trick ViewComponent into thinking we're a ViewComponent to fix rendering output
+				# @api private
 				def set_original_view_context(view_context)
 				end
 			end

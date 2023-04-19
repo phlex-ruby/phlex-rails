@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
-# @api experimental
+# @api private
 module Phlex::Rails::Streaming
-	private def stream(view)
+	private
+
+	def stream(view)
 		headers.delete("Content-Length")
 
 		headers["X-Accel-Buffering"] = "no"

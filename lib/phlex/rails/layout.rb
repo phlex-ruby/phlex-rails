@@ -13,6 +13,7 @@ module Phlex::Rails
 		include Helpers::JavaScriptImportMapTags
 		include Helpers::JavaScriptImportModuleTag
 
+		# @api private
 		module Interface
 			def render(view, _locals, &block)
 				component = new

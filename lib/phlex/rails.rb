@@ -22,11 +22,13 @@ module Phlex
 		prepend Phlex::Rails::SGML::Overrides
 	end
 
+	# @api private
 	class HTML
 		extend Phlex::Rails::HTML::Format
 		include Phlex::Rails::HTML::Format
 	end
 
+	# @api private
 	class Unbuffered
 		prepend ::Phlex::Rails::UnbufferedOverrides
 	end

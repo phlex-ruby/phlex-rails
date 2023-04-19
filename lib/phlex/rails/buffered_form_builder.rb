@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module Phlex::Rails
+	# @api private
 	class BufferedFormBuilder < Buffered
 		# @!method field_id(...)
 		# @!method field_name(...)

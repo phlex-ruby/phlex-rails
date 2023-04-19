@@ -2,6 +2,7 @@
 
 module Phlex
 	module Rails
+		# @api private
 		class Form < Phlex::HTML
 			def initialize(model)
 				@model = model

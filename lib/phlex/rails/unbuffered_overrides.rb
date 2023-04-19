@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# @api private
 module Phlex::Rails::UnbufferedOverrides
 	def method_missing(name, *args, **kwargs, &block)
 		if @object.respond_to?(name)

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module Phlex::Rails
+	# @api private
 	class BufferedLabelBuilder < Buffered
 		# @!method object(...)
 		# @!method translation(...)

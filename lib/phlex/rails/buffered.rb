@@ -4,6 +4,7 @@ require "forwardable"
 
 module Phlex::Rails
 	# A decorator that buffers all missing method calls and captures the blocks passed to them.
+	# @api private
 	class Buffered < BasicObject
 		extend ::Forwardable
 
