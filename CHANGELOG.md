@@ -22,4 +22,4 @@ All notable changes to this project will be documented in this file. The format 
 
 ***
 
-Before this changelog was introduced, changes were logged in the [release notes](https://github.com/phlex-ruby/phlex/releases).
+Before this changelog was introduced, changes were logged in the [release notes](https://github.com/phlex-ruby/phlex-rails/releases).
