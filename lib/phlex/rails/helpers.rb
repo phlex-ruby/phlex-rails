@@ -1149,8 +1149,25 @@ module Phlex::Rails::Helpers
 	module T
 		extend Phlex::Rails::HelperMacros
 
-		# @!method t(...)
-		define_value_helper :t
+		def self.included(base)
+			base.extend(ClassMethods)
+		end
+
+		module ClassMethods
+			def translation_path
+				@translation_path ||= name&.dup.tap do |n|
+					n.gsub!("::", ".")
+					n.gsub!(/([a-z])([A-Z])/, '\1_\2')
+					n.downcase!
+				end
+			end
+		end
+
+		def t(key, **options)
+			key = "#{self.class.translation_path}#{key}" if key.start_with?(".")
+
+			helpers.t(key, **options)
+		end
 	end
 
 	module TelephoneField
