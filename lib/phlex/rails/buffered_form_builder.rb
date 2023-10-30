@@ -14,6 +14,7 @@ module Phlex::Rails
 			:to_partial_path,
 			:options,
 			:id,
+		  :is_a?,
 			:field_helpers,
 			:multipart=,
 			:field_name,
