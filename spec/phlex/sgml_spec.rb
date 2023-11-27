@@ -14,7 +14,7 @@ RSpec.describe Phlex::SGML do
 					end
 				end
 
-				content = ExamplesController.render(inline: <<~ERB, locals: { component: })
+				content = ExamplesController.render(inline: <<~ERB, locals: { component: component })
 					ERB A
 					<%= render component.new do %>
 						Hello
