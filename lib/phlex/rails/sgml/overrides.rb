@@ -23,7 +23,8 @@ module Phlex
 					when Enumerable
 						return super unless renderable.is_a?(ActiveRecord::Relation)
 					else
-						@_context.target << @_view_context.render(*args, **kwargs) { capture(&block) }
+						captured_block = -> { capture(&block) } if block
+						@_context.target << @_view_context.render(*args, **kwargs, &captured_block)
 					end
 
 					nil
