@@ -46,7 +46,7 @@ jobs:
           npx tailwindcss -i ./docs/assets/application.css -o ./docs/dist/application.css
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v2
         with:
           path: "docs/dist"
 
