@@ -1,6 +1,14 @@
 # frozen_string_literal: true
 
 module Phlex::Rails::Helpers
+	def self.helpers
+		self.constants.map { |constant| self.const_get constant }
+	end
+
+	def self.included(component)
+		helpers.each { |helper| component.include helper }
+	end
+
 	module ActionCableMetaTag
 		extend Phlex::Rails::HelperMacros
 
