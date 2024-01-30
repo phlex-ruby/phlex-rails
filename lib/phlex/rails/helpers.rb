@@ -2,7 +2,7 @@
 
 module Phlex::Rails::Helpers
 	def self.helpers
-		self.constants.map { |constant| self.const_get constant }
+		constants.map { |constant| const_get constant }
 	end
 
 	def self.included(component)
