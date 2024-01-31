@@ -32,4 +32,8 @@ module Phlex
 	class Unbuffered
 		prepend ::Phlex::Rails::UnbufferedOverrides
 	end
+
+	class Context
+		prepend ::Phlex::Rails::Context::Overrides
+	end
 end
