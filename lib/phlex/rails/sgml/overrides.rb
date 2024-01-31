@@ -5,10 +5,10 @@ module Phlex
 		module SGML
 			module Overrides
 				def helpers
-					if defined?(ViewComponent::Base) && @_view_context.is_a?(ViewComponent::Base)
-						@_view_context.helpers
+					if defined?(ViewComponent::Base) && @_context.view_context.is_a?(ViewComponent::Base)
+						@_context.view_context.helpers
 					else
-						@_view_context
+						@_context.view_context
 					end
 				end
 
@@ -24,7 +24,7 @@ module Phlex
 						return super unless renderable.is_a?(ActiveRecord::Relation)
 					else
 						captured_block = -> { capture(&block) } if block
-						@_context.target << @_view_context.render(*args, **kwargs, &captured_block)
+						@_context.target << @_context.view_context.render(*args, **kwargs, &captured_block)
 					end
 
 					nil
@@ -55,6 +55,11 @@ module Phlex
 					else
 						call(view_context: view_context).html_safe
 					end
+				end
+
+				def __final_call__(buffer = +"", context: Phlex::Context.new, view_context: nil, **kwargs, &block)
+					context.view_context ||= view_context
+					super(buffer, context: context, **kwargs, &block)
 				end
 
 				def capture
