@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require "zeitwerk"
 require "phlex"
 require "phlex/rails/engine"
 
