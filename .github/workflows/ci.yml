@@ -20,12 +20,10 @@ jobs:
         with:
           ruby-version: ${{ matrix.ruby-version }}
           bundler-cache: false
-
-      - name: Update RubyGems
-        run: gem update --system
+          rubygems: latest
 
       - name: Install dependencies
-        run: bundle install
+        run: bundle install --jobs 4
 
       - name: Appraisals install
         run: bundle exec appraisal install
@@ -45,7 +43,7 @@ jobs:
               bundler-cache: false
 
           - name: Install dependencies
-            run: bundle install
+            run: bundle install --jobs 4
 
           - name: Rubocop
             run: bundle exec rubocop
