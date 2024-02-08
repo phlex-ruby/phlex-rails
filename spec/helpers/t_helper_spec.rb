@@ -2,17 +2,17 @@
 
 require "spec_helper"
 
-RSpec.describe Phlex::Rails::Helpers::Translate do
+RSpec.describe Phlex::Rails::Helpers::T do
 	include ViewHelper
 
 	context "without lazy lookup" do
 		let(:example) do
 			Class.new(Phlex::HTML) do
-				include Phlex::Rails::Helpers::Translate
+				include Phlex::Rails::Helpers::T
 
 				def template
 					div do
-						translate("shared.hello")
+						t("shared.hello")
 					end
 				end
 			end
@@ -30,11 +30,11 @@ RSpec.describe Phlex::Rails::Helpers::Translate do
 	context "with lazy lookup" do
 		let(:example) do
 			my_view_class = Class.new(Phlex::HTML) do
-				include Phlex::Rails::Helpers::Translate
+				include Phlex::Rails::Helpers::T
 
 				def template
 					div do
-						translate(".hello")
+						t(".hello")
 					end
 				end
 			end

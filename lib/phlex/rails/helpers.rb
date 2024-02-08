@@ -1157,17 +1157,7 @@ module Phlex::Rails::Helpers
 		extend Phlex::Rails::HelperMacros
 
 		def self.included(base)
-			base.extend(ClassMethods)
-		end
-
-		module ClassMethods
-			def translation_path
-				@translation_path ||= name&.dup.tap do |n|
-					n.gsub!("::", ".")
-					n.gsub!(/([a-z])([A-Z])/, '\1_\2')
-					n.downcase!
-				end
-			end
+			base.extend(Phlex::Rails::Helpers::Translate::ClassMethods)
 		end
 
 		def t(key, **options)
@@ -1290,8 +1280,26 @@ module Phlex::Rails::Helpers
 	module Translate
 		extend Phlex::Rails::HelperMacros
 
+		def self.included(base)
+			base.extend(ClassMethods)
+		end
+
+		module ClassMethods
+			def translation_path
+				@translation_path ||= name&.dup.tap do |n|
+					n.gsub!("::", ".")
+					n.gsub!(/([a-z])([A-Z])/, '\1_\2')
+					n.downcase!
+				end
+			end
+		end
+
 		# @!method translate(...)
-		define_value_helper :translate
+		def translate(key, **options)
+			key = "#{self.class.translation_path}#{key}" if key.start_with?(".")
+
+			helpers.translate(key, **options)
+		end
 	end
 
 	module Truncate
