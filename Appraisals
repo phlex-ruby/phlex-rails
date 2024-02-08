@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
-appraise "rails-6" do
-	gem "rails", "~> 6"
+if RUBY_VERSION < "3.4.0"
+	appraise "rails-6" do
+		gem "rails", "~> 6"
+	end
 end
 
 appraise "rails-7" do
