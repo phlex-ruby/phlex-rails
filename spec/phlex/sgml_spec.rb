@@ -70,7 +70,7 @@ RSpec.describe Phlex::SGML do
 					component = Class.new(Phlex::HTML) do
 						def template(&block)
 							plain "Component A\n"
-							render(partial: "examples/sgml/wrap", &block)
+							render rails("examples/sgml/wrap", &block)
 							plain "Component B\n"
 						end
 					end
@@ -100,7 +100,7 @@ RSpec.describe Phlex::SGML do
 			it "renders a template without a block" do
 				component = Class.new(Phlex::HTML) do
 					def template
-						render(template: "examples/sgml/template")
+						render rails(template: "examples/sgml/template")
 					end
 				end
 

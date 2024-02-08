@@ -4,6 +4,10 @@ module Phlex
 	module Rails
 		module SGML
 			module Overrides
+        def rails(...)
+          Phlex::Rails::Rendition.new(...)
+        end
+
         def self.prepended(klass)
           klass.alias_method :super_render, :render
           klass.include RenderMethods
@@ -43,9 +47,12 @@ module Phlex
               return super_render(*args, **kwargs, &block) if renderable < Phlex::SGML
             when Enumerable
               return super_render(*args, **kwargs, &block) unless renderable.is_a?(ActiveRecord::Relation)
-            else
-              captured_block = -> { capture(&block) } if block
-              @_context.target << @_view_context.render(*args, **kwargs, &captured_block)
+            when Phlex::Rails::Rendition
+              captured_block = -> { capture(&renderable.block) } if renderable.block
+              @_context.target << @_view_context.render(*renderable.args, **renderable.kwargs, &captured_block)
+            # else
+            #   captured_block = -> { capture(&block) } if block
+            #   @_context.target << @_view_context.render(*args, **kwargs, &captured_block)
             end
 
             nil
