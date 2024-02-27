@@ -16,7 +16,7 @@ module Phlex
 					renderable = args[0]
 
 					case renderable
-					when Phlex::SGML, Proc
+					when Phlex::SGML, Proc, Method
 						return super
 					when Class
 						return super if renderable < Phlex::SGML
