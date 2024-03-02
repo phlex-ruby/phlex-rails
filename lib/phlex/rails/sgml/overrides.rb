@@ -31,8 +31,10 @@ module Phlex
 				end
 
 				def render_in(view_context, &block)
+					fragment = view_context.params[:fragment]
+
 					if block_given?
-						call(view_context: view_context) do |*args|
+						call(view_context: view_context, fragment: fragment) do |*args|
 							original_length = @_context.target.length
 
 							if args.length == 1 && Phlex::SGML === args[0] && !block.source_location&.[](0)&.end_with?(".rb")
@@ -53,7 +55,7 @@ module Phlex
 							end
 						end.html_safe
 					else
-						call(view_context: view_context).html_safe
+						call(view_context: view_context, fragment: fragment).html_safe
 					end
 				end
 
