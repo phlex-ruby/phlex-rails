@@ -31,7 +31,7 @@ module Phlex
 				end
 
 				def render_in(view_context, &block)
-					fragment = view_context.params[:fragment]
+					fragment = view_context.request.headers["X-Fragment"]
 
 					if block_given?
 						call(view_context: view_context, fragment: fragment) do |*args|
