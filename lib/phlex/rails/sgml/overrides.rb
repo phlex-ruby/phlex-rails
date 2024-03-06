@@ -31,10 +31,14 @@ module Phlex
 				end
 
 				def render_in(view_context, &block)
-					fragment = view_context.request.headers["X-Fragment"]
+					fragment_header = view_context.request.headers["X-Fragment"]
+
+					fragments = if fragment_header
+						fragment_header.split(" ")
+					end
 
 					if block_given?
-						call(view_context: view_context, fragment: fragment) do |*args|
+						call(view_context: view_context, fragments: fragments) do |*args|
 							original_length = @_context.target.length
 
 							if args.length == 1 && Phlex::SGML === args[0] && !block.source_location&.[](0)&.end_with?(".rb")
