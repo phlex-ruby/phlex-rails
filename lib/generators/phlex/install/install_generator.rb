@@ -42,7 +42,6 @@ module Phlex::Generators
 
 			insert_into_file TAILWIND_CONFIGURATION_PATH, after: "content: [" do
 				"\n    './app/views/**/*.rb'," \
-					"\n    './app/components/**/*rb',"
 			end
 		end
 
