@@ -17,6 +17,10 @@ module Phlex
 		end
 	end
 
+	class CSV
+		prepend Phlex::Rails::CSV::Overrides
+	end
+
 	class SGML
 		extend Phlex::Rails::SGML::ClassMethods
 
