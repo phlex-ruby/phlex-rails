@@ -59,7 +59,7 @@ module Phlex
 							end
 						end.html_safe
 					else
-						call(view_context: view_context, fragment: fragment).html_safe
+						call(view_context: view_context, fragments: fragments).html_safe
 					end
 				end
 
