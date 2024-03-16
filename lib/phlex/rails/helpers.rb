@@ -16,7 +16,6 @@ module Phlex::Rails::Helpers
 	autoload :Tag, "phlex/rails/helpers/tag"
 	autoload :TurboStream, "phlex/rails/helpers/turbo_stream"
 
-
 	autoload :CSPMetaTag, "phlex/rails/helpers/csp_meta_tag"
 	autoload :CSRFMetaTags, "phlex/rails/helpers/csrf_meta_tags"
 	autoload :CheckBox, "phlex/rails/helpers/check_box"
