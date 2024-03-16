@@ -31,8 +31,14 @@ module Phlex
 				end
 
 				def render_in(view_context, &block)
+					fragments = if (fragment_header = view_context.request.headers["X-Fragment"])
+						fragment_header.split(" ")
+					elsif (turbo_frame = view_context.request.headers["Turbo-Frame"])
+						[turbo_frame]
+					end
+
 					if block_given?
-						call(view_context: view_context) do |*args|
+						call(view_context: view_context, fragments: fragments) do |*args|
 							original_length = @_context.target.length
 
 							if args.length == 1 && Phlex::SGML === args[0] && !block.source_location&.[](0)&.end_with?(".rb")
@@ -53,7 +59,7 @@ module Phlex
 							end
 						end.html_safe
 					else
-						call(view_context: view_context).html_safe
+						call(view_context: view_context, fragments: fragments).html_safe
 					end
 				end
 
