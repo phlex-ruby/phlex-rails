@@ -54,165 +54,29 @@ module Phlex::Rails::Helpers
 	autoload :DefaultURLOptions, "phlex/rails/helpers/default_url_options"
 	autoload :DistanceOfTimeInWords, "phlex/rails/helpers/distance_of_time_in_words"
 	autoload :DistanceOfTimeInWordsToNow, "phlex/rails/helpers/distance_of_time_in_words_to_now"
+	autoload :EmailField, "phlex/rails/helpers/email_field"
+	autoload :EmailFieldTag, "phlex/rails/helpers/email_field_tag"
+	autoload :ErrorMessage, "phlex/rails/helpers/error_message"
+	autoload :ErrorWrapping, "phlex/rails/helpers/error_wrapping"
+	autoload :EscapeOnce, "phlex/rails/helpers/escape_once"
+	autoload :Excerpt, "phlex/rails/helpers/excerpt"
+	autoload :FaviconLinkTag, "phlex/rails/helpers/favicon_link_tag"
+	autoload :FieldID, "phlex/rails/helpers/field_id"
+	autoload :FieldName, "phlex/rails/helpers/field_name"
+	autoload :FieldSetTag, "phlex/rails/helpers/field_set_tag"
+	autoload :Fields, "phlex/rails/helpers/fields"
+	autoload :FieldsFor, "phlex/rails/helpers/fields_for"
+	autoload :FileField, "phlex/rails/helpers/file_field"
+	autoload :FileFieldTag, "phlex/rails/helpers/file_field_tag"
+	autoload :Flash, "phlex/rails/helpers/flash"
+	autoload :FontPath, "phlex/rails/helpers/font_path"
+	autoload :FontURL, "phlex/rails/helpers/font_url"
+	autoload :FormFor, "phlex/rails/helpers/form_for"
+	autoload :FormTag, "phlex/rails/helpers/form_tag"
+	autoload :FormWith, "phlex/rails/helpers/form_with"
 	autoload :Routes, "phlex/rails/helpers/routes"
 	autoload :Tag, "phlex/rails/helpers/tag"
 	autoload :TurboStream, "phlex/rails/helpers/turbo_stream"
-end
-
-module Phlex::Rails::Helpers::EmailField
-	extend Phlex::Rails::HelperMacros
-
-	# @!method email_field(...)
-	# 	@return [nil]
-	define_output_helper :email_field
-end
-
-module Phlex::Rails::Helpers::EmailFieldTag
-	extend Phlex::Rails::HelperMacros
-
-	# @!method email_field_tag(...)
-	# 	@return [nil]
-	define_output_helper :email_field_tag
-end
-
-module Phlex::Rails::Helpers::ErrorMessage
-	extend Phlex::Rails::HelperMacros
-
-	# @!method error_message(...)
-	define_value_helper :error_message
-end
-
-module Phlex::Rails::Helpers::ErrorWrapping
-	extend Phlex::Rails::HelperMacros
-
-	# @!method error_wrapping(...)
-	# 	@return [nil]
-	define_output_helper :error_wrapping
-end
-
-module Phlex::Rails::Helpers::EscapeOnce
-	extend Phlex::Rails::HelperMacros
-
-	# @!method escape_once(...)
-	define_value_helper :escape_once
-end
-
-module Phlex::Rails::Helpers::Excerpt
-	extend Phlex::Rails::HelperMacros
-
-	# @!method excerpt(...)
-	define_value_helper :excerpt
-end
-
-module Phlex::Rails::Helpers::FaviconLinkTag
-	extend Phlex::Rails::HelperMacros
-
-	# @!method favicon_link_tag(...)
-	# 	@return [nil]
-	define_output_helper :favicon_link_tag
-end
-
-module Phlex::Rails::Helpers::FieldID
-	extend Phlex::Rails::HelperMacros
-
-	# @!method field_id(...)
-	define_value_helper :field_id
-end
-
-module Phlex::Rails::Helpers::FieldName
-	extend Phlex::Rails::HelperMacros
-
-	# @!method field_name(...)
-	define_value_helper :field_name
-end
-
-module Phlex::Rails::Helpers::Fields
-	extend Phlex::Rails::HelperMacros
-
-	# @!method fields(...)
-	# 	@yield [builder]
-	# 	@yieldparam builder [Phlex::Rails::BufferedFormBuilder]
-	define_builder_yielding_helper :fields, Phlex::Rails::BufferedFormBuilder
-end
-
-module Phlex::Rails::Helpers::FieldSetTag
-	extend Phlex::Rails::HelperMacros
-
-	# @!method field_set_tag(...)
-	# 	@return [nil]
-	define_output_helper_with_capture_block :field_set_tag
-end
-
-module Phlex::Rails::Helpers::FieldsFor
-	extend Phlex::Rails::HelperMacros
-
-	# @!method fields_for(...)
-	# 	@yield [builder]
-	# 	@yieldparam builder [Phlex::Rails::BufferedFormBuilder]
-	define_builder_yielding_helper :fields_for, Phlex::Rails::BufferedFormBuilder
-end
-
-module Phlex::Rails::Helpers::FileField
-	extend Phlex::Rails::HelperMacros
-
-	# @!method file_field(...)
-	# 	@return [nil]
-	define_output_helper :file_field
-end
-
-module Phlex::Rails::Helpers::FileFieldTag
-	extend Phlex::Rails::HelperMacros
-
-	# @!method file_field_tag(...)
-	# 	@return [nil]
-	define_output_helper :file_field_tag
-end
-
-module Phlex::Rails::Helpers::Flash
-	extend Phlex::Rails::HelperMacros
-
-	# @!method flash(...)
-	define_value_helper :flash
-end
-
-module Phlex::Rails::Helpers::FontPath
-	extend Phlex::Rails::HelperMacros
-
-	# @!method font_path(...)
-	define_value_helper :font_path
-end
-
-module Phlex::Rails::Helpers::FontURL
-	extend Phlex::Rails::HelperMacros
-
-	# @!method font_url(...)
-	define_value_helper :font_url
-end
-
-module Phlex::Rails::Helpers::FormFor
-	extend Phlex::Rails::HelperMacros
-
-	# @!method form_for(...)
-	# 	@yield [builder]
-	# 	@yieldparam builder [Phlex::Rails::BufferedFormBuilder]
-	define_builder_yielding_helper :form_for, Phlex::Rails::BufferedFormBuilder
-end
-
-module Phlex::Rails::Helpers::FormTag
-	extend Phlex::Rails::HelperMacros
-
-	# @!method form_tag(...)
-	# 	@return [nil]
-	define_output_helper_with_capture_block :form_tag
-end
-
-module Phlex::Rails::Helpers::FormWith
-	extend Phlex::Rails::HelperMacros
-
-	# @!method form_with(...)
-	# 	@yield [builder]
-	# 	@yieldparam builder [Phlex::Rails::BufferedFormBuilder]
-	define_builder_yielding_helper :form_with, Phlex::Rails::BufferedFormBuilder
 end
 
 module Phlex::Rails::Helpers::GroupedCollectionSelect
