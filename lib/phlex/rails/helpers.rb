@@ -12,6 +12,11 @@ module Phlex::Rails::Helpers
 	autoload :BuildTagValues, "phlex/rails/helpers/build_tag_values"
 	autoload :ButtonTag, "phlex/rails/helpers/button_tag"
 	autoload :ButtonTo, "phlex/rails/helpers/button_to"
+	autoload :Routes, "phlex/rails/helpers/routes"
+	autoload :Tag, "phlex/rails/helpers/tag"
+	autoload :TurboStream, "phlex/rails/helpers/turbo_stream"
+
+
 	autoload :CSPMetaTag, "phlex/rails/helpers/csp_meta_tag"
 	autoload :CSRFMetaTags, "phlex/rails/helpers/csrf_meta_tags"
 	autoload :CheckBox, "phlex/rails/helpers/check_box"
@@ -35,9 +40,6 @@ module Phlex::Rails::Helpers
 	autoload :CurrentCycle, "phlex/rails/helpers/current_cycle"
 	autoload :CurrentPage, "phlex/rails/helpers/current_page"
 	autoload :Cycle, "phlex/rails/helpers/cycle"
-	autoload :Routes, "phlex/rails/helpers/routes"
-	autoload :Tag, "phlex/rails/helpers/tag"
-	autoload :TurboStream, "phlex/rails/helpers/turbo_stream"
 end
 
 module Phlex::Rails::Helpers::DateField
