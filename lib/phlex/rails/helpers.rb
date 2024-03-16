@@ -12,10 +12,6 @@ module Phlex::Rails::Helpers
 	autoload :BuildTagValues, "phlex/rails/helpers/build_tag_values"
 	autoload :ButtonTag, "phlex/rails/helpers/button_tag"
 	autoload :ButtonTo, "phlex/rails/helpers/button_to"
-	autoload :Routes, "phlex/rails/helpers/routes"
-	autoload :Tag, "phlex/rails/helpers/tag"
-	autoload :TurboStream, "phlex/rails/helpers/turbo_stream"
-
 	autoload :CSPMetaTag, "phlex/rails/helpers/csp_meta_tag"
 	autoload :CSRFMetaTags, "phlex/rails/helpers/csrf_meta_tags"
 	autoload :CheckBox, "phlex/rails/helpers/check_box"
@@ -39,113 +35,28 @@ module Phlex::Rails::Helpers
 	autoload :CurrentCycle, "phlex/rails/helpers/current_cycle"
 	autoload :CurrentPage, "phlex/rails/helpers/current_page"
 	autoload :Cycle, "phlex/rails/helpers/cycle"
-end
-
-module Phlex::Rails::Helpers::DateField
-	extend Phlex::Rails::HelperMacros
-
-	# @!method date_field(...)
-	# 	@return [nil]
-	define_output_helper :date_field
-end
-
-module Phlex::Rails::Helpers::DateFieldTag
-	extend Phlex::Rails::HelperMacros
-
-	# @!method date_field_tag(...)
-	# 	@return [nil]
-	define_output_helper :date_field_tag
-end
-
-module Phlex::Rails::Helpers::DateSelect
-	extend Phlex::Rails::HelperMacros
-
-	# @!method date_select(...)
-	# 	@return [nil]
-	define_output_helper :date_select
-end
-
-module Phlex::Rails::Helpers::DateTimeField
-	extend Phlex::Rails::HelperMacros
-
-	# @!method datetime_field(...)
-	# 	@return [nil]
-	define_output_helper :datetime_field
-end
-
-module Phlex::Rails::Helpers::DateTimeFieldTag
-	extend Phlex::Rails::HelperMacros
-
-	# @!method datetime_field_tag(...)
-	# 	@return [nil]
-	define_output_helper :datetime_field_tag
-end
-
-module Phlex::Rails::Helpers::DateTimeLocalField
-	extend Phlex::Rails::HelperMacros
-
-	# @!method datetime_local_field(...)
-	# 	@return [nil]
-	define_output_helper :datetime_local_field
-end
-
-module Phlex::Rails::Helpers::DateTimeLocalFieldTag
-	extend Phlex::Rails::HelperMacros
-
-	# @!method datetime_local_field_tag(...)
-	# 	@return [nil]
-	define_output_helper :datetime_local_field_tag
-end
-
-module Phlex::Rails::Helpers::DateTimeSelect
-	extend Phlex::Rails::HelperMacros
-
-	# @!method datetime_select(...)
-	# 	@return [nil]
-	define_output_helper :datetime_select
-end
-
-module Phlex::Rails::Helpers::Debug
-	extend Phlex::Rails::HelperMacros
-
-	# @!method debug(...)
-	# 	@return [nil]
-	define_output_helper :debug
-end
-
-module Phlex::Rails::Helpers::DefaultURLOptions
-	extend Phlex::Rails::HelperMacros
-
-	# @!method default_url_options(...)
-	define_value_helper :default_url_options
-end
-
-module Phlex::Rails::Helpers::DistanceOfTimeInWords
-	extend Phlex::Rails::HelperMacros
-
-	# @!method distance_of_time_in_words(...)
-	define_value_helper :distance_of_time_in_words
-end
-
-module Phlex::Rails::Helpers::DistanceOfTimeInWordsToNow
-	extend Phlex::Rails::HelperMacros
-
-	# @!method distance_of_time_in_words_to_now(...)
-	define_value_helper :distance_of_time_in_words_to_now
-end
-
-module Phlex::Rails::Helpers::DOMClass
-	extend Phlex::Rails::HelperMacros
-
-	# @!method dom_class(...)
-	define_value_helper :dom_class
-end
-
-module Phlex::Rails::Helpers::DOMID
-	extend Phlex::Rails::HelperMacros
-
-	# @!method dom_id(...)
-	define_value_helper :dom_id
+	autoload :DOMClass, "phlex/rails/helpers/dom_class"
+	autoload :DOMID, "phlex/rails/helpers/dom_id"
+	autoload :DateField, "phlex/rails/helpers/date_field"
+	autoload :DateFieldTag, "phlex/rails/helpers/date_field_tag"
+	autoload :DateSelect, "phlex/rails/helpers/date_select"
+	autoload :DateTimeField, "phlex/rails/helpers/date_time_field" # DEPRECATED
+	autoload :DateTimeFieldTag, "phlex/rails/helpers/date_time_field_tag" # DEPRECATED
+	autoload :DateTimeLocalField, "phlex/rails/helpers/date_time_local_field" # DEPRECATED
+	autoload :DateTimeLocalFieldTag, "phlex/rails/helpers/date_time_local_field_tag" # DEPRECATED
+	autoload :DateTimeSelect, "phlex/rails/helpers/date_time_select" # DEPRECATED
+	autoload :DatetimeField, "phlex/rails/helpers/datetime_field"
+	autoload :DatetimeFieldTag, "phlex/rails/helpers/datetime_field_tag"
+	autoload :DatetimeLocalField, "phlex/rails/helpers/datetime_local_field"
+	autoload :DatetimeLocalFieldTag, "phlex/rails/helpers/datetime_local_field_tag"
+	autoload :DatetimeSelect, "phlex/rails/helpers/datetime_select"
+	autoload :Debug, "phlex/rails/helpers/debug"
+	autoload :DefaultURLOptions, "phlex/rails/helpers/default_url_options"
+	autoload :DistanceOfTimeInWords, "phlex/rails/helpers/distance_of_time_in_words"
+	autoload :DistanceOfTimeInWordsToNow, "phlex/rails/helpers/distance_of_time_in_words_to_now"
+	autoload :Routes, "phlex/rails/helpers/routes"
+	autoload :Tag, "phlex/rails/helpers/tag"
+	autoload :TurboStream, "phlex/rails/helpers/turbo_stream"
 end
 
 module Phlex::Rails::Helpers::EmailField
