@@ -1,79 +1,17 @@
 # frozen_string_literal: true
 
 module Phlex::Rails::Helpers
-	autoload :Tag, "phlex/rails/helpers/tag"
+	autoload :ActionCableMetaTag, "phlex/rails/helpers/action_cable_meta_tag"
+	autoload :ActionName, "phlex/rails/helpers/action_name"
+	autoload :AssetPath, "phlex/rails/helpers/asset_path"
+	autoload :AssetURL, "phlex/rails/helpers/asset_url"
+	autoload :AudioPath, "phlex/rails/helpers/audio_path"
+	autoload :AudioTag, "phlex/rails/helpers/audio_tag"
+	autoload :AudioURL, "phlex/rails/helpers/audio_url"
+	autoload :AutoDiscoveryLinkTag, "phlex/rails/helpers/auto_discovery_link_tag"
 	autoload :Routes, "phlex/rails/helpers/routes"
+	autoload :Tag, "phlex/rails/helpers/tag"
 	autoload :TurboStream, "phlex/rails/helpers/turbo_stream"
-
-	module ActionCableMetaTag
-		extend Phlex::Rails::HelperMacros
-
-		# @!method action_cable_meta_tag
-		# 	Outputs an "action-cable-url" meta tag with the value of the URL specified in your configuration. Ensure this is above your JavaScript tag:
-		# 	@see https://api.rubyonrails.org/classes/ActionCable/Helpers/ActionCableHelper.html#method-i-action_cable_meta_tag
-		# 	@return [nil]
-		define_output_helper :action_cable_meta_tag
-	end
-
-	module ActionName
-		extend Phlex::Rails::HelperMacros
-
-		# @!method action_name
-		# 	@return [String] the name of the controller action, e.g. <code>"index"</code>
-		# 	@see https://api.rubyonrails.org/classes/AbstractController/Base.html#method-i-action_name
-		define_value_helper :action_name
-	end
-
-	module AssetPath
-		extend Phlex::Rails::HelperMacros
-
-		# @!method asset_path(source, host: nil, protocol: nil, type: nil, skip_pipeline: nil, extname: nil)
-		# 	@param source [String]
-		# 	@param host [String]
-		# 	@param protocol [String] e.g. <code>"https"</code>
-		# 	@param type [Symbol] e.g. <code>:javascript</code>
-		# 	@param skip_pipeline [bool]
-		# 	@param extname [String] e.g. <code>".js"</code>
-		# 	@see https://api.rubyonrails.org/classes/ActionView/Helpers/AssetUrlHelper.html#method-i-asset_path
-		define_value_helper :asset_path
-	end
-
-	module AssetURL
-		extend Phlex::Rails::HelperMacros
-
-		# @!method asset_url(...)
-		define_value_helper :asset_url
-	end
-
-	module AudioPath
-		extend Phlex::Rails::HelperMacros
-
-		# @!method audio_path(...)
-		define_value_helper :audio_path
-	end
-
-	module AudioTag
-		extend Phlex::Rails::HelperMacros
-
-		# @!method audio_tag(...)
-		# 	@return [nil]
-		define_output_helper :audio_tag
-	end
-
-	module AudioURL
-		extend Phlex::Rails::HelperMacros
-
-		# @!method audio_url(...)
-		define_value_helper :audio_url
-	end
-
-	module AutoDiscoveryLinkTag
-		extend Phlex::Rails::HelperMacros
-
-		# @!method auto_discovery_link_tag(...)
-		# 	@return [nil]
-		define_output_helper :auto_discovery_link_tag
-	end
 
 	module BuildTagValues
 		extend Phlex::Rails::HelperMacros
