@@ -1,40 +1,31 @@
 # frozen_string_literal: true
 
-require "zeitwerk"
 require "phlex"
 require "phlex/rails/engine"
 
 module Phlex
 	module Rails
-		Loader = Zeitwerk::Loader.new.tap do |loader|
-			loader.push_dir("#{__dir__}/rails", namespace: Phlex::Rails)
-			loader.inflector = Zeitwerk::GemInflector.new(__FILE__)
-			loader.inflector.inflect(
-				"html" => "HTML",
-				"sgml" => "SGML"
-			)
-			loader.setup
-		end
+		autoload :Buffered, "phlex/rails/buffered"
+		autoload :BufferedCheckboxBuilder, "phlex/rails/buffered_checkbox_builder"
+		autoload :BufferedFormBuilder, "phlex/rails/buffered_form_builder"
+		autoload :BufferedLabelBuilder, "phlex/rails/buffered_label_builder"
+		autoload :BufferedRadioButtonBuilder, "phlex/rails/buffered_radio_button_builder"
+		autoload :HelperMacros, "phlex/rails/helper_macros"
+		autoload :CSV, "phlex/rails/csv"
+		autoload :SGML, "phlex/rails/sgml"
+		autoload :HTML, "phlex/rails/html"
+		autoload :UnbufferedOverrides, "phlex/rails/unbuffered_overrides"
+		autoload :Helpers, "phlex/rails/helpers"
+		autoload :Layout, "phlex/rails/layout"
 	end
 
-	class CSV
-		prepend Phlex::Rails::CSV::Overrides
-	end
+	CSV.prepend Phlex::Rails::CSV::Overrides
 
-	class SGML
-		extend Phlex::Rails::SGML::ClassMethods
+	SGML.extend Phlex::Rails::SGML::ClassMethods
+	SGML.prepend Phlex::Rails::SGML::Overrides
 
-		prepend Phlex::Rails::SGML::Overrides
-	end
+	HTML.extend Phlex::Rails::HTML::Format
+	HTML.include Phlex::Rails::HTML::Format
 
-	# @api private
-	class HTML
-		extend Phlex::Rails::HTML::Format
-		include Phlex::Rails::HTML::Format
-	end
-
-	# @api private
-	class Unbuffered
-		prepend ::Phlex::Rails::UnbufferedOverrides
-	end
+	Unbuffered.prepend Phlex::Rails::UnbufferedOverrides
 end

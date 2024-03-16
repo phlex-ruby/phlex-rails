@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 module Phlex::Rails::Helpers
+	autoload :Tag, "phlex/rails/helpers/tag"
+	autoload :Routes, "phlex/rails/helpers/routes"
+	autoload :TurboStream, "phlex/rails/helpers/turbo_stream"
+
 	module ActionCableMetaTag
 		extend Phlex::Rails::HelperMacros
 
@@ -958,6 +962,13 @@ module Phlex::Rails::Helpers
 		# @!method range_field_tag(...)
 		# 	@return [nil]
 		define_output_helper :range_field_tag
+	end
+
+	module Request
+		extend Phlex::Rails::HelperMacros
+
+		# @!method request(...)
+		define_value_helper :request
 	end
 
 	module ResetCycle

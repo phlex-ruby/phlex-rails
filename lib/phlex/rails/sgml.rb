@@ -3,6 +3,12 @@
 module Phlex
 	module Rails
 		module SGML
+			module ClassMethods
+				def render_in(...)
+					new.render_in(...)
+				end
+			end
+
 			module Overrides
 				def helpers
 					if defined?(ViewComponent::Base) && @_view_context.is_a?(ViewComponent::Base)
@@ -32,7 +38,7 @@ module Phlex
 
 				def render_in(view_context, &block)
 					fragments = if (fragment_header = view_context.request.headers["X-Fragment"])
-						fragment_header.split(" ")
+						fragment_header.split
 					elsif (turbo_frame = view_context.request.headers["Turbo-Frame"])
 						[turbo_frame]
 					end
