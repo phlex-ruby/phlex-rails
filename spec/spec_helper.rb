@@ -17,5 +17,3 @@ require "view_helper"
 RSpec.configure do |config|
 	config.use_transactional_fixtures = true
 end
-
-Zeitwerk::Loader.eager_load_all
