@@ -83,55 +83,21 @@ module Phlex::Rails::Helpers
 	autoload :ImageSubmitTag, "phlex/rails/helpers/image_submit_tag"
 	autoload :ImageTag, "phlex/rails/helpers/image_tag"
 	autoload :ImageURL, "phlex/rails/helpers/image_url"
+	autoload :JavaScriptImportMapTags, "phlex/rails/helpers/java_script_import_map_tags" # DEPRECATED
+	autoload :JavaScriptImportModuleTag, "phlex/rails/helpers/java_script_import_module_tag" # DEPRECATED
+	autoload :JavaScriptIncludeTag, "phlex/rails/helpers/java_script_include_tag" # DEPRECATED
+	autoload :JavaScriptPath, "phlex/rails/helpers/java_script_path" # DEPRECATED
+	autoload :JavaScriptTag, "phlex/rails/helpers/java_script_tag" # DEPRECATED
+	autoload :JavaScriptURL, "phlex/rails/helpers/java_script_url" # DEPRECATED
+	autoload :JavascriptImportModuleTag, "phlex/rails/helpers/javascript_import_module_tag"
+	autoload :JavascriptImportmapTags, "phlex/rails/helpers/javascript_importmap_tags"
+	autoload :JavascriptIncludeTag, "phlex/rails/helpers/javascript_include_tag"
+	autoload :JavascriptPath, "phlex/rails/helpers/javascript_path"
+	autoload :JavascriptTag, "phlex/rails/helpers/javascript_tag"
+	autoload :JavascriptURL, "phlex/rails/helpers/javascript_url"
 	autoload :Routes, "phlex/rails/helpers/routes"
 	autoload :Tag, "phlex/rails/helpers/tag"
 	autoload :TurboStream, "phlex/rails/helpers/turbo_stream"
-end
-
-module Phlex::Rails::Helpers::JavaScriptImportModuleTag
-	extend Phlex::Rails::HelperMacros
-
-	# @!method javascript_import_module_tag(...)
-	# 	@return [nil]
-	define_output_helper :javascript_import_module_tag
-end
-
-module Phlex::Rails::Helpers::JavaScriptImportMapTags
-	extend Phlex::Rails::HelperMacros
-
-	# @!method javascript_importmap_tags(...)
-	# 	@return [nil]
-	define_output_helper :javascript_importmap_tags
-end
-
-module Phlex::Rails::Helpers::JavaScriptIncludeTag
-	extend Phlex::Rails::HelperMacros
-
-	# @!method javascript_include_tag(...)
-	# 	@return [nil]
-	define_output_helper :javascript_include_tag
-end
-
-module Phlex::Rails::Helpers::JavaScriptPath
-	extend Phlex::Rails::HelperMacros
-
-	# @!method javascript_path(...)
-	define_value_helper :javascript_path
-end
-
-module Phlex::Rails::Helpers::JavaScriptTag
-	extend Phlex::Rails::HelperMacros
-
-	# @!method javascript_tag(...)
-	# 	@return [nil]
-	define_output_helper_with_capture_block :javascript_tag
-end
-
-module Phlex::Rails::Helpers::JavaScriptURL
-	extend Phlex::Rails::HelperMacros
-
-	# @!method javascript_url(...)
-	define_value_helper :javascript_url
 end
 
 module Phlex::Rails::Helpers::L
