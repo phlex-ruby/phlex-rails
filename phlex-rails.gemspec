@@ -30,7 +30,6 @@ Gem::Specification.new do |spec|
 
 	spec.add_dependency "phlex", "~> 1.10"
 	spec.add_dependency "railties", ">= 6.1", "< 8"
-	spec.add_dependency "zeitwerk", "~> 2.6"
 
 	spec.metadata["rubygems_mfa_required"] = "true"
 end
