@@ -74,79 +74,18 @@ module Phlex::Rails::Helpers
 	autoload :FormFor, "phlex/rails/helpers/form_for"
 	autoload :FormTag, "phlex/rails/helpers/form_tag"
 	autoload :FormWith, "phlex/rails/helpers/form_with"
+	autoload :GroupedCollectionSelect, "phlex/rails/helpers/grouped_collection_select"
+	autoload :GroupedOptionsForSelect, "phlex/rails/helpers/grouped_options_for_select"
+	autoload :HiddenField, "phlex/rails/helpers/hidden_field"
+	autoload :HiddenFieldTag, "phlex/rails/helpers/hidden_field_tag"
+	autoload :Highlight, "phlex/rails/helpers/highlight"
+	autoload :ImagePath, "phlex/rails/helpers/image_path"
+	autoload :ImageSubmitTag, "phlex/rails/helpers/image_submit_tag"
+	autoload :ImageTag, "phlex/rails/helpers/image_tag"
+	autoload :ImageURL, "phlex/rails/helpers/image_url"
 	autoload :Routes, "phlex/rails/helpers/routes"
 	autoload :Tag, "phlex/rails/helpers/tag"
 	autoload :TurboStream, "phlex/rails/helpers/turbo_stream"
-end
-
-module Phlex::Rails::Helpers::GroupedCollectionSelect
-	extend Phlex::Rails::HelperMacros
-
-	# @!method grouped_collection_select(...)
-	# 	@return [nil]
-	define_output_helper :grouped_collection_select
-end
-
-module Phlex::Rails::Helpers::GroupedOptionsForSelect
-	extend Phlex::Rails::HelperMacros
-
-	# @!method grouped_options_for_select(...)
-	# 	@return [nil]
-	define_output_helper :grouped_options_for_select
-end
-
-module Phlex::Rails::Helpers::HiddenField
-	extend Phlex::Rails::HelperMacros
-
-	# @!method hidden_field(...)
-	# 	@return [nil]
-	define_output_helper :hidden_field
-end
-
-module Phlex::Rails::Helpers::HiddenFieldTag
-	extend Phlex::Rails::HelperMacros
-
-	# @!method hidden_field_tag(...)
-	# 	@return [nil]
-	define_output_helper :hidden_field_tag
-end
-
-module Phlex::Rails::Helpers::Highlight
-	extend Phlex::Rails::HelperMacros
-
-	# @!method highlight(...)
-	# 	@return [nil]
-	define_output_helper :highlight
-end
-
-module Phlex::Rails::Helpers::ImagePath
-	extend Phlex::Rails::HelperMacros
-
-	# @!method image_path(...)
-	define_value_helper :image_path
-end
-
-module Phlex::Rails::Helpers::ImageSubmitTag
-	extend Phlex::Rails::HelperMacros
-
-	# @!method image_submit_tag(...)
-	# 	@return [nil]
-	define_output_helper :image_submit_tag
-end
-
-module Phlex::Rails::Helpers::ImageTag
-	extend Phlex::Rails::HelperMacros
-
-	# @!method image_tag(...)
-	# 	@return [nil]
-	define_output_helper :image_tag
-end
-
-module Phlex::Rails::Helpers::ImageURL
-	extend Phlex::Rails::HelperMacros
-
-	# @!method image_url(...)
-	define_value_helper :image_url
 end
 
 module Phlex::Rails::Helpers::JavaScriptImportModuleTag
@@ -734,7 +673,7 @@ module Phlex::Rails::Helpers::T
 		base.extend(ClassMethods)
 	end
 
-	module Phlex::Rails::Helpers::ClassMethods
+	module ClassMethods
 		def translation_path
 			@translation_path ||= name&.dup.tap do |n|
 				n.gsub!("::", ".")

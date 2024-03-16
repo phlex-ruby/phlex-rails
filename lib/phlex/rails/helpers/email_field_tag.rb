@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Phlex::Rails::Helpers::EmailFieldTag
 	extend Phlex::Rails::HelperMacros
 

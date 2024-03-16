@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Phlex::Rails::Helpers::FormWith
 	extend Phlex::Rails::HelperMacros
 
