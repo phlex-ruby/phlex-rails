@@ -7,3 +7,11 @@ module Phlex::Rails::Helpers::DatetimeField
 	# 	@return [nil]
 	define_output_helper :datetime_field
 end
+
+module Phlex::Rails::Helpers::DateTimeField
+	include Phlex::Rails::Helpers::DatetimeField
+
+	def self.included(_)
+		warn "[DEPRECATION] Phlex::Rails::Helpers::DateTimeField is deprecated. Please use Phlex::Rails::Helpers::DatetimeField instead."
+	end
+end

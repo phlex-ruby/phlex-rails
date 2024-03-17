@@ -16,11 +16,11 @@ module Phlex::Rails::Helpers
 	autoload :CSRFMetaTags, "phlex/rails/helpers/csrf_meta_tags"
 	autoload :CheckBox, "phlex/rails/helpers/check_box"
 	autoload :CheckBoxTag, "phlex/rails/helpers/check_box_tag"
-	autoload :Checkbox, "phlex/rails/helpers/checkbox" # DEPRECATED
-	autoload :CheckboxTag, "phlex/rails/helpers/checkbox_tag" # DEPRECATED
+	autoload :Checkbox, "phlex/rails/helpers/check_box" # DEPRECATED
+	autoload :CheckboxTag, "phlex/rails/helpers/check_box_tag" # DEPRECATED
 	autoload :ClassNames, "phlex/rails/helpers/class_names"
 	autoload :CollectionCheckBoxes, "phlex/rails/helpers/collection_check_boxes"
-	autoload :CollectionCheckboxes, "phlex/rails/helpers/collection_checkboxes" # DEPRECATED
+	autoload :CollectionCheckboxes, "phlex/rails/helpers/collection_check_boxes" # DEPRECATED
 	autoload :CollectionRadioButtons, "phlex/rails/helpers/collection_radio_buttons"
 	autoload :CollectionSelect, "phlex/rails/helpers/collection_select"
 	autoload :ColorField, "phlex/rails/helpers/color_field"
@@ -40,11 +40,11 @@ module Phlex::Rails::Helpers
 	autoload :DateField, "phlex/rails/helpers/date_field"
 	autoload :DateFieldTag, "phlex/rails/helpers/date_field_tag"
 	autoload :DateSelect, "phlex/rails/helpers/date_select"
-	autoload :DateTimeField, "phlex/rails/helpers/date_time_field" # DEPRECATED
-	autoload :DateTimeFieldTag, "phlex/rails/helpers/date_time_field_tag" # DEPRECATED
-	autoload :DateTimeLocalField, "phlex/rails/helpers/date_time_local_field" # DEPRECATED
-	autoload :DateTimeLocalFieldTag, "phlex/rails/helpers/date_time_local_field_tag" # DEPRECATED
-	autoload :DateTimeSelect, "phlex/rails/helpers/date_time_select" # DEPRECATED
+	autoload :DateTimeField, "phlex/rails/helpers/datetime_field" # DEPRECATED
+	autoload :DateTimeFieldTag, "phlex/rails/helpers/datetime_field_tag" # DEPRECATED
+	autoload :DateTimeLocalField, "phlex/rails/helpers/datetime_local_field" # DEPRECATED
+	autoload :DateTimeLocalFieldTag, "phlex/rails/helpers/datetime_local_field_tag" # DEPRECATED
+	autoload :DateTimeSelect, "phlex/rails/helpers/datetime_select" # DEPRECATED
 	autoload :DatetimeField, "phlex/rails/helpers/datetime_field"
 	autoload :DatetimeFieldTag, "phlex/rails/helpers/datetime_field_tag"
 	autoload :DatetimeLocalField, "phlex/rails/helpers/datetime_local_field"
@@ -83,876 +83,140 @@ module Phlex::Rails::Helpers
 	autoload :ImageSubmitTag, "phlex/rails/helpers/image_submit_tag"
 	autoload :ImageTag, "phlex/rails/helpers/image_tag"
 	autoload :ImageURL, "phlex/rails/helpers/image_url"
-	autoload :JavaScriptImportMapTags, "phlex/rails/helpers/java_script_import_map_tags" # DEPRECATED
-	autoload :JavaScriptImportModuleTag, "phlex/rails/helpers/java_script_import_module_tag" # DEPRECATED
-	autoload :JavaScriptIncludeTag, "phlex/rails/helpers/java_script_include_tag" # DEPRECATED
-	autoload :JavaScriptPath, "phlex/rails/helpers/java_script_path" # DEPRECATED
-	autoload :JavaScriptTag, "phlex/rails/helpers/java_script_tag" # DEPRECATED
-	autoload :JavaScriptURL, "phlex/rails/helpers/java_script_url" # DEPRECATED
+	autoload :JavaScriptImportMapTags, "phlex/rails/helpers/javascript_importmap_tags" # DEPRECATED
+	autoload :JavaScriptImportModuleTag, "phlex/rails/helpers/javascript_import_module_tag" # DEPRECATED
+	autoload :JavaScriptIncludeTag, "phlex/rails/helpers/javascript_include_tag" # DEPRECATED
+	autoload :JavaScriptPath, "phlex/rails/helpers/javascript_path" # DEPRECATED
+	autoload :JavaScriptTag, "phlex/rails/helpers/javascript_tag" # DEPRECATED
+	autoload :JavaScriptURL, "phlex/rails/helpers/javascript_url" # DEPRECATED
 	autoload :JavascriptImportModuleTag, "phlex/rails/helpers/javascript_import_module_tag"
 	autoload :JavascriptImportmapTags, "phlex/rails/helpers/javascript_importmap_tags"
 	autoload :JavascriptIncludeTag, "phlex/rails/helpers/javascript_include_tag"
 	autoload :JavascriptPath, "phlex/rails/helpers/javascript_path"
 	autoload :JavascriptTag, "phlex/rails/helpers/javascript_tag"
 	autoload :JavascriptURL, "phlex/rails/helpers/javascript_url"
+	autoload :L, "phlex/rails/helpers/l"
+	autoload :Label, "phlex/rails/helpers/label"
+	autoload :LabelTag, "phlex/rails/helpers/label_tag"
+	autoload :LinkIf, "phlex/rails/helpers/link_to_if" # DEPRECATED
+	autoload :LinkTo, "phlex/rails/helpers/link_to"
+	autoload :LinkToIf, "phlex/rails/helpers/link_to_if"
+	autoload :LinkToUnless, "phlex/rails/helpers/link_to_unless"
+	autoload :LinkToUnlessCurrent, "phlex/rails/helpers/link_to_unless_current"
+	autoload :Localize, "phlex/rails/helpers/localize"
+	autoload :MailTo, "phlex/rails/helpers/mail_to"
+	autoload :MonthField, "phlex/rails/helpers/month_field"
+	autoload :MonthFieldTag, "phlex/rails/helpers/month_field_tag"
+	autoload :NumberField, "phlex/rails/helpers/number_field"
+	autoload :NumberFieldTag, "phlex/rails/helpers/number_field_tag"
+	autoload :NumberToCurrency, "phlex/rails/helpers/number_to_currency"
+	autoload :NumberToHuman, "phlex/rails/helpers/number_to_human"
+	autoload :NumberToHumanSize, "phlex/rails/helpers/number_to_human_size"
+	autoload :NumberToPercentage, "phlex/rails/helpers/number_to_percentage"
+	autoload :NumberToPhone, "phlex/rails/helpers/number_to_phone"
+	autoload :NumberWithDelimiter, "phlex/rails/helpers/number_with_delimiter"
+	autoload :NumberWithPrecision, "phlex/rails/helpers/number_with_precision"
+	autoload :Object, "phlex/rails/helpers/object"
+	autoload :OptionGroupsFromCollectionForSelect, "phlex/rails/helpers/option_groups_from_collection_for_select"
+	autoload :OptionsForSelect, "phlex/rails/helpers/options_for_select"
+	autoload :OptionsFromCollectionForSelect, "phlex/rails/helpers/options_from_collection_for_select"
+	autoload :PasswordField, "phlex/rails/helpers/password_field"
+	autoload :PasswordFieldTag, "phlex/rails/helpers/password_field_tag"
+	autoload :PathToAsset, "phlex/rails/helpers/path_to_asset"
+	autoload :PathToAudio, "phlex/rails/helpers/path_to_audio"
+	autoload :PathToFont, "phlex/rails/helpers/path_to_font"
+	autoload :PathToImage, "phlex/rails/helpers/path_to_image"
+	autoload :PathToJavaScript, "phlex/rails/helpers/path_to_javascript" # DEPRECATED
+	autoload :PathToJavascript, "phlex/rails/helpers/path_to_javascript"
+	autoload :PathToStyleSheet, "phlex/rails/helpers/path_to_stylesheet" # DEPRECATED
+	autoload :PathToStylesheet, "phlex/rails/helpers/path_to_stylesheet"
+	autoload :PathToVideo, "phlex/rails/helpers/path_to_video"
+	autoload :PhoneField, "phlex/rails/helpers/phone_field"
+	autoload :PhoneFieldTag, "phlex/rails/helpers/phone_field_tag"
+	autoload :PhoneTo, "phlex/rails/helpers/phone_to"
+	autoload :Pluralize, "phlex/rails/helpers/pluralize"
+	autoload :PreloadLinkTag, "phlex/rails/helpers/preload_link_tag"
+	autoload :Provide, "phlex/rails/helpers/provide"
+	autoload :PublicComputeAssetPath, "phlex/rails/helpers/public_compute_asset_path"
+	autoload :RadioButton, "phlex/rails/helpers/radio_button"
+	autoload :RadioButtonTag, "phlex/rails/helpers/radio_button_tag"
+	autoload :RangeField, "phlex/rails/helpers/range_field"
+	autoload :RangeFieldTag, "phlex/rails/helpers/range_field_tag"
+	autoload :Request, "phlex/rails/helpers/request"
+	autoload :ResetCycle, "phlex/rails/helpers/reset_cycle"
+	autoload :RichTextArea, "phlex/rails/helpers/rich_text_area"
 	autoload :Routes, "phlex/rails/helpers/routes"
+	autoload :SMSTo, "phlex/rails/helpers/sms_to"
+	autoload :Sanitize, "phlex/rails/helpers/sanitize"
+	autoload :SanitizeCSS, "phlex/rails/helpers/sanitize_css"
+	autoload :SanitizeCss, "phlex/rails/helpers/sanitize_css" # DEPRECATED
+	autoload :SearchField, "phlex/rails/helpers/search_field"
+	autoload :SearchFieldTag, "phlex/rails/helpers/search_field_tag"
+	autoload :Select, "phlex/rails/helpers/select"
+	autoload :SelectDate, "phlex/rails/helpers/select_date"
+	autoload :SelectDateTime, "phlex/rails/helpers/select_datetime" # DEPRECATED
+	autoload :SelectDatetime, "phlex/rails/helpers/select_datetime"
+	autoload :SelectDay, "phlex/rails/helpers/select_day"
+	autoload :SelectHour, "phlex/rails/helpers/select_hour"
+	autoload :SelectMinute, "phlex/rails/helpers/select_minute"
+	autoload :SelectMonth, "phlex/rails/helpers/select_month"
+	autoload :SelectSecond, "phlex/rails/helpers/select_second"
+	autoload :SelectTag, "phlex/rails/helpers/select_tag"
+	autoload :SelectTime, "phlex/rails/helpers/select_time"
+	autoload :SelectYear, "phlex/rails/helpers/select_year"
+	autoload :SimpleFormat, "phlex/rails/helpers/simple_format"
+	autoload :StripLinks, "phlex/rails/helpers/strip_links"
+	autoload :StripTags, "phlex/rails/helpers/strip_tags"
+	autoload :StyleSheetLinkTag, "phlex/rails/helpers/stylesheet_link_tag" # DEPRECATED
+	autoload :StyleSheetPath, "phlex/rails/helpers/stylesheet_path" # DEPRECATED
+	autoload :StyleSheetURL, "phlex/rails/helpers/stylesheet_url" # DEPRECATED
+	autoload :StylesheetLinkTag, "phlex/rails/helpers/stylesheet_link_tag"
+	autoload :StylesheetPath, "phlex/rails/helpers/stylesheet_path"
+	autoload :StylesheetURL, "phlex/rails/helpers/stylesheet_url"
+	autoload :SubmitTag, "phlex/rails/helpers/submit_tag"
+	autoload :T, "phlex/rails/helpers/t"
 	autoload :Tag, "phlex/rails/helpers/tag"
+	autoload :TelephoneField, "phlex/rails/helpers/telephone_field"
+	autoload :TelephoneFieldTag, "phlex/rails/helpers/telephone_field_tag"
+	autoload :TextArea, "phlex/rails/helpers/text_area"
+	autoload :TextAreaTag, "phlex/rails/helpers/text_area_tag"
+	autoload :TextField, "phlex/rails/helpers/text_field"
+	autoload :TextFieldTag, "phlex/rails/helpers/text_field_tag"
+	autoload :TimeAgoInWords, "phlex/rails/helpers/time_ago_in_words"
+	autoload :TimeField, "phlex/rails/helpers/time_field"
+	autoload :TimeFieldTag, "phlex/rails/helpers/time_field_tag"
+	autoload :TimeSelect, "phlex/rails/helpers/time_select"
+	autoload :TimeTag, "phlex/rails/helpers/time_tag"
+	autoload :TimeZoneOptionsForSelect, "phlex/rails/helpers/time_zone_options_for_select"
+	autoload :TimeZoneSelect, "phlex/rails/helpers/time_zone_select"
+	autoload :TokenList, "phlex/rails/helpers/token_list"
+	autoload :Translate, "phlex/rails/helpers/translate"
+	autoload :Truncate, "phlex/rails/helpers/truncate"
+	autoload :TurboFrameTag, "phlex/rails/helpers/turbo_frame_tag"
+	autoload :TurboIncludeTags, "phlex/rails/helpers/turbo_include_tags"
 	autoload :TurboStream, "phlex/rails/helpers/turbo_stream"
-end
-
-module Phlex::Rails::Helpers::L
-	extend Phlex::Rails::HelperMacros
-
-	# @!method l(...)
-	define_value_helper :l
-end
-
-module Phlex::Rails::Helpers::Label
-	extend Phlex::Rails::HelperMacros
-
-	# @!method label(...)
-	define_builder_yielding_helper :label, Phlex::Rails::BufferedLabelBuilder
-end
-
-module Phlex::Rails::Helpers::LabelTag
-	extend Phlex::Rails::HelperMacros
-
-	# @!method label_tag(...)
-	# 	@return [nil]
-	define_output_helper_with_capture_block :label_tag
-end
-
-module Phlex::Rails::Helpers::LinkTo
-	extend Phlex::Rails::HelperMacros
-
-	# @!method link_to(...)
-	# 	@return [nil]
-	define_output_helper_with_capture_block :link_to
-end
-
-module Phlex::Rails::Helpers::LinkIf
-	extend Phlex::Rails::HelperMacros
-
-	# @!method link_to_if(...)
-	# 	@return [nil]
-	define_output_helper_with_capture_block :link_to_if
-end
-
-module Phlex::Rails::Helpers::LinkToUnless
-	extend Phlex::Rails::HelperMacros
-
-	# @!method link_to_unless(...)
-	# 	@return [nil]
-	define_output_helper_with_capture_block :link_to_unless
-end
-
-module Phlex::Rails::Helpers::LinkToUnlessCurrent
-	extend Phlex::Rails::HelperMacros
-
-	# @!method link_to_unless_current(...)
-	# 	@return [nil]
-	define_output_helper_with_capture_block :link_to_unless_current
-end
-
-module Phlex::Rails::Helpers::Localize
-	extend Phlex::Rails::HelperMacros
-
-	# @!method localize(...)
-	define_value_helper :localize
-end
-
-module Phlex::Rails::Helpers::MailTo
-	extend Phlex::Rails::HelperMacros
-
-	# @!method mail_to(...)
-	# 	@return [nil]
-	define_output_helper_with_capture_block :mail_to
-end
-
-module Phlex::Rails::Helpers::MonthField
-	extend Phlex::Rails::HelperMacros
-
-	# @!method month_field(...)
-	# 	@return [nil]
-	define_output_helper :month_field
-end
-
-module Phlex::Rails::Helpers::MonthFieldTag
-	extend Phlex::Rails::HelperMacros
-
-	# @!method month_field_tag(...)
-	# 	@return [nil]
-	define_output_helper :month_field_tag
-end
-
-module Phlex::Rails::Helpers::NumberField
-	extend Phlex::Rails::HelperMacros
-
-	# @!method number_field(...)
-	# 	@return [nil]
-	define_output_helper :number_field
-end
-
-module Phlex::Rails::Helpers::NumberFieldTag
-	extend Phlex::Rails::HelperMacros
-
-	# @!method number_field_tag(...)
-	# 	@return [nil]
-	define_output_helper :number_field_tag
-end
-
-module Phlex::Rails::Helpers::NumberToCurrency
-	extend Phlex::Rails::HelperMacros
-
-	# @!method number_to_currency(...)
-	define_value_helper :number_to_currency
-end
-
-module Phlex::Rails::Helpers::NumberToHuman
-	extend Phlex::Rails::HelperMacros
-
-	# @!method number_to_human(...)
-	define_value_helper :number_to_human
-end
-
-module Phlex::Rails::Helpers::NumberToHumanSize
-	extend Phlex::Rails::HelperMacros
-
-	# @!method number_to_human_size(...)
-	define_value_helper :number_to_human_size
-end
-
-module Phlex::Rails::Helpers::NumberToPercentage
-	extend Phlex::Rails::HelperMacros
-
-	# @!method number_to_percentage(...)
-	define_value_helper :number_to_percentage
-end
-
-module Phlex::Rails::Helpers::NumberToPhone
-	extend Phlex::Rails::HelperMacros
-
-	# @!method number_to_phone(...)
-	define_value_helper :number_to_phone
-end
-
-module Phlex::Rails::Helpers::NumberWithDelimiter
-	extend Phlex::Rails::HelperMacros
-
-	# @!method number_with_delimiter(...)
-	define_value_helper :number_with_delimiter
-end
-
-module Phlex::Rails::Helpers::NumberWithPrecision
-	extend Phlex::Rails::HelperMacros
-
-	# @!method number_with_precision(...)
-	define_value_helper :number_with_precision
-end
-
-module Phlex::Rails::Helpers::Object
-	extend Phlex::Rails::HelperMacros
-
-	# @!method object(...)
-	define_value_helper :object
-end
-
-module Phlex::Rails::Helpers::OptionGroupsFromCollectionForSelect
-	extend Phlex::Rails::HelperMacros
-
-	# @!method option_groups_from_collection_for_select(...)
-	# 	@return [nil]
-	define_output_helper :option_groups_from_collection_for_select
-end
-
-module Phlex::Rails::Helpers::OptionsForSelect
-	extend Phlex::Rails::HelperMacros
-
-	# @!method options_for_select(...)
-	# 	@return [nil]
-	define_output_helper :options_for_select
-end
-
-module Phlex::Rails::Helpers::OptionsFromCollectionForSelect
-	extend Phlex::Rails::HelperMacros
-
-	# @!method options_from_collection_for_select(...)
-	# 	@return [nil]
-	define_output_helper :options_from_collection_for_select
-end
-
-module Phlex::Rails::Helpers::PasswordField
-	extend Phlex::Rails::HelperMacros
-
-	# @!method password_field(...)
-	# 	@return [nil]
-	define_output_helper :password_field
-end
-
-module Phlex::Rails::Helpers::PasswordFieldTag
-	extend Phlex::Rails::HelperMacros
-
-	# @!method password_field_tag(...)
-	# 	@return [nil]
-	define_output_helper :password_field_tag
-end
-
-module Phlex::Rails::Helpers::PathToAsset
-	extend Phlex::Rails::HelperMacros
-
-	# @!method path_to_asset(...)
-	define_value_helper :path_to_asset
-end
-
-module Phlex::Rails::Helpers::PathToAudio
-	extend Phlex::Rails::HelperMacros
-
-	# @!method path_to_audio(...)
-	define_value_helper :path_to_audio
-end
-
-module Phlex::Rails::Helpers::PathToFont
-	extend Phlex::Rails::HelperMacros
-
-	# @!method path_to_font(...)
-	define_value_helper :path_to_font
-end
-
-module Phlex::Rails::Helpers::PathToImage
-	extend Phlex::Rails::HelperMacros
-
-	# @!method path_to_image(...)
-	define_value_helper :path_to_image
-end
-
-module Phlex::Rails::Helpers::PathToJavaScript
-	extend Phlex::Rails::HelperMacros
-
-	# @!method path_to_javascript(...)
-	define_value_helper :path_to_javascript
-end
-
-module Phlex::Rails::Helpers::PathToStyleSheet
-	extend Phlex::Rails::HelperMacros
-
-	# @!method path_to_stylesheet(...)
-	define_value_helper :path_to_stylesheet
-end
-
-module Phlex::Rails::Helpers::PathToVideo
-	extend Phlex::Rails::HelperMacros
-
-	# @!method path_to_video(...)
-	define_value_helper :path_to_video
-end
-
-module Phlex::Rails::Helpers::PhoneField
-	extend Phlex::Rails::HelperMacros
-
-	# @!method phone_field(...)
-	# 	@return [nil]
-	define_output_helper :phone_field
-end
-
-module Phlex::Rails::Helpers::PhoneFieldTag
-	extend Phlex::Rails::HelperMacros
-
-	# @!method phone_field_tag(...)
-	# 	@return [nil]
-	define_output_helper :phone_field_tag
-end
-
-module Phlex::Rails::Helpers::Pluralize
-	extend Phlex::Rails::HelperMacros
-
-	# @!method pluralize(...)
-	# 	@return [String]
-	define_value_helper :pluralize
-end
-
-module Phlex::Rails::Helpers::PreloadLinkTag
-	extend Phlex::Rails::HelperMacros
-
-	# @!method preload_link_tag(...)
-	# 	@return [nil]
-	define_output_helper :preload_link_tag
-end
-
-module Phlex::Rails::Helpers::PhoneTo
-	extend Phlex::Rails::HelperMacros
-
-	# @!method phone_to(...)
-	# 	@return [nil]
-	define_output_helper_with_capture_block :phone_to
-end
-
-module Phlex::Rails::Helpers::Provide
-	extend Phlex::Rails::HelperMacros
-
-	# @!method provide(...)
-	define_value_helper_with_capture_block :provide
-end
-
-module Phlex::Rails::Helpers::PublicComputeAssetPath
-	extend Phlex::Rails::HelperMacros
-
-	# @!method public_compute_asset_path(...)
-	define_value_helper :public_compute_asset_path
-end
-
-module Phlex::Rails::Helpers::RadioButton
-	extend Phlex::Rails::HelperMacros
-
-	# @!method radio_button(...)
-	# 	@return [nil]
-	define_output_helper :radio_button
-end
-
-module Phlex::Rails::Helpers::RadioButtonTag
-	extend Phlex::Rails::HelperMacros
-
-	# @!method radio_button_tag(...)
-	# 	@return [nil]
-	define_output_helper :radio_button_tag
-end
-
-module Phlex::Rails::Helpers::RangeField
-	extend Phlex::Rails::HelperMacros
-
-	# @!method range_field(...)
-	# 	@return [nil]
-	define_output_helper :range_field
-end
-
-module Phlex::Rails::Helpers::RangeFieldTag
-	extend Phlex::Rails::HelperMacros
-
-	# @!method range_field_tag(...)
-	# 	@return [nil]
-	define_output_helper :range_field_tag
-end
-
-module Phlex::Rails::Helpers::Request
-	extend Phlex::Rails::HelperMacros
-
-	# @!method request(...)
-	define_value_helper :request
-end
-
-module Phlex::Rails::Helpers::ResetCycle
-	extend Phlex::Rails::HelperMacros
-
-	# @!method reset_cycle(...)
-	define_value_helper :reset_cycle
-end
-
-module Phlex::Rails::Helpers::RichTextArea
-	extend Phlex::Rails::HelperMacros
-
-	# @!method rich_text_area(...)
-	# 	@return [nil]
-	define_output_helper :rich_text_area
-end
-
-module Phlex::Rails::Helpers::Sanitize
-	extend Phlex::Rails::HelperMacros
-
-	# @!method sanitize(...)
-	define_value_helper :sanitize
-end
-
-module Phlex::Rails::Helpers::SanitizeCss
-	extend Phlex::Rails::HelperMacros
-
-	# @!method sanitize_css(...)
-	define_value_helper :sanitize_css
-end
-
-module Phlex::Rails::Helpers::SearchField
-	extend Phlex::Rails::HelperMacros
-
-	# @!method search_field(...)
-	# 	@return [nil]
-	define_output_helper :search_field
-end
-
-module Phlex::Rails::Helpers::SearchFieldTag
-	extend Phlex::Rails::HelperMacros
-
-	# @!method search_field_tag(...)
-	# 	@return [nil]
-	define_output_helper :search_field_tag
-end
-
-module Phlex::Rails::Helpers::Select
-	extend Phlex::Rails::HelperMacros
-
-	# @!method select(...)
-	# 	@return [nil]
-	define_output_helper :select
-end
-
-module Phlex::Rails::Helpers::SelectTag
-	extend Phlex::Rails::HelperMacros
-
-	# @!method select_tag(...)
-	# 	@return [nil]
-	define_output_helper :select_tag
-end
-
-module Phlex::Rails::Helpers::SelectDate
-	extend Phlex::Rails::HelperMacros
-
-	# @!method select_date(...)
-	# 	@return [nil]
-	define_output_helper :select_date
-end
-
-module Phlex::Rails::Helpers::SelectDateTime
-	extend Phlex::Rails::HelperMacros
-
-	# @!method select_datetime(...)
-	# 	@return [nil]
-	define_output_helper :select_datetime
-end
-
-module Phlex::Rails::Helpers::SelectDay
-	extend Phlex::Rails::HelperMacros
-
-	# @!method select_day(...)
-	# 	@return [nil]
-	define_output_helper :select_day
-end
-
-module Phlex::Rails::Helpers::SelectHour
-	extend Phlex::Rails::HelperMacros
-
-	# @!method select_hour(...)
-	# 	@return [nil]
-	define_output_helper :select_hour
-end
-
-module Phlex::Rails::Helpers::SelectMinute
-	extend Phlex::Rails::HelperMacros
-
-	# @!method select_minute(...)
-	# 	@return [nil]
-	define_output_helper :select_minute
-end
-
-module Phlex::Rails::Helpers::SelectMonth
-	extend Phlex::Rails::HelperMacros
-
-	# @!method select_month(...)
-	# 	@return [nil]
-	define_output_helper :select_month
-end
-
-module Phlex::Rails::Helpers::SelectSecond
-	extend Phlex::Rails::HelperMacros
-
-	# @!method select_second(...)
-	# 	@return [nil]
-	define_output_helper :select_second
-end
-
-module Phlex::Rails::Helpers::SelectTime
-	extend Phlex::Rails::HelperMacros
-
-	# @!method select_time(...)
-	# 	@return [nil]
-	define_output_helper :select_time
-end
-
-module Phlex::Rails::Helpers::SelectYear
-	extend Phlex::Rails::HelperMacros
-
-	# @!method select_year(...)
-	# 	@return [nil]
-	define_output_helper :select_year
-end
-
-module Phlex::Rails::Helpers::SimpleFormat
-	extend Phlex::Rails::HelperMacros
-
-	# @!method simple_format(...)
-	# 	@return [nil]
-	define_output_helper :simple_format
-end
-
-module Phlex::Rails::Helpers::SMSTo
-	extend Phlex::Rails::HelperMacros
-
-	# @!method sms_to(...)
-	# 	@return [nil]
-	define_output_helper_with_capture_block :sms_to
-end
-
-module Phlex::Rails::Helpers::StripLinks
-	extend Phlex::Rails::HelperMacros
-
-	# @!method strip_links(...)
-	define_value_helper :strip_links
-end
-
-module Phlex::Rails::Helpers::StripTags
-	extend Phlex::Rails::HelperMacros
-
-	# @!method strip_tags(...)
-	define_value_helper :strip_tags
-end
-
-module Phlex::Rails::Helpers::StyleSheetLinkTag
-	extend Phlex::Rails::HelperMacros
-
-	# @!method stylesheet_link_tag(...)
-	# 	@return [nil]
-	define_output_helper :stylesheet_link_tag
-end
-
-module Phlex::Rails::Helpers::StyleSheetPath
-	extend Phlex::Rails::HelperMacros
-
-	# @!method stylesheet_path(...)
-	define_value_helper :stylesheet_path
-end
-
-module Phlex::Rails::Helpers::StyleSheetURL
-	extend Phlex::Rails::HelperMacros
-
-	# @!method stylesheet_url(...)
-	define_value_helper :stylesheet_url
-end
-
-module Phlex::Rails::Helpers::SubmitTag
-	extend Phlex::Rails::HelperMacros
-
-	# @!method submit_tag(...)
-	# 	@return [nil]
-	define_output_helper :submit_tag
-end
-
-module Phlex::Rails::Helpers::T
-	extend Phlex::Rails::HelperMacros
-
-	def self.included(base)
-		base.extend(ClassMethods)
-	end
-
-	module ClassMethods
-		def translation_path
-			@translation_path ||= name&.dup.tap do |n|
-				n.gsub!("::", ".")
-				n.gsub!(/([a-z])([A-Z])/, '\1_\2')
-				n.downcase!
-			end
-		end
-	end
-
-	def t(key, **options)
-		key = "#{self.class.translation_path}#{key}" if key.start_with?(".")
-
-		helpers.t(key, **options)
-	end
-end
-
-module Phlex::Rails::Helpers::TelephoneField
-	extend Phlex::Rails::HelperMacros
-
-	# @!method telephone_field(...)
-	# 	@return [nil]
-	define_output_helper :telephone_field
-end
-
-module Phlex::Rails::Helpers::TelephoneFieldTag
-	extend Phlex::Rails::HelperMacros
-
-	# @!method telephone_field_tag(...)
-	# 	@return [nil]
-	define_output_helper :telephone_field_tag
-end
-
-module Phlex::Rails::Helpers::TextArea
-	extend Phlex::Rails::HelperMacros
-
-	# @!method text_area(...)
-	# 	@return [nil]
-	define_output_helper :text_area
-end
-
-module Phlex::Rails::Helpers::TextAreaTag
-	extend Phlex::Rails::HelperMacros
-
-	# @!method text_area_tag(...)
-	# 	@return [nil]
-	define_output_helper :text_area_tag
-end
-
-module Phlex::Rails::Helpers::TextField
-	extend Phlex::Rails::HelperMacros
-
-	# @!method text_field(...)
-	# 	@return [nil]
-	define_output_helper :text_field
-end
-
-module Phlex::Rails::Helpers::TextFieldTag
-	extend Phlex::Rails::HelperMacros
-
-	# @!method text_field_tag(...)
-	# 	@return [nil]
-	define_output_helper :text_field_tag
-end
-
-module Phlex::Rails::Helpers::TimeAgoInWords
-	extend Phlex::Rails::HelperMacros
-
-	# @!method time_ago_in_words(...)
-	define_value_helper :time_ago_in_words
-end
-
-module Phlex::Rails::Helpers::TimeField
-	extend Phlex::Rails::HelperMacros
-
-	# @!method time_field(...)
-	# 	@return [nil]
-	define_output_helper :time_field
-end
-
-module Phlex::Rails::Helpers::TimeFieldTag
-	extend Phlex::Rails::HelperMacros
-
-	# @!method time_field_tag(...)
-	# 	@return [nil]
-	define_output_helper :time_field_tag
-end
-
-module Phlex::Rails::Helpers::TimeSelect
-	extend Phlex::Rails::HelperMacros
-
-	# @!method time_select(...)
-	# 	@return [nil]
-	define_output_helper :time_select
-end
-
-module Phlex::Rails::Helpers::TimeTag
-	extend Phlex::Rails::HelperMacros
-
-	# @!method time_tag(...)
-	# 	@return [nil]
-	define_output_helper :time_tag
-end
-
-module Phlex::Rails::Helpers::TimeZoneOptionsForSelect
-	extend Phlex::Rails::HelperMacros
-
-	# @!method time_zone_options_for_select(...)
-	# 	@return [nil]
-	define_output_helper :time_zone_options_for_select
-end
-
-module Phlex::Rails::Helpers::TimeZoneSelect
-	extend Phlex::Rails::HelperMacros
-
-	# @!method time_zone_select(...)
-	# 	@return [nil]
-	define_output_helper :time_zone_select
-end
-
-module Phlex::Rails::Helpers::TokenList
-	extend Phlex::Rails::HelperMacros
-
-	# @!method token_list(...)
-	define_value_helper :token_list
-end
-
-module Phlex::Rails::Helpers::Translate
-	extend Phlex::Rails::HelperMacros
-
-	# @!method translate(...)
-	define_value_helper :translate
-end
-
-module Phlex::Rails::Helpers::Truncate
-	extend Phlex::Rails::HelperMacros
-
-	# @!method truncate(...)
-	define_value_helper :truncate
-end
-
-module Phlex::Rails::Helpers::TurboFrameTag
-	extend Phlex::Rails::HelperMacros
-
-	# @!method turbo_frame_tag(...)
-	define_output_helper_with_capture_block :turbo_frame_tag
-end
-
-module Phlex::Rails::Helpers::TurboIncludeTags
-	extend Phlex::Rails::HelperMacros
-
-	# @!method turbo_include_tags(...)
-	define_output_helper :turbo_include_tags
-end
-
-module Phlex::Rails::Helpers::TurboStreamFrom
-	extend Phlex::Rails::HelperMacros
-
-	# @!method turbo_stream_from(...)
-	define_output_helper :turbo_stream_from
-end
-
-module Phlex::Rails::Helpers::URLField
-	extend Phlex::Rails::HelperMacros
-
-	# @!method url_field(...)
-	# 	@return [nil]
-	define_output_helper :url_field
-end
-
-module Phlex::Rails::Helpers::URLFieldTag
-	extend Phlex::Rails::HelperMacros
-
-	# @!method url_field_tag(...)
-	# 	@return [nil]
-	define_output_helper :url_field_tag
-end
-
-module Phlex::Rails::Helpers::URLFor
-	extend Phlex::Rails::HelperMacros
-
-	# @!method url_for(...)
-	define_value_helper :url_for
-end
-
-module Phlex::Rails::Helpers::URLOptions
-	extend Phlex::Rails::HelperMacros
-
-	# @!method url_options(...)
-	define_value_helper :url_options
-end
-
-module Phlex::Rails::Helpers::URLToAsset
-	extend Phlex::Rails::HelperMacros
-
-	# @!method url_to_asset(...)
-	define_value_helper :url_to_asset
-end
-
-module Phlex::Rails::Helpers::URLToAudio
-	extend Phlex::Rails::HelperMacros
-
-	# @!method url_to_audio(...)
-	define_value_helper :url_to_audio
-end
-
-module Phlex::Rails::Helpers::URLToFont
-	extend Phlex::Rails::HelperMacros
-
-	# @!method url_to_font(...)
-	define_value_helper :url_to_font
-end
-
-module Phlex::Rails::Helpers::URLToImage
-	extend Phlex::Rails::HelperMacros
-
-	# @!method url_to_image(...)
-	define_value_helper :url_to_image
-end
-
-module Phlex::Rails::Helpers::URLToJavaScript
-	extend Phlex::Rails::HelperMacros
-
-	# @!method url_to_javascript(...)
-	define_value_helper :url_to_javascript
-end
-
-module Phlex::Rails::Helpers::URLToStyleSheet
-	extend Phlex::Rails::HelperMacros
-
-	# @!method url_to_stylesheet(...)
-	define_value_helper :url_to_stylesheet
-end
-
-module Phlex::Rails::Helpers::URLToVideo
-	extend Phlex::Rails::HelperMacros
-
-	# @!method url_to_video(...)
-	define_value_helper :url_to_video
-end
-
-module Phlex::Rails::Helpers::UTF8EnforcerTag
-	extend Phlex::Rails::HelperMacros
-
-	# @!method utf8_enforcer_tag(...)
-	# 	@return [nil]
-	define_output_helper :utf8_enforcer_tag
-end
-
-module Phlex::Rails::Helpers::VideoPath
-	extend Phlex::Rails::HelperMacros
-
-	# @!method video_path(...)
-	define_value_helper :video_path
-end
-
-module Phlex::Rails::Helpers::VideoTag
-	extend Phlex::Rails::HelperMacros
-
-	# @!method video_tag(...)
-	# 	@return [nil]
-	define_output_helper :video_tag
-end
-
-module Phlex::Rails::Helpers::VideoURL
-	extend Phlex::Rails::HelperMacros
-
-	# @!method video_url(...)
-	define_value_helper :video_url
-end
-
-module Phlex::Rails::Helpers::WeekField
-	extend Phlex::Rails::HelperMacros
-
-	# @!method week_field(...)
-	# 	@return [nil]
-	define_output_helper :week_field
-end
-
-module Phlex::Rails::Helpers::WeekFieldTag
-	extend Phlex::Rails::HelperMacros
-
-	# @!method week_field_tag(...)
-	# 	@return [nil]
-	define_output_helper :week_field_tag
-end
-
-module Phlex::Rails::Helpers::WeekdayOptionsForSelect
-	extend Phlex::Rails::HelperMacros
-
-	# @!method weekday_options_for_select(...)
-	# 	@return [nil]
-	define_output_helper :weekday_options_for_select
-end
-
-module Phlex::Rails::Helpers::WeekdaySelect
-	extend Phlex::Rails::HelperMacros
-
-	# @!method weekday_select(...)
-	# 	@return [nil]
-	define_output_helper :weekday_select
-end
-
-module Phlex::Rails::Helpers::WithOutputBuffer
-	extend Phlex::Rails::HelperMacros
-
-	# @!method with_output_buffer(...)
-	# 	@return [nil]
-	define_output_helper_with_capture_block :with_output_buffer
-end
-
-module Phlex::Rails::Helpers::WordWrap
-	extend Phlex::Rails::HelperMacros
-
-	# @!method word_wrap(...)
-	define_value_helper :word_wrap
+	autoload :TurboStreamFrom, "phlex/rails/helpers/turbo_stream_from"
+	autoload :URLField, "phlex/rails/helpers/url_field"
+	autoload :URLFieldTag, "phlex/rails/helpers/url_field_tag"
+	autoload :URLFor, "phlex/rails/helpers/url_for"
+	autoload :URLOptions, "phlex/rails/helpers/url_options"
+	autoload :URLToAsset, "phlex/rails/helpers/url_to_asset"
+	autoload :URLToAudio, "phlex/rails/helpers/url_to_audio"
+	autoload :URLToFont, "phlex/rails/helpers/url_to_font"
+	autoload :URLToImage, "phlex/rails/helpers/url_to_image"
+	autoload :URLToJavaScript, "phlex/rails/helpers/url_to_javascript" # DEPRECATED
+	autoload :URLToJavascript, "phlex/rails/helpers/url_to_javascript"
+	autoload :URLToStyleSheet, "phlex/rails/helpers/url_to_stylesheet" # DEPRECATED
+	autoload :URLToStylesheet, "phlex/rails/helpers/url_to_stylesheet"
+	autoload :URLToVideo, "phlex/rails/helpers/url_to_video"
+	autoload :UTF8EnforcerTag, "phlex/rails/helpers/utf8_enforcer_tag"
+	autoload :VideoPath, "phlex/rails/helpers/video_path"
+	autoload :VideoTag, "phlex/rails/helpers/video_tag"
+	autoload :VideoURL, "phlex/rails/helpers/video_url"
+	autoload :WeekField, "phlex/rails/helpers/week_field"
+	autoload :WeekFieldTag, "phlex/rails/helpers/week_field_tag"
+	autoload :WeekdayOptionsForSelect, "phlex/rails/helpers/weekday_options_for_select"
+	autoload :WeekdaySelect, "phlex/rails/helpers/weekday_select"
+	autoload :WithOutputBuffer, "phlex/rails/helpers/with_output_buffer"
+	autoload :WordWrap, "phlex/rails/helpers/word_wrap"
 end

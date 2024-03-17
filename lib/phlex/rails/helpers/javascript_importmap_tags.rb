@@ -7,3 +7,11 @@ module Phlex::Rails::Helpers::JavascriptImportmapTags
 	# 	@return [nil]
 	define_output_helper :javascript_importmap_tags
 end
+
+module Phlex::Rails::Helpers::JavaScriptImportMapTags
+	include Phlex::Rails::Helpers::JavascriptImportmapTags
+
+	def self.included(_)
+		warn "[DEPRECATION] Phlex::Rails::Helpers::JavaScriptImportMapTags is deprecated. Please use Phlex::Rails::Helpers::JavascriptImportmapTags instead."
+	end
+end

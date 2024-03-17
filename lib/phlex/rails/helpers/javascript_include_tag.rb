@@ -7,3 +7,11 @@ module Phlex::Rails::Helpers::JavascriptIncludeTag
 	# 	@return [nil]
 	define_output_helper :javascript_include_tag
 end
+
+module Phlex::Rails::Helpers::JavaScriptIncludeTag
+	include Phlex::Rails::Helpers::JavascriptIncludeTag
+
+	def self.included(_)
+		warn "[DEPRECATION] Phlex::Rails::Helpers::JavaScriptIncludeTag is deprecated. Please use Phlex::Rails::Helpers::JavascriptIncludeTag instead."
+	end
+end
