@@ -5,7 +5,7 @@ module Phlex::Generators
 		source_root File.expand_path("templates", __dir__)
 
 		APPLICATION_CONFIGURATION_PATH = Rails.root.join("config/application.rb")
-		TAILWIND_CONFIGURATION_PATH = Rails.root.join("config/tailwind.config.js")
+		TAILWIND_CONFIGURATION_PATH = Rails.root.join("tailwind.config.js")
 
 		def autoload_components
 			return unless APPLICATION_CONFIGURATION_PATH.exist?
