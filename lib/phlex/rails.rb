@@ -26,6 +26,7 @@ module Phlex
 
 	HTML.extend Phlex::Rails::HTML::Format
 	HTML.include Phlex::Rails::HTML::Format
+	HTML.include Phlex::Rails::HTML::MethodMissing
 
 	Unbuffered.prepend Phlex::Rails::UnbufferedOverrides
 end
