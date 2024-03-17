@@ -12,7 +12,7 @@ RSpec.describe Phlex::Rails::Helpers::Tag do
 			Class.new(Phlex::HTML) do
 				include Phlex::Rails::Helpers::Tag
 
-				def template
+				def view_template
 					tag.div "Hello"
 				end
 			end
@@ -28,7 +28,7 @@ RSpec.describe Phlex::Rails::Helpers::Tag do
 			Class.new(Phlex::HTML) do
 				include Phlex::Rails::Helpers::Tag
 
-				def template
+				def view_template
 					tag.h1 do
 						tag.h2 do
 							h3 { "Hello" }
@@ -48,7 +48,7 @@ RSpec.describe Phlex::Rails::Helpers::Tag do
 			Class.new(Phlex::HTML) do
 				include Phlex::Rails::Helpers::Tag
 
-				def template
+				def view_template
 					tag(:img, src: "image.jpg")
 				end
 			end

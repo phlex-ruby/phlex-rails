@@ -3,7 +3,7 @@
 # require "spec_helper"
 
 # class A < Phlex::HTML
-# 	def template
+# 	def view_template
 # 		yield
 # 	end
 
@@ -13,7 +13,7 @@
 # end
 
 # class B < Phlex::HTML
-# 	def template
+# 	def view_template
 # 		render A.new(&:foo)
 # 	end
 # end

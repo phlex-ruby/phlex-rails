@@ -3,7 +3,7 @@
 class ApplicationLayout < Phlex::HTML
 	include Phlex::Rails::Layout
 
-	def template(&block)
+	def view_template(&block)
 		doctype
 
 		html do

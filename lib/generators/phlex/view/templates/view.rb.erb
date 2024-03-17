@@ -2,7 +2,7 @@
 
 <% module_namespacing do -%>
 class <%= class_name %>View < ApplicationView
-  def template
+  def view_template
     h1 { "<%= class_name %>" }
     p { "Find me in <%= @path %>" }
   end

@@ -4,7 +4,7 @@ module Helpers
 	class FormWithView < Phlex::HTML
 		include Phlex::Rails::Helpers::FormWith
 
-		def template
+		def view_template
 			form_with do |f|
 				f.text_field :name
 			end

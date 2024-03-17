@@ -2,16 +2,16 @@
 
 require "spec_helper"
 
-RSpec.describe Phlex::Rails::Helpers::DateTimeFieldTag do
+RSpec.describe Phlex::Rails::Helpers::DatetimeFieldTag do
 	include ViewHelper
 
 	let(:output) { render example.new }
 
 	let(:example) do
 		Class.new(Phlex::HTML) do
-			include Phlex::Rails::Helpers::DateTimeFieldTag
+			include Phlex::Rails::Helpers::DatetimeFieldTag
 
-			def template
+			def view_template
 				datetime_field_tag :created_at
 			end
 		end

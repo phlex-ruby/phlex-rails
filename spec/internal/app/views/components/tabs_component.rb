@@ -9,7 +9,7 @@ class TabsComponent < Phlex::HTML
 		@tabs = []
 	end
 
-	def template
+	def view_template
 		div(class: "tabs") do
 			ul(class: "names") do
 				@tabs.each { |t| li { t.name } }

@@ -10,13 +10,13 @@ module Phlex
 		autoload :BufferedFormBuilder, "phlex/rails/buffered_form_builder"
 		autoload :BufferedLabelBuilder, "phlex/rails/buffered_label_builder"
 		autoload :BufferedRadioButtonBuilder, "phlex/rails/buffered_radio_button_builder"
-		autoload :HelperMacros, "phlex/rails/helper_macros"
 		autoload :CSV, "phlex/rails/csv"
-		autoload :SGML, "phlex/rails/sgml"
 		autoload :HTML, "phlex/rails/html"
-		autoload :UnbufferedOverrides, "phlex/rails/unbuffered_overrides"
+		autoload :HelperMacros, "phlex/rails/helper_macros"
 		autoload :Helpers, "phlex/rails/helpers"
 		autoload :Layout, "phlex/rails/layout"
+		autoload :SGML, "phlex/rails/sgml"
+		autoload :UnbufferedOverrides, "phlex/rails/unbuffered_overrides"
 	end
 
 	CSV.prepend Phlex::Rails::CSV::Overrides

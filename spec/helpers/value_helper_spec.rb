@@ -11,7 +11,7 @@ RSpec.describe Phlex::Rails::Helpers::NumberToHuman do
 		Class.new(Phlex::HTML) do
 			include Phlex::Rails::Helpers::NumberToHuman
 
-			def template
+			def view_template
 				div do
 					number_to_human 10_000
 				end

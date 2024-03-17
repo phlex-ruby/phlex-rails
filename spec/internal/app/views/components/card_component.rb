@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CardComponent < Phlex::HTML
-	def template(&block)
+	def view_template(&block)
 		article(&block)
 	end
 

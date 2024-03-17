@@ -7,7 +7,7 @@ RSpec.describe Phlex::SGML do
 		context "when given a block" do
 			it "renders content in the proper order" do
 				component = Class.new(Phlex::HTML) do
-					def template(&block)
+					def view_template(&block)
 						plain "Component A\n"
 						render("examples/sgml/wrap", &block)
 						plain "Component B\n"
@@ -38,7 +38,7 @@ RSpec.describe Phlex::SGML do
 
 		it "renders a template without a block" do
 			component = Class.new(Phlex::HTML) do
-				def template
+				def view_template
 					render(template: "examples/sgml/template")
 				end
 			end

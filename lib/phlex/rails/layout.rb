@@ -6,12 +6,12 @@ module Phlex::Rails
 		include Helpers::CSRFMetaTags
 		include Helpers::FaviconLinkTag
 		include Helpers::PreloadLinkTag
-		include Helpers::StyleSheetLinkTag
+		include Helpers::StylesheetLinkTag
 		include Helpers::ActionCableMetaTag
 		include Helpers::AutoDiscoveryLinkTag
-		include Helpers::JavaScriptIncludeTag
-		include Helpers::JavaScriptImportMapTags
-		include Helpers::JavaScriptImportModuleTag
+		include Helpers::JavascriptIncludeTag
+		include Helpers::JavascriptImportmapTags
+		include Helpers::JavascriptImportModuleTag
 
 		# @api private
 		module Interface

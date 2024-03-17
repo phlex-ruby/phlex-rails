@@ -3,7 +3,7 @@
 class Articles::IndexView < Phlex::HTML
 	include Phlex::Rails::Helpers::ContentFor
 
-	def template
+	def view_template
 		content_for(:title) { "Articles" }
 		h1 { "Articles" }
 	end

@@ -13,7 +13,7 @@ RSpec.describe Phlex::Rails::Helpers::FormWith do
 		Class.new(Phlex::HTML) do
 			include Phlex::Rails::Helpers::FormWith
 
-			def template
+			def view_template
 				form_with url: "/foo" do |f|
 					f.text_field :name
 

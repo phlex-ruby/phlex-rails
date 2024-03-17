@@ -11,7 +11,7 @@ RSpec.describe Phlex::Rails::Helpers::LinkTo do
 		Class.new(Phlex::HTML) do
 			include Phlex::Rails::Helpers::LinkTo
 
-			def template
+			def view_template
 				link_to "Foo", "/foo"
 
 				link_to("/bar") do
