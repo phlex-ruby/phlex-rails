@@ -1,9 +1,0 @@
-# frozen_string_literal: true
-
-<% module_namespacing do -%>
-class <%= class_name %>::<%= @action.classify %>View < ApplicationView
-  def template
-    h1 { "<%= class_name %> <%= @action %>" }
-    p { "Find me in <%= @path %>" }
-  end
-end<% end %>
