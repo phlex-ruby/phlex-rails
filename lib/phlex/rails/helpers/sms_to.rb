@@ -5,5 +5,5 @@ module Phlex::Rails::Helpers::SMSTo
 
 	# @!method sms_to(...)
 	# 	@return [nil]
-	define_output_helper_with_capture_block :sms_to
+	register_output_helper :sms_to
 end

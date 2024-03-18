@@ -5,5 +5,5 @@ module Phlex::Rails::Helpers::MonthField
 
 	# @!method month_field(...)
 	# 	@return [nil]
-	define_output_helper :month_field
+	register_output_helper :month_field
 end

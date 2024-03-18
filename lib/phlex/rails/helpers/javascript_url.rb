@@ -4,7 +4,7 @@ module Phlex::Rails::Helpers::JavascriptURL
 	extend Phlex::Rails::HelperMacros
 
 	# @!method javascript_url(...)
-	define_value_helper :javascript_url
+	register_value_helper :javascript_url
 end
 
 module Phlex::Rails::Helpers::JavaScriptURL

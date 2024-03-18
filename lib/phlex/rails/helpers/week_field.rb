@@ -5,5 +5,5 @@ module Phlex::Rails::Helpers::WeekField
 
 	# @!method week_field(...)
 	# 	@return [nil]
-	define_output_helper :week_field
+	register_output_helper :week_field
 end

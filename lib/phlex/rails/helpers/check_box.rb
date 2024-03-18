@@ -5,7 +5,7 @@ module Phlex::Rails::Helpers::CheckBox
 
 	# @!method check_box(...)
 	# 	@return [nil]
-	define_output_helper :check_box
+	register_output_helper :check_box
 end
 
 module Phlex::Rails::Helpers::Checkbox

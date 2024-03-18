@@ -5,5 +5,5 @@ module Phlex::Rails::Helpers::TextField
 
 	# @!method text_field(...)
 	# 	@return [nil]
-	define_output_helper :text_field
+	register_output_helper :text_field
 end

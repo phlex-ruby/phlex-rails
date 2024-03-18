@@ -6,5 +6,5 @@ module Phlex::Rails::Helpers::CollectionRadioButtons
 	# @!method collection_radio_buttons(...)
 	# 	@yield [builder]
 	# 	@yieldparam builder [Phlex::Rails::BufferedRadioButtonBuilder]
-	define_builder_yielding_helper :collection_radio_buttons, Phlex::Rails::BufferedRadioButtonBuilder
+	register_builder_yielding_helper :collection_radio_buttons, Phlex::Rails::BufferedRadioButtonBuilder
 end

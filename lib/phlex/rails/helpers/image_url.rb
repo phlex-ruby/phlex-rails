@@ -4,5 +4,5 @@ module Phlex::Rails::Helpers::ImageURL
 	extend Phlex::Rails::HelperMacros
 
 	# @!method image_url(...)
-	define_value_helper :image_url
+	register_value_helper :image_url
 end

@@ -5,5 +5,5 @@ module Phlex::Rails::Helpers::CSPMetaTag
 
 	# @!method csp_meta_tag(...)
 	# 	@return [nil]
-	define_output_helper :csp_meta_tag
+	register_output_helper :csp_meta_tag
 end

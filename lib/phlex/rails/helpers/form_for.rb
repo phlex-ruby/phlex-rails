@@ -6,5 +6,5 @@ module Phlex::Rails::Helpers::FormFor
 	# @!method form_for(...)
 	# 	@yield [builder]
 	# 	@yieldparam builder [Phlex::Rails::BufferedFormBuilder]
-	define_builder_yielding_helper :form_for, Phlex::Rails::BufferedFormBuilder
+	register_builder_yielding_helper :form_for, Phlex::Rails::BufferedFormBuilder
 end

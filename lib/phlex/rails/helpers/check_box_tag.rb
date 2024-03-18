@@ -5,7 +5,7 @@ module Phlex::Rails::Helpers::CheckBoxTag
 
 	# @!method check_box_tag(...)
 	# 	@return [nil]
-	define_output_helper :check_box_tag
+	register_output_helper :check_box_tag
 end
 
 module Phlex::Rails::Helpers::CheckboxTag

@@ -4,5 +4,5 @@ module Phlex::Rails::Helpers::Truncate
 	extend Phlex::Rails::HelperMacros
 
 	# @!method truncate(...)
-	define_value_helper :truncate
+	register_value_helper :truncate
 end

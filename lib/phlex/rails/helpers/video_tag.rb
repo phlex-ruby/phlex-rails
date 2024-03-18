@@ -5,5 +5,5 @@ module Phlex::Rails::Helpers::VideoTag
 
 	# @!method video_tag(...)
 	# 	@return [nil]
-	define_output_helper :video_tag
+	register_output_helper :video_tag
 end

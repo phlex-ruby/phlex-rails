@@ -5,5 +5,5 @@ module Phlex::Rails::Helpers::SelectDay
 
 	# @!method select_day(...)
 	# 	@return [nil]
-	define_output_helper :select_day
+	register_output_helper :select_day
 end

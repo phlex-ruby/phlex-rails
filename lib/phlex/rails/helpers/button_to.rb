@@ -5,5 +5,5 @@ module Phlex::Rails::Helpers::ButtonTo
 
 	# @!method button_to(...)
 	# 	@return [nil]
-	define_output_helper_with_capture_block :button_to
+	register_output_helper :button_to
 end

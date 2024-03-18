@@ -5,5 +5,5 @@ module Phlex::Rails::Helpers::MailTo
 
 	# @!method mail_to(...)
 	# 	@return [nil]
-	define_output_helper_with_capture_block :mail_to
+	register_output_helper :mail_to
 end

@@ -5,7 +5,7 @@ module Phlex::Rails::Helpers::DatetimeField
 
 	# @!method datetime_field(...)
 	# 	@return [nil]
-	define_output_helper :datetime_field
+	register_output_helper :datetime_field
 end
 
 module Phlex::Rails::Helpers::DateTimeField

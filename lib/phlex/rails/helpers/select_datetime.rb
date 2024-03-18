@@ -5,7 +5,7 @@ module Phlex::Rails::Helpers::SelectDatetime
 
 	# @!method select_datetime(...)
 	# 	@return [nil]
-	define_output_helper :select_datetime
+	register_output_helper :select_datetime
 end
 
 module Phlex::Rails::Helpers::SelectDateTime

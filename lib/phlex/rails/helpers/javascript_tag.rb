@@ -5,7 +5,7 @@ module Phlex::Rails::Helpers::JavascriptTag
 
 	# @!method javascript_tag(...)
 	# 	@return [nil]
-	define_output_helper_with_capture_block :javascript_tag
+	register_output_helper :javascript_tag
 end
 
 module Phlex::Rails::Helpers::JavaScriptTag

@@ -5,5 +5,5 @@ module Phlex::Rails::Helpers::SelectMonth
 
 	# @!method select_month(...)
 	# 	@return [nil]
-	define_output_helper :select_month
+	register_output_helper :select_month
 end

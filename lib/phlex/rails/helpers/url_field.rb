@@ -5,5 +5,5 @@ module Phlex::Rails::Helpers::URLField
 
 	# @!method url_field(...)
 	# 	@return [nil]
-	define_output_helper :url_field
+	register_output_helper :url_field
 end

@@ -5,5 +5,5 @@ module Phlex::Rails::Helpers::AudioTag
 
 	# @!method audio_tag(...)
 	# 	@return [nil]
-	define_output_helper :audio_tag
+	register_output_helper :audio_tag
 end

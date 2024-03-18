@@ -11,5 +11,5 @@ module Phlex::Rails::Helpers::AssetPath
 	# 	@param skip_pipeline [bool]
 	# 	@param extname [String] e.g. <code>".js"</code>
 	# 	@see https://api.rubyonrails.org/classes/ActionView/Helpers/AssetUrlHelper.html#method-i-asset_path
-	define_value_helper :asset_path
+	register_value_helper :asset_path
 end

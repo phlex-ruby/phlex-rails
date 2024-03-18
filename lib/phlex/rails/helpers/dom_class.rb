@@ -4,5 +4,5 @@ module Phlex::Rails::Helpers::DOMClass
 	extend Phlex::Rails::HelperMacros
 
 	# @!method dom_class(...)
-	define_value_helper :dom_class
+	register_value_helper :dom_class
 end

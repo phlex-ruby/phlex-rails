@@ -5,5 +5,5 @@ module Phlex::Rails::Helpers::UTF8EnforcerTag
 
 	# @!method utf8_enforcer_tag(...)
 	# 	@return [nil]
-	define_output_helper :utf8_enforcer_tag
+	register_output_helper :utf8_enforcer_tag
 end

@@ -5,5 +5,5 @@ module Phlex::Rails::Helpers::Pluralize
 
 	# @!method pluralize(...)
 	# 	@return [String]
-	define_value_helper :pluralize
+	register_value_helper :pluralize
 end

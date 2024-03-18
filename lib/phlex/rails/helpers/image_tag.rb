@@ -5,5 +5,5 @@ module Phlex::Rails::Helpers::ImageTag
 
 	# @!method image_tag(...)
 	# 	@return [nil]
-	define_output_helper :image_tag
+	register_output_helper :image_tag
 end

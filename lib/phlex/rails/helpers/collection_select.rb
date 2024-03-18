@@ -5,5 +5,5 @@ module Phlex::Rails::Helpers::CollectionSelect
 
 	# @!method collection_select(...)
 	# 	@return [nil]
-	define_output_helper :collection_select
+	register_output_helper :collection_select
 end

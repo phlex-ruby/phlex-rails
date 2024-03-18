@@ -5,7 +5,7 @@ module Phlex::Rails::Helpers::JavascriptImportmapTags
 
 	# @!method javascript_importmap_tags(...)
 	# 	@return [nil]
-	define_output_helper :javascript_importmap_tags
+	register_output_helper :javascript_importmap_tags
 end
 
 module Phlex::Rails::Helpers::JavaScriptImportMapTags

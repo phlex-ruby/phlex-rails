@@ -5,5 +5,5 @@ module Phlex::Rails::Helpers::RangeField
 
 	# @!method range_field(...)
 	# 	@return [nil]
-	define_output_helper :range_field
+	register_output_helper :range_field
 end

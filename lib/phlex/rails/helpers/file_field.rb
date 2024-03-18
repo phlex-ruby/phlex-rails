@@ -5,5 +5,5 @@ module Phlex::Rails::Helpers::FileField
 
 	# @!method file_field(...)
 	# 	@return [nil]
-	define_output_helper :file_field
+	register_output_helper :file_field
 end

@@ -5,5 +5,5 @@ module Phlex::Rails::Helpers::Select
 
 	# @!method select(...)
 	# 	@return [nil]
-	define_output_helper :select
+	register_output_helper :select
 end

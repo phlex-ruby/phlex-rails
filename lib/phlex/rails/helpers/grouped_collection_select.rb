@@ -5,5 +5,5 @@ module Phlex::Rails::Helpers::GroupedCollectionSelect
 
 	# @!method grouped_collection_select(...)
 	# 	@return [nil]
-	define_output_helper :grouped_collection_select
+	register_output_helper :grouped_collection_select
 end

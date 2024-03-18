@@ -4,7 +4,7 @@ module Phlex::Rails::Helpers::StylesheetURL
 	extend Phlex::Rails::HelperMacros
 
 	# @!method stylesheet_url(...)
-	define_value_helper :stylesheet_url
+	register_value_helper :stylesheet_url
 end
 
 module Phlex::Rails::Helpers::StyleSheetURL

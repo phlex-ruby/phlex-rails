@@ -5,5 +5,5 @@ module Phlex::Rails::Helpers::DateSelect
 
 	# @!method date_select(...)
 	# 	@return [nil]
-	define_output_helper :date_select
+	register_output_helper :date_select
 end

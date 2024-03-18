@@ -5,7 +5,7 @@ module Phlex::Rails::Helpers::DateTimeLocalFieldTag
 
 	# @!method datetime_local_field_tag(...)
 	# 	@return [nil]
-	define_output_helper :datetime_local_field_tag
+	register_output_helper :datetime_local_field_tag
 end
 
 module Phlex::Rails::Helpers::DateTimeLocalFieldTag

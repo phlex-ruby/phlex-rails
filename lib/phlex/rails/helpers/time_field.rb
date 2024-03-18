@@ -5,5 +5,5 @@ module Phlex::Rails::Helpers::TimeField
 
 	# @!method time_field(...)
 	# 	@return [nil]
-	define_output_helper :time_field
+	register_output_helper :time_field
 end

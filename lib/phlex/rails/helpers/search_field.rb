@@ -5,5 +5,5 @@ module Phlex::Rails::Helpers::SearchField
 
 	# @!method search_field(...)
 	# 	@return [nil]
-	define_output_helper :search_field
+	register_output_helper :search_field
 end

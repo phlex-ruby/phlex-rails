@@ -5,5 +5,5 @@ module Phlex::Rails::Helpers::SubmitTag
 
 	# @!method submit_tag(...)
 	# 	@return [nil]
-	define_output_helper :submit_tag
+	register_output_helper :submit_tag
 end

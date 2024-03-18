@@ -5,5 +5,5 @@ module Phlex::Rails::Helpers::RadioButton
 
 	# @!method radio_button(...)
 	# 	@return [nil]
-	define_output_helper :radio_button
+	register_output_helper :radio_button
 end

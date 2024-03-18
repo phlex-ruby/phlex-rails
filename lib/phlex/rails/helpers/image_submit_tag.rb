@@ -5,5 +5,5 @@ module Phlex::Rails::Helpers::ImageSubmitTag
 
 	# @!method image_submit_tag(...)
 	# 	@return [nil]
-	define_output_helper :image_submit_tag
+	register_output_helper :image_submit_tag
 end

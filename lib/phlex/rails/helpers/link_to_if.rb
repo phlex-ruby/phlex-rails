@@ -5,7 +5,7 @@ module Phlex::Rails::Helpers::LinkToIf
 
 	# @!method link_to_if(...)
 	# 	@return [nil]
-	define_output_helper_with_capture_block :link_to_if
+	register_output_helper :link_to_if
 end
 
 module Phlex::Rails::Helpers::LinkIf

@@ -5,5 +5,5 @@ module Phlex::Rails::Helpers::SelectHour
 
 	# @!method select_hour(...)
 	# 	@return [nil]
-	define_output_helper :select_hour
+	register_output_helper :select_hour
 end

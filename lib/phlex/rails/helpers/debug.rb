@@ -5,5 +5,5 @@ module Phlex::Rails::Helpers::Debug
 
 	# @!method debug(...)
 	# 	@return [nil]
-	define_output_helper :debug
+	register_output_helper :debug
 end

@@ -5,5 +5,5 @@ module Phlex::Rails::Helpers::NumberFieldTag
 
 	# @!method number_field_tag(...)
 	# 	@return [nil]
-	define_output_helper :number_field_tag
+	register_output_helper :number_field_tag
 end

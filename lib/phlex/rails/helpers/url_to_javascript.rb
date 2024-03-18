@@ -4,7 +4,7 @@ module Phlex::Rails::Helpers::URLToJavascript
 	extend Phlex::Rails::HelperMacros
 
 	# @!method url_to_javascript(...)
-	define_value_helper :url_to_javascript
+	register_value_helper :url_to_javascript
 end
 
 module Phlex::Rails::Helpers::URLToJavaScript

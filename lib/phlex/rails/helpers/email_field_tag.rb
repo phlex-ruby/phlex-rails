@@ -5,5 +5,5 @@ module Phlex::Rails::Helpers::EmailFieldTag
 
 	# @!method email_field_tag(...)
 	# 	@return [nil]
-	define_output_helper :email_field_tag
+	register_output_helper :email_field_tag
 end

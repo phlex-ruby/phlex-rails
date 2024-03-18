@@ -5,5 +5,5 @@ module Phlex::Rails::Helpers::Highlight
 
 	# @!method highlight(...)
 	# 	@return [nil]
-	define_output_helper :highlight
+	register_output_helper :highlight
 end

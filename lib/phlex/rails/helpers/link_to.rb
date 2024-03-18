@@ -5,5 +5,5 @@ module Phlex::Rails::Helpers::LinkTo
 
 	# @!method link_to(...)
 	# 	@return [nil]
-	define_output_helper_with_capture_block :link_to
+	register_output_helper :link_to
 end
