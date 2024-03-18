@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module Phlex::Rails::HelperMacros
+	# Register a Rails helper that returns safe HTML to be pushed to the output buffer.
 	def register_output_helper(method_name)
 		class_eval(<<-RUBY, __FILE__, __LINE__ + 1)
 			# frozen_string_literal: true
@@ -25,6 +26,7 @@ module Phlex::Rails::HelperMacros
 		RUBY
 	end
 
+	# Register a Rails helper that returns a value that shouldn’t be pushed to the output buffer.
 	def register_value_helper(method_name)
 		class_eval(<<-RUBY, __FILE__, __LINE__ + 1)
 			# frozen_string_literal: true
