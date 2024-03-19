@@ -37,10 +37,12 @@ module Phlex
 				end
 
 				def render_in(view_context, &block)
-					fragments = if (fragment_header = view_context.request.headers["X-Fragment"])
-						fragment_header.split
-					elsif (turbo_frame = view_context.request.headers["Turbo-Frame"])
-						[turbo_frame]
+					fragments = if view_context.request
+						if (fragment_header = view_context.request.headers["X-Fragment"])
+							fragment_header.split
+						elsif (turbo_frame = view_context.request.headers["Turbo-Frame"])
+							[turbo_frame]
+						end
 					end
 
 					if block_given?
