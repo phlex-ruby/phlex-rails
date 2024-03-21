@@ -10,7 +10,7 @@ module Phlex::Rails::Streaming
 		headers["X-Accel-Buffering"] = "no"
 		headers["Cache-Control"] = "no-cache"
 		headers["Content-Type"] = "text/html; charset=utf-8"
-		headers["Last-Modified"] = Time.zone.now.ctime.to_s
+		headers["Last-Modified"] = Time.now.httpdate
 
 		response.status = 200
 
