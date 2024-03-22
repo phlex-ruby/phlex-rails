@@ -47,7 +47,7 @@ module Phlex
 
 					if block_given?
 						call(view_context: view_context, fragments: fragments) do |*args|
-							original_length = @_context.target.length
+							original_length = @_context.target.bytesize
 
 							if args.length == 1 && Phlex::SGML === args[0] && !block.source_location&.[](0)&.end_with?(".rb")
 								output = view_context.capture(
@@ -57,7 +57,7 @@ module Phlex
 								output = view_context.capture(*args, &block)
 							end
 
-							unchanged = (original_length == @_context.target.length)
+							unchanged = (original_length == @_context.target.bytesize)
 
 							if unchanged
 								case output
