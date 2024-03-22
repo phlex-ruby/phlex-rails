@@ -5,5 +5,5 @@ module Phlex::Rails::Helpers::FieldSetTag
 
 	# @!method field_set_tag(...)
 	# 	@return [nil]
-	define_output_helper_with_capture_block :field_set_tag
+	register_output_helper :field_set_tag
 end

@@ -5,5 +5,5 @@ module Phlex::Rails::Helpers::EmailField
 
 	# @!method email_field(...)
 	# 	@return [nil]
-	define_output_helper :email_field
+	register_output_helper :email_field
 end

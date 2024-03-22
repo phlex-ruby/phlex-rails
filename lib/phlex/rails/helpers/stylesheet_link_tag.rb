@@ -5,7 +5,7 @@ module Phlex::Rails::Helpers::StylesheetLinkTag
 
 	# @!method stylesheet_link_tag(...)
 	# 	@return [nil]
-	define_output_helper :stylesheet_link_tag
+	register_output_helper :stylesheet_link_tag
 end
 
 module Phlex::Rails::Helpers::StyleSheetLinkTag

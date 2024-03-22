@@ -5,5 +5,5 @@ module Phlex::Rails::Helpers::SelectYear
 
 	# @!method select_year(...)
 	# 	@return [nil]
-	define_output_helper :select_year
+	register_output_helper :select_year
 end

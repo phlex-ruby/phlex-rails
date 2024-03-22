@@ -5,5 +5,5 @@ module Phlex::Rails::Helpers::PhoneTo
 
 	# @!method phone_to(...)
 	# 	@return [nil]
-	define_output_helper_with_capture_block :phone_to
+	register_output_helper :phone_to
 end

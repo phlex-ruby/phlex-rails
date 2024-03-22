@@ -5,5 +5,5 @@ module Phlex::Rails::Helpers::FormTag
 
 	# @!method form_tag(...)
 	# 	@return [nil]
-	define_output_helper_with_capture_block :form_tag
+	register_output_helper :form_tag
 end

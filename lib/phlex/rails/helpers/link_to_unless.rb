@@ -5,5 +5,5 @@ module Phlex::Rails::Helpers::LinkToUnless
 
 	# @!method link_to_unless(...)
 	# 	@return [nil]
-	define_output_helper_with_capture_block :link_to_unless
+	register_output_helper :link_to_unless
 end

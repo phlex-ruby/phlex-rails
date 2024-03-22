@@ -5,5 +5,5 @@ module Phlex::Rails::Helpers::ColorFieldTag
 
 	# @!method color_field_tag(...)
 	# 	@return [nil]
-	define_output_helper :color_field_tag
+	register_output_helper :color_field_tag
 end

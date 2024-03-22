@@ -5,5 +5,5 @@ module Phlex::Rails::Helpers::WeekdaySelect
 
 	# @!method weekday_select(...)
 	# 	@return [nil]
-	define_output_helper :weekday_select
+	register_output_helper :weekday_select
 end

@@ -5,5 +5,5 @@ module Phlex::Rails::Helpers::CSRFMetaTags
 
 	# @!method csrf_meta_tags(...)
 	# 	@return [nil]
-	define_output_helper :csrf_meta_tags
+	register_output_helper :csrf_meta_tags
 end

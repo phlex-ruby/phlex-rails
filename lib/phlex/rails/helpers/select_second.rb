@@ -5,5 +5,5 @@ module Phlex::Rails::Helpers::SelectSecond
 
 	# @!method select_second(...)
 	# 	@return [nil]
-	define_output_helper :select_second
+	register_output_helper :select_second
 end

@@ -5,5 +5,5 @@ module Phlex::Rails::Helpers::ButtonTag
 
 	# @!method button_tag(...)
 	# 	@return [nil]
-	define_output_helper_with_capture_block :button_tag
+	register_output_helper :button_tag
 end

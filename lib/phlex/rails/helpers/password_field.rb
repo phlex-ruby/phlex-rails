@@ -5,5 +5,5 @@ module Phlex::Rails::Helpers::PasswordField
 
 	# @!method password_field(...)
 	# 	@return [nil]
-	define_output_helper :password_field
+	register_output_helper :password_field
 end

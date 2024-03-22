@@ -5,5 +5,5 @@ module Phlex::Rails::Helpers::ErrorWrapping
 
 	# @!method error_wrapping(...)
 	# 	@return [nil]
-	define_output_helper :error_wrapping
+	register_output_helper :error_wrapping
 end

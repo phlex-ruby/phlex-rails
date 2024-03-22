@@ -5,5 +5,5 @@ module Phlex::Rails::Helpers::WithOutputBuffer
 
 	# @!method with_output_buffer(...)
 	# 	@return [nil]
-	define_output_helper_with_capture_block :with_output_buffer
+	register_output_helper :with_output_buffer
 end

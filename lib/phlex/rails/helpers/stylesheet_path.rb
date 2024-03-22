@@ -4,7 +4,7 @@ module Phlex::Rails::Helpers::StylesheetPath
 	extend Phlex::Rails::HelperMacros
 
 	# @!method stylesheet_path(...)
-	define_value_helper :stylesheet_path
+	register_value_helper :stylesheet_path
 end
 
 module Phlex::Rails::Helpers::StyleSheetPath

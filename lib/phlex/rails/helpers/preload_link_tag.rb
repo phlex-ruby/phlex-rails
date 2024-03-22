@@ -5,5 +5,5 @@ module Phlex::Rails::Helpers::PreloadLinkTag
 
 	# @!method preload_link_tag(...)
 	# 	@return [nil]
-	define_output_helper :preload_link_tag
+	register_output_helper :preload_link_tag
 end

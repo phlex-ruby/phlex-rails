@@ -5,5 +5,5 @@ module Phlex::Rails::Helpers::FileFieldTag
 
 	# @!method file_field_tag(...)
 	# 	@return [nil]
-	define_output_helper :file_field_tag
+	register_output_helper :file_field_tag
 end

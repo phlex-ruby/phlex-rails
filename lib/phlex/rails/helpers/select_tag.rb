@@ -5,5 +5,5 @@ module Phlex::Rails::Helpers::SelectTag
 
 	# @!method select_tag(...)
 	# 	@return [nil]
-	define_output_helper :select_tag
+	register_output_helper :select_tag
 end

@@ -5,5 +5,5 @@ module Phlex::Rails::Helpers::RangeFieldTag
 
 	# @!method range_field_tag(...)
 	# 	@return [nil]
-	define_output_helper :range_field_tag
+	register_output_helper :range_field_tag
 end

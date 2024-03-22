@@ -5,5 +5,5 @@ module Phlex::Rails::Helpers::HiddenField
 
 	# @!method hidden_field(...)
 	# 	@return [nil]
-	define_output_helper :hidden_field
+	register_output_helper :hidden_field
 end

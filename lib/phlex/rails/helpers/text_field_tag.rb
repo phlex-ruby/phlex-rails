@@ -5,5 +5,5 @@ module Phlex::Rails::Helpers::TextFieldTag
 
 	# @!method text_field_tag(...)
 	# 	@return [nil]
-	define_output_helper :text_field_tag
+	register_output_helper :text_field_tag
 end

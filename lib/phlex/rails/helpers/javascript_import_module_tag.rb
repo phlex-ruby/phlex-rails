@@ -5,7 +5,7 @@ module Phlex::Rails::Helpers::JavascriptImportModuleTag
 
 	# @!method javascript_import_module_tag(...)
 	# 	@return [nil]
-	define_output_helper :javascript_import_module_tag
+	register_output_helper :javascript_import_module_tag
 end
 
 module Phlex::Rails::Helpers::JavaScriptImportModuleTag

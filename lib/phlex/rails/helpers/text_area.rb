@@ -5,5 +5,5 @@ module Phlex::Rails::Helpers::TextArea
 
 	# @!method text_area(...)
 	# 	@return [nil]
-	define_output_helper :text_area
+	register_output_helper :text_area
 end

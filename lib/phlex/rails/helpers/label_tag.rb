@@ -5,5 +5,5 @@ module Phlex::Rails::Helpers::LabelTag
 
 	# @!method label_tag(...)
 	# 	@return [nil]
-	define_output_helper_with_capture_block :label_tag
+	register_output_helper :label_tag
 end

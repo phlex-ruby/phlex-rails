@@ -21,9 +21,11 @@ module Phlex
 		autoload :FragmentFinder, "phlex/rails/fragment_finder"
 	end
 
+	CSV.extend Phlex::Rails::HelperMacros
 	CSV.prepend Phlex::Rails::CSV::Overrides
 
 	SGML.extend Phlex::Rails::SGML::ClassMethods
+	SGML.extend Phlex::Rails::HelperMacros
 	SGML.prepend Phlex::Rails::SGML::Overrides
 
 	HTML.extend Phlex::Rails::HTML::Format

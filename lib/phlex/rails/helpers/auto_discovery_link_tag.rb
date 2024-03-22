@@ -5,5 +5,5 @@ module Phlex::Rails::Helpers::AutoDiscoveryLinkTag
 
 	# @!method auto_discovery_link_tag(...)
 	# 	@return [nil]
-	define_output_helper :auto_discovery_link_tag
+	register_output_helper :auto_discovery_link_tag
 end

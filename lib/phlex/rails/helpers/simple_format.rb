@@ -5,5 +5,5 @@ module Phlex::Rails::Helpers::SimpleFormat
 
 	# @!method simple_format(...)
 	# 	@return [nil]
-	define_output_helper :simple_format
+	register_output_helper :simple_format
 end

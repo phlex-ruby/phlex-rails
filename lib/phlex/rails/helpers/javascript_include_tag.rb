@@ -5,7 +5,7 @@ module Phlex::Rails::Helpers::JavascriptIncludeTag
 
 	# @!method javascript_include_tag(...)
 	# 	@return [nil]
-	define_output_helper :javascript_include_tag
+	register_output_helper :javascript_include_tag
 end
 
 module Phlex::Rails::Helpers::JavaScriptIncludeTag

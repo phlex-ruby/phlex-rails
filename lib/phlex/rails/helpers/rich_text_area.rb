@@ -5,5 +5,5 @@ module Phlex::Rails::Helpers::RichTextArea
 
 	# @!method rich_text_area(...)
 	# 	@return [nil]
-	define_output_helper :rich_text_area
+	register_output_helper :rich_text_area
 end

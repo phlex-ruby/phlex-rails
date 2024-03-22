@@ -5,5 +5,5 @@ module Phlex::Rails::Helpers::PhoneField
 
 	# @!method phone_field(...)
 	# 	@return [nil]
-	define_output_helper :phone_field
+	register_output_helper :phone_field
 end

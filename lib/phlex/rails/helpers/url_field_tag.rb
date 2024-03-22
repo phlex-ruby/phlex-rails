@@ -5,5 +5,5 @@ module Phlex::Rails::Helpers::URLFieldTag
 
 	# @!method url_field_tag(...)
 	# 	@return [nil]
-	define_output_helper :url_field_tag
+	register_output_helper :url_field_tag
 end

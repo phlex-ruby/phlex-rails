@@ -5,5 +5,5 @@ module Phlex::Rails::Helpers::TimeTag
 
 	# @!method time_tag(...)
 	# 	@return [nil]
-	define_output_helper :time_tag
+	register_output_helper :time_tag
 end

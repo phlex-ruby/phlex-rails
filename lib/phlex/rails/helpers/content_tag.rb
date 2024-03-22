@@ -5,5 +5,5 @@ module Phlex::Rails::Helpers::ContentTag
 
 	# @!method content_tag(...)
 	# 	@return [nil]
-	define_output_helper_with_capture_block :content_tag
+	register_output_helper :content_tag
 end

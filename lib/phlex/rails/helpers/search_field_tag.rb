@@ -5,5 +5,5 @@ module Phlex::Rails::Helpers::SearchFieldTag
 
 	# @!method search_field_tag(...)
 	# 	@return [nil]
-	define_output_helper :search_field_tag
+	register_output_helper :search_field_tag
 end

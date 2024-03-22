@@ -5,5 +5,5 @@ module Phlex::Rails::Helpers::TextAreaTag
 
 	# @!method text_area_tag(...)
 	# 	@return [nil]
-	define_output_helper :text_area_tag
+	register_output_helper :text_area_tag
 end
