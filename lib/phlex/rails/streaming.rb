@@ -29,6 +29,13 @@ module Phlex::Rails::Streaming
 			if Rails.env.development?
 				js = <<~JAVASCRIPT
 					document.documentElement.innerHTML = "#{view_context.j(debug_body.join)}";
+
+					// Re-evaluate all script tags
+					document.querySelectorAll("script").forEach((script) => {
+						newScript = document.createElement("script");
+						newScript.text = script.text;
+						script.replaceWith(newScript);
+					});
 				JAVASCRIPT
 			else
 				js = <<~JAVASCRIPT

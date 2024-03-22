@@ -17,6 +17,7 @@ module Phlex
 		autoload :Layout, "phlex/rails/layout"
 		autoload :SGML, "phlex/rails/sgml"
 		autoload :UnbufferedOverrides, "phlex/rails/unbuffered_overrides"
+		autoload :Streaming, "phlex/rails/streaming"
 	end
 
 	CSV.prepend Phlex::Rails::CSV::Overrides
