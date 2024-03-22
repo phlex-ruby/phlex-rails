@@ -17,10 +17,10 @@ module Phlex::Rails::Streaming
 		self.response_body = Enumerator.new do |buffer|
 			view.call(buffer, view_context: view_context)
 		rescue => e
-			raise (e) if Rails.env.test?
+			raise(e) if Rails.env.test?
 
 			debug_middleware = ActionDispatch::DebugExceptions.new(
-				proc { |env| raise(e) },
+				proc { |_env| raise(e) },
 				response_format: :html
 			)
 
@@ -32,7 +32,7 @@ module Phlex::Rails::Streaming
 
 					// Re-evaluate all script tags
 					document.querySelectorAll("script").forEach((script) => {
-						newScript = document.createElement("script");
+						const newScript = document.createElement("script");
 						newScript.text = script.text;
 						script.replaceWith(newScript);
 					});
