@@ -8,7 +8,7 @@ module Phlex::Rails::Streaming
 		headers.delete("Content-Length")
 
 		headers["X-Accel-Buffering"] = "no"
-		headers["Cache-Control"] = "no-cache"
+		headers["Cache-Control"] = "no-transform"
 		headers["Content-Type"] = "text/html; charset=utf-8"
 		headers["Last-Modified"] = Time.now.httpdate
 

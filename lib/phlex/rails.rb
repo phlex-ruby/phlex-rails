@@ -18,6 +18,7 @@ module Phlex
 		autoload :SGML, "phlex/rails/sgml"
 		autoload :UnbufferedOverrides, "phlex/rails/unbuffered_overrides"
 		autoload :Streaming, "phlex/rails/streaming"
+		autoload :FragmentFinder, "phlex/rails/fragment_finder"
 	end
 
 	CSV.prepend Phlex::Rails::CSV::Overrides
