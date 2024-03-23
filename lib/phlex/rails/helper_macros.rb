@@ -14,17 +14,16 @@ module Phlex::Rails::HelperMacros
 					helpers.#{method_name}(*args, **kwargs)
 				end
 
+				return unless ActiveSupport::SafeBuffer === output
+
   			context = @_context
 
 				fragments = context.fragments
 				if fragments && !context.in_target_fragment
-					output = Phlex::Rails::FragmentFinder.extract(output, fragments).html_safe
+					output = Phlex::Rails::FragmentFinder.extract(output, fragments)
 				end
 
-				case output
-				when ActiveSupport::SafeBuffer
-					context.target << output
-				end
+				context.target << output
 
 				nil
 			end
@@ -66,17 +65,16 @@ module Phlex::Rails::HelperMacros
 					helpers.#{method_name}(*args, **kwargs)
 				end
 
-				context = @_context
+				return unless ActiveSupport::SafeBuffer === output
+
+  			context = @_context
 
 				fragments = context.fragments
 				if fragments && !context.in_target_fragment
-					output = Phlex::Rails::FragmentFinder.extract(output, fragments).html_safe
+					output = Phlex::Rails::FragmentFinder.extract(output, fragments)
 				end
 
-				case output
-				when ActiveSupport::SafeBuffer
-					context.target << output
-				end
+				context.target << output
 
 				nil
 			end
