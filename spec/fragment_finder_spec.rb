@@ -2,6 +2,16 @@
 
 describe Phlex::Rails::FragmentFinder do
 	include	Phlex::Rails::FragmentFinder
+	it "find nothing" do
+		expect(
+			extract(<<~HTML, ["d"])
+				<div id="a">A</div>
+				<div id="b">B</div>
+				<div id="c">c</div>
+			HTML
+		).to be == ""
+	end
+
 	it "find one" do
 		expect(
 			extract(<<~HTML, ["b"])
