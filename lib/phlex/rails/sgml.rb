@@ -30,7 +30,16 @@ module Phlex
 						return super unless renderable.is_a?(ActiveRecord::Relation)
 					else
 						captured_block = -> { capture(&block) } if block
-						@_context.target << @_view_context.render(*args, **kwargs, &captured_block)
+						output = @_view_context.render(*args, **kwargs, &captured_block)
+
+						context = @_context
+						fragments = context.fragments
+
+						if fragments && !context.in_target_fragment
+							output = Phlex::Rails::FragmentFinder.extract(output, fragments)
+						end
+
+						context.target << output
 					end
 
 					nil
