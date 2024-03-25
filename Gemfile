@@ -12,7 +12,6 @@ gem "view_component"
 gem "appraisal", github: "excid3/appraisal", branch: "fix-bundle-env"
 gem "yard"
 
-
 gem "rails"
 gem "puma"
 gem "sqlite3"
