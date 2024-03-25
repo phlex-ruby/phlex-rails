@@ -7,5 +7,6 @@ class LayoutController < ApplicationController
 	end
 
 	def with_phlex_view
+		render Layout::WithPhlexView.new
 	end
 end
