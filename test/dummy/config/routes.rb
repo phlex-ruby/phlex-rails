@@ -9,4 +9,7 @@ Rails.application.routes.draw do
 
 	# Defines the root path route ("/")
 	root "posts#index"
+
+	get "/layout/with_erb_view", to: "layout#with_erb_view"
+	get "/layout/with_phlex_view", to: "layout#with_phlex_view"
 end
