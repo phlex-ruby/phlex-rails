@@ -17,3 +17,6 @@ Gemfile.lock
 /gemfiles
 .idea
 /log/
+/test/dummy/log/
+/test/dummy/tmp/
+/test/dummy/storage/
