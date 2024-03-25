@@ -15,17 +15,13 @@ class HelpersTest < ActionDispatch::IntegrationTest
 		get "/helpers/form_with"
 
 		assert_response :success
-
-		assert_select "form > h1", "Before"
-		assert_select "form > input[type='text']"
-		assert_select "form > h1", "After"
+		assert_select "form > h1 + input[type='text'] + h1"
 	end
 
 	test "tag" do
 		get "/helpers/tag"
 
 		assert_response :success
-
 		assert_select "div > h1#hello.text-xl", "Hello World"
 	end
 end
