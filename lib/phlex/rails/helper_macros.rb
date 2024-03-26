@@ -7,8 +7,6 @@ module Phlex::Rails::HelperMacros
 			# frozen_string_literal: true
 
 			def #{method_name}(*args, **kwargs, &block)
-  			context = @_context
-  			return if context.fragments && !context.in_target_fragment
 
 				output = if block
 					helpers.#{method_name}(*args, **kwargs) { capture(&block) }
@@ -16,10 +14,16 @@ module Phlex::Rails::HelperMacros
 					helpers.#{method_name}(*args, **kwargs)
 				end
 
-				case output
-				when ActiveSupport::SafeBuffer
-					@_context.target << output
+				return unless ActiveSupport::SafeBuffer === output
+
+  			context = @_context
+
+				fragments = context.fragments
+				if fragments && !context.in_target_fragment
+					output = Phlex::Rails::FragmentFinder.extract(output, fragments)
 				end
+
+				context.target << output
 
 				nil
 			end
@@ -47,8 +51,6 @@ module Phlex::Rails::HelperMacros
 			# frozen_string_literal: true
 
 			def #{method_name}(*args, **kwargs)
-  			context = @_context
-  			return if context.fragments && !context.in_target_fragment
 				output = if block_given?
 					helpers.#{method_name}(*args, **kwargs) { |form|
 						capture do
@@ -63,10 +65,16 @@ module Phlex::Rails::HelperMacros
 					helpers.#{method_name}(*args, **kwargs)
 				end
 
-				case output
-				when ActiveSupport::SafeBuffer
-					@_context.target << output
+				return unless ActiveSupport::SafeBuffer === output
+
+  			context = @_context
+
+				fragments = context.fragments
+				if fragments && !context.in_target_fragment
+					output = Phlex::Rails::FragmentFinder.extract(output, fragments)
 				end
+
+				context.target << output
 
 				nil
 			end
