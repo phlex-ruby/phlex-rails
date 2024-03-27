@@ -7,11 +7,3 @@ module Phlex::Rails::Helpers::JavascriptImportModuleTag
 	# 	@return [nil]
 	register_output_helper :javascript_import_module_tag
 end
-
-module Phlex::Rails::Helpers::JavaScriptImportModuleTag
-	include Phlex::Rails::Helpers::JavascriptImportModuleTag
-
-	def self.included(_)
-		warn "[DEPRECATION] Phlex::Rails::Helpers::JavaScriptImportModuleTag is deprecated. Please use Phlex::Rails::Helpers::JavascriptImportModuleTag instead."
-	end
-end

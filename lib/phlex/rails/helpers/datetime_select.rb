@@ -7,11 +7,3 @@ module Phlex::Rails::Helpers::DatetimeSelect
 	# 	@return [nil]
 	register_output_helper :datetime_select
 end
-
-module Phlex::Rails::Helpers::DateTimeSelect
-	include Phlex::Rails::Helpers::DatetimeSelect
-
-	def self.included(_)
-		warn "[DEPRECATION] Phlex::Rails::Helpers::DateTimeSelect is deprecated. Please use Phlex::Rails::Helpers::DatetimeSelect instead."
-	end
-end
