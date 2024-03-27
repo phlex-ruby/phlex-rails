@@ -7,13 +7,13 @@ module Phlex::Rails::Streaming
 	private
 
 	def stream(view, last_modified: Time.now.httpdate, filename: nil)
-		set_stream_headers(last_modified:)
+		set_stream_headers(last_modified: last_modified)
 
 		case view
 		when Phlex::HTML
 			stream_html(view)
 		when Phlex::CSV
-			stream_csv(view, filename:)
+			stream_csv(view, filename: filename)
 		end
 	end
 

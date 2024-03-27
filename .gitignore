@@ -16,3 +16,7 @@ Gemfile.lock
 .DS_Store
 /gemfiles
 .idea
+/log/
+/test/dummy/log/
+/test/dummy/tmp/
+/test/dummy/storage/
