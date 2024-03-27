@@ -16,11 +16,8 @@ module Phlex::Rails::Helpers
 	autoload :CSRFMetaTags, "phlex/rails/helpers/csrf_meta_tags"
 	autoload :CheckBox, "phlex/rails/helpers/check_box"
 	autoload :CheckBoxTag, "phlex/rails/helpers/check_box_tag"
-	autoload :Checkbox, "phlex/rails/helpers/check_box" # DEPRECATED
-	autoload :CheckboxTag, "phlex/rails/helpers/check_box_tag" # DEPRECATED
 	autoload :ClassNames, "phlex/rails/helpers/class_names"
 	autoload :CollectionCheckBoxes, "phlex/rails/helpers/collection_check_boxes"
-	autoload :CollectionCheckboxes, "phlex/rails/helpers/collection_check_boxes" # DEPRECATED
 	autoload :CollectionRadioButtons, "phlex/rails/helpers/collection_radio_buttons"
 	autoload :CollectionSelect, "phlex/rails/helpers/collection_select"
 	autoload :ColorField, "phlex/rails/helpers/color_field"
@@ -40,11 +37,6 @@ module Phlex::Rails::Helpers
 	autoload :DateField, "phlex/rails/helpers/date_field"
 	autoload :DateFieldTag, "phlex/rails/helpers/date_field_tag"
 	autoload :DateSelect, "phlex/rails/helpers/date_select"
-	autoload :DateTimeField, "phlex/rails/helpers/datetime_field" # DEPRECATED
-	autoload :DateTimeFieldTag, "phlex/rails/helpers/datetime_field_tag" # DEPRECATED
-	autoload :DateTimeLocalField, "phlex/rails/helpers/datetime_local_field" # DEPRECATED
-	autoload :DateTimeLocalFieldTag, "phlex/rails/helpers/datetime_local_field_tag" # DEPRECATED
-	autoload :DateTimeSelect, "phlex/rails/helpers/datetime_select" # DEPRECATED
 	autoload :DatetimeField, "phlex/rails/helpers/datetime_field"
 	autoload :DatetimeFieldTag, "phlex/rails/helpers/datetime_field_tag"
 	autoload :DatetimeLocalField, "phlex/rails/helpers/datetime_local_field"
@@ -83,12 +75,6 @@ module Phlex::Rails::Helpers
 	autoload :ImageSubmitTag, "phlex/rails/helpers/image_submit_tag"
 	autoload :ImageTag, "phlex/rails/helpers/image_tag"
 	autoload :ImageURL, "phlex/rails/helpers/image_url"
-	autoload :JavaScriptImportMapTags, "phlex/rails/helpers/javascript_importmap_tags" # DEPRECATED
-	autoload :JavaScriptImportModuleTag, "phlex/rails/helpers/javascript_import_module_tag" # DEPRECATED
-	autoload :JavaScriptIncludeTag, "phlex/rails/helpers/javascript_include_tag" # DEPRECATED
-	autoload :JavaScriptPath, "phlex/rails/helpers/javascript_path" # DEPRECATED
-	autoload :JavaScriptTag, "phlex/rails/helpers/javascript_tag" # DEPRECATED
-	autoload :JavaScriptURL, "phlex/rails/helpers/javascript_url" # DEPRECATED
 	autoload :JavascriptImportModuleTag, "phlex/rails/helpers/javascript_import_module_tag"
 	autoload :JavascriptImportmapTags, "phlex/rails/helpers/javascript_importmap_tags"
 	autoload :JavascriptIncludeTag, "phlex/rails/helpers/javascript_include_tag"
@@ -98,7 +84,7 @@ module Phlex::Rails::Helpers
 	autoload :L, "phlex/rails/helpers/l"
 	autoload :Label, "phlex/rails/helpers/label"
 	autoload :LabelTag, "phlex/rails/helpers/label_tag"
-	autoload :LinkIf, "phlex/rails/helpers/link_to_if" # DEPRECATED
+	autoload :LinkIf, "phlex/rails/helpers/link_to_if"
 	autoload :LinkTo, "phlex/rails/helpers/link_to"
 	autoload :LinkToIf, "phlex/rails/helpers/link_to_if"
 	autoload :LinkToUnless, "phlex/rails/helpers/link_to_unless"
@@ -126,9 +112,7 @@ module Phlex::Rails::Helpers
 	autoload :PathToAudio, "phlex/rails/helpers/path_to_audio"
 	autoload :PathToFont, "phlex/rails/helpers/path_to_font"
 	autoload :PathToImage, "phlex/rails/helpers/path_to_image"
-	autoload :PathToJavaScript, "phlex/rails/helpers/path_to_javascript" # DEPRECATED
 	autoload :PathToJavascript, "phlex/rails/helpers/path_to_javascript"
-	autoload :PathToStyleSheet, "phlex/rails/helpers/path_to_stylesheet" # DEPRECATED
 	autoload :PathToStylesheet, "phlex/rails/helpers/path_to_stylesheet"
 	autoload :PathToVideo, "phlex/rails/helpers/path_to_video"
 	autoload :PhoneField, "phlex/rails/helpers/phone_field"
@@ -149,12 +133,10 @@ module Phlex::Rails::Helpers
 	autoload :SMSTo, "phlex/rails/helpers/sms_to"
 	autoload :Sanitize, "phlex/rails/helpers/sanitize"
 	autoload :SanitizeCSS, "phlex/rails/helpers/sanitize_css"
-	autoload :SanitizeCss, "phlex/rails/helpers/sanitize_css" # DEPRECATED
 	autoload :SearchField, "phlex/rails/helpers/search_field"
 	autoload :SearchFieldTag, "phlex/rails/helpers/search_field_tag"
 	autoload :Select, "phlex/rails/helpers/select"
 	autoload :SelectDate, "phlex/rails/helpers/select_date"
-	autoload :SelectDateTime, "phlex/rails/helpers/select_datetime" # DEPRECATED
 	autoload :SelectDatetime, "phlex/rails/helpers/select_datetime"
 	autoload :SelectDay, "phlex/rails/helpers/select_day"
 	autoload :SelectHour, "phlex/rails/helpers/select_hour"
@@ -167,9 +149,6 @@ module Phlex::Rails::Helpers
 	autoload :SimpleFormat, "phlex/rails/helpers/simple_format"
 	autoload :StripLinks, "phlex/rails/helpers/strip_links"
 	autoload :StripTags, "phlex/rails/helpers/strip_tags"
-	autoload :StyleSheetLinkTag, "phlex/rails/helpers/stylesheet_link_tag" # DEPRECATED
-	autoload :StyleSheetPath, "phlex/rails/helpers/stylesheet_path" # DEPRECATED
-	autoload :StyleSheetURL, "phlex/rails/helpers/stylesheet_url" # DEPRECATED
 	autoload :StylesheetLinkTag, "phlex/rails/helpers/stylesheet_link_tag"
 	autoload :StylesheetPath, "phlex/rails/helpers/stylesheet_path"
 	autoload :StylesheetURL, "phlex/rails/helpers/stylesheet_url"
@@ -204,9 +183,7 @@ module Phlex::Rails::Helpers
 	autoload :URLToAudio, "phlex/rails/helpers/url_to_audio"
 	autoload :URLToFont, "phlex/rails/helpers/url_to_font"
 	autoload :URLToImage, "phlex/rails/helpers/url_to_image"
-	autoload :URLToJavaScript, "phlex/rails/helpers/url_to_javascript" # DEPRECATED
 	autoload :URLToJavascript, "phlex/rails/helpers/url_to_javascript"
-	autoload :URLToStyleSheet, "phlex/rails/helpers/url_to_stylesheet" # DEPRECATED
 	autoload :URLToStylesheet, "phlex/rails/helpers/url_to_stylesheet"
 	autoload :URLToVideo, "phlex/rails/helpers/url_to_video"
 	autoload :UTF8EnforcerTag, "phlex/rails/helpers/utf8_enforcer_tag"
@@ -219,4 +196,50 @@ module Phlex::Rails::Helpers
 	autoload :WeekdaySelect, "phlex/rails/helpers/weekday_select"
 	autoload :WithOutputBuffer, "phlex/rails/helpers/with_output_buffer"
 	autoload :WordWrap, "phlex/rails/helpers/word_wrap"
+
+	DEPRECATED = {
+		Checkbox: :CheckBox,
+		CheckboxTag: :CheckBoxTag,
+		CollectionCheckboxes: :CollectionCheckBoxes,
+		DateTimeField: :DatetimeField,
+		PathToJavaScript: :PathToJavascript,
+		DateTimeFieldTag: :DatetimeFieldTag,
+		DateTimeLocalField: :DatetimeLocalField,
+		DateTimeLocalFieldTag: :DatetimeLocalFieldTag,
+		DateTimeSelect: :DatetimeSelect,
+		JavaScriptImportModuleTag: :JavascriptImportModuleTag,
+		JavaScriptImportMapTags: :JavascriptImportmapTags,
+		JavaScriptIncludeTag: :JavascriptIncludeTag,
+		JavaScriptPath: :JavascriptPath,
+		JavaScriptTag: :JavascriptTag,
+		JavaScriptURL: :JavascriptURL,
+		LinkIf: :LinkToIf,
+		PathToStyleSheet: :PathToStylesheet,
+		SanitizeCss: :SanitizeCSS,
+		SelectDateTime: :SelectDatetime,
+		StyleSheetLinkTag: :StylesheetLinkTag,
+		StyleSheetPath: :StylesheetPath,
+		StyleSheetURL: :StylesheetURL,
+		URLToJavaScript: :URLToJavascript,
+		URLToStyleSheet: :URLToStylesheet
+	}
+
+	def self.const_missing(name)
+		if (helper_module_name = DEPRECATED[name])
+			message = "[DEPRECATION] `Phlex::Rails::Helpers::#{name}` is deprecated. Please use `Phlex::Rails::Helpers::#{helper_module_name}` instead."
+
+			if name.to_s.downcase == helper_module_name.to_s.downcase
+				message << " Note that the casing of the module name has changed to match with the helper method name."
+			end
+
+			warn message
+
+			helper_module = const_get(helper_module_name)
+			const_set(name, helper_module)
+
+			helper_module
+		else
+			super
+		end
+	end
 end

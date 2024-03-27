@@ -7,11 +7,3 @@ module Phlex::Rails::Helpers::CheckBox
 	# 	@return [nil]
 	register_output_helper :check_box
 end
-
-module Phlex::Rails::Helpers::Checkbox
-	include Phlex::Rails::Helpers::CheckBox
-
-	def self.included(_)
-		warn "[DEPRECATION] Phlex::Rails::Helpers::Checkbox is deprecated. Please use Phlex::Rails::Helpers::CheckBox instead."
-	end
-end
