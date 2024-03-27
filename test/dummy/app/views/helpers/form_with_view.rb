@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Helpers::FormWithView < ApplicationView
 	include Phlex::Rails::Helpers::FormWith
 

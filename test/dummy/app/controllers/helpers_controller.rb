@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class HelpersController < ApplicationController
 	layout false
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Layout
 	class WithPhlexView < ApplicationView
 		include Phlex::Rails::Helpers::ContentFor
