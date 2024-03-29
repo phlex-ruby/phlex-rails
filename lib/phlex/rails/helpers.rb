@@ -173,6 +173,8 @@ module Phlex::Rails::Helpers
 	autoload :Truncate, "phlex/rails/helpers/truncate"
 	autoload :TurboFrameTag, "phlex/rails/helpers/turbo_frame_tag"
 	autoload :TurboIncludeTags, "phlex/rails/helpers/turbo_include_tags"
+	autoload :TurboRefreshMethodTag, "phlex/rails/helpers/turbo_refresh_method_tag"
+	autoload :TurboRefreshScrollTag, "phlex/rails/helpers/turbo_refresh_scroll_tag"
 	autoload :TurboStream, "phlex/rails/helpers/turbo_stream"
 	autoload :TurboStreamFrom, "phlex/rails/helpers/turbo_stream_from"
 	autoload :URLField, "phlex/rails/helpers/url_field"
