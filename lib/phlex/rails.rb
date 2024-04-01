@@ -19,6 +19,8 @@ module Phlex
 		autoload :UnbufferedOverrides, "phlex/rails/unbuffered_overrides"
 		autoload :Streaming, "phlex/rails/streaming"
 		autoload :FragmentFinder, "phlex/rails/fragment_finder"
+
+		Deprecation = ActiveSupport::Deprecation.new("2.0", "Phlex::Rails")
 	end
 
 	CSV.extend Phlex::Rails::HelperMacros
