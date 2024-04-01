@@ -228,13 +228,13 @@ module Phlex::Rails::Helpers
 
 	def self.const_missing(name)
 		if (helper_module_name = DEPRECATED[name])
-			message = "[DEPRECATION] `Phlex::Rails::Helpers::#{name}` is deprecated. Please use `Phlex::Rails::Helpers::#{helper_module_name}` instead."
+			message = "`Phlex::Rails::Helpers::#{name}` is deprecated. Please use `Phlex::Rails::Helpers::#{helper_module_name}` instead."
 
 			if name.to_s.downcase == helper_module_name.to_s.downcase
-				message << " Note that the casing of the module name has changed to match with the helper method name."
+				message << " Note the casing of the module name has changed to match the helper method."
 			end
 
-			warn message
+			Phlex::Rails::Deprecation.warn(message)
 
 			helper_module = const_get(helper_module_name)
 			const_set(name, helper_module)
