@@ -17,24 +17,8 @@ module Phlex::Rails
 
 		# @api private
 		module Interface
-			def render(view, _locals, &block)
-				component = new
-
-				component.call(view_context: view) do |yielded|
-					case yielded
-					when Symbol
-						output = view.view_flow.get(yielded)
-					else
-						output = yield
-					end
-
-					case output
-					when ActiveSupport::SafeBuffer
-						component.unsafe_raw output
-					end
-
-					nil
-				end
+			def render(view_context, _locals, &block)
+				new.render(view_context, &block)
 			end
 
 			def identifier
@@ -59,6 +43,31 @@ module Phlex::Rails
 			end
 
 			klass.extend(Interface)
+		end
+
+		def render(view_context, *args, **kwargs, &block)
+			if @_context
+				super
+			else
+				call(view_context: view_context) do |yielded|
+					case yielded
+					when Symbol
+						output = view_context.view_flow.get(yielded)
+					else
+						output = view_context.capture(&block)
+					end
+
+					unsafe_raw output
+				end
+			end
+		end
+
+		def identifier
+			self.class.identifier
+		end
+
+		def virtual_path
+			self.class.virtual_path
 		end
 	end
 end
