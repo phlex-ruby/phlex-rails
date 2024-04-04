@@ -81,11 +81,10 @@ module Phlex
 					end
 				end
 
-				# @api private
 				def await(task)
-					if task.is_a?(ActiveRecord::Relation)
+					case task
+					when ActiveRecord::Relation
 						flush unless task.loaded?
-
 						task
 					else
 						super
