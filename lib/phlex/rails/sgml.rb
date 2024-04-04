@@ -81,15 +81,17 @@ module Phlex
 					end
 				end
 
-				def await(task)
-					case task
-					when ActiveRecord::Relation
-						flush unless task.loaded?
-						task
-					else
-						super
-					end
-				end
+				# TODO: Re-introduce this when we can figure out how to test it
+				# def await(task)
+				# 	case task
+				# 	when ActiveRecord::Relation
+				# 		future = task.instance_variable_get(:@future_result)
+				# 		flush if future && future.pending?
+				# 		task
+				# 	else
+				# 		super
+				# 	end
+				# end
 
 				# Trick ViewComponent into thinking we're a ViewComponent to fix rendering output
 				# @api private
