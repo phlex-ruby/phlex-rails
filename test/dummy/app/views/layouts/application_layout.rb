@@ -3,6 +3,10 @@
 class ApplicationLayout < ApplicationView
 	include Phlex::Rails::Layout
 
+	def initialize(color:)
+		@color = color
+	end
+
 	def view_template(&block)
 		doctype
 
@@ -15,7 +19,7 @@ class ApplicationLayout < ApplicationView
 				stylesheet_link_tag "application", data_turbo_track: "reload"
 			end
 
-			body do
+			body(class: tokens(-> { @color == :blue } => { then: "bg-blue", else: "bg-black" })) do
 				main(&block)
 			end
 		end

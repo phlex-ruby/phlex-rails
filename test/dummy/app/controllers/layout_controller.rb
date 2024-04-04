@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class LayoutController < ApplicationController
-	layout -> { ApplicationLayout }
+	layout -> { ApplicationLayout.new(color: :blue) }
 
 	def with_erb_view
 	end
