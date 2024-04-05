@@ -5,7 +5,7 @@ module Rendering
 		def view_template
 			render VcComponent.new do |component|
 				component.slot do
-					p { "Rendered from Phlex" }
+					h1 { "Rendered from Phlex" }
 				end
 			end
 		end
