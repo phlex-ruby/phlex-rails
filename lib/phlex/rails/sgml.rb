@@ -2,6 +2,23 @@
 
 module Phlex
 	module Rails
+		class ViewComponentDecorator
+			def initialize(view_component, context:)
+				@view_component = view_component
+				@context = context
+			end
+
+			def method_missing(*args, **kwargs, &block)
+				if block
+					@view_component.public_send(*args, **kwargs) do |*a|
+						@context.capture(*a, &block)
+					end
+				else
+					@view_component.public_send(*args, **kwargs)
+				end
+			end
+		end
+
 		module SGML
 			module ClassMethods
 				def render_in(...)
@@ -30,7 +47,13 @@ module Phlex
 						return super unless renderable.is_a?(ActiveRecord::Relation)
 					else
 						if block
-							@_context.target << @_view_context.render(*args, **kwargs) { capture(&block) }
+							@_context.target << @_view_context.render(*args, **kwargs) do |*yielded_args|
+								if yielded_args.length == 1 && defined?(ViewComponent::Base) && ViewComponent::Base === yielded_args[0]
+									capture(Phlex::Rails::ViewComponentDecorator.new(yielded_args[0], context: self), &block)
+								else
+									capture(*yielded_args, &block)
+								end
+							end
 						else
 							@_context.target << @_view_context.render(*args, **kwargs)
 						end
@@ -70,7 +93,7 @@ module Phlex
 					end
 				end
 
-				def capture
+				def capture(...)
 					super&.html_safe
 				end
 
