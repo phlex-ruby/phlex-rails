@@ -6,36 +6,24 @@ module Phlex::Generators
 
 		APPLICATION_CONFIGURATION_PATH = Rails.root.join("config/application.rb")
 		TAILWIND_CONFIGURATION_PATH = Rails.root.join("tailwind.config.js")
+    ADD_EXTRA_AUTOLOAD_PATHS_CODE = <<-ADD_EXTRA_AUTOLOAD_PATHS_CODE
+    config.autoload_paths.push(
+      "\#{root}/app/views/components",
+      "\#{root}/app/views",
+      "\#{root}/app/views/layouts"
+    )
 
-		def autoload_components
-			return unless APPLICATION_CONFIGURATION_PATH.exist?
+    ADD_EXTRA_AUTOLOAD_PATHS_CODE
 
-			inject_into_class(
-				APPLICATION_CONFIGURATION_PATH,
-				"Application",
-				%(    config.autoload_paths << "\#{root}/app/views/components"\n)
-			)
-		end
+    def autoload_components_layouts_views
+      return unless APPLICATION_CONFIGURATION_PATH.exist?
 
-		def autoload_layouts
-			return unless APPLICATION_CONFIGURATION_PATH.exist?
-
-			inject_into_class(
-				APPLICATION_CONFIGURATION_PATH,
-				"Application",
-				%(    config.autoload_paths << "\#{root}/app/views/layouts"\n)
-			)
-		end
-
-		def autoload_views
-			return unless APPLICATION_CONFIGURATION_PATH.exist?
-
-			inject_into_class(
-				APPLICATION_CONFIGURATION_PATH,
-				"Application",
-				%(    config.autoload_paths << "\#{root}/app/views"\n)
-			)
-		end
+      inject_into_class(
+        APPLICATION_CONFIGURATION_PATH,
+        "Application",
+        ADD_EXTRA_AUTOLOAD_PATHS_CODE
+      )
+    end
 
 		def configure_tailwind
 			return unless TAILWIND_CONFIGURATION_PATH.exist?
