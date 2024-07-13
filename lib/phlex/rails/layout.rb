@@ -14,6 +14,7 @@ module Phlex::Rails
 		include Helpers::JavascriptImportModuleTag
 		include Helpers::TurboRefreshMethodTag
 		include Helpers::TurboRefreshScrollTag
+		include Helpers::TurboRefreshesWith
 
 		# @api private
 		module Interface
