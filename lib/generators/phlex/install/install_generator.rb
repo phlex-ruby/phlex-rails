@@ -13,7 +13,7 @@ module Phlex::Generators
 			inject_into_class(
 				APPLICATION_CONFIGURATION_PATH,
 				"Application",
-				%(    config.autoload_paths << "\#{root}/app/views/components"\n)
+				%(    config.autoload_paths << "\#{root}/app/views/components"\n),
 			)
 		end
 
@@ -23,7 +23,7 @@ module Phlex::Generators
 			inject_into_class(
 				APPLICATION_CONFIGURATION_PATH,
 				"Application",
-				%(    config.autoload_paths << "\#{root}/app/views/layouts"\n)
+				%(    config.autoload_paths << "\#{root}/app/views/layouts"\n),
 			)
 		end
 
@@ -33,7 +33,7 @@ module Phlex::Generators
 			inject_into_class(
 				APPLICATION_CONFIGURATION_PATH,
 				"Application",
-				%(    config.autoload_paths << "\#{root}/app/views"\n)
+				%(    config.autoload_paths << "\#{root}/app/views"\n),
 			)
 		end
 
