@@ -51,7 +51,7 @@ module Phlex::Rails::Streaming
 
 			debug_middleware = ActionDispatch::DebugExceptions.new(
 				proc { |_env| raise(e) },
-				response_format: :html
+				response_format: :html,
 			)
 
 			_debug_status, _debug_headers, debug_body = debug_middleware.call(request.env)

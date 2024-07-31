@@ -224,7 +224,7 @@ module Phlex::Rails::Helpers
 		StyleSheetPath: :StylesheetPath,
 		StyleSheetURL: :StylesheetURL,
 		URLToJavaScript: :URLToJavascript,
-		URLToStyleSheet: :URLToStylesheet
+		URLToStyleSheet: :URLToStylesheet,
 	}
 
 	def self.const_missing(name)
