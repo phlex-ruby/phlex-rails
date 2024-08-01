@@ -21,6 +21,13 @@ class HelpersTest < ActionDispatch::IntegrationTest
 		assert_select "form > h1 + input[type='text'] + h1"
 	end
 
+	test "notice" do
+		get "/helpers/notice"
+
+		assert_response :success
+		assert_select "p", "My Flash Notice"
+	end
+
 	test "tag" do
 		get "/helpers/tag"
 
