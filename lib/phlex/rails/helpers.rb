@@ -93,6 +93,7 @@ module Phlex::Rails::Helpers
 	autoload :MailTo, "phlex/rails/helpers/mail_to"
 	autoload :MonthField, "phlex/rails/helpers/month_field"
 	autoload :MonthFieldTag, "phlex/rails/helpers/month_field_tag"
+	autoload :Notice, "phlex/rails/helpers/notice"
 	autoload :NumberField, "phlex/rails/helpers/number_field"
 	autoload :NumberFieldTag, "phlex/rails/helpers/number_field_tag"
 	autoload :NumberToCurrency, "phlex/rails/helpers/number_to_currency"
