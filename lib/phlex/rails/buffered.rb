@@ -50,7 +50,7 @@ module Phlex::Rails
 
 		def method_missing(*args, **kwargs, &block)
 			output = if block
-				@object.public_send(*args, **kwargs) { @view.capture(&block) }
+				@object.public_send(*args, **kwargs) { |*a| @view.capture(*a, &block) }
 			else
 				@object.public_send(*args, **kwargs)
 			end
