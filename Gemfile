@@ -9,7 +9,7 @@ gem "phlex", github: "phlex-ruby/phlex", branch: "1"
 gem "rubocop"
 gem "solargraph"
 gem "view_component"
-gem "appraisal", github: "excid3/appraisal", branch: "fix-bundle-env"
+gem "appraisal"
 gem "yard"
 
 gem "rails"
