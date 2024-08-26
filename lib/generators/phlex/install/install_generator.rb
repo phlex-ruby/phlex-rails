@@ -69,7 +69,7 @@ module Phlex::Generators
 					"#{Rails.root}/tailwind.config.js",
 					"#{Rails.root}/app/**/tailwind.config.js",
 					"#{Rails.root}/config/**/tailwind.config.js",
-				]
+				],
 			)
 		end
 	end
