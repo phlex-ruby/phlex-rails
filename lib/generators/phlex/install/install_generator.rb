@@ -64,11 +64,13 @@ module Phlex::Generators
 		end
 
 		def tailwind_configuration_files
-			Dir.glob([
-				"#{Rails.root}/tailwind.config.js",
-				"#{Rails.root}/app/**/tailwind.config.js",
-				"#{Rails.root}/config/**/tailwind.config.js",
-						])
+			Dir.glob(
+				[
+					"#{Rails.root}/tailwind.config.js",
+					"#{Rails.root}/app/**/tailwind.config.js",
+					"#{Rails.root}/config/**/tailwind.config.js",
+				]
+			)
 		end
 	end
 end
