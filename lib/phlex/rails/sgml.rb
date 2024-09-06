@@ -18,28 +18,38 @@ module Phlex
 					end
 				end
 
-				def render(*args, **, &block)
+				def render(*args, **kwargs, &block)
 					renderable = args[0]
 
 					case renderable
-					when Phlex::SGML, Proc, Method
+					when Phlex::SGML, Proc, Method, String
 						return super
 					when Class
 						return super if renderable < Phlex::SGML
 					when Enumerable
 						return super unless ActiveRecord::Relation === renderable
-					else
-						if block
-							@_context.target << @_view_context.render(*args, **) do |*yielded_args|
-								if yielded_args.length == 1 && defined?(ViewComponent::Base) && ViewComponent::Base === yielded_args[0]
-									capture(Phlex::Rails::Buffered.new(yielded_args[0], view: self), &block)
-								else
-									capture(*yielded_args, &block)
-								end
+					when nil
+						partial = kwargs.delete(:partial)
+
+						if partial # this is a hack to get around https://github.com/rails/rails/issues/51015
+							@_context.target << @_view_context.render(partial, **kwargs) do |*yielded_args|
+								capture(*yielded_args, &block)
 							end
-						else
-							@_context.target << @_view_context.render(*args, **)
+
+							return nil
 						end
+					end
+
+					if block
+						@_context.target << @_view_context.render(*args, **kwargs) do |*yielded_args|
+							if yielded_args.length == 1 && defined?(ViewComponent::Base) && ViewComponent::Base === yielded_args[0]
+								capture(Phlex::Rails::Buffered.new(yielded_args[0], view: self), &block)
+							else
+								capture(*yielded_args, &block)
+							end
+						end
+					else
+						@_context.target << @_view_context.render(*args, **kwargs)
 					end
 
 					nil
@@ -80,28 +90,6 @@ module Phlex
 				def capture(...)
 					super&.html_safe
 				end
-
-				# @api private
-				def __text__(content)
-					case content
-					when ActiveSupport::SafeBuffer
-						@_context.target << content
-					else
-						super
-					end
-				end
-
-				# TODO: Re-introduce this when we can figure out how to test it
-				# def await(task)
-				# 	case task
-				# 	when ActiveRecord::Relation
-				# 		future = task.instance_variable_get(:@future_result)
-				# 		flush if future && future.pending?
-				# 		task
-				# 	else
-				# 		super
-				# 	end
-				# end
 
 				# Trick ViewComponent into thinking we're a ViewComponent to fix rendering output
 				# @api private
