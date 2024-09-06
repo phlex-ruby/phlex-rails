@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Phlex::Rails::HTML::MethodMissing
+module Phlex::Rails::HelperFinder
 	def method_missing(name, *args, **kwargs, &block)
 		return super unless helpers.respond_to?(name)
 
