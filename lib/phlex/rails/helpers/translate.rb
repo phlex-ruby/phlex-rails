@@ -15,10 +15,10 @@ module Phlex::Rails::Helpers::Translate
 		base.extend(ClassMethods)
 	end
 
-	def translate(key, **options)
+	def translate(key, **)
 		key = "#{self.class.translation_path}#{key}" if key.start_with?(".")
 
-		helpers.t(key, **options)
+		helpers.t(key, **)
 	end
 
 	alias_method :t, :translate

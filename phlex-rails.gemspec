@@ -9,26 +9,25 @@ Gem::Specification.new do |spec|
 	spec.email = ["joel@drapper.me"]
 
 	spec.summary = "A Phlex adapter for Rails"
-	spec.description = "A high-performance view framework optimised for developer happiness."
+	spec.description = "A high-performance view framework optimised for fun."
 	spec.homepage = "https://www.phlex.fun"
 	spec.license = "MIT"
-	spec.required_ruby_version = ">= 2.7"
+	spec.required_ruby_version = ">= 3.3.1"
 
 	spec.metadata["homepage_uri"] = spec.homepage
 	spec.metadata["source_code_uri"] = "https://github.com/phlex-ruby/phlex-rails"
 	spec.metadata["changelog_uri"] = "https://github.com/phlex-ruby/phlex-rails/blob/main/CHANGELOG.md"
 	spec.metadata["funding_uri"] = "https://github.com/sponsors/joeldrapper"
 
-	# Specify which files should be added to the gem when it is released.
-	# The `git ls-files -z` loads the files in the RubyGem that have been added into git.
-	spec.files = Dir.chdir(File.expand_path(__dir__)) do
-		`git ls-files -z`.split("\x0").reject do |f|
-			(f == __FILE__) || f.match(%r{\A(?:(?:bin|test|spec|features)/|\.(?:git|travis|circleci)|appveyor)})
-		end
-	end
+	spec.files = Dir[
+		"README.md",
+		"LICENSE.txt",
+		"lib/**/*.rb"
+	]
+
 	spec.require_paths = ["lib"]
 
-	spec.add_dependency "phlex", "~> 1.11.0"
+	spec.add_dependency "phlex", "~> 2.0.0"
 	spec.add_dependency "railties", ">= 6.1", "< 8"
 
 	spec.metadata["rubygems_mfa_required"] = "true"

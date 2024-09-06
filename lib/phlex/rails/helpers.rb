@@ -12,8 +12,6 @@ module Phlex::Rails::Helpers
 	autoload :BuildTagValues, "phlex/rails/helpers/build_tag_values"
 	autoload :ButtonTag, "phlex/rails/helpers/button_tag"
 	autoload :ButtonTo, "phlex/rails/helpers/button_to"
-	autoload :CSPMetaTag, "phlex/rails/helpers/csp_meta_tag"
-	autoload :CSRFMetaTags, "phlex/rails/helpers/csrf_meta_tags"
 	autoload :CheckBox, "phlex/rails/helpers/check_box"
 	autoload :CheckBoxTag, "phlex/rails/helpers/check_box_tag"
 	autoload :ClassNames, "phlex/rails/helpers/class_names"
@@ -29,11 +27,11 @@ module Phlex::Rails::Helpers
 	autoload :ContentTag, "phlex/rails/helpers/content_tag"
 	autoload :ControllerName, "phlex/rails/helpers/controller_name"
 	autoload :ControllerPath, "phlex/rails/helpers/controller_path"
+	autoload :CSPMetaTag, "phlex/rails/helpers/csp_meta_tag"
+	autoload :CSRFMetaTags, "phlex/rails/helpers/csrf_meta_tags"
 	autoload :CurrentCycle, "phlex/rails/helpers/current_cycle"
 	autoload :CurrentPage, "phlex/rails/helpers/current_page"
 	autoload :Cycle, "phlex/rails/helpers/cycle"
-	autoload :DOMClass, "phlex/rails/helpers/dom_class"
-	autoload :DOMID, "phlex/rails/helpers/dom_id"
 	autoload :DateField, "phlex/rails/helpers/date_field"
 	autoload :DateFieldTag, "phlex/rails/helpers/date_field_tag"
 	autoload :DateSelect, "phlex/rails/helpers/date_select"
@@ -46,6 +44,8 @@ module Phlex::Rails::Helpers
 	autoload :DefaultURLOptions, "phlex/rails/helpers/default_url_options"
 	autoload :DistanceOfTimeInWords, "phlex/rails/helpers/distance_of_time_in_words"
 	autoload :DistanceOfTimeInWordsToNow, "phlex/rails/helpers/distance_of_time_in_words_to_now"
+	autoload :DOMClass, "phlex/rails/helpers/dom_class"
+	autoload :DOMID, "phlex/rails/helpers/dom_id"
 	autoload :EmailField, "phlex/rails/helpers/email_field"
 	autoload :EmailFieldTag, "phlex/rails/helpers/email_field_tag"
 	autoload :ErrorMessage, "phlex/rails/helpers/error_message"
@@ -55,8 +55,8 @@ module Phlex::Rails::Helpers
 	autoload :FaviconLinkTag, "phlex/rails/helpers/favicon_link_tag"
 	autoload :FieldID, "phlex/rails/helpers/field_id"
 	autoload :FieldName, "phlex/rails/helpers/field_name"
-	autoload :FieldSetTag, "phlex/rails/helpers/field_set_tag"
 	autoload :Fields, "phlex/rails/helpers/fields"
+	autoload :FieldSetTag, "phlex/rails/helpers/field_set_tag"
 	autoload :FieldsFor, "phlex/rails/helpers/fields_for"
 	autoload :FileField, "phlex/rails/helpers/file_field"
 	autoload :FileFieldTag, "phlex/rails/helpers/file_field_tag"
@@ -75,8 +75,8 @@ module Phlex::Rails::Helpers
 	autoload :ImageSubmitTag, "phlex/rails/helpers/image_submit_tag"
 	autoload :ImageTag, "phlex/rails/helpers/image_tag"
 	autoload :ImageURL, "phlex/rails/helpers/image_url"
-	autoload :JavascriptImportModuleTag, "phlex/rails/helpers/javascript_import_module_tag"
 	autoload :JavascriptImportmapTags, "phlex/rails/helpers/javascript_importmap_tags"
+	autoload :JavascriptImportModuleTag, "phlex/rails/helpers/javascript_import_module_tag"
 	autoload :JavascriptIncludeTag, "phlex/rails/helpers/javascript_include_tag"
 	autoload :JavascriptPath, "phlex/rails/helpers/javascript_path"
 	autoload :JavascriptTag, "phlex/rails/helpers/javascript_tag"
@@ -131,7 +131,6 @@ module Phlex::Rails::Helpers
 	autoload :ResetCycle, "phlex/rails/helpers/reset_cycle"
 	autoload :RichTextArea, "phlex/rails/helpers/rich_text_area"
 	autoload :Routes, "phlex/rails/helpers/routes"
-	autoload :SMSTo, "phlex/rails/helpers/sms_to"
 	autoload :Sanitize, "phlex/rails/helpers/sanitize"
 	autoload :SanitizeCSS, "phlex/rails/helpers/sanitize_css"
 	autoload :SearchField, "phlex/rails/helpers/search_field"
@@ -148,6 +147,7 @@ module Phlex::Rails::Helpers
 	autoload :SelectTime, "phlex/rails/helpers/select_time"
 	autoload :SelectYear, "phlex/rails/helpers/select_year"
 	autoload :SimpleFormat, "phlex/rails/helpers/simple_format"
+	autoload :SMSTo, "phlex/rails/helpers/sms_to"
 	autoload :StripLinks, "phlex/rails/helpers/strip_links"
 	autoload :StripTags, "phlex/rails/helpers/strip_tags"
 	autoload :StylesheetLinkTag, "phlex/rails/helpers/stylesheet_link_tag"
@@ -174,9 +174,9 @@ module Phlex::Rails::Helpers
 	autoload :Truncate, "phlex/rails/helpers/truncate"
 	autoload :TurboFrameTag, "phlex/rails/helpers/turbo_frame_tag"
 	autoload :TurboIncludeTags, "phlex/rails/helpers/turbo_include_tags"
+	autoload :TurboRefreshesWith, "phlex/rails/helpers/turbo_refreshes_with"
 	autoload :TurboRefreshMethodTag, "phlex/rails/helpers/turbo_refresh_method_tag"
 	autoload :TurboRefreshScrollTag, "phlex/rails/helpers/turbo_refresh_scroll_tag"
-	autoload :TurboRefreshesWith, "phlex/rails/helpers/turbo_refreshes_with"
 	autoload :TurboStream, "phlex/rails/helpers/turbo_stream"
 	autoload :TurboStreamFrom, "phlex/rails/helpers/turbo_stream_from"
 	autoload :URLField, "phlex/rails/helpers/url_field"
@@ -194,56 +194,10 @@ module Phlex::Rails::Helpers
 	autoload :VideoPath, "phlex/rails/helpers/video_path"
 	autoload :VideoTag, "phlex/rails/helpers/video_tag"
 	autoload :VideoURL, "phlex/rails/helpers/video_url"
-	autoload :WeekField, "phlex/rails/helpers/week_field"
-	autoload :WeekFieldTag, "phlex/rails/helpers/week_field_tag"
 	autoload :WeekdayOptionsForSelect, "phlex/rails/helpers/weekday_options_for_select"
 	autoload :WeekdaySelect, "phlex/rails/helpers/weekday_select"
+	autoload :WeekField, "phlex/rails/helpers/week_field"
+	autoload :WeekFieldTag, "phlex/rails/helpers/week_field_tag"
 	autoload :WithOutputBuffer, "phlex/rails/helpers/with_output_buffer"
 	autoload :WordWrap, "phlex/rails/helpers/word_wrap"
-
-	DEPRECATED = {
-		Checkbox: :CheckBox,
-		CheckboxTag: :CheckBoxTag,
-		CollectionCheckboxes: :CollectionCheckBoxes,
-		DateTimeField: :DatetimeField,
-		PathToJavaScript: :PathToJavascript,
-		DateTimeFieldTag: :DatetimeFieldTag,
-		DateTimeLocalField: :DatetimeLocalField,
-		DateTimeLocalFieldTag: :DatetimeLocalFieldTag,
-		DateTimeSelect: :DatetimeSelect,
-		JavaScriptImportModuleTag: :JavascriptImportModuleTag,
-		JavaScriptImportMapTags: :JavascriptImportmapTags,
-		JavaScriptIncludeTag: :JavascriptIncludeTag,
-		JavaScriptPath: :JavascriptPath,
-		JavaScriptTag: :JavascriptTag,
-		JavaScriptURL: :JavascriptURL,
-		LinkIf: :LinkToIf,
-		PathToStyleSheet: :PathToStylesheet,
-		SanitizeCss: :SanitizeCSS,
-		SelectDateTime: :SelectDatetime,
-		StyleSheetLinkTag: :StylesheetLinkTag,
-		StyleSheetPath: :StylesheetPath,
-		StyleSheetURL: :StylesheetURL,
-		URLToJavaScript: :URLToJavascript,
-		URLToStyleSheet: :URLToStylesheet,
-	}
-
-	def self.const_missing(name)
-		if (helper_module_name = DEPRECATED[name])
-			message = "`Phlex::Rails::Helpers::#{name}` is deprecated. Please use `Phlex::Rails::Helpers::#{helper_module_name}` instead."
-
-			if name.to_s.downcase == helper_module_name.to_s.downcase
-				message << " Note the casing of the module name has changed to match the helper method."
-			end
-
-			Phlex::Rails::Deprecation.warn(message)
-
-			helper_module = const_get(helper_module_name)
-			const_set(name, helper_module)
-
-			helper_module
-		else
-			super
-		end
-	end
 end

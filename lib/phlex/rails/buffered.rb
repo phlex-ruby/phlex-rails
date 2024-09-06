@@ -30,7 +30,7 @@ module Phlex::Rails
 
 					case output
 					when ::ActiveSupport::SafeBuffer
-						@view.instance_variable_get(:@_context).target << output
+						@view.instance_variable_get(:@_context).buffer << output
 					end
 
 					nil
@@ -48,15 +48,14 @@ module Phlex::Rails
 			@object.respond_to?(...)
 		end
 
-		def method_missing(*args, **kwargs, &block)
+		def method_missing(*, **, &block)
 			output = if block
-				@object.public_send(*args, **kwargs) { |*a| @view.capture(*a, &block) }
+				@object.public_send(*, **) { |*a| @view.capture(*a, &block) }
 			else
-				@object.public_send(*args, **kwargs)
+				@object.public_send(*, **)
 			end
 
-			case output
-			when ::ActiveSupport::SafeBuffer
+			if ::ActiveSupport::SafeBuffer === output
 				@view.instance_variable_get(:@_context).target << output
 			end
 

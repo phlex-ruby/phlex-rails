@@ -11,16 +11,15 @@ module Phlex
 		autoload :BufferedLabelBuilder, "phlex/rails/buffered_label_builder"
 		autoload :BufferedRadioButtonBuilder, "phlex/rails/buffered_radio_button_builder"
 		autoload :CSV, "phlex/rails/csv"
-		autoload :HTML, "phlex/rails/html"
+		autoload :FragmentFinder, "phlex/rails/fragment_finder"
+		autoload :HelperFinder, "phlex/rails/helper_finder"
 		autoload :HelperMacros, "phlex/rails/helper_macros"
 		autoload :Helpers, "phlex/rails/helpers"
+		autoload :HTML, "phlex/rails/html"
 		autoload :Layout, "phlex/rails/layout"
 		autoload :SGML, "phlex/rails/sgml"
-		autoload :UnbufferedOverrides, "phlex/rails/unbuffered_overrides"
 		autoload :Streaming, "phlex/rails/streaming"
-		autoload :FragmentFinder, "phlex/rails/fragment_finder"
-
-		Deprecation = ActiveSupport::Deprecation.new("2.0", "Phlex::Rails")
+		autoload :Unbuffered, "phlex/rails/unbuffered"
 	end
 
 	CSV.extend Phlex::Rails::HelperMacros
@@ -29,10 +28,8 @@ module Phlex
 	SGML.extend Phlex::Rails::SGML::ClassMethods
 	SGML.extend Phlex::Rails::HelperMacros
 	SGML.prepend Phlex::Rails::SGML::Overrides
+	SGML.include Phlex::Rails::HelperFinder
 
 	HTML.extend Phlex::Rails::HTML::Format
 	HTML.include Phlex::Rails::HTML::Format
-	HTML.include Phlex::Rails::HTML::MethodMissing
-
-	Unbuffered.prepend Phlex::Rails::UnbufferedOverrides
 end

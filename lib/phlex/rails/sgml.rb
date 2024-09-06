@@ -11,14 +11,14 @@ module Phlex
 
 			module Overrides
 				def helpers
-					if defined?(ViewComponent::Base) && @_view_context.is_a?(ViewComponent::Base)
+					if defined?(ViewComponent::Base) && ViewComponent::Base === @_view_context
 						@_view_context.helpers
 					else
 						@_view_context
 					end
 				end
 
-				def render(*args, **kwargs, &block)
+				def render(*args, **, &block)
 					renderable = args[0]
 
 					case renderable
@@ -27,10 +27,10 @@ module Phlex
 					when Class
 						return super if renderable < Phlex::SGML
 					when Enumerable
-						return super unless renderable.is_a?(ActiveRecord::Relation)
+						return super unless ActiveRecord::Relation === renderable
 					else
 						if block
-							@_context.target << @_view_context.render(*args, **kwargs) do |*yielded_args|
+							@_context.target << @_view_context.render(*args, **) do |*yielded_args|
 								if yielded_args.length == 1 && defined?(ViewComponent::Base) && ViewComponent::Base === yielded_args[0]
 									capture(Phlex::Rails::Buffered.new(yielded_args[0], view: self), &block)
 								else
@@ -38,7 +38,7 @@ module Phlex
 								end
 							end
 						else
-							@_context.target << @_view_context.render(*args, **kwargs)
+							@_context.target << @_view_context.render(*args, **)
 						end
 					end
 
@@ -51,12 +51,13 @@ module Phlex
 					end
 
 					if block_given?
-						call(view_context: view_context, fragments: fragments) do |*args|
+						call(view_context:, fragments:) do |*args|
 							original_length = @_context.target.bytesize
 
 							if args.length == 1 && Phlex::SGML === args[0] && !block.source_location&.[](0)&.end_with?(".rb")
 								output = view_context.capture(
-									args[0].unbuffered, &block
+									Phlex::Rails::Unbuffered.new(args[0]),
+									&block
 								)
 							else
 								output = view_context.capture(*args, &block)
@@ -72,7 +73,7 @@ module Phlex
 							end
 						end.html_safe
 					else
-						call(view_context: view_context, fragments: fragments).html_safe
+						call(view_context:, fragments:).html_safe
 					end
 				end
 
