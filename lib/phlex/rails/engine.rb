@@ -1,7 +1,10 @@
 # frozen_string_literal: true
 
-require "phlex/rails"
 require "rails/engine"
 
-class Phlex::Rails::Engine < Rails::Engine
+module Phlex
+	module Rails
+		class Engine < Rails::Engine
+		end
+	end
 end
