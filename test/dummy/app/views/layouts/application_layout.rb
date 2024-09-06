@@ -19,7 +19,7 @@ class ApplicationLayout < ApplicationView
 				stylesheet_link_tag "application", data: { turbo_track: "reload" }
 			end
 
-			body(class: tokens(-> { @color == :blue } => { then: "bg-blue", else: "bg-black" })) do
+			body(class: "bg-blue") do
 				main(&block)
 			end
 		end

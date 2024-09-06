@@ -7,17 +7,19 @@ module Phlex::Rails::Streaming
 	private
 
 	def stream(view, last_modified: Time.now.httpdate, filename: nil)
-		__set_stream_headers__(last_modified: last_modified)
+		__phlex_set_stream_headers__(last_modified: last_modified)
 
 		case view
 		when Phlex::HTML
-			__stream_html__(view)
+			__phlex_stream_html__(view)
 		when Phlex::CSV
-			__stream_csv__(view, filename: filename)
+			__phlex_stream_csv__(view, filename: filename)
+		else
+			raise Phlex::ArgumentError
 		end
 	end
 
-	def __set_stream_headers__(last_modified:)
+	def __phlex_set_stream_headers__(last_modified:)
 		headers.delete("Content-Length")
 
 		headers["X-Accel-Buffering"] = "no"
@@ -25,7 +27,7 @@ module Phlex::Rails::Streaming
 		headers["Last-Modified"] = last_modified
 	end
 
-	def __stream_csv__(view, filename:)
+	def __phlex_stream_csv__(view, filename:)
 		headers["Content-Type"] = "text/csv; charset=utf-8"
 		headers["Content-Disposition"] = "attachment; filename=\"#{filename || view.filename}\""
 
@@ -34,7 +36,7 @@ module Phlex::Rails::Streaming
 		end
 	end
 
-	def __stream_html__(view)
+	def __phlex_stream_html__(view)
 		headers["Content-Type"] = "text/html; charset=utf-8"
 
 		# Ensure we have a session id.

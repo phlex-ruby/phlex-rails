@@ -5,7 +5,7 @@ module Phlex
 		module CSV
 			module Overrides
 				def each_item(&block)
-					return super unless collection.is_a?(ActiveRecord::Relation)
+					return super unless ActiveRecord::Relation === collection
 					return super unless collection.arel.orders.empty?
 
 					collection.find_each(&block)

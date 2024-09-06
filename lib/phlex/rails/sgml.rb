@@ -11,7 +11,7 @@ module Phlex
 
 			module Overrides
 				def helpers
-					if defined?(ViewComponent::Base) && @_view_context.is_a?(ViewComponent::Base)
+					if defined?(ViewComponent::Base) && ViewComponent::Base === @_view_context
 						@_view_context.helpers
 					else
 						@_view_context
@@ -27,7 +27,7 @@ module Phlex
 					when Class
 						return super if renderable < Phlex::SGML
 					when Enumerable
-						return super unless renderable.is_a?(ActiveRecord::Relation)
+						return super unless ActiveRecord::Relation === renderable
 					else
 						if block
 							@_context.target << @_view_context.render(*args, **kwargs) do |*yielded_args|
@@ -56,7 +56,8 @@ module Phlex
 
 							if args.length == 1 && Phlex::SGML === args[0] && !block.source_location&.[](0)&.end_with?(".rb")
 								output = view_context.capture(
-									args[0].unbuffered, &block
+									Phlex::Rails::Unbuffered.new(args[0]),
+									&block
 								)
 							else
 								output = view_context.capture(*args, &block)

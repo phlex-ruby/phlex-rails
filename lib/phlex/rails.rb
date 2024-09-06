@@ -6,6 +6,7 @@ require "phlex/rails/engine"
 module Phlex
 	module Rails
 		autoload :Buffered, "phlex/rails/buffered"
+		autoload :Unbuffered, "phlex/rails/unbuffered"
 		autoload :BufferedCheckboxBuilder, "phlex/rails/buffered_checkbox_builder"
 		autoload :BufferedFormBuilder, "phlex/rails/buffered_form_builder"
 		autoload :BufferedLabelBuilder, "phlex/rails/buffered_label_builder"
@@ -16,7 +17,6 @@ module Phlex
 		autoload :Helpers, "phlex/rails/helpers"
 		autoload :Layout, "phlex/rails/layout"
 		autoload :SGML, "phlex/rails/sgml"
-		autoload :UnbufferedOverrides, "phlex/rails/unbuffered_overrides"
 		autoload :Streaming, "phlex/rails/streaming"
 		autoload :FragmentFinder, "phlex/rails/fragment_finder"
 
@@ -33,6 +33,4 @@ module Phlex
 	HTML.extend Phlex::Rails::HTML::Format
 	HTML.include Phlex::Rails::HTML::Format
 	HTML.include Phlex::Rails::HTML::MethodMissing
-
-	Unbuffered.prepend Phlex::Rails::UnbufferedOverrides
 end

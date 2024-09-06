@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
 	spec.description = "A high-performance view framework optimised for developer happiness."
 	spec.homepage = "https://www.phlex.fun"
 	spec.license = "MIT"
-	spec.required_ruby_version = ">= 2.7"
+	spec.required_ruby_version = ">= 3.3.1"
 
 	spec.metadata["homepage_uri"] = spec.homepage
 	spec.metadata["source_code_uri"] = "https://github.com/phlex-ruby/phlex-rails"
@@ -26,9 +26,10 @@ Gem::Specification.new do |spec|
 			(f == __FILE__) || f.match(%r{\A(?:(?:bin|test|spec|features)/|\.(?:git|travis|circleci)|appveyor)})
 		end
 	end
+
 	spec.require_paths = ["lib"]
 
-	spec.add_dependency "phlex", "~> 1.11.0"
+	spec.add_dependency "phlex", "~> 2.0.0"
 	spec.add_dependency "railties", ">= 6.1", "< 8"
 
 	spec.metadata["rubygems_mfa_required"] = "true"
