@@ -10,20 +10,15 @@ class Phlex::Rails::Unbuffered < BasicObject
 		"Unbuffered(#{@object.class.name})[object: #{@object.inspect}]"
 	end
 
-	# Borrow some important methods from Object
 	define_method :__class__,
 		::Object.instance_method(:class)
-
-	define_method :__public_send__,
-		::Object.instance_method(:public_send)
 
 	def respond_to_missing?(...)
 		@object.respond_to?(...)
 	end
 
-	def method_missing(name, *args, **kwargs, &block)
+	def method_missing(name, ...)
 		if @object.respond_to?(name)
-
 			__class__.define_method(name) do |*a, **k, &b|
 				@object.capture do
 					if b
@@ -43,8 +38,7 @@ class Phlex::Rails::Unbuffered < BasicObject
 				end
 			end
 
-			# Now we've defined this missing method, we can call it.
-			__public_send__(name, *args, **kwargs, &block)
+			__send__(name, ...)
 		else
 			super
 		end

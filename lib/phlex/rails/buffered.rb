@@ -48,11 +48,11 @@ module Phlex::Rails
 			@object.respond_to?(...)
 		end
 
-		def method_missing(*args, **kwargs, &block)
+		def method_missing(*, **, &block)
 			output = if block
-				@object.public_send(*args, **kwargs) { |*a| @view.capture(*a, &block) }
+				@object.public_send(*, **) { |*a| @view.capture(*a, &block) }
 			else
-				@object.public_send(*args, **kwargs)
+				@object.public_send(*, **)
 			end
 
 			if ::ActiveSupport::SafeBuffer === output

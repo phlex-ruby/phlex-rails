@@ -7,13 +7,13 @@ module Phlex::Rails::Streaming
 	private
 
 	def stream(view, last_modified: Time.now.httpdate, filename: nil)
-		__phlex_set_stream_headers__(last_modified: last_modified)
+		__phlex_set_stream_headers__(last_modified:)
 
 		case view
 		when Phlex::HTML
 			__phlex_stream_html__(view)
 		when Phlex::CSV
-			__phlex_stream_csv__(view, filename: filename)
+			__phlex_stream_csv__(view, filename:)
 		else
 			raise Phlex::ArgumentError
 		end
@@ -32,7 +32,7 @@ module Phlex::Rails::Streaming
 		headers["Content-Disposition"] = "attachment; filename=\"#{filename || view.filename}\""
 
 		self.response_body = Enumerator.new do |buffer|
-			view.call(buffer, view_context: view_context)
+			view.call(buffer, view_context:)
 		end
 	end
 
@@ -47,7 +47,7 @@ module Phlex::Rails::Streaming
 		end
 
 		self.response_body = Enumerator.new do |buffer|
-			view.call(buffer, view_context: view_context)
+			view.call(buffer, view_context:)
 		rescue => e
 			raise(e) if Rails.env.test?
 

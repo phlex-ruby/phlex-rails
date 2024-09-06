@@ -18,8 +18,8 @@ module Phlex::Rails
 
 		# @api private
 		module Interface
-			def render(view_context, _locals, &block)
-				new.render(view_context, &block)
+			def render(view_context, _locals, &)
+				new.render(view_context, &)
 			end
 
 			def identifier
@@ -49,7 +49,7 @@ module Phlex::Rails
 			if @_context
 				super
 			else
-				call(view_context: view_context) do |yielded|
+				call(view_context:) do |yielded|
 					case yielded
 					when Symbol
 						output = view_context.view_flow.get(yielded)
