@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
-<% module_namespacing do -%>
-class <%= class_name %>View < ApplicationView
+class Views::<%= "#{namespace}::" if namespaced? %><%= class_name %> < Views::Base
   def view_template
     h1 { "<%= class_name %>" }
     p { "Find me in <%= @path %>" }
   end
-end<% end %>
+end

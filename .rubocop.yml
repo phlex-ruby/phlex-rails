@@ -6,10 +6,5 @@ AllCops:
   TargetRubyVersion: 3.3.3
   Exclude:
     - "lib/phlex-rails.rb"
+    - "lib/generators/**/*"
   SuggestExtensions: false
-
-Style/MissingRespondToMissing:
-  Enabled: false
-
-Style/RescueStandardError:
-  Enabled: false

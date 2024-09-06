@@ -1,8 +1,8 @@
 Description:
-  Generates a Phlex component with the given name
+  Generates a new Phlex component
 
 Example:
   rails generate phlex:component Sidebar
 
 This will create:
-  app/views/components/sidebar_component.rb
+  app/components/sidebar.rb
