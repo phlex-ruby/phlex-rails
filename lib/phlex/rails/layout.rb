@@ -57,7 +57,7 @@ module Phlex::Rails
 						output = view_context.capture(&block)
 					end
 
-					unsafe_raw output
+					raw output
 				end
 			end
 		end

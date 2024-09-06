@@ -32,4 +32,6 @@ module Phlex
 
 	HTML.extend Phlex::Rails::HTML::Format
 	HTML.include Phlex::Rails::HTML::Format
+
+	ActiveSupport::SafeBuffer.include(Phlex::SGML::SafeObject)
 end
