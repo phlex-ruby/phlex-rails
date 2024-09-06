@@ -6,49 +6,38 @@ module Phlex::Generators
 
 		APPLICATION_CONFIGURATION_PATH = Rails.root.join("config/application.rb")
 
-		ADD_EXTRA_AUTOLOAD_PATHS_CODE = <<-ADD_EXTRA_AUTOLOAD_PATHS_CODE
-    config.autoload_paths.push(
-      "\#{root}/app/views/components",
-      "\#{root}/app/views",
-      "\#{root}/app/views/layouts"
-    )
-		ADD_EXTRA_AUTOLOAD_PATHS_CODE
-
-		def autoload_components_layouts_views
-			return unless APPLICATION_CONFIGURATION_PATH.exist?
-
-			inject_into_class(
-				APPLICATION_CONFIGURATION_PATH,
-				"Application",
-				ADD_EXTRA_AUTOLOAD_PATHS_CODE,
-			)
-		end
-
 		def configure_tailwind
-			return unless tailwind_configuration_path.exist?
-
-			insert_into_file tailwind_configuration_path, after: "content: [" do
-				"\n    './app/views/**/*.rb'," \
+			if tailwind_configuration_path
+				insert_into_file tailwind_configuration_path, after: "content: [" do
+					'\n    "./app/views/**/*.rb",'
+				end
 			end
 		end
 
 		def create_application_component
-			template "application_component.rb", Rails.root.join("app/views/components/application_component.rb")
-		end
-
-		def create_application_layout
-			template "application_layout.rb", Rails.root.join("app/views/layouts/application_layout.rb")
+			template "base_component.rb.erb", Rails.root.join("app/components/base.rb")
 		end
 
 		def create_application_view
-			template "application_view.rb", Rails.root.join("app/views/application_view.rb")
+			template "base_view.rb.erb", Rails.root.join("app/views/base.rb")
+		end
+
+		def create_hello_component
+			template "hello_component.rb.erb", Rails.root.join("app/components/hello.rb")
+		end
+
+		def create_initializer
+			template "phlex.rb.erb", Rails.root.join("config/initializers/phlex.rb")
 		end
 
 		private
 
 		def tailwind_configuration_path
-			@_tailwind_configuration_path ||=
-				Pathname.new(tailwind_configuration_files.first)
+			if tailwind_configuration_files.any?
+				Pathname.new(
+					tailwind_configuration_files.first,
+				)
+			end
 		end
 
 		def tailwind_configuration_files

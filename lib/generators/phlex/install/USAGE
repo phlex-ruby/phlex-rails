@@ -5,4 +5,6 @@ Example:
   rails generate phlex:install
 
 This will create:
-  app/views/application_view.rb
+  app/views/base.rb
+  app/components/base.rb
+	app/initializers/phlex.rb

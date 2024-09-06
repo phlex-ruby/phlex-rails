@@ -5,4 +5,4 @@ Example:
   rails generate phlex:view Articles::Index
 
 This will create:
-  app/views/articles/index_view.rb
+  app/views/articles/index.rb
