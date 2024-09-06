@@ -5,15 +5,14 @@ module Phlex::Generators
 		source_root File.expand_path("templates", __dir__)
 
 		APPLICATION_CONFIGURATION_PATH = Rails.root.join("config/application.rb")
-		TAILWIND_CONFIGURATION_PATH = Rails.root.join("tailwind.config.js")
+
 		ADD_EXTRA_AUTOLOAD_PATHS_CODE = <<-ADD_EXTRA_AUTOLOAD_PATHS_CODE
     config.autoload_paths.push(
       "\#{root}/app/views/components",
       "\#{root}/app/views",
       "\#{root}/app/views/layouts"
     )
-
-				ADD_EXTRA_AUTOLOAD_PATHS_CODE
+		ADD_EXTRA_AUTOLOAD_PATHS_CODE
 
 		def autoload_components_layouts_views
 			return unless APPLICATION_CONFIGURATION_PATH.exist?
@@ -26,9 +25,9 @@ module Phlex::Generators
 		end
 
 		def configure_tailwind
-			return unless TAILWIND_CONFIGURATION_PATH.exist?
+			return unless tailwind_configuration_path.exist?
 
-			insert_into_file TAILWIND_CONFIGURATION_PATH, after: "content: [" do
+			insert_into_file tailwind_configuration_path, after: "content: [" do
 				"\n    './app/views/**/*.rb'," \
 			end
 		end
@@ -43,6 +42,23 @@ module Phlex::Generators
 
 		def create_application_view
 			template "application_view.rb", Rails.root.join("app/views/application_view.rb")
+		end
+
+		private
+
+		def tailwind_configuration_path
+			@_tailwind_configuration_path ||=
+				Pathname.new(tailwind_configuration_files.first)
+		end
+
+		def tailwind_configuration_files
+			Dir.glob(
+				[
+					"#{Rails.root}/tailwind.config.js",
+					"#{Rails.root}/app/**/tailwind.config.js",
+					"#{Rails.root}/config/**/tailwind.config.js",
+				],
+			)
 		end
 	end
 end
