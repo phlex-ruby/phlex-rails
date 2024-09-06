@@ -1,8 +1,8 @@
-module Components
-  extend Phlex::Kit
+module Views
 end
 
-module Views
+module Components
+  extend Phlex::Kit
 end
 
 Rails.autoloaders.main.push_dir("#{Rails.root}/app/views", namespace: Views)
