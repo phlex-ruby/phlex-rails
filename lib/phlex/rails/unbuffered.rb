@@ -23,9 +23,9 @@ class Phlex::Rails::Unbuffered < BasicObject
 				@object.capture do
 					if b
 						@object.public_send(name, *a, **k) do |*aa|
-							if aa.length == 1 && Phlex::SGML === aa[0]
+							if aa.length == 1 && ::Phlex::SGML === aa[0]
 								@object.helpers.capture(
-									Phlex::Rails::Unbuffered.new(aa[0]),
+									::Phlex::Rails::Unbuffered.new(aa[0]),
 									&b
 								)
 							else
