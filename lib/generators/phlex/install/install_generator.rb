@@ -9,7 +9,8 @@ module Phlex::Generators
 		def configure_tailwind
 			if tailwind_configuration_path
 				insert_into_file tailwind_configuration_path, after: "content: [" do
-					'\n    "./app/views/**/*.rb",'
+					"\n    './app/views/**/*.rb', // Phlex views" \
+					"\n    './app/components/**/*.rb', // Phlex components" \
 				end
 			end
 		end
