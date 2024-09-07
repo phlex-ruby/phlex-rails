@@ -1,0 +1,30 @@
+<div id="erb">
+	<%= render Table.new do |t| %>
+		<%= t.header do %>
+			<%= t.column_header do %>
+				Name
+			<% end %>
+			<%= t.column_header do %>
+				Age
+			<% end %>
+		<% end %>
+		<%= t.body do %>
+			<%= t.row do %>
+				<%= t.cell do %>
+					John
+				<% end %>
+				<%= t.cell do %>
+					30
+				<% end %>
+			<% end %>
+			<%= t.row do %>
+				<%= t.cell do %>
+					Jane
+				<% end %>
+				<%= t.cell do %>
+					25
+				<% end %>
+			<% end %>
+		<% end %>
+  <% end %>
+</div>

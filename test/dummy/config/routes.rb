@@ -20,4 +20,5 @@ Rails.application.routes.draw do
 
 	get "/rendering/partial_from_phlex", to: "rendering#partial_from_phlex"
 	get "/rendering/view_component_from_phlex", to: "rendering#view_component_from_phlex"
+	get "/rendering/phlex_component_from_erb", to: "rendering#phlex_component_from_erb"
 end
