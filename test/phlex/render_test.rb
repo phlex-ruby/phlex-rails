@@ -18,6 +18,6 @@ class RenderTest < ActionDispatch::IntegrationTest
 	test "rendering Phlex component from ERB view" do
 		get "/rendering/phlex_component_from_erb"
 		assert_response :success
-		assert_select "#erb>table>thead>tr>th", "Name"
+		assert_select ".outside .card .inside .title .inside-slot", "Hi"
 	end
 end
