@@ -18,6 +18,21 @@ module Phlex
 					end
 				end
 
+				def capture_string(*, &block)
+					if block_given?
+						output = yield(*)
+
+						case output
+						when ActiveSupport::SafeBuffer
+							output
+						else
+							"".html_safe
+						end
+					else
+						"".html_safe
+					end
+				end
+
 				def render(*args, **kwargs, &block)
 					renderable = args[0]
 
@@ -60,31 +75,17 @@ module Phlex
 						fragment_header.split
 					end
 
-					if block_given?
-						call(view_context:, fragments:) do |*args|
-							original_length = @_context.target.bytesize
+					call(view_context:, fragments:) do |*args|
+						if args.length == 1 && Phlex::SGML === args[0] && !block.source_location&.[](0)&.end_with?(".rb")
+							component = args[0]
+							unbuffered = Phlex::Rails::Unbuffered.new(component)
+							output = helpers.capture(component, &block) if block
+						else
+							output = helpers.capture(*args, &block) if block
+						end
 
-							if args.length == 1 && Phlex::SGML === args[0] && !block.source_location&.[](0)&.end_with?(".rb")
-								output = view_context.capture(
-									Phlex::Rails::Unbuffered.new(args[0]),
-									&block
-								)
-							else
-								output = view_context.capture(*args, &block)
-							end
-
-							unchanged = (original_length == @_context.target.bytesize)
-
-							if unchanged
-								case output
-								when ActiveSupport::SafeBuffer
-									@_context.target << output
-								end
-							end
-						end.html_safe
-					else
-						call(view_context:, fragments:).html_safe
-					end
+						raw(output)
+					end.html_safe
 				end
 
 				def capture(...)

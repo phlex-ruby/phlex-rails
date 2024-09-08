@@ -1,44 +1,32 @@
 # frozen_string_literal: true
 
 # @api private
-class Phlex::Rails::Unbuffered < BasicObject
+class Phlex::Rails::Unbuffered
 	def initialize(object)
 		@object = object
 	end
-
-	def inspect
-		"Unbuffered(#{@object.class.name})[object: #{@object.inspect}]"
-	end
-
-	define_method :__class__,
-		::Object.instance_method(:class)
 
 	def respond_to_missing?(...)
 		@object.respond_to?(...)
 	end
 
-	def method_missing(name, ...)
-		if @object.respond_to?(name)
-			__class__.define_method(name) do |*a, **k, &b|
-				@object.capture do
-					if b
-						@object.public_send(name, *a, **k) do |*aa|
-							if aa.length == 1 && ::Phlex::SGML === aa[0]
-								@object.helpers.capture(
-									::Phlex::Rails::Unbuffered.new(aa[0]),
-									&b
-								)
-							else
-								@object.helpers.capture(*aa, &b)
-							end
-						end
-					else
-						@object.public_send(name, *a, **k)
+	def method_missing(method_name, *, &erb)
+		if @object.respond_to?(method_name)
+
+			# ERB expects a string, so we capture before calling the original method
+			@object.capture do
+				if erb
+					# If we passed an erb block, we need to prevent ERB from pushing it to its output buffer
+					@object.public_send(method_name, *) do
+						raw(
+							# Ask ActionView to not output the erb but instead give it to us as a string
+							@object.helpers.capture(&erb),
+						)
 					end
+				else
+					@object.public_send(method_name, *)
 				end
 			end
-
-			__send__(name, ...)
 		else
 			super
 		end
