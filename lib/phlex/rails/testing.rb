@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 require "phlex/rails"
 require "phlex/testing"
@@ -13,5 +14,5 @@ module Phlex::Testing::RailsContext
 end
 
 Phlex::Testing::SGML.include(
-	Phlex::Testing::RailsContext
+	Phlex::Testing::RailsContext,
 )
