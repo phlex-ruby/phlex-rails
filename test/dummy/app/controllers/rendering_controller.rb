@@ -8,4 +8,7 @@ class RenderingController < ApplicationController
 	def view_component_from_phlex
 		render Rendering::ViewComponentFromPhlex.new
 	end
+
+	def phlex_component_from_erb
+	end
 end

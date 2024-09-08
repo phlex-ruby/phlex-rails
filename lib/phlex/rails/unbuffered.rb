@@ -1,59 +1,51 @@
 # frozen_string_literal: true
 
 # @api private
-class Phlex::Rails::Unbuffered < BasicObject
-	def initialize(object)
-		@object = object
+class Phlex::Rails::Unbuffered
+	def initialize(component)
+		@component = component
 	end
-
-	def inspect
-		"Unbuffered(#{@object.class.name})[object: #{@object.inspect}]"
-	end
-
-	define_method :__class__,
-		::Object.instance_method(:class)
 
 	def respond_to_missing?(...)
-		@object.respond_to?(...)
+		@component.respond_to?(...)
 	end
 
-	def method_missing(name, ...)
-		if @object.respond_to?(name)
-			__class__.define_method(name) do |*a, **k, &b|
-				@object.capture do
-					if b
-						@object.public_send(name, *a, **k) do |*aa|
-							if aa.length == 1 && ::Phlex::SGML === aa[0]
-								@object.helpers.capture(
-									::Phlex::Rails::Unbuffered.new(aa[0]),
-									&b
-								)
-							else
-								@object.helpers.capture(*aa, &b)
-							end
-						end
-					else
-						@object.public_send(name, *a, **k)
+	def method_missing(method_name, *, &erb)
+		if @component.respond_to?(method_name)
+			output = @component.capture do
+				if erb
+					@component.public_send(method_name, *) do
+						@component.raw(
+							@component.helpers.capture(
+								&erb
+							),
+						)
 					end
+				else # no erb block
+					@component.public_send(
+						method_name,
+						*,
+					)
 				end
 			end
-
-			__send__(name, ...)
 		else
 			super
 		end
 	end
 
-	# Forward some methods to the original underlying object
+	def inspect
+		"Unbuffered(#{@component.inspect})"
+	end
+
 	def call(...)
-		@object.call(...)
+		@component.call(...)
 	end
 
 	def send(...)
-		@object.__send__(...)
+		@component.__send__(...)
 	end
 
 	def public_send(...)
-		@object.public_send(...)
+		@component.public_send(...)
 	end
 end

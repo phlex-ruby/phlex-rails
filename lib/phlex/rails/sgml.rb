@@ -55,33 +55,20 @@ module Phlex
 					nil
 				end
 
-				def render_in(view_context, &block)
+				def render_in(view_context, &erb)
 					fragments = if view_context.request && (fragment_header = view_context.request.headers["X-Fragment"])
 						fragment_header.split
 					end
 
-					if block_given?
-						call(view_context:, fragments:) do |*args|
-							original_length = @_context.target.bytesize
-
-							if args.length == 1 && Phlex::SGML === args[0] && !block.source_location&.[](0)&.end_with?(".rb")
-								output = view_context.capture(
-									Phlex::Rails::Unbuffered.new(args[0]),
-									&block
-								)
+					if erb
+						call(view_context:, fragments:) { |*args|
+							if args.length == 1 && Phlex::SGML === args[0] && !erb.source_location&.[](0)&.end_with?(".rb")
+								unbuffered = Phlex::Rails::Unbuffered.new(args[0])
+								raw(helpers.capture(unbuffered, &erb))
 							else
-								output = view_context.capture(*args, &block)
+								raw(helpers.capture(*args, &erb))
 							end
-
-							unchanged = (original_length == @_context.target.bytesize)
-
-							if unchanged
-								case output
-								when ActiveSupport::SafeBuffer
-									@_context.target << output
-								end
-							end
-						end.html_safe
+						}.html_safe
 					else
 						call(view_context:, fragments:).html_safe
 					end
