@@ -56,7 +56,7 @@ module Phlex::Rails
 			end
 
 			if ::ActiveSupport::SafeBuffer === output
-				@view.instance_variable_get(:@_context).target << output
+				@view.instance_variable_get(:@_context).buffer << output
 			end
 
 			nil
