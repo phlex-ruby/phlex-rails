@@ -10,11 +10,11 @@ class Phlex::Rails::Unbuffered
 		@component.respond_to?(...)
 	end
 
-	def method_missing(method_name, *, &erb)
+	def method_missing(method_name, *, **, &erb)
 		if @component.respond_to?(method_name)
 			output = @component.capture do
 				if erb
-					@component.public_send(method_name, *) do
+					@component.public_send(method_name, *, **) do
 						@component.raw(
 							@component.helpers.capture(
 								&erb
@@ -22,10 +22,7 @@ class Phlex::Rails::Unbuffered
 						)
 					end
 				else # no erb block
-					@component.public_send(
-						method_name,
-						*,
-					)
+					@component.public_send(method_name, *, **)
 				end
 			end
 		else
