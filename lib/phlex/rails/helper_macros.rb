@@ -16,12 +16,7 @@ module Phlex::Rails::HelperMacros
 					helpers.#{method_name}(*args, **kwargs)
 				end
 
-				case output
-				when ActiveSupport::SafeBuffer
-					@_context.target << output
-				end
-
-				nil
+				raw(output)
 			end
 		RUBY
 	end
@@ -63,12 +58,7 @@ module Phlex::Rails::HelperMacros
 					helpers.#{method_name}(*args, **kwargs)
 				end
 
-				case output
-				when ActiveSupport::SafeBuffer
-					@_context.target << output
-				end
-
-				nil
+				raw(output)
 			end
 		RUBY
 	end

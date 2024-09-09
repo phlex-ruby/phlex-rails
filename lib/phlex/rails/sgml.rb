@@ -32,16 +32,16 @@ module Phlex
 						partial = kwargs.delete(:partial)
 
 						if partial # this is a hack to get around https://github.com/rails/rails/issues/51015
-							@_context.target << @_view_context.render(partial, **kwargs) do |*yielded_args|
-								capture(*yielded_args, &block)
-							end
-
-							return nil
+							return raw(
+								@_view_context.render(partial, **kwargs) do |*yielded_args|
+									capture(*yielded_args, &block)
+								end,
+							)
 						end
 					end
 
-					if block
-						@_context.target << @_view_context.render(*args, **kwargs) do |*yielded_args|
+					output = if block
+						@_view_context.render(*args, **kwargs) do |*yielded_args|
 							if yielded_args.length == 1 && defined?(ViewComponent::Base) && ViewComponent::Base === yielded_args[0]
 								capture(Phlex::Rails::Buffered.new(yielded_args[0], view: self), &block)
 							else
@@ -49,10 +49,10 @@ module Phlex
 							end
 						end
 					else
-						@_context.target << @_view_context.render(*args, **kwargs)
+						@_view_context.render(*args, **kwargs)
 					end
 
-					nil
+					raw(output)
 				end
 
 				def render_in(view_context, &erb)
