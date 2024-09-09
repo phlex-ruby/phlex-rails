@@ -14,9 +14,11 @@ class Phlex::Rails::Unbuffered
 		if @component.respond_to?(method_name)
 			output = @component.capture do
 				if erb
-					@component.public_send(method_name, *, **) do
+					@component.public_send(method_name, *, **) do |*a, **kw|
 						@component.raw(
 							@component.helpers.capture(
+								*a,
+								**kw,
 								&erb
 							),
 						)
