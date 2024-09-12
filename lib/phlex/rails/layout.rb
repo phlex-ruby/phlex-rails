@@ -45,7 +45,7 @@ module Phlex::Rails
 			klass.extend(Interface)
 		end
 
-		def render(view_context, *args, **kwargs, &block)
+		def render(view_context = nil, *args, **kwargs, &block)
 			if @_context
 				super
 			else

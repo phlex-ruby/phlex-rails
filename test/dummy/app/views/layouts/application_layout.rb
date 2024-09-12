@@ -21,6 +21,7 @@ class ApplicationLayout < ApplicationView
 
 			body(class: "bg-blue") do
 				main(&block)
+				render partial: "rendering/partial"
 			end
 		end
 	end

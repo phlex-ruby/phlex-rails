@@ -18,5 +18,6 @@ class LayoutTest < ActionDispatch::IntegrationTest
 		assert_select "link[rel=stylesheet][data-turbo-track=reload]"
 		assert_select "title", "Phlex View"
 		assert_select "h1", "Hello from Phlex"
+		assert_select "#erb"
 	end
 end
