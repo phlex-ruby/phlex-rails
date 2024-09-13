@@ -10,7 +10,7 @@ module Phlex::Generators
 			if tailwind_configuration_path
 				insert_into_file tailwind_configuration_path, after: "content: [" do
 					"\n    './app/views/**/*.rb', // Phlex views" \
-					"\n    './app/components/**/*.rb', // Phlex components" \
+						"\n    './app/components/**/*.rb', // Phlex components" \
 				end
 			end
 		end
@@ -21,10 +21,6 @@ module Phlex::Generators
 
 		def create_application_view
 			template "base_view.rb.erb", Rails.root.join("app/views/base.rb")
-		end
-
-		def create_hello_component
-			template "hello_component.rb.erb", Rails.root.join("app/components/hello.rb")
 		end
 
 		def create_initializer
