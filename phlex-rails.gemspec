@@ -22,7 +22,7 @@ Gem::Specification.new do |spec|
 	spec.files = Dir[
 		"README.md",
 		"LICENSE.txt",
-		"lib/**/*.rb"
+		"lib/**/*"
 	]
 
 	spec.require_paths = ["lib"]
