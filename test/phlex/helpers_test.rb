@@ -19,7 +19,7 @@ class HelpersTest < ActionDispatch::IntegrationTest
 			get "/helpers/helper_in_initializer"
 		end
 
-		assert_equal "Do not call `helpers` until after the view has been rendered.", error.message
+		assert_equal "Do not use rails helpers until after the view has been rendered.", error.message
 	end
 
 	test "form with" do

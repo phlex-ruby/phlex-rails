@@ -13,7 +13,7 @@ module Phlex
 				class HelpersCalledBeforeRenderError < StandardError; end
 
 				def helpers
-					raise HelpersCalledBeforeRenderError.new("Do not call `helpers` until after the view has been rendered.") unless @_view_context
+					raise HelpersCalledBeforeRenderError.new("Do not use rails helpers until after the view has been rendered.") unless @_view_context
 
 					if defined?(ViewComponent::Base) && ViewComponent::Base === @_view_context
 						@_view_context.helpers
