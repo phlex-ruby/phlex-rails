@@ -19,4 +19,13 @@ class HelpersController < ApplicationController
 		flash.now.notice = "My Flash Notice"
 		render Helpers::NoticeView.new
 	end
+
+	def view_context_required
+		case params[:render_style]
+		when "call"
+			Helpers::ViewContextRequired.new.call
+		when "render"
+			render Helpers::ViewContextRequired.new
+		end
+	end
 end
