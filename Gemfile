@@ -15,3 +15,5 @@ gem "yard"
 gem "rails"
 gem "puma"
 gem "sqlite3"
+
+gem "capybara"

@@ -13,6 +13,6 @@ module Phlex::Testing::RailsContext
 	end
 end
 
-Phlex::Testing::SGML.include(
+Phlex::Testing::SGML.prepend(
 	Phlex::Testing::RailsContext,
 )
