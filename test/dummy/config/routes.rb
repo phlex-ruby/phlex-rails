@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 	get "/layout/with_erb_view", to: "layout#with_erb_view"
 	get "/layout/with_phlex_view", to: "layout#with_phlex_view"
 
+	get "/helpers/helper_in_initializer", to: "helpers#helper_in_initializer"
 	get "/helpers/form_with", to: "helpers#form_with"
 	get "/helpers/tag", to: "helpers#tag"
 	get "/helpers/missing_helper", to: "helpers#missing_helper"

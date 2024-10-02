@@ -14,6 +14,14 @@ class HelpersTest < ActionDispatch::IntegrationTest
 		end
 	end
 
+	test "helper in initializer" do
+		error = assert_raises(Phlex::Rails::SGML::Overrides::HelpersCalledBeforeRenderError) do
+			get "/helpers/helper_in_initializer"
+		end
+
+		assert_equal "Do not use rails helpers until after the view has been rendered.", error.message
+	end
+
 	test "form with" do
 		get "/helpers/form_with"
 
