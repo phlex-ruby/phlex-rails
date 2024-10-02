@@ -34,4 +34,15 @@ class HelpersTest < ActionDispatch::IntegrationTest
 		assert_response :success
 		assert_select "div > h1#hello.text-xl", "Hello World"
 	end
+
+	test "view_context required" do
+		get "/helpers/view_context_required?render_style=render"
+		assert_response :success
+		assert_select "p", "/"
+
+		exception = assert_raises(StandardError) do
+			get "/helpers/view_context_required?render_style=call"
+		end
+		assert_includes exception.message, "Please use `render`"
+	end
 end

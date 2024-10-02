@@ -11,10 +11,10 @@ module Phlex
 
 			module Overrides
 				def helpers
-					if defined?(ViewComponent::Base) && ViewComponent::Base === @_view_context
-						@_view_context.helpers
+					if defined?(ViewComponent::Base) && ViewComponent::Base === view_context!
+						view_context!.helpers
 					else
-						@_view_context
+						view_context!
 					end
 				end
 
@@ -33,7 +33,7 @@ module Phlex
 
 						if partial # this is a hack to get around https://github.com/rails/rails/issues/51015
 							return raw(
-								@_view_context.render(partial, **kwargs) do |*yielded_args|
+								view_context!.render(partial, **kwargs) do |*yielded_args|
 									capture(*yielded_args, &block)
 								end,
 							)
@@ -41,7 +41,7 @@ module Phlex
 					end
 
 					output = if block
-						@_view_context.render(*args, **kwargs) do |*yielded_args|
+						view_context!.render(*args, **kwargs) do |*yielded_args|
 							if yielded_args.length == 1 && defined?(ViewComponent::Base) && ViewComponent::Base === yielded_args[0]
 								capture(Phlex::Rails::Buffered.new(yielded_args[0], view: self), &block)
 							else
@@ -49,7 +49,7 @@ module Phlex
 							end
 						end
 					else
-						@_view_context.render(*args, **kwargs)
+						view_context!.render(*args, **kwargs)
 					end
 
 					raw(output)
@@ -81,6 +81,20 @@ module Phlex
 				# Trick ViewComponent into thinking we're a ViewComponent to fix rendering output
 				# @api private
 				def set_original_view_context(view_context)
+				end
+
+				private
+
+				def view_context!
+					unless @_view_context
+						instance_name = "#{self.class.name.sub(/::[^:]+\z/, '')}_instance"
+						err_s = "👋 Please use `render` to render #{self.class.name} instances (instead of " \
+							"`#{instance_name}.call`). Using `render` allows the component to receive the " \
+							"ActionView context, which is required by Phlex helpers it includes."
+						raise StandardError.new(err_s)
+					end
+
+					@_view_context
 				end
 			end
 		end
