@@ -7,7 +7,6 @@ class ApplicationComponent < Phlex::HTML
 	include Phlex::Rails::Helpers::FormWith
 	include Phlex::Rails::Helpers::ButtonTo
 	include Phlex::Rails::Helpers::Pluralize
-	include Phlex::Rails::Helpers::LinkTo
 
 	register_value_helper :notice
 

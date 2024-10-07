@@ -1,0 +1,15 @@
+Description:
+    Creates Phlex views via the standard Rails scaffold generator
+
+Example:
+    bin/rails generate scaffold article title:string --template-engine=phlex_scaffold
+
+This particular generator will create:
+	app/views/articles/article_view.rb
+	app/views/articles/edit_view.rb
+	app/views/articles/form.rb
+	app/views/articles/index_view.rb
+	app/views/articles/new_view.rb
+	app/views/articles/show_view.rb
+
+other files produced are the result of other generators

@@ -46,5 +46,9 @@ module Phlex::Generators
 				],
 			)
 		end
+
+		def create_scaffold_controller_template
+			copy_file "controller.rb.tt", Rails.root.join("lib/templates/rails/scaffold_controller/controller.rb.tt")
+		end
 	end
 end
