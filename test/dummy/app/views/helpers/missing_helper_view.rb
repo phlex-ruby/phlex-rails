@@ -2,6 +2,6 @@
 
 class Helpers::MissingHelperView < ApplicationView
 	def view_template
-		form_with
+		button_tag
 	end
 end

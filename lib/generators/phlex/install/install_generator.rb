@@ -44,5 +44,9 @@ module Phlex::Generators
 		def create_application_view
 			template "application_view.rb", Rails.root.join("app/views/application_view.rb")
 		end
+
+		def create_scaffold_controller_template
+			copy_file "controller.rb.tt", Rails.root.join("lib/templates/rails/scaffold_controller/controller.rb.tt")
+		end
 	end
 end
