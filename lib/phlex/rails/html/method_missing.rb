@@ -8,6 +8,6 @@ module Phlex::Rails::HTML::MethodMissing
 		module_name = Phlex::Rails::Helpers.constants.find { |mod| mod.to_s.underscore.gsub("domid", "dom_id") == const_name }
 		return super unless module_name
 
-		raise NoMethodError, "Try including `Phlex::Rails::Helpers::#{module_name}` in #{self.class.name}."
+		raise NoMethodError.new("Try including `Phlex::Rails::Helpers::#{module_name}` in #{self.class.name}.")
 	end
 end

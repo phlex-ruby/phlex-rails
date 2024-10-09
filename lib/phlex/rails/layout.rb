@@ -14,6 +14,7 @@ module Phlex::Rails
 		include Helpers::JavascriptImportModuleTag
 		include Helpers::TurboRefreshMethodTag
 		include Helpers::TurboRefreshScrollTag
+		include Helpers::TurboRefreshesWith
 
 		# @api private
 		module Interface
@@ -38,8 +39,7 @@ module Phlex::Rails
 
 		def self.included(klass)
 			unless klass < Phlex::HTML
-				raise Phlex::ArgumentError,
-					"👋 #{name} should only be included into Phlex::HTML classes."
+				raise Phlex::ArgumentError.new("👋 #{name} should only be included into Phlex::HTML classes.")
 			end
 
 			klass.extend(Interface)

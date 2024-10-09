@@ -6,3 +6,8 @@ Example:
 
 This will create:
   app/views/application_view.rb
+  app/views/components/application_component.rb
+  app/views/layouts/application_layout.rb
+
+and modify:
+  config/application.rb

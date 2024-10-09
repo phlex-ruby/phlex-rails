@@ -13,7 +13,7 @@ module Dummy
 		config.autoload_paths << "#{root}/app/views"
 		config.autoload_paths << "#{root}/app/views/layouts"
 		config.autoload_paths << "#{root}/app/views/components"
-		config.load_defaults Rails::VERSION::STRING.to_f
+		config.load_defaults "#{Rails::VERSION::MAJOR}.#{Rails::VERSION::MINOR}"
 
 		# Please, add to the `ignore` list any other `lib` subdirectories that do
 		# not contain `.rb` files, or that should not be reloaded or eager loaded.

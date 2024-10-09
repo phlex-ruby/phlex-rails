@@ -6,34 +6,22 @@ module Phlex::Generators
 
 		APPLICATION_CONFIGURATION_PATH = Rails.root.join("config/application.rb")
 		TAILWIND_CONFIGURATION_PATH = Rails.root.join("tailwind.config.js")
+		ADD_EXTRA_AUTOLOAD_PATHS_CODE = <<-ADD_EXTRA_AUTOLOAD_PATHS_CODE
+    config.autoload_paths.push(
+      "\#{root}/app/views/components",
+      "\#{root}/app/views",
+      "\#{root}/app/views/layouts"
+    )
 
-		def autoload_components
+				ADD_EXTRA_AUTOLOAD_PATHS_CODE
+
+		def autoload_components_layouts_views
 			return unless APPLICATION_CONFIGURATION_PATH.exist?
 
 			inject_into_class(
 				APPLICATION_CONFIGURATION_PATH,
 				"Application",
-				%(    config.autoload_paths << "\#{root}/app/views/components"\n)
-			)
-		end
-
-		def autoload_layouts
-			return unless APPLICATION_CONFIGURATION_PATH.exist?
-
-			inject_into_class(
-				APPLICATION_CONFIGURATION_PATH,
-				"Application",
-				%(    config.autoload_paths << "\#{root}/app/views/layouts"\n)
-			)
-		end
-
-		def autoload_views
-			return unless APPLICATION_CONFIGURATION_PATH.exist?
-
-			inject_into_class(
-				APPLICATION_CONFIGURATION_PATH,
-				"Application",
-				%(    config.autoload_paths << "\#{root}/app/views"\n)
+				ADD_EXTRA_AUTOLOAD_PATHS_CODE,
 			)
 		end
 
@@ -55,6 +43,10 @@ module Phlex::Generators
 
 		def create_application_view
 			template "application_view.rb", Rails.root.join("app/views/application_view.rb")
+		end
+
+		def create_scaffold_controller_template
+			copy_file "controller.rb.tt", Rails.root.join("lib/templates/rails/scaffold_controller/controller.rb.tt")
 		end
 	end
 end

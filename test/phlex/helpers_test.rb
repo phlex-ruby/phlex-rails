@@ -10,7 +10,7 @@ class HelpersTest < ActionDispatch::IntegrationTest
 
 		# There’s a bug in Ruby 3.1 that breaks this assertion.
 		unless RUBY_VERSION.start_with?("3.1")
-			assert_equal "Try including `Phlex::Rails::Helpers::FormWith` in Helpers::MissingHelperView.", error.message
+			assert_equal "Try including `Phlex::Rails::Helpers::ButtonTag` in Helpers::MissingHelperView.", error.message
 		end
 	end
 
@@ -19,6 +19,13 @@ class HelpersTest < ActionDispatch::IntegrationTest
 
 		assert_response :success
 		assert_select "form > h1 + input[type='text'] + h1"
+	end
+
+	test "notice" do
+		get "/helpers/notice"
+
+		assert_response :success
+		assert_select "p", "My Flash Notice"
 	end
 
 	test "tag" do

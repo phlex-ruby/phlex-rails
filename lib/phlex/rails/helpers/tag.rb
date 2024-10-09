@@ -14,7 +14,7 @@ module Phlex::Rails::Helpers::Tag
 		when ActionView::Helpers::TagHelper::TagBuilder
 			Phlex::Rails::Buffered.new(
 				result,
-				view: self
+				view: self,
 			)
 		end
 	end

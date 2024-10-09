@@ -30,7 +30,13 @@ module Phlex
 						return super unless renderable.is_a?(ActiveRecord::Relation)
 					else
 						if block
-							@_context.target << @_view_context.render(*args, **kwargs) { capture(&block) }
+							@_context.target << @_view_context.render(*args, **kwargs) do |*yielded_args|
+								if yielded_args.length == 1 && defined?(ViewComponent::Base) && ViewComponent::Base === yielded_args[0]
+									capture(Phlex::Rails::Buffered.new(yielded_args[0], view: self), &block)
+								else
+									capture(*yielded_args, &block)
+								end
+							end
 						else
 							@_context.target << @_view_context.render(*args, **kwargs)
 						end
@@ -70,7 +76,7 @@ module Phlex
 					end
 				end
 
-				def capture
+				def capture(...)
 					super&.html_safe
 				end
 
