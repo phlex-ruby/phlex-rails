@@ -20,6 +20,8 @@ module Phlex
 
 				def render(*args, **kwargs, &block)
 					renderable = args[0]
+					# Something like this could fix the issue
+					# renderable = args[0] || (block if kwargs[:partial].blank?)
 
 					case renderable
 					when Phlex::SGML, Proc, Method, String
