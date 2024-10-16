@@ -12,9 +12,9 @@ class Rails::PhlexScaffoldGenerator < Rails::Generators::NamedBase
 	end
 
 	def create_model_view
-		create_file File.join(view_folder, "#{singular_name}_view.rb"), <<~RUBY
-   module #{module_name}
-     class #{class_name}View < ApplicationView
+		create_file File.join(view_folder, "#{singular_name}.rb"), <<~RUBY
+   module Views::#{module_name}
+     class #{class_name} < Views::Base
        def initialize(#{singular_name}:)
          @#{singular_name} = #{singular_name}
        end
@@ -34,9 +34,9 @@ class Rails::PhlexScaffoldGenerator < Rails::Generators::NamedBase
 	end
 
 	def create_index_view
-		create_file File.join(view_folder, "index_view.rb"), <<~RUBY
-   module #{module_name}
-     class IndexView < ApplicationView
+		create_file File.join(view_folder, "index.rb"), <<~RUBY
+   module Views::#{module_name}
+     class Index < Views::Base
        def initialize(#{plural_name}:)
          @#{plural_name} = #{plural_name}
        end
@@ -48,7 +48,7 @@ class Rails::PhlexScaffoldGenerator < Rails::Generators::NamedBase
    
          div(id: "#{plural_name}") do
            #{plural_name}.each do |#{singular_name}|
-             render #{class_name}View.new(#{singular_name}: #{singular_name})
+             render #{class_name}.new(#{singular_name}: #{singular_name})
              p do
                link_to "Show this #{singular_name.humanize}", #{singular_name}
              end
@@ -67,9 +67,9 @@ class Rails::PhlexScaffoldGenerator < Rails::Generators::NamedBase
 	end
 
 	def create_new_view
-		create_file File.join(view_folder, "new_view.rb"), <<~RUBY
-   module #{module_name}
-     class NewView < ApplicationView
+		create_file File.join(view_folder, "new.rb"), <<~RUBY
+   module Views::#{module_name}
+     class New < Views::Base
        def initialize(#{singular_name}:)
          @#{singular_name} = #{singular_name}
        end
@@ -95,9 +95,9 @@ class Rails::PhlexScaffoldGenerator < Rails::Generators::NamedBase
 	end
 
 	def create_edit_view
-		create_file File.join(view_folder, "edit_view.rb"), <<~RUBY
-   module #{module_name}
-     class EditView < ApplicationView
+		create_file File.join(view_folder, "edit.rb"), <<~RUBY
+   module Views::#{module_name}
+     class Edit < Views::Base
        def initialize(#{singular_name}:)
          @#{singular_name} = #{singular_name}
        end
@@ -126,8 +126,8 @@ class Rails::PhlexScaffoldGenerator < Rails::Generators::NamedBase
 
 	def create_form_view
 		create_file File.join(view_folder, "form.rb"), <<~RUBY
-   module #{module_name}
-     class Form < ApplicationView
+   module Views::#{module_name}
+     class Form < Views::Base
        def initialize(#{singular_name}:)
          @#{singular_name} = #{singular_name}
        end
@@ -159,9 +159,9 @@ class Rails::PhlexScaffoldGenerator < Rails::Generators::NamedBase
 	end
 
 	def create_show_view
-		create_file File.join(view_folder, "show_view.rb"), <<~RUBY
-   module #{module_name}
-     class ShowView < ApplicationView
+		create_file File.join(view_folder, "show.rb"), <<~RUBY
+   module Views::#{module_name}
+     class Show < Views::Base
        def initialize(#{singular_name}:)
          @#{singular_name} = #{singular_name}
        end
@@ -169,7 +169,7 @@ class Rails::PhlexScaffoldGenerator < Rails::Generators::NamedBase
        def view_template
          p(style: "color:#008000") { notice }
    
-         render #{class_name}View.new(#{singular_name}: #{singular_name})
+         render #{class_name}.new(#{singular_name}: #{singular_name})
    
          div do
            link_to "Edit this #{human_name.downcase}", edit_#{singular_name}_path(#{singular_name})

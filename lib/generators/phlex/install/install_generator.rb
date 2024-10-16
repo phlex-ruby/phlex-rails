@@ -15,17 +15,21 @@ module Phlex::Generators
 			end
 		end
 
-		def create_application_component
+		def create_base_component
 			template "base_component.rb.erb", Rails.root.join("app/components/base.rb")
 		end
 
-		def create_application_view
+		def create_base_view
 			template "base_view.rb.erb", Rails.root.join("app/views/base.rb")
 		end
 
 		def create_initializer
 			template "phlex.rb.erb", Rails.root.join("config/initializers/phlex.rb")
 		end
+
+    def create_scaffold_controller_template
+      copy_file "controller.rb.tt", Rails.root.join("lib/templates/rails/scaffold_controller/controller.rb.tt")
+    end
 
 		private
 
@@ -45,10 +49,6 @@ module Phlex::Generators
 					"#{Rails.root}/config/**/tailwind.config.js",
 				],
 			)
-		end
-
-		def create_scaffold_controller_template
-			copy_file "controller.rb.tt", Rails.root.join("lib/templates/rails/scaffold_controller/controller.rb.tt")
 		end
 	end
 end
