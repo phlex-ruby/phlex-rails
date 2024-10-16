@@ -10,7 +10,7 @@ class HelpersTest < ActionDispatch::IntegrationTest
 
 		# There’s a bug in Ruby 3.1 that breaks this assertion.
 		unless RUBY_VERSION.start_with?("3.1")
-			assert_equal "Try including `Phlex::Rails::Helpers::ButtonTag` in Helpers::MissingHelperView.", error.message
+			assert_equal "Try including `Phlex::Rails::Helpers::ButtonTag` in Views::Helpers::MissingHelperView.", error.message
 		end
 	end
 

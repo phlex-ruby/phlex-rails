@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Helpers::NoticeView < ApplicationView
+class Views::Helpers::NoticeView < Views::Base
 	include Phlex::Rails::Helpers::Notice
 
 	def view_template

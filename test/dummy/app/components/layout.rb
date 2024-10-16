@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class ApplicationLayout < ApplicationView
+class Components::Layout < Components::Base
 	include Phlex::Rails::Layout
 
 	def initialize(color:)

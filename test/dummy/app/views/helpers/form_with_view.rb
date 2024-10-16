@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Helpers::FormWithView < ApplicationView
+class Views::Helpers::FormWithView < Views::Base
 	include Phlex::Rails::Helpers::FormWith
 
 	def view_template

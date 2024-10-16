@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Helpers::TagView < ApplicationView
+class Views::Helpers::TagView < Views::Base
 	include Phlex::Rails::Helpers::Tag
 
 	def view_template

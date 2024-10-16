@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Helpers::MissingHelperView < ApplicationView
+class Views::Helpers::MissingHelperView < Views::Base
 	def view_template
 		button_tag
 	end

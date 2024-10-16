@@ -2,11 +2,11 @@
 
 class RenderingController < ApplicationController
 	def partial_from_phlex
-		render Rendering::PartialFromPhlex.new
+		render Views::Rendering::PartialFromPhlex.new
 	end
 
 	def view_component_from_phlex
-		render Rendering::ViewComponentFromPhlex.new
+		render Views::Rendering::ViewComponentFromPhlex.new
 	end
 
 	def phlex_component_from_erb

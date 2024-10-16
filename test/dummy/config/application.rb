@@ -10,9 +10,6 @@ Bundler.require(*Rails.groups)
 
 module Dummy
 	class Application < Rails::Application
-		config.autoload_paths << "#{root}/app/views"
-		config.autoload_paths << "#{root}/app/views/layouts"
-		config.autoload_paths << "#{root}/app/views/components"
 		config.load_defaults "#{Rails::VERSION::MAJOR}.#{Rails::VERSION::MINOR}"
 
 		# Please, add to the `ignore` list any other `lib` subdirectories that do
