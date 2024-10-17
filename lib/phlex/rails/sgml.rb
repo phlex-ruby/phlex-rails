@@ -38,7 +38,7 @@ module Phlex
 								end,
 							)
 						else
-							return super if block_given?
+							return super
 						end
 					end
 
