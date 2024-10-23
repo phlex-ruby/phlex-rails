@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Card < ApplicationComponent
+class Components::Card < Components::Base
 	def view_template(&)
 		article(class: "card", &)
 	end

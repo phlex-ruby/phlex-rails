@@ -5,7 +5,7 @@ require "test_helper"
 class TestHelpersTest < ActiveSupport::TestCase
 	include Phlex::Testing::Capybara
 
-	class PartialFromPhlex < ApplicationView
+	class PartialFromPhlex < Views::Base
 		def view_template
 			render partial: "rendering/partial" do
 				h1(id: "phlex") { "Partial from Phlex" }
