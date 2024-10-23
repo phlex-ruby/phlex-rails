@@ -37,6 +37,8 @@ module Phlex
 									capture(*yielded_args, &block)
 								end,
 							)
+						else
+							return super
 						end
 					end
 
