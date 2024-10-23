@@ -28,7 +28,7 @@ Gem::Specification.new do |spec|
 	spec.require_paths = ["lib"]
 
 	spec.add_dependency "phlex", "2.0.0.beta2"
-	spec.add_dependency "railties", ">= 6.1", "< 8"
+	spec.add_dependency "railties", ">= 6.1", "< 9"
 
 	spec.metadata["rubygems_mfa_required"] = "true"
 end
