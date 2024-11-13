@@ -38,8 +38,7 @@ module Phlex::Rails
 
 		def self.included(klass)
 			unless klass < Phlex::HTML
-				raise Phlex::ArgumentError,
-					"👋 #{name} should only be included into Phlex::HTML classes."
+				raise Phlex::ArgumentError.new("👋 #{name} should only be included into Phlex::HTML classes.")
 			end
 
 			klass.extend(Interface)
