@@ -3,6 +3,10 @@
 class HelpersController < ApplicationController
 	layout false
 
+	def helper_in_initializer
+		render Helpers::HelperInInitializer.new
+	end
+
 	def form_with
 		render Helpers::FormWithView.new
 	end
