@@ -12,6 +12,14 @@ module Phlex
 			module Overrides
 				class HelpersCalledBeforeRenderError < StandardError; end
 
+				def partial(*, **, &block)
+					if block
+						Phlex::Rails::Partial.new(*, **) { capture(&block) }
+					else
+						Phlex::Rails::Partial.new(*, **)
+					end
+				end
+
 				def helpers
 					unless @_context && (view_context = @_context.view_context)
 						raise HelpersCalledBeforeRenderError.new("Do not use rails helpers until after the view has been rendered.") unless view_context
@@ -28,25 +36,15 @@ module Phlex
 					renderable = args[0]
 
 					case renderable
-						when Phlex::SGML, Proc, Method, String
-							return super
-						when Class
-							return super if renderable < Phlex::SGML
-						when Enumerable
-							return super unless ActiveRecord::Relation === renderable
-						when nil
-							partial = kwargs.delete(:partial)
-
-							if partial # this is a hack to get around https://github.com/rails/rails/issues/51015
-								return raw(
-									@_context.view_context.render(partial, **kwargs) do |*yielded_args|
-										capture(*yielded_args, &block)
-									end
-								)
-							else
-								return super
-							end
+					when Phlex::SGML, Proc, Method, String
+						return super
+					when Class
+						return super if renderable < Phlex::SGML
+					when Enumerable
+						return super unless ActiveRecord::Relation === renderable
 					end
+
+					return super if args.length == 0 && kwargs.length == 0
 
 					output = if block
 						@_context.view_context.render(*args, **kwargs) do |*yielded_args|
