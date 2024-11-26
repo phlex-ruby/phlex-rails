@@ -37,15 +37,15 @@ module Phlex
 						when nil
 							partial = kwargs.delete(:partial)
 
-						if partial # this is a hack to get around https://github.com/rails/rails/issues/51015
-							return raw(
-								@_context.view_context.render(partial, **kwargs) do |*yielded_args|
-									capture(*yielded_args, &block)
-								end,
-							)
-						else
-							return super
-						end
+							if partial # this is a hack to get around https://github.com/rails/rails/issues/51015
+								return raw(
+									@_context.view_context.render(partial, **kwargs) do |*yielded_args|
+										capture(*yielded_args, &block)
+									end
+								)
+							else
+								return super
+							end
 					end
 
 					output = if block
