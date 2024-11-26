@@ -3,7 +3,7 @@
 module Rendering
 	class PartialFromPhlex < ApplicationView
 		def view_template
-			render partial: "partial" do
+			render partial("partial") do
 				h1(id: "phlex") { "Partial from Phlex" }
 			end
 		end

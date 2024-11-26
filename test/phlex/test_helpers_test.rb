@@ -7,7 +7,7 @@ class TestHelpersTest < ActiveSupport::TestCase
 
 	class PartialFromPhlex < ApplicationView
 		def view_template
-			render partial: "rendering/partial" do
+			render partial("rendering/partial") do
 				h1(id: "phlex") { "Partial from Phlex" }
 			end
 		end
