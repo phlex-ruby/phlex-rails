@@ -13,8 +13,9 @@ module Phlex
 				class HelpersCalledBeforeRenderError < StandardError; end
 
 				def helpers
-					view_context = @_context.view_context
-          raise HelpersCalledBeforeRenderError.new("Do not use rails helpers until after the view has been rendered.") unless view_context
+					unless @_context && (view_context = @_context.view_context)
+						raise HelpersCalledBeforeRenderError.new("Do not use rails helpers until after the view has been rendered.") unless view_context
+					end
 
 					if defined?(ViewComponent::Base) && ViewComponent::Base === view_context
 						view_context.helpers
@@ -36,13 +37,13 @@ module Phlex
 						when nil
 							partial = kwargs.delete(:partial)
 
-						if partial # this is a hack to get around https://github.com/rails/rails/issues/51015
-							return raw(
-								@_context.view_context.render(partial, **kwargs) do |*yielded_args|
-									capture(*yielded_args, &block)
-								end,
-							)
-						end
+							if partial # this is a hack to get around https://github.com/rails/rails/issues/51015
+								return raw(
+									@_context.view_context.render(partial, **kwargs) do |*yielded_args|
+										capture(*yielded_args, &block)
+									end,
+								)
+							end
 					end
 
 					output = if block
