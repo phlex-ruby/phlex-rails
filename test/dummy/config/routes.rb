@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 	get "/helpers/missing_helper", to: "helpers#missing_helper"
 	get "/helpers/notice", to: "helpers#notice_test"
 
+	get "/rendering/standard_phlex", to: "rendering#standard_phlex"
 	get "/rendering/partial_from_phlex", to: "rendering#partial_from_phlex"
 	get "/rendering/view_component_from_phlex", to: "rendering#view_component_from_phlex"
 	get "/rendering/phlex_component_from_erb", to: "rendering#phlex_component_from_erb"
