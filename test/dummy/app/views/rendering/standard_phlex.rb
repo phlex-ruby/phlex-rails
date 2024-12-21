@@ -3,6 +3,8 @@
 module Rendering
 	class StandardPhlex < ApplicationView
 		def view_template
+			render nil
+
 			render Header do
 				h1(id: "title") { "Hello Phlex!" }
 			end
