@@ -3,7 +3,5 @@
 module Phlex::Rails::Helpers::PasswordField
 	extend Phlex::Rails::HelperMacros
 
-	# @!method password_field(...)
-	# 	@return [nil]
-	register_output_helper :password_field
+	register_output_helper def password_field(...) = nil
 end

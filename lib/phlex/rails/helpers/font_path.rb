@@ -3,6 +3,5 @@
 module Phlex::Rails::Helpers::FontPath
 	extend Phlex::Rails::HelperMacros
 
-	# @!method font_path(...)
-	register_value_helper :font_path
+	register_value_helper def font_path(...) = nil
 end

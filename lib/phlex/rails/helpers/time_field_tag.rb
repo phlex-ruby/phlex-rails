@@ -3,7 +3,5 @@
 module Phlex::Rails::Helpers::TimeFieldTag
 	extend Phlex::Rails::HelperMacros
 
-	# @!method time_field_tag(...)
-	# 	@return [nil]
-	register_output_helper :time_field_tag
+	register_output_helper def time_field_tag(...) = nil
 end

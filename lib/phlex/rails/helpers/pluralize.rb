@@ -3,7 +3,5 @@
 module Phlex::Rails::Helpers::Pluralize
 	extend Phlex::Rails::HelperMacros
 
-	# @!method pluralize(...)
-	# 	@return [String]
-	register_value_helper :pluralize
+	register_value_helper def pluralize(...) = nil
 end

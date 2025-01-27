@@ -3,6 +3,5 @@
 module Phlex::Rails::Helpers::PathToVideo
 	extend Phlex::Rails::HelperMacros
 
-	# @!method path_to_video(...)
-	register_value_helper :path_to_video
+	register_value_helper def path_to_video(...) = nil
 end

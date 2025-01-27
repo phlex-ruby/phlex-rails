@@ -3,7 +3,5 @@
 module Phlex::Rails::Helpers::NumberFieldTag
 	extend Phlex::Rails::HelperMacros
 
-	# @!method number_field_tag(...)
-	# 	@return [nil]
-	register_output_helper :number_field_tag
+	register_output_helper def number_field_tag(...) = nil
 end

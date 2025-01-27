@@ -3,6 +3,5 @@
 module Phlex::Rails::Helpers::ImageURL
 	extend Phlex::Rails::HelperMacros
 
-	# @!method image_url(...)
-	register_value_helper :image_url
+	register_value_helper def image_url(...) = nil
 end

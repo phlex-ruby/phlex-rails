@@ -3,7 +3,5 @@
 module Phlex::Rails::Helpers::LinkToIf
 	extend Phlex::Rails::HelperMacros
 
-	# @!method link_to_if(...)
-	# 	@return [nil]
-	register_output_helper :link_to_if
+	register_output_helper def link_to_if(...) = nil
 end

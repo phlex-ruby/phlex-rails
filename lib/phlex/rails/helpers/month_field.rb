@@ -3,7 +3,5 @@
 module Phlex::Rails::Helpers::MonthField
 	extend Phlex::Rails::HelperMacros
 
-	# @!method month_field(...)
-	# 	@return [nil]
-	register_output_helper :month_field
+	register_output_helper def month_field(...) = nil
 end

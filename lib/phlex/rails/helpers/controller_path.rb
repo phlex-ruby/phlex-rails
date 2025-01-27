@@ -3,6 +3,5 @@
 module Phlex::Rails::Helpers::ControllerPath
 	extend Phlex::Rails::HelperMacros
 
-	# @!method controller_path(...)
-	register_value_helper :controller_path
+	register_value_helper def controller_path(...) = nil
 end

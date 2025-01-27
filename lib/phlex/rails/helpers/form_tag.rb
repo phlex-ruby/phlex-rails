@@ -3,7 +3,5 @@
 module Phlex::Rails::Helpers::FormTag
 	extend Phlex::Rails::HelperMacros
 
-	# @!method form_tag(...)
-	# 	@return [nil]
-	register_output_helper :form_tag
+	register_output_helper def form_tag(...) = nil
 end

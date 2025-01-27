@@ -3,7 +3,5 @@
 module Phlex::Rails::Helpers::FieldSetTag
 	extend Phlex::Rails::HelperMacros
 
-	# @!method field_set_tag(...)
-	# 	@return [nil]
-	register_output_helper :field_set_tag
+	register_output_helper def field_set_tag(...) = nil
 end

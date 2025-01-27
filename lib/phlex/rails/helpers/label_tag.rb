@@ -3,7 +3,5 @@
 module Phlex::Rails::Helpers::LabelTag
 	extend Phlex::Rails::HelperMacros
 
-	# @!method label_tag(...)
-	# 	@return [nil]
-	register_output_helper :label_tag
+	register_output_helper def label_tag(...) = nil
 end

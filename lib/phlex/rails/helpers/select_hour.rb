@@ -3,7 +3,5 @@
 module Phlex::Rails::Helpers::SelectHour
 	extend Phlex::Rails::HelperMacros
 
-	# @!method select_hour(...)
-	# 	@return [nil]
-	register_output_helper :select_hour
+	register_output_helper def select_hour(...) = nil
 end

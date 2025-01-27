@@ -3,7 +3,5 @@
 module Phlex::Rails::Helpers::DatetimeSelect
 	extend Phlex::Rails::HelperMacros
 
-	# @!method datetime_select(...)
-	# 	@return [nil]
-	register_output_helper :datetime_select
+	register_output_helper def datetime_select(...) = nil
 end

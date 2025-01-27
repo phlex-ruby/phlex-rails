@@ -3,7 +3,5 @@
 module Phlex::Rails::Helpers::GroupedOptionsForSelect
 	extend Phlex::Rails::HelperMacros
 
-	# @!method grouped_options_for_select(...)
-	# 	@return [nil]
-	register_output_helper :grouped_options_for_select
+	register_output_helper def grouped_options_for_select(...) = nil
 end

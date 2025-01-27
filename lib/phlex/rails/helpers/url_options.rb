@@ -3,6 +3,5 @@
 module Phlex::Rails::Helpers::URLOptions
 	extend Phlex::Rails::HelperMacros
 
-	# @!method url_options(...)
-	register_value_helper :url_options
+	register_value_helper def url_options(...) = nil
 end

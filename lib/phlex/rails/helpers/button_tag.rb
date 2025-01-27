@@ -3,7 +3,5 @@
 module Phlex::Rails::Helpers::ButtonTag
 	extend Phlex::Rails::HelperMacros
 
-	# @!method button_tag(...)
-	# 	@return [nil]
-	register_output_helper :button_tag
+	register_output_helper def button_tag(...) = nil
 end

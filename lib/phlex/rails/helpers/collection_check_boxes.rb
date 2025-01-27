@@ -3,8 +3,5 @@
 module Phlex::Rails::Helpers::CollectionCheckBoxes
 	extend Phlex::Rails::HelperMacros
 
-	# @!method collection_check_boxes(...)
-	# 	@yield [builder]
-	# 	@yieldparam builder [Phlex::Rails::BufferedCheckboxBuilder]
-	register_builder_yielding_helper :collection_check_boxes, Phlex::Rails::BufferedCheckboxBuilder
+	register_builder_yielding_helper def collection_check_boxes(...) = nil, Phlex::Rails::BufferedCheckboxBuilder
 end

@@ -3,7 +3,5 @@
 module Phlex::Rails::Helpers::DatetimeLocalField
 	extend Phlex::Rails::HelperMacros
 
-	# @!method datetime_local_field(...)
-	# 	@return [nil]
-	register_output_helper :datetime_local_field
+	register_output_helper def datetime_local_field(...) = nil
 end

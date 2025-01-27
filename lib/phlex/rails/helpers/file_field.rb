@@ -3,7 +3,5 @@
 module Phlex::Rails::Helpers::FileField
 	extend Phlex::Rails::HelperMacros
 
-	# @!method file_field(...)
-	# 	@return [nil]
-	register_output_helper :file_field
+	register_output_helper def file_field(...) = nil
 end

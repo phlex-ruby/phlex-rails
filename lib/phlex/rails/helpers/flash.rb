@@ -3,6 +3,5 @@
 module Phlex::Rails::Helpers::Flash
 	extend Phlex::Rails::HelperMacros
 
-	# @!method flash(...)
-	register_value_helper :flash
+	register_value_helper def flash(...) = nil
 end

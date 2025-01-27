@@ -3,7 +3,5 @@
 module Phlex::Rails::Helpers::SimpleFormat
 	extend Phlex::Rails::HelperMacros
 
-	# @!method simple_format(...)
-	# 	@return [nil]
-	register_output_helper :simple_format
+	register_output_helper def simple_format(...) = nil
 end

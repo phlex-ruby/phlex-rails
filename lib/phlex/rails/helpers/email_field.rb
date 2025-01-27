@@ -3,7 +3,5 @@
 module Phlex::Rails::Helpers::EmailField
 	extend Phlex::Rails::HelperMacros
 
-	# @!method email_field(...)
-	# 	@return [nil]
-	register_output_helper :email_field
+	register_output_helper def email_field(...) = nil
 end

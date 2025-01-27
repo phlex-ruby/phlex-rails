@@ -3,7 +3,5 @@
 module Phlex::Rails::Helpers::CSPMetaTag
 	extend Phlex::Rails::HelperMacros
 
-	# @!method csp_meta_tag(...)
-	# 	@return [nil]
-	register_output_helper :csp_meta_tag
+	register_output_helper def csp_meta_tag(...) = nil
 end

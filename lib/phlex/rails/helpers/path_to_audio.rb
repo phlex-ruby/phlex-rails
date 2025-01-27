@@ -3,6 +3,5 @@
 module Phlex::Rails::Helpers::PathToAudio
 	extend Phlex::Rails::HelperMacros
 
-	# @!method path_to_audio(...)
-	register_value_helper :path_to_audio
+	register_value_helper def path_to_audio(...) = nil
 end

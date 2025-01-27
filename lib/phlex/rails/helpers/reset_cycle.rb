@@ -3,6 +3,5 @@
 module Phlex::Rails::Helpers::ResetCycle
 	extend Phlex::Rails::HelperMacros
 
-	# @!method reset_cycle(...)
-	register_value_helper :reset_cycle
+	register_value_helper def reset_cycle(...) = nil
 end

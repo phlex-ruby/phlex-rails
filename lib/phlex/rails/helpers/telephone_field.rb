@@ -3,7 +3,5 @@
 module Phlex::Rails::Helpers::TelephoneField
 	extend Phlex::Rails::HelperMacros
 
-	# @!method telephone_field(...)
-	# 	@return [nil]
-	register_output_helper :telephone_field
+	register_output_helper def telephone_field(...) = nil
 end

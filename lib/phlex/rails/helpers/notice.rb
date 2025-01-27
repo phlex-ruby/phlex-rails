@@ -3,6 +3,5 @@
 module Phlex::Rails::Helpers::Notice
 	extend Phlex::Rails::HelperMacros
 
-	# @!method notice(...)
-	register_value_helper :notice
+	register_value_helper def notice(...) = nil
 end

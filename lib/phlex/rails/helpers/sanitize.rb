@@ -3,6 +3,5 @@
 module Phlex::Rails::Helpers::Sanitize
 	extend Phlex::Rails::HelperMacros
 
-	# @!method sanitize(...)
-	register_value_helper :sanitize
+	register_value_helper def sanitize(...) = nil
 end

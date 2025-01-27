@@ -3,6 +3,5 @@
 module Phlex::Rails::Helpers::TurboRefreshScrollTag
 	extend Phlex::Rails::HelperMacros
 
-	# @!method turbo_refresh_scroll_tag(...)
-	register_output_helper :turbo_refresh_scroll_tag
+	register_output_helper def turbo_refresh_scroll_tag(...) = nil
 end

@@ -3,7 +3,5 @@
 module Phlex::Rails::Helpers::OptionsForSelect
 	extend Phlex::Rails::HelperMacros
 
-	# @!method options_for_select(...)
-	# 	@return [nil]
-	register_output_helper :options_for_select
+	register_output_helper def options_for_select(...) = nil
 end

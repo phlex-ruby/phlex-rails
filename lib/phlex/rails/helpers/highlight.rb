@@ -3,7 +3,5 @@
 module Phlex::Rails::Helpers::Highlight
 	extend Phlex::Rails::HelperMacros
 
-	# @!method highlight(...)
-	# 	@return [nil]
-	register_output_helper :highlight
+	register_output_helper def highlight(...) = nil
 end

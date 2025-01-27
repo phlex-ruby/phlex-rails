@@ -3,7 +3,5 @@
 module Phlex::Rails::Helpers::CollectionSelect
 	extend Phlex::Rails::HelperMacros
 
-	# @!method collection_select(...)
-	# 	@return [nil]
-	register_output_helper :collection_select
+	register_output_helper def collection_select(...) = nil
 end

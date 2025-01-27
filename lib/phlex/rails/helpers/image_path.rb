@@ -3,6 +3,5 @@
 module Phlex::Rails::Helpers::ImagePath
 	extend Phlex::Rails::HelperMacros
 
-	# @!method image_path(...)
-	register_value_helper :image_path
+	register_value_helper def image_path(...) = nil
 end

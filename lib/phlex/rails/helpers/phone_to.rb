@@ -3,7 +3,5 @@
 module Phlex::Rails::Helpers::PhoneTo
 	extend Phlex::Rails::HelperMacros
 
-	# @!method phone_to(...)
-	# 	@return [nil]
-	register_output_helper :phone_to
+	register_output_helper def phone_to(...) = nil
 end
