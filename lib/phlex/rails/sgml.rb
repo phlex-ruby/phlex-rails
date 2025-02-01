@@ -42,6 +42,8 @@ module Phlex
 						return super if renderable < Phlex::SGML
 					when Enumerable
 						return super unless ActiveRecord::Relation === renderable
+					when nil
+						return super if kwargs.length == 0
 					end
 
 					return super if args.length == 0 && kwargs.length == 0
