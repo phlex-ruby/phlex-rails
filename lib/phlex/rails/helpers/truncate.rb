@@ -8,6 +8,6 @@ module Phlex::Rails::Helpers::Truncate
 		length: nil,
 		omission: nil,
 		separator: nil,
-		escape: nil,
+		escape: nil
 	) = nil
 end
