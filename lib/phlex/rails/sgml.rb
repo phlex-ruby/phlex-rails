@@ -42,6 +42,8 @@ module Phlex
 						return super if renderable < Phlex::SGML
 					when Enumerable
 						return super unless ActiveRecord::Relation === renderable
+					when nil
+						return super if kwargs.length == 0
 					end
 
 					return super if args.length == 0 && kwargs.length == 0
@@ -62,12 +64,8 @@ module Phlex
 				end
 
 				def render_in(view_context, &erb)
-					fragments = if view_context.request && (fragment_header = view_context.request.headers["X-Fragment"])
-						fragment_header.split
-					end
-
 					if erb
-						call(view_context:, fragments:) { |*args|
+						call(view_context:) { |*args|
 							if args.length == 1 && Phlex::SGML === args[0] && !erb.source_location&.[](0)&.end_with?(".rb")
 								unbuffered = Phlex::Rails::Unbuffered.new(args[0])
 								raw(helpers.capture(unbuffered, &erb))
@@ -76,7 +74,7 @@ module Phlex
 							end
 						}.html_safe
 					else
-						call(view_context:, fragments:).html_safe
+						call(view_context:).html_safe
 					end
 				end
 

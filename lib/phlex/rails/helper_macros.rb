@@ -8,7 +8,6 @@ module Phlex::Rails::HelperMacros
 
 			def #{method_name}(*args, **kwargs, &block)
   			context = @_context
-  			return if context.fragments && !context.in_target_fragment
 
 				output = if block
 					helpers.#{method_name}(*args, **kwargs) { capture(&block) }
@@ -43,7 +42,6 @@ module Phlex::Rails::HelperMacros
 
 			def #{method_name}(*args, **kwargs)
   			context = @_context
-  			return if context.fragments && !context.in_target_fragment
 				output = if block_given?
 					helpers.#{method_name}(*args, **kwargs) { |form|
 						capture do

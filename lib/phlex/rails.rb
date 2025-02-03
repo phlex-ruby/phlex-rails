@@ -11,7 +11,6 @@ module Phlex
 		autoload :BufferedLabelBuilder, "phlex/rails/buffered_label_builder"
 		autoload :BufferedRadioButtonBuilder, "phlex/rails/buffered_radio_button_builder"
 		autoload :CSV, "phlex/rails/csv"
-		autoload :FragmentFinder, "phlex/rails/fragment_finder"
 		autoload :HTML, "phlex/rails/html"
 		autoload :HelperFinder, "phlex/rails/helper_finder"
 		autoload :HelperMacros, "phlex/rails/helper_macros"
