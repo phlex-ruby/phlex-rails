@@ -3,6 +3,5 @@
 module Phlex::Rails::Helpers::Object
 	extend Phlex::Rails::HelperMacros
 
-	# @!method object(...)
-	register_value_helper :object
+	register_value_helper def object(...) = nil
 end

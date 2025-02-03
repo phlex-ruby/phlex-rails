@@ -3,7 +3,5 @@
 module Phlex::Rails::Helpers::WeekFieldTag
 	extend Phlex::Rails::HelperMacros
 
-	# @!method week_field_tag(...)
-	# 	@return [nil]
-	register_output_helper :week_field_tag
+	register_output_helper def week_field_tag(...) = nil
 end

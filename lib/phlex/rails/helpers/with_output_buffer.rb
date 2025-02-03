@@ -3,7 +3,5 @@
 module Phlex::Rails::Helpers::WithOutputBuffer
 	extend Phlex::Rails::HelperMacros
 
-	# @!method with_output_buffer(...)
-	# 	@return [nil]
-	register_output_helper :with_output_buffer
+	register_output_helper def with_output_buffer(...) = nil
 end

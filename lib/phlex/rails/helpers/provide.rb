@@ -3,6 +3,5 @@
 module Phlex::Rails::Helpers::Provide
 	extend Phlex::Rails::HelperMacros
 
-	# @!method provide(...)
-	register_value_helper :provide
+	register_value_helper def provide(...) = nil
 end

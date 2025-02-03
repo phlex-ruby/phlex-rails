@@ -3,7 +3,5 @@
 module Phlex::Rails::Helpers::SelectDay
 	extend Phlex::Rails::HelperMacros
 
-	# @!method select_day(...)
-	# 	@return [nil]
-	register_output_helper :select_day
+	register_output_helper def select_day(...) = nil
 end

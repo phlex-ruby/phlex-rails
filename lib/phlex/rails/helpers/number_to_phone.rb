@@ -3,6 +3,5 @@
 module Phlex::Rails::Helpers::NumberToPhone
 	extend Phlex::Rails::HelperMacros
 
-	# @!method number_to_phone(...)
-	register_value_helper :number_to_phone
+	register_value_helper def number_to_phone(...) = nil
 end

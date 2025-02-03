@@ -3,7 +3,5 @@
 module Phlex::Rails::Helpers::TimeZoneSelect
 	extend Phlex::Rails::HelperMacros
 
-	# @!method time_zone_select(...)
-	# 	@return [nil]
-	register_output_helper :time_zone_select
+	register_output_helper def time_zone_select(...) = nil
 end

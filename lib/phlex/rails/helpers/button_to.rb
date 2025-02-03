@@ -3,7 +3,5 @@
 module Phlex::Rails::Helpers::ButtonTo
 	extend Phlex::Rails::HelperMacros
 
-	# @!method button_to(...)
-	# 	@return [nil]
-	register_output_helper :button_to
+	register_output_helper def button_to(...) = nil
 end

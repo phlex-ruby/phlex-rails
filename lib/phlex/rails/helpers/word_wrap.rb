@@ -3,6 +3,5 @@
 module Phlex::Rails::Helpers::WordWrap
 	extend Phlex::Rails::HelperMacros
 
-	# @!method word_wrap(...)
-	register_value_helper :word_wrap
+	register_value_helper def word_wrap(...) = nil
 end

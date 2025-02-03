@@ -3,6 +3,5 @@
 module Phlex::Rails::Helpers::NumberWithPrecision
 	extend Phlex::Rails::HelperMacros
 
-	# @!method number_with_precision(...)
-	register_value_helper :number_with_precision
+	register_value_helper def number_with_precision(...) = nil
 end

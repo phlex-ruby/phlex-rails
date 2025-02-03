@@ -3,7 +3,5 @@
 module Phlex::Rails::Helpers::CheckBoxTag
 	extend Phlex::Rails::HelperMacros
 
-	# @!method check_box_tag(...)
-	# 	@return [nil]
-	register_output_helper :check_box_tag
+	register_output_helper def check_box_tag(...) = nil
 end

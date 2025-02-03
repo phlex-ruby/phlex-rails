@@ -3,7 +3,5 @@
 module Phlex::Rails::Helpers::JavascriptIncludeTag
 	extend Phlex::Rails::HelperMacros
 
-	# @!method javascript_include_tag(...)
-	# 	@return [nil]
-	register_output_helper :javascript_include_tag
+	register_output_helper def javascript_include_tag(...) = nil
 end

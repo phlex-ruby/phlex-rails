@@ -3,6 +3,5 @@
 module Phlex::Rails::Helpers::TurboFrameTag
 	extend Phlex::Rails::HelperMacros
 
-	# @!method turbo_frame_tag(...)
-	register_output_helper :turbo_frame_tag
+	register_output_helper def turbo_frame_tag(...) = nil
 end

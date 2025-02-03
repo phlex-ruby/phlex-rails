@@ -3,7 +3,5 @@
 module Phlex::Rails::Helpers::LinkToUnless
 	extend Phlex::Rails::HelperMacros
 
-	# @!method link_to_unless(...)
-	# 	@return [nil]
-	register_output_helper :link_to_unless
+	register_output_helper def link_to_unless(...) = nil
 end

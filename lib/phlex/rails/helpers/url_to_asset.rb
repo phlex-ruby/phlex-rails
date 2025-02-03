@@ -3,6 +3,5 @@
 module Phlex::Rails::Helpers::URLToAsset
 	extend Phlex::Rails::HelperMacros
 
-	# @!method url_to_asset(...)
-	register_value_helper :url_to_asset
+	register_value_helper def url_to_asset(...) = nil
 end

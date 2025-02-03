@@ -3,6 +3,5 @@
 module Phlex::Rails::Helpers::URLFor
 	extend Phlex::Rails::HelperMacros
 
-	# @!method url_for(...)
-	register_value_helper :url_for
+	register_value_helper def url_for(...) = nil
 end

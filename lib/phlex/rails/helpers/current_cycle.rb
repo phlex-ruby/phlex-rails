@@ -3,6 +3,5 @@
 module Phlex::Rails::Helpers::CurrentCycle
 	extend Phlex::Rails::HelperMacros
 
-	# @!method current_cycle(...)
-	register_value_helper :current_cycle
+	register_value_helper def current_cycle(...) = nil
 end

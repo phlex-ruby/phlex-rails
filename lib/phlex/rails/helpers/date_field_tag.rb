@@ -3,7 +3,5 @@
 module Phlex::Rails::Helpers::DateFieldTag
 	extend Phlex::Rails::HelperMacros
 
-	# @!method date_field_tag(...)
-	# 	@return [nil]
-	register_output_helper :date_field_tag
+	register_output_helper def date_field_tag(...) = nil
 end

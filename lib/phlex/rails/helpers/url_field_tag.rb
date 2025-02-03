@@ -3,7 +3,5 @@
 module Phlex::Rails::Helpers::URLFieldTag
 	extend Phlex::Rails::HelperMacros
 
-	# @!method url_field_tag(...)
-	# 	@return [nil]
-	register_output_helper :url_field_tag
+	register_output_helper def url_field_tag(...) = nil
 end

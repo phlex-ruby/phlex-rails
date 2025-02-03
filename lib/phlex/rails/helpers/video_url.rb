@@ -3,6 +3,5 @@
 module Phlex::Rails::Helpers::VideoURL
 	extend Phlex::Rails::HelperMacros
 
-	# @!method video_url(...)
-	register_value_helper :video_url
+	register_value_helper def video_url(...) = nil
 end

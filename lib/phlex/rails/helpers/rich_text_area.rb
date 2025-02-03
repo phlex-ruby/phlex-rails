@@ -3,7 +3,5 @@
 module Phlex::Rails::Helpers::RichTextArea
 	extend Phlex::Rails::HelperMacros
 
-	# @!method rich_text_area(...)
-	# 	@return [nil]
-	register_output_helper :rich_text_area
+	register_output_helper def rich_text_area(...) = nil
 end

@@ -3,7 +3,5 @@
 module Phlex::Rails::Helpers::AudioTag
 	extend Phlex::Rails::HelperMacros
 
-	# @!method audio_tag(...)
-	# 	@return [nil]
-	register_output_helper :audio_tag
+	register_output_helper def audio_tag(...) = nil
 end

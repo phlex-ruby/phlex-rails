@@ -3,7 +3,5 @@
 module Phlex::Rails::Helpers::SelectMonth
 	extend Phlex::Rails::HelperMacros
 
-	# @!method select_month(...)
-	# 	@return [nil]
-	register_output_helper :select_month
+	register_output_helper def select_month(...) = nil
 end

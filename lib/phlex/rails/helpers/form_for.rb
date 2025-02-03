@@ -3,8 +3,5 @@
 module Phlex::Rails::Helpers::FormFor
 	extend Phlex::Rails::HelperMacros
 
-	# @!method form_for(...)
-	# 	@yield [builder]
-	# 	@yieldparam builder [Phlex::Rails::BufferedFormBuilder]
-	register_builder_yielding_helper :form_for, Phlex::Rails::BufferedFormBuilder
+	register_builder_yielding_helper def form_for(...) = nil, Phlex::Rails::BufferedFormBuilder
 end

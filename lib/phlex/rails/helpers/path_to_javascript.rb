@@ -3,6 +3,5 @@
 module Phlex::Rails::Helpers::PathToJavascript
 	extend Phlex::Rails::HelperMacros
 
-	# @!method path_to_javascript(...)
-	register_value_helper :path_to_javascript
+	register_value_helper def path_to_javascript(...) = nil
 end

@@ -3,9 +3,7 @@
 module Phlex::Rails::Helpers::ContentFor
 	extend Phlex::Rails::HelperMacros
 
-	# @!method content_for?(...)
-	register_value_helper :content_for?
+	register_value_helper def content_for?(...) = nil
 
-	# @!method content_for(...)
-	register_value_helper :content_for
+	register_value_helper def content_for(...) = nil
 end

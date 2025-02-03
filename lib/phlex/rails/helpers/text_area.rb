@@ -3,7 +3,5 @@
 module Phlex::Rails::Helpers::TextArea
 	extend Phlex::Rails::HelperMacros
 
-	# @!method text_area(...)
-	# 	@return [nil]
-	register_output_helper :text_area
+	register_output_helper def text_area(...) = nil
 end

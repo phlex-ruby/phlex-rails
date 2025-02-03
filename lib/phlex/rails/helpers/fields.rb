@@ -3,8 +3,5 @@
 module Phlex::Rails::Helpers::Fields
 	extend Phlex::Rails::HelperMacros
 
-	# @!method fields(...)
-	# 	@yield [builder]
-	# 	@yieldparam builder [Phlex::Rails::BufferedFormBuilder]
-	register_builder_yielding_helper :fields, Phlex::Rails::BufferedFormBuilder
+	register_builder_yielding_helper def fields(...) = nil, Phlex::Rails::BufferedFormBuilder
 end

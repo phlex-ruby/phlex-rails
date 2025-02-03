@@ -3,7 +3,5 @@
 module Phlex::Rails::Helpers::RangeField
 	extend Phlex::Rails::HelperMacros
 
-	# @!method range_field(...)
-	# 	@return [nil]
-	register_output_helper :range_field
+	register_output_helper def range_field(...) = nil
 end

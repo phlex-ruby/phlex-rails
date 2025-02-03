@@ -3,6 +3,5 @@
 module Phlex::Rails::Helpers::ComputeAssetPath
 	extend Phlex::Rails::HelperMacros
 
-	# @!method compute_asset_path(...)
-	register_value_helper :compute_asset_path
+	register_value_helper def compute_asset_path(...) = nil
 end

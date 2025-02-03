@@ -3,7 +3,5 @@
 module Phlex::Rails::Helpers::WeekdayOptionsForSelect
 	extend Phlex::Rails::HelperMacros
 
-	# @!method weekday_options_for_select(...)
-	# 	@return [nil]
-	register_output_helper :weekday_options_for_select
+	register_output_helper def weekday_options_for_select(...) = nil
 end

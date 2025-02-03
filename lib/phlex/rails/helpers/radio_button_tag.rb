@@ -3,7 +3,5 @@
 module Phlex::Rails::Helpers::RadioButtonTag
 	extend Phlex::Rails::HelperMacros
 
-	# @!method radio_button_tag(...)
-	# 	@return [nil]
-	register_output_helper :radio_button_tag
+	register_output_helper def radio_button_tag(...) = nil
 end

@@ -3,7 +3,5 @@
 module Phlex::Rails::Helpers::SelectTag
 	extend Phlex::Rails::HelperMacros
 
-	# @!method select_tag(...)
-	# 	@return [nil]
-	register_output_helper :select_tag
+	register_output_helper def select_tag(...) = nil
 end

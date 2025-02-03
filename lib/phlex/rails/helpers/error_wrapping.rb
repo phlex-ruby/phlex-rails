@@ -3,7 +3,5 @@
 module Phlex::Rails::Helpers::ErrorWrapping
 	extend Phlex::Rails::HelperMacros
 
-	# @!method error_wrapping(...)
-	# 	@return [nil]
-	register_output_helper :error_wrapping
+	register_output_helper def error_wrapping(...) = nil
 end

@@ -3,7 +3,5 @@
 module Phlex::Rails::Helpers::ImageSubmitTag
 	extend Phlex::Rails::HelperMacros
 
-	# @!method image_submit_tag(...)
-	# 	@return [nil]
-	register_output_helper :image_submit_tag
+	register_output_helper def image_submit_tag(...) = nil
 end

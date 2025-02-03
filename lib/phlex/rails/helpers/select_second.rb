@@ -3,7 +3,5 @@
 module Phlex::Rails::Helpers::SelectSecond
 	extend Phlex::Rails::HelperMacros
 
-	# @!method select_second(...)
-	# 	@return [nil]
-	register_output_helper :select_second
+	register_output_helper def select_second(...) = nil
 end

@@ -3,7 +3,5 @@
 module Phlex::Rails::Helpers::SelectYear
 	extend Phlex::Rails::HelperMacros
 
-	# @!method select_year(...)
-	# 	@return [nil]
-	register_output_helper :select_year
+	register_output_helper def select_year(...) = nil
 end

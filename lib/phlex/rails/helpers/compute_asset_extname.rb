@@ -3,6 +3,5 @@
 module Phlex::Rails::Helpers::ComputeAssetExtname
 	extend Phlex::Rails::HelperMacros
 
-	# @!method compute_asset_extname(...)
-	register_value_helper :compute_asset_extname
+	register_value_helper def compute_asset_extname(...) = nil
 end

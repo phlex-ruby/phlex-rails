@@ -3,6 +3,11 @@
 module Phlex::Rails::Helpers::Truncate
 	extend Phlex::Rails::HelperMacros
 
-	# @!method truncate(...)
-	register_value_helper :truncate
+	register_value_helper def truncate(
+		value,
+		length: nil,
+		omission: nil,
+		separator: nil,
+		escape: nil
+	) = nil
 end

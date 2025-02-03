@@ -3,7 +3,5 @@
 module Phlex::Rails::Helpers::ColorFieldTag
 	extend Phlex::Rails::HelperMacros
 
-	# @!method color_field_tag(...)
-	# 	@return [nil]
-	register_output_helper :color_field_tag
+	register_output_helper def color_field_tag(...) = nil
 end

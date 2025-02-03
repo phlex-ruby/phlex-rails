@@ -3,6 +3,5 @@
 module Phlex::Rails::Helpers::BuildTagValues
 	extend Phlex::Rails::HelperMacros
 
-	# @!method build_tag_values(...)
-	register_value_helper :build_tag_values
+	register_value_helper def build_tag_values(...) = nil
 end

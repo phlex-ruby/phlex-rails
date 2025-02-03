@@ -3,7 +3,5 @@
 module Phlex::Rails::Helpers::FaviconLinkTag
 	extend Phlex::Rails::HelperMacros
 
-	# @!method favicon_link_tag(...)
-	# 	@return [nil]
-	register_output_helper :favicon_link_tag
+	register_output_helper def favicon_link_tag(...) = nil
 end

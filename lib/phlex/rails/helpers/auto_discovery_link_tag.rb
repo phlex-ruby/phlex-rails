@@ -3,7 +3,5 @@
 module Phlex::Rails::Helpers::AutoDiscoveryLinkTag
 	extend Phlex::Rails::HelperMacros
 
-	# @!method auto_discovery_link_tag(...)
-	# 	@return [nil]
-	register_output_helper :auto_discovery_link_tag
+	register_output_helper def auto_discovery_link_tag(...) = nil
 end

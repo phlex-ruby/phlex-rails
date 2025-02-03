@@ -3,7 +3,5 @@
 module Phlex::Rails::Helpers::SearchField
 	extend Phlex::Rails::HelperMacros
 
-	# @!method search_field(...)
-	# 	@return [nil]
-	register_output_helper :search_field
+	register_output_helper def search_field(...) = nil
 end

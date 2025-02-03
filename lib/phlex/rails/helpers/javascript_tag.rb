@@ -3,7 +3,5 @@
 module Phlex::Rails::Helpers::JavascriptTag
 	extend Phlex::Rails::HelperMacros
 
-	# @!method javascript_tag(...)
-	# 	@return [nil]
-	register_output_helper :javascript_tag
+	register_output_helper def javascript_tag(...) = nil
 end

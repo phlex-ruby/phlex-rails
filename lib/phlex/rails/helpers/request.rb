@@ -3,6 +3,5 @@
 module Phlex::Rails::Helpers::Request
 	extend Phlex::Rails::HelperMacros
 
-	# @!method request(...)
-	register_value_helper :request
+	register_value_helper def request(...) = nil
 end
