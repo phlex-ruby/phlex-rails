@@ -21,7 +21,7 @@ module Phlex
 				end
 
 				def helpers
-					unless @_context && (view_context = @_context.view_context)
+					unless @_state && (view_context = @_state.view_context)
 						raise HelpersCalledBeforeRenderError.new("Do not use rails helpers until after the view has been rendered.") unless view_context
 					end
 
@@ -49,7 +49,7 @@ module Phlex
 					return super if args.length == 0 && kwargs.length == 0
 
 					output = if block
-						@_context.view_context.render(*args, **kwargs) do |*yielded_args|
+						@_state.view_context.render(*args, **kwargs) do |*yielded_args|
 							if yielded_args.length == 1 && defined?(ViewComponent::Base) && ViewComponent::Base === yielded_args[0]
 								capture(Phlex::Rails::Buffered.new(yielded_args[0], view: self), &block)
 							else
@@ -57,7 +57,7 @@ module Phlex
 							end
 						end
 					else
-						@_context.view_context.render(*args, **kwargs)
+						@_state.view_context.render(*args, **kwargs)
 					end
 
 					raw(output)

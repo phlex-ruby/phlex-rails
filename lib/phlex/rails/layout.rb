@@ -46,7 +46,7 @@ module Phlex::Rails
 		end
 
 		def render(view_context = nil, *args, **kwargs, &block)
-			if @_context
+			if @_state
 				super
 			else
 				call(view_context:) do |yielded|

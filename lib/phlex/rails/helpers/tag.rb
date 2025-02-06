@@ -7,7 +7,7 @@ module Phlex::Rails::Helpers::Tag
 
 		case result
 		when ActiveSupport::SafeBuffer
-			@_context.buffer << result
+			@_state.buffer << result
 		when ActionView::Helpers::TagHelper::TagBuilder
 			Phlex::Rails::Buffered.new(
 				result,

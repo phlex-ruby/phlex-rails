@@ -7,7 +7,7 @@ module Phlex::Rails::HelperMacros
 			# frozen_string_literal: true
 
 			def #{method_name}(*args, **kwargs, &block)
-  			context = @_context
+  			context = @_state
 
 				output = if block
 					helpers.#{method_name}(*args, **kwargs) { capture(&block) }
@@ -41,7 +41,7 @@ module Phlex::Rails::HelperMacros
 			# frozen_string_literal: true
 
 			def #{method_name}(*args, **kwargs)
-  			context = @_context
+  			context = @_state
 				output = if block_given?
 					helpers.#{method_name}(*args, **kwargs) { |form|
 						capture do
