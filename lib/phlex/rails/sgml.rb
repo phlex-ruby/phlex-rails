@@ -51,14 +51,14 @@ module Phlex::Rails::SGML
 		renderable = args[0]
 
 		case renderable
-					when Phlex::SGML, Proc, Method, String
-						return super
-					when Class
-						return super if renderable < Phlex::SGML
-					when Enumerable
-						return super unless ActiveRecord::Relation === renderable
-					when nil
-						return super if kwargs.length == 0
+		when Phlex::SGML, Proc, Method, String
+			return super
+		when Class
+			return super if renderable < Phlex::SGML
+		when Enumerable
+			return super unless ActiveRecord::Relation === renderable
+		when nil
+			return super if kwargs.length == 0
 		end
 
 		return super if args.length == 0 && kwargs.length == 0
@@ -95,10 +95,5 @@ module Phlex::Rails::SGML
 
 	def capture(...)
 		super&.html_safe
-	end
-
-	# Trick ViewComponent into thinking we're a ViewComponent to fix rendering output
-	# https://github.com/ViewComponent/view_component/issues/2207
-	def set_original_view_context(view_context)
 	end
 end
