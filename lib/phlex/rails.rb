@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "phlex"
-require "phlex/rails/engine"
 
 module Phlex
 	module Rails
