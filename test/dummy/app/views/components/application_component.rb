@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class ApplicationComponent < Phlex::HTML
+	include Phlex::Rails::HTML
 	include Phlex::Rails::Helpers::Routes
 
 	if Rails.env.development?

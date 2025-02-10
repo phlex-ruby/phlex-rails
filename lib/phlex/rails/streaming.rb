@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# @api private
 module Phlex::Rails::Streaming
 	include ActionController::Live
 

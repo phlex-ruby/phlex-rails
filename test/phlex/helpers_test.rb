@@ -15,7 +15,7 @@ class HelpersTest < ActionDispatch::IntegrationTest
 	end
 
 	test "helper in initializer" do
-		error = assert_raises(Phlex::Rails::SGML::Overrides::HelpersCalledBeforeRenderError) do
+		error = assert_raises(Phlex::Rails::HelpersCalledBeforeRenderError) do
 			get "/helpers/helper_in_initializer"
 		end
 
