@@ -83,7 +83,7 @@ module Phlex
 				end
 
 				# Trick ViewComponent into thinking we're a ViewComponent to fix rendering output
-				# @api private
+				# https://github.com/ViewComponent/view_component/issues/2207
 				def set_original_view_context(view_context)
 				end
 			end
