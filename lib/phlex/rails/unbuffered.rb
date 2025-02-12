@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# @api private
 class Phlex::Rails::Unbuffered
 	def initialize(component)
 		@component = component

@@ -16,7 +16,6 @@ module Phlex::Rails
 		include Helpers::TurboRefreshScrollTag
 		include Helpers::TurboRefreshesWith
 
-		# @api private
 		module Interface
 			def render(view_context, _locals, &)
 				new.render(view_context, &)

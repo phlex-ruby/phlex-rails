@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# Phlex adapter for the [`asset_url`](https://api.rubyonrails.org/classes/ActionView/Helpers/AssetUrlHelper.html#method-i-asset_url) Rails helper.
 module Phlex::Rails::Helpers::AssetURL
 	extend Phlex::Rails::HelperMacros
 

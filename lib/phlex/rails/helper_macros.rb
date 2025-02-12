@@ -33,7 +33,6 @@ module Phlex::Rails::HelperMacros
 		RUBY
 	end
 
-	# @api private
 	def register_builder_yielding_helper(method_name, builder)
 		class_eval(<<-RUBY, __FILE__, __LINE__ + 1)
 			# frozen_string_literal: true

@@ -29,7 +29,7 @@ jobs:
         run: bundle exec appraisal install
 
       - name: Tests
-        run: bundle exec appraisal bin/test
+        run: bundle exec appraisal bundle exec qt -t1
 
   rubocop:
     runs-on: "ubuntu-latest"

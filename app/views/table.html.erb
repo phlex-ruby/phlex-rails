@@ -1,0 +1,11 @@
+<h1>Before</h1>
+<%= render Components::Table.new(rows) do |t| %>
+  <% t.column("Name") do |row| %>
+    <span><%= row[:name] %></span>
+  <% end %>
+
+  <%= t.column("Email") do |row| %>
+    <span><%= row[:email] %></span>
+  <% end %>
+<% end %>
+<h1>After</h1>

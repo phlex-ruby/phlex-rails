@@ -3,12 +3,9 @@
 require "forwardable"
 
 module Phlex::Rails
-	# A decorator that buffers all missing method calls and captures the blocks passed to them.
-	# @api private
 	class Buffered < BasicObject
 		extend ::Forwardable
 
-		# @api private
 		def self.define_builder_yielding_method(method_name, builder)
 			class_eval(<<-RUBY, __FILE__, __LINE__ + 1)
 				# frozen_string_literal: true
@@ -38,7 +35,6 @@ module Phlex::Rails
 			RUBY
 		end
 
-		# @api private
 		def initialize(object, view:)
 			@object = object
 			@view = view

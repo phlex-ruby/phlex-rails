@@ -4,6 +4,8 @@ require "phlex"
 
 module Phlex
 	module Rails
+		class HelpersCalledBeforeRenderError < StandardError; end
+
 		autoload :Buffered, "phlex/rails/buffered"
 		autoload :Unbuffered, "phlex/rails/unbuffered"
 
@@ -14,28 +16,23 @@ module Phlex
 
 		autoload :SGML, "phlex/rails/sgml"
 		autoload :HTML, "phlex/rails/html"
+		autoload :SVG, "phlex/rails/svg"
 
 		autoload :CSV, "phlex/rails/csv"
 
 		autoload :Helpers, "phlex/rails/helpers"
 		autoload :HelperMacros, "phlex/rails/helper_macros"
-		autoload :HelperFinder, "phlex/rails/helper_finder"
 
 		autoload :Layout, "phlex/rails/layout"
 		autoload :Partial, "phlex/rails/partial"
 		autoload :Streaming, "phlex/rails/streaming"
 	end
 
-	CSV.extend Phlex::Rails::HelperMacros
-	CSV.prepend Phlex::Rails::CSV::Overrides
+	CSV.include(Phlex::Rails::CSV)
+	CSV.extend(Phlex::Rails::HelperMacros)
 
-	SGML.extend Phlex::Rails::SGML::ClassMethods
-	SGML.extend Phlex::Rails::HelperMacros
-	SGML.prepend Phlex::Rails::SGML::Overrides
-	SGML.include Phlex::Rails::HelperFinder
-
-	HTML.extend Phlex::Rails::HTML::Format
-	HTML.include Phlex::Rails::HTML::Format
+	HTML.include(Phlex::Rails::HTML)
+	SVG.include(Phlex::Rails::SVG)
 
 	ActiveSupport::SafeBuffer.include(Phlex::SGML::SafeObject)
 end

@@ -1,0 +1,10 @@
+<h1><%= header %></h1>
+<time><%= @date %></time>
+
+<section>
+  <% posts.each do |post| %>
+    <article>
+      <%= post %>
+    </article>
+  <% end %>
+</section>
