@@ -32,6 +32,7 @@ module Phlex
 	CSV.extend(Phlex::Rails::HelperMacros)
 
 	HTML.include(Phlex::Rails::HTML)
+	SVG.include(Phlex::Rails::SVG)
 
 	ActiveSupport::SafeBuffer.include(Phlex::SGML::SafeObject)
 end
