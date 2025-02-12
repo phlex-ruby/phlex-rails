@@ -20,9 +20,6 @@ class App < Rails::Application
 	end
 end
 
-class PostsController < ActionController::Base
-end
-
 App.initialize!
 
 class Quickdraw::Test
