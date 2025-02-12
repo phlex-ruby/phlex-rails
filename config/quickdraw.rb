@@ -15,16 +15,13 @@ class App < Rails::Application
 	config.active_support.to_time_preserves_timezone = :zone
 	config.autoload_paths << "#{root}/app/view_components"
 
-	# routes.append do
-	# 	get "/hello/world" => "hello#world"
-	# end
+	routes.append do
+		resources :posts
+	end
 end
 
-# class HelloController < ActionController::API
-# 	def world
-# 		render json: { hello: :world }
-# 	end
-# end
+class PostsController < ActionController::Base
+end
 
 App.initialize!
 
