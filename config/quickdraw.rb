@@ -5,12 +5,13 @@ require "rails"
 require "action_controller/railtie"
 require "action_view/railtie"
 require "phlex/rails"
-require "nokolexbor"
+require "view_component"
 
 class App < Rails::Application
 	config.eager_load = false
 	config.hosts.clear
 	config.active_support.to_time_preserves_timezone = :zone
+	config.autoload_paths << "#{root}/app/view_components"
 
 	# routes.append do
 	# 	get "/hello/world" => "hello#world"

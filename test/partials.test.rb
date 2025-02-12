@@ -30,8 +30,8 @@ test "rendering a partial with arguments and a do block" do
 	assert_equivalent_html render(example.new), <<~HTML.strip
 		<div class="around">
 			<article>
-			  <h1>Hello</h1>
-			  <h3>Hello from inside</h3>
+				<h1>Hello</h1>
+				<h3>Hello from inside</h3>
 			</article>
 		</div>
 	HTML
@@ -51,8 +51,8 @@ test "rendering a partial with arguments and a brace block" do
 	assert_equivalent_html render(example.new), <<~HTML.strip
 		<div class="around">
 			<article>
-			  <h1>Hello</h1>
-			  <h3>Hello from inside</h3>
+				<h1>Hello</h1>
+				<h3>Hello from inside</h3>
 			</article>
 		</div>
 	HTML
