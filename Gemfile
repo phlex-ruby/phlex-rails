@@ -5,13 +5,13 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gemspec
 
-gem "phlex", path: "../phlex"
+gem "phlex", github: "phlex-ruby/phlex"
 gem "view_component"
 gem "appraisal"
 
 gem "rails"
 
-gem "quickdraw", path: "../quickdraw"
+gem "quickdraw", github: "joeldrapper/quickdraw"
 
 group :development do
 	gem "rubocop"
