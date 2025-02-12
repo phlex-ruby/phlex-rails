@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 require "rails/generators"
+require "generators/phlex/view/view_generator"
 require "generators/phlex/install/install_generator"
+require "generators/phlex/component/component_generator"
 
 test "install generator" do
 	with_temp_dir do |path|
@@ -16,6 +18,26 @@ test "install generator" do
 		assert_includes stdout, "create  config/initializers/phlex.rb"
 		assert_includes stdout, "create  app/components/base.rb"
 		assert_includes stdout, "create  app/views/base.rb"
+	end
+end
+
+test "view generator" do
+	with_temp_dir do |path|
+		generator = Phlex::Generators::ViewGenerator.new(["Articles::Index"])
+		generator.destination_root = path
+		capture_io { generator.invoke_all }
+
+		assert File.exist?("#{path}/app/views/articles/index.rb")
+	end
+end
+
+test "component generator" do
+	with_temp_dir do |path|
+		generator = Phlex::Generators::ComponentGenerator.new(["Card"])
+		generator.destination_root = path
+		capture_io { generator.invoke_all }
+
+		assert File.exist?("#{path}/app/components/card.rb")
 	end
 end
 
