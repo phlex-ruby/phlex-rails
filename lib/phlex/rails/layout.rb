@@ -36,19 +36,20 @@ module Phlex::Rails
 			end
 		end
 
-		def self.included(klass)
-			unless klass < Phlex::HTML
+		def self.included(base)
+			unless base < Phlex::HTML
 				raise Phlex::ArgumentError.new("👋 #{name} should only be included into Phlex::HTML classes.")
 			end
 
-			klass.extend(Interface)
+			base.extend(Interface)
+			super
 		end
 
 		def render(view_context = nil, *args, **kwargs, &block)
 			if @_state
 				super
 			else
-				call(view_context:) do |yielded|
+				call(context: { rails_view_context: view_context }) do |yielded|
 					case yielded
 					when Symbol
 						output = view_context.view_flow.get(yielded)

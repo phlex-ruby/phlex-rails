@@ -3,15 +3,15 @@
 module Phlex::Rails::Helpers::Tag
 	# [Rails Docs](https://api.rubyonrails.org/classes/ActionView/Helpers/TagHelper.html#method-i-tag)
 	def tag(...)
-		result = helpers.tag(...)
+		result = view_context.tag(...)
 
 		case result
 		when ActiveSupport::SafeBuffer
-			@_state.buffer << result
+			raw(result)
 		when ActionView::Helpers::TagHelper::TagBuilder
 			Phlex::Rails::Buffered.new(
 				result,
-				view: self,
+				component: self,
 			)
 		end
 	end

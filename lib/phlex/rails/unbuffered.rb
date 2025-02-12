@@ -25,7 +25,7 @@ class Phlex::Rails::Unbuffered
 				if erb
 					component.public_send(method_name, *, **) do |*a, **kw|
 						component.raw(
-							component.helpers.capture(
+							component.capture_context.capture(
 								*a,
 								**kw,
 								&erb

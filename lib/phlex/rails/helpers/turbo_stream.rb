@@ -7,8 +7,8 @@ module Phlex::Rails::Helpers::TurboStream
 
 	def turbo_stream(...)
 		Phlex::Rails::Buffered.new(
-			helpers.turbo_stream(...),
-			view: self,
+			view_context.turbo_stream(...),
+			component: self,
 		)
 	end
 end

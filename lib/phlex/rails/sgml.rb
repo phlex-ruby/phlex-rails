@@ -14,7 +14,7 @@ module Phlex::Rails::SGML
 	end
 
 	def method_missing(name, *args, **kwargs, &block)
-		return super unless helpers.respond_to?(name)
+		return super unless view_context.respond_to?(name)
 
 		const_name = name.to_s.gsub("?", "")
 		module_name = Phlex::Rails::Helpers.constants.find { |mod| mod.to_s.underscore.gsub("domid", "dom_id") == const_name }
@@ -32,19 +32,33 @@ module Phlex::Rails::SGML
 	end
 
 	def helpers
-		unless @_state && (view_context = @_state.view_context)
-			unless view_context
-				raise Phlex::Rails::HelpersCalledBeforeRenderError.new(
-					"Do not use rails helpers until after the view has been rendered."
-				)
-			end
-		end
+		warn <<~MESSAGE
+			The `helpers` method is deprecated and will be removed in the next
+			minor version of phlex-rails.
 
-		if defined?(ViewComponent::Base) && ViewComponent::Base === view_context
-			view_context.helpers
-		else
-			view_context
-		end
+			If you absolutely need to access the underlying Rails view context,
+			you can do that via the `view_context` method, though this is
+			not recommended.
+
+			It is much safer to use one of the built-in helper adapters or to
+			register your own adapter via `register_output_helper` or
+			`register_value_helper`.
+
+			See https://beta.phlex.fun/rails/helpers.html
+		MESSAGE
+	end
+
+	def view_context
+		context[:rails_view_context] || (
+			raise Phlex::Rails::HelpersCalledBeforeRenderError.new(
+				"Do not use rails helpers until after the view has been rendered."
+			)
+		)
+	end
+
+	# If we’re rendered from view_component, we need to capture on the view_component context.
+	def capture_context
+		context[:view_component_context] || view_context
 	end
 
 	def render(renderable, &block)
@@ -61,15 +75,15 @@ module Phlex::Rails::SGML
 
 		if renderable.respond_to?(:render_in) || renderable.respond_to?(:to_partial_path)
 			output = if block
-				@_state.view_context.render(renderable) do |*yielded_args|
+				view_context.render(renderable) do |*yielded_args|
 					if yielded_args.length == 1 && defined?(ViewComponent::Base) && ViewComponent::Base === yielded_args[0]
-						capture(Phlex::Rails::Buffered.new(yielded_args[0], view: self), &block)
+						capture(Phlex::Rails::Buffered.new(yielded_args[0], component: self), &block)
 					else
 						capture(*yielded_args, &block)
 					end
 				end
 			else
-				@_state.view_context.render(renderable)
+				view_context.render(renderable)
 			end
 
 			raw(output)
@@ -79,18 +93,32 @@ module Phlex::Rails::SGML
 	end
 
 	def render_in(view_context, &erb)
+		case view_context
+		when defined?(ViewComponent::Base) && ViewComponent::Base
+			context = {
+				rails_view_context: view_context.helpers,
+				view_component_context: view_context,
+			}
+		else
+			context = { rails_view_context: view_context }
+		end
+
 		if erb
-			call(view_context:) { |*args|
+			call(context:) { |*args|
 				if args.length == 1 && Phlex::SGML === args[0] && !erb.source_location&.[](0)&.end_with?(".rb")
 					unbuffered = Phlex::Rails::Unbuffered.new(args[0])
-					raw(helpers.capture(unbuffered, &erb))
+					raw(view_context.capture(unbuffered, &erb))
 				else
-					raw(helpers.capture(*args, &erb))
+					raw(view_context.capture(*args, &erb))
 				end
 			}.html_safe
 		else
-			call(view_context:).html_safe
+			call(context:).html_safe
 		end
+	end
+
+	def set_original_view_context(view_context)
+		# no-op (see https://github.com/ViewComponent/view_component/issues/2207)
 	end
 
 	def capture(...)

@@ -13,10 +13,10 @@ module Phlex::Rails
 				def #{method_name}(*args, **kwargs, &block)
 					output = if block
 						@object.#{method_name}(*args, **kwargs) { |builder|
-							@view.capture do
+							@component.capture do
 								yield(
 									::#{builder.name}.new(builder,
-										view: @view
+										component: @component
 									)
 								)
 							end
@@ -27,7 +27,7 @@ module Phlex::Rails
 
 					case output
 					when ::ActiveSupport::SafeBuffer
-						@view.instance_variable_get(:@_state).buffer << output
+						@component.raw(output)
 					end
 
 					nil
@@ -35,9 +35,9 @@ module Phlex::Rails
 			RUBY
 		end
 
-		def initialize(object, view:)
+		def initialize(object, component:)
 			@object = object
-			@view = view
+			@component = component
 		end
 
 		def respond_to_missing?(...)
@@ -46,13 +46,14 @@ module Phlex::Rails
 
 		def method_missing(*, **, &block)
 			output = if block
-				@object.public_send(*, **) { |*a| @view.capture(*a, &block) }
+				@object.public_send(*, **) { |*a| @component.capture(*a, &block) }
 			else
 				@object.public_send(*, **)
 			end
 
-			if ::ActiveSupport::SafeBuffer === output
-				@view.instance_variable_get(:@_state).buffer << output
+			case output
+			when ::ActiveSupport::SafeBuffer
+				@component.raw(output)
 			end
 
 			nil
