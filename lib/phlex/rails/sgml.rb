@@ -47,9 +47,7 @@ module Phlex::Rails::SGML
 		end
 	end
 
-	def render(*args, **kwargs, &block)
-		renderable = args[0]
-
+	def render(renderable, &block)
 		case renderable
 		when Phlex::SGML, Proc, Method, String
 			return super
@@ -61,21 +59,23 @@ module Phlex::Rails::SGML
 			return super if kwargs.length == 0
 		end
 
-		return super if args.length == 0 && kwargs.length == 0
-
-		output = if block
-			@_state.view_context.render(*args, **kwargs) do |*yielded_args|
-				if yielded_args.length == 1 && defined?(ViewComponent::Base) && ViewComponent::Base === yielded_args[0]
-					capture(Phlex::Rails::Buffered.new(yielded_args[0], view: self), &block)
-				else
-					capture(*yielded_args, &block)
+		if renderable.respond_to?(:render_in) || renderable.respond_to?(:to_partial_path)
+			output = if block
+				@_state.view_context.render(renderable) do |*yielded_args|
+					if yielded_args.length == 1 && defined?(ViewComponent::Base) && ViewComponent::Base === yielded_args[0]
+						capture(Phlex::Rails::Buffered.new(yielded_args[0], view: self), &block)
+					else
+						capture(*yielded_args, &block)
+					end
 				end
+			else
+				@_state.view_context.render(renderable)
 			end
-		else
-			@_state.view_context.render(*args, **kwargs)
-		end
 
-		raw(output)
+			raw(output)
+		else
+			super
+		end
 	end
 
 	def render_in(view_context, &erb)
