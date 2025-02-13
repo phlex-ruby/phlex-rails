@@ -1,4 +1,4 @@
-<a href="https://www.phlex.fun"><img alt="Phlex logo" src="phlex_logo.png" width="180" /></a>
+# Phlex Rails
 
 Phlex is a framework that lets you compose web views in pure Ruby.
 
@@ -21,7 +21,3 @@ Maintaining a library is a lot of work. If your company benefits from this work 
 ### Security 🚨
 
 If you’ve found a potential security issue, please email [security@phlex.fun](mailto:security@phlex.fun).
-
-### Thanks 🙏
-
-Thanks [Logology](https://www.logology.co) for sponsoring our logo.
