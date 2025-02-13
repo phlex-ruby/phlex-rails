@@ -39,7 +39,7 @@ jobs:
       - name: Setup
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: "3.3"
+          ruby-version: "3.4"
           bundler-cache: false
 
       - name: Install dependencies
