@@ -15,11 +15,13 @@ module Phlex::Rails::Helpers::Translate
 		base.extend(ClassMethods)
 	end
 
+	# [Rails Docs](https://api.rubyonrails.org/classes/AbstractController/Translation.html#method-i-translate)
 	def translate(key, **)
 		key = "#{self.class.translation_path}#{key}" if key.start_with?(".")
 
 		view_context.t(key, **)
 	end
 
+	# [Rails Docs](https://api.rubyonrails.org/classes/AbstractController/Translation.html#method-i-t)
 	alias_method :t, :translate
 end
