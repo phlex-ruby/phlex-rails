@@ -3,5 +3,6 @@
 module Phlex::Rails::Helpers::PathToStylesheet
 	extend Phlex::Rails::HelperMacros
 
+	# [Rails Docs](https://api.rubyonrails.org/classes/ActionView/Helpers/AssetUrlHelper.html#method-i-path_to_stylesheet)
 	register_value_helper def path_to_stylesheet(...) = nil
 end
