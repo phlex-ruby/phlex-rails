@@ -14,6 +14,7 @@ class App < Rails::Application
 	config.hosts.clear
 	config.active_support.to_time_preserves_timezone = :zone
 	config.autoload_paths << "#{root}/app/view_components"
+	config.secret_key_base = "secret-key"
 
 	routes.append do
 		resources :posts
