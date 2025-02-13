@@ -5,11 +5,11 @@ require_relative "lib/phlex/rails/version"
 Gem::Specification.new do |spec|
 	spec.name = "phlex-rails"
 	spec.version = Phlex::Rails::VERSION
-	spec.authors = ["Joel Drapper"]
+	spec.authors = ["Joel Drapper", "Will Cosgrove"]
 	spec.email = ["joel@drapper.me"]
 
 	spec.summary = "A Phlex adapter for Rails"
-	spec.description = "A high-performance view framework optimised for fun."
+	spec.description = "Object-oriented views in pure Ruby."
 	spec.homepage = "https://www.phlex.fun"
 	spec.license = "MIT"
 	spec.required_ruby_version = ">= 3.2"
@@ -18,6 +18,7 @@ Gem::Specification.new do |spec|
 	spec.metadata["source_code_uri"] = "https://github.com/phlex-ruby/phlex-rails"
 	spec.metadata["changelog_uri"] = "https://github.com/phlex-ruby/phlex-rails/blob/main/CHANGELOG.md"
 	spec.metadata["funding_uri"] = "https://github.com/sponsors/joeldrapper"
+	spec.metadata["rubygems_mfa_required"] = "true"
 
 	spec.files = Dir[
 		"README.md",
@@ -29,6 +30,4 @@ Gem::Specification.new do |spec|
 
 	spec.add_dependency "phlex", "2.0.0.rc2"
 	spec.add_dependency "railties", ">= 6.1", "< 9"
-
-	spec.metadata["rubygems_mfa_required"] = "true"
 end
