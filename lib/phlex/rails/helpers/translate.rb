@@ -18,7 +18,7 @@ module Phlex::Rails::Helpers::Translate
 	def translate(key, **)
 		key = "#{self.class.translation_path}#{key}" if key.start_with?(".")
 
-		helpers.t(key, **)
+		view_context.t(key, **)
 	end
 
 	alias_method :t, :translate

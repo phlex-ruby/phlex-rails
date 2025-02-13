@@ -31,7 +31,7 @@ module Phlex::Rails::Streaming
 		headers["Content-Disposition"] = "attachment; filename=\"#{filename || view.filename}\""
 
 		self.response_body = Enumerator.new do |buffer|
-			view.call(buffer, view_context:)
+			view.call(buffer, context: { rails_view_context: view_context })
 		end
 	end
 
@@ -46,7 +46,7 @@ module Phlex::Rails::Streaming
 		end
 
 		self.response_body = Enumerator.new do |buffer|
-			view.call(buffer, view_context:)
+			view.call(buffer, context: { rails_view_context: view_context })
 		rescue => e
 			raise(e) if Rails.env.test?
 
