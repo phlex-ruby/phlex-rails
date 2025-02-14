@@ -72,7 +72,7 @@ module Phlex::Rails::SGML
 		when Enumerable
 			return super unless ActiveRecord::Relation === renderable
 		when nil
-			return super if kwargs.length == 0
+			return super
 		end
 
 		if renderable.respond_to?(:render_in) || renderable.respond_to?(:to_partial_path)
