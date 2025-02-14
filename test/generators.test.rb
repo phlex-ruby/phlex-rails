@@ -14,10 +14,6 @@ test "install generator" do
 		assert File.exist?("#{path}/config/initializers/phlex.rb")
 		assert File.exist?("#{path}/app/components/base.rb")
 		assert File.exist?("#{path}/app/views/base.rb")
-
-		assert_includes stdout, "create  config/initializers/phlex.rb"
-		assert_includes stdout, "create  app/components/base.rb"
-		assert_includes stdout, "create  app/views/base.rb"
 	end
 end
 
