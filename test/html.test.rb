@@ -36,7 +36,7 @@ test "render phlex component from ERB" do
 			<nav class="special-nav">
 				<a class="special-nav-item" href="/">Home</a>
 				<span class="special-nav-divider"></span>
-				<a class="special-nav-item" href="/about">About</a>
+				<a class="special-nav-item" href="/about"><strong>About</strong></a>
 			</nav>
 		<h1>After</h1>
 	HTML
