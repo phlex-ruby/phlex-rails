@@ -63,6 +63,7 @@ module Phlex::Rails::Helpers
 	autoload :Flash, "phlex/rails/helpers/flash"
 	autoload :FontPath, "phlex/rails/helpers/font_path"
 	autoload :FontURL, "phlex/rails/helpers/font_url"
+	autoload :FormAuthenticityToken, "phlex/rails/helpers/form_authenticity_token"
 	autoload :FormFor, "phlex/rails/helpers/form_for"
 	autoload :FormTag, "phlex/rails/helpers/form_tag"
 	autoload :FormWith, "phlex/rails/helpers/form_with"
