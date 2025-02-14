@@ -20,4 +20,4 @@ Maintaining a library is a lot of work. If your company benefits from this work 
 
 ### Security 🚨
 
-If you’ve found a potential security issue, please email [security@phlex.fun](mailto:security@phlex.fun).
+If you suspect you may have found a security vulnerability, please do not open a public issue or pull request. Instead, please [send us a private advisory](https://github.com/phlex-ruby/phlex/security/advisories/new).
