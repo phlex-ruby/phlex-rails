@@ -46,6 +46,8 @@ module Phlex::Rails::SGML
 
 			See https://beta.phlex.fun/rails/helpers.html
 		MESSAGE
+
+		view_context
 	end
 
 	def view_context
