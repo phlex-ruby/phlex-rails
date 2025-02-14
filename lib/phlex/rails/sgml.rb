@@ -63,7 +63,7 @@ module Phlex::Rails::SGML
 		context[:view_component_context] || view_context
 	end
 
-	def render(renderable, &block)
+	def render(renderable = nil, &block)
 		case renderable
 		when Phlex::SGML, Proc, Method, String
 			return super
