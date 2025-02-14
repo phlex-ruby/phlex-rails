@@ -124,4 +124,8 @@ module Phlex::Rails::SGML
 	def capture(...)
 		super&.html_safe
 	end
+
+	def enable_cache_reloading?
+		Rails.env.development?
+	end
 end
