@@ -16,7 +16,7 @@ Gem::Specification.new do |spec|
 
 	spec.metadata["homepage_uri"] = spec.homepage
 	spec.metadata["source_code_uri"] = "https://github.com/phlex-ruby/phlex-rails"
-	spec.metadata["changelog_uri"] = "https://github.com/phlex-ruby/phlex-rails/blob/main/CHANGELOG.md"
+	spec.metadata["changelog_uri"] = "https://github.com/phlex-ruby/phlex-rails/releases"
 	spec.metadata["funding_uri"] = "https://github.com/sponsors/joeldrapper"
 	spec.metadata["rubygems_mfa_required"] = "true"
 
