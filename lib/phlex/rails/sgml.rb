@@ -105,8 +105,10 @@ module Phlex::Rails::SGML
 			context = { rails_view_context: view_context }
 		end
 
+		fragments = context[:rails_view_context].request.headers.fetch("X-Fragments", "").split(" ").presence
+
 		if erb
-			call(context:) { |*args|
+			call(context:, fragments:) { |*args|
 				if args.length == 1 && Phlex::SGML === args[0] && !erb.source_location&.[](0)&.end_with?(".rb")
 					unbuffered = Phlex::Rails::Unbuffered.new(args[0])
 					raw(view_context.capture(unbuffered, &erb))
@@ -115,7 +117,7 @@ module Phlex::Rails::SGML
 				end
 			}.html_safe
 		else
-			call(context:).html_safe
+			call(context:, fragments:).html_safe
 		end
 	end
 
