@@ -12,12 +12,18 @@ require "view_component"
 class App < Rails::Application
 	config.eager_load = false
 	config.hosts.clear
-	config.active_support.to_time_preserves_timezone = :zone
 	config.autoload_paths << "#{root}/app/view_components"
 	config.secret_key_base = "secret-key"
+	config.action_dispatch.show_exceptions = :rescuable
 
 	routes.append do
 		resources :posts
+	end
+end
+
+class PostsController < ActionController::Base
+	def index
+		render Views::Posts::Index.new
 	end
 end
 
@@ -34,5 +40,12 @@ class Quickdraw::Test
 
 	def controller
 		@controller ||= ActionView::TestCase::TestController.new
+	end
+
+	def get(url, headers:)
+		response = Rack::MockRequest.new(Rails.application).get(
+			url,
+			**headers.transform_keys { |key| "HTTP_#{key.to_s.upcase.tr('-', '_')}" }
+		)
 	end
 end
