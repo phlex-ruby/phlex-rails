@@ -105,7 +105,9 @@ module Phlex::Rails::SGML
 			context = { rails_view_context: view_context }
 		end
 
-		fragments = context[:rails_view_context].request.headers.fetch("X-Fragments", "").split(",").map(&:strip).presence
+		fragments = if (request = context[:rails_view_context].request) && (fragment_header = request.headers["X-Fragments"])
+			fragment_header.split(",").map(&:strip).presence
+		end
 
 		if erb
 			call(context:, fragments:) { |*args|
