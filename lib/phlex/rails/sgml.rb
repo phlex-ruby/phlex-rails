@@ -13,14 +13,28 @@ module Phlex::Rails::SGML
 		end
 	end
 
-	def method_missing(name, *args, **kwargs, &block)
-		return super unless view_context.respond_to?(name)
+	def method_missing(name, ...)
+		super
+	rescue NoMethodError => e
+		if rendering? && view_context.respond_to?(name)
+			const_name = name.to_s.gsub("?", "")
 
-		const_name = name.to_s.gsub("?", "")
-		module_name = Phlex::Rails::Helpers.constants.find { |mod| mod.to_s.underscore.gsub("domid", "dom_id") == const_name }
-		return super unless module_name
+			module_name = Phlex::Rails::Helpers.constants.find do |mod|
+				mod.name.underscore.gsub("domid", "dom_id") == const_name
+			end
 
-		raise NoMethodError.new("Try including `Phlex::Rails::Helpers::#{module_name}` in #{self.class.name}.")
+			# If we're missing a helper module, raise a NoMethodError with a helpful message,
+			# otherwise re-raise the original error.
+			if module_name
+				raise NoMethodError.new(<<~MESSAGE)
+					Try including `Phlex::Rails::Helpers::#{module_name}` in #{self.class.name}.
+				MESSAGE
+			else
+				raise e
+			end
+		else
+			raise e
+		end
 	end
 
 	def partial(*, **, &block)
@@ -51,11 +65,13 @@ module Phlex::Rails::SGML
 	end
 
 	def view_context
-		context[:rails_view_context] || (
-			raise Phlex::Rails::HelpersCalledBeforeRenderError.new(
-				"Do not use rails helpers until after the view has been rendered."
-			)
-		)
+		if rendering?
+			context[:rails_view_context]
+		else
+			raise Phlex::Rails::HelpersCalledBeforeRenderError.new(<<~MESSAGE)
+				You can’t use Rails view helpers until after the component has started rendering.
+			MESSAGE
+		end
 	end
 
 	# If we’re rendered from view_component, we need to capture on the view_component context.

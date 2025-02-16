@@ -13,5 +13,7 @@ test "missing helpers" do
 		render component
 	end
 
-	assert_equal error.message, "Try including `Phlex::Rails::Helpers::LinkTo` in Components::Post."
+	assert_equal error.message, <<~MESSAGE
+		Try including `Phlex::Rails::Helpers::LinkTo` in Components::Post.
+	MESSAGE
 end
