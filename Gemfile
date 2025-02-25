@@ -5,7 +5,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gemspec
 
-gem "phlex", github: "phlex-ruby/phlex"
+gem "phlex", path: "../phlex"
 gem "view_component"
 gem "appraisal"
 

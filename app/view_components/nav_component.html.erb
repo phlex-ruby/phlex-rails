@@ -1,10 +1,10 @@
 <h1>Before</h1>
-<%= render Components::Nav.new do |n| %>
-  <%= n.item("/") do %>
+<% render Components::Nav.new do |n| %>
+  <% n.item("/") do %>
     Home
   <% end %>
-  <%= n.divider %>
-  <%= n.item("/about") do %>
+  <% n.divider %>
+  <% n.item("/about") do %>
     About
   <% end %>
 <% end %>

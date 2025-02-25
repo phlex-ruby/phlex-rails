@@ -34,5 +34,7 @@ module Phlex
 	HTML.include(Phlex::Rails::HTML)
 	SVG.include(Phlex::Rails::SVG)
 
+	SGML::State.prepend(Phlex::Rails::SGML::State)
+
 	ActiveSupport::SafeBuffer.include(Phlex::SGML::SafeObject)
 end

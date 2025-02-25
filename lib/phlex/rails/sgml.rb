@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 module Phlex::Rails::SGML
+	autoload :State, "phlex/rails/sgml/state"
+
 	def self.included(base)
 		base.extend ClassMethods
 		base.extend Phlex::Rails::HelperMacros
@@ -76,7 +78,7 @@ module Phlex::Rails::SGML
 
 	# If we’re rendered from view_component, we need to capture on the view_component context.
 	def capture_context
-		context[:view_component_context] || view_context
+		context[:capture_context]
 	end
 
 	def render(renderable = nil, &block)
@@ -86,7 +88,7 @@ module Phlex::Rails::SGML
 		when Class
 			return super if renderable < Phlex::SGML
 		when Enumerable
-			return super unless ActiveRecord::Relation === renderable
+			return super unless defined?(ActiveRecord::Relation) && ActiveRecord::Relation === renderable
 		when nil
 			return super
 		end
@@ -115,10 +117,13 @@ module Phlex::Rails::SGML
 		when defined?(ViewComponent::Base) && ViewComponent::Base
 			context = {
 				rails_view_context: view_context.helpers,
-				view_component_context: view_context,
+				capture_context: view_context,
 			}
 		else
-			context = { rails_view_context: view_context }
+			context = {
+				rails_view_context: view_context,
+				capture_context: view_context,
+			}
 		end
 
 		fragments = if (request = context[:rails_view_context].request) && (fragment_header = request.headers["X-Fragments"])
@@ -126,14 +131,7 @@ module Phlex::Rails::SGML
 		end
 
 		if erb
-			call(context:, fragments:) { |*args|
-				if args.length == 1 && Phlex::SGML === args[0] && !erb.source_location&.[](0)&.end_with?(".rb")
-					unbuffered = Phlex::Rails::Unbuffered.new(args[0])
-					raw(view_context.capture(unbuffered, &erb))
-				else
-					raw(view_context.capture(*args, &erb))
-				end
-			}.html_safe
+			call(context:, fragments:, &erb).html_safe
 		else
 			call(context:, fragments:).html_safe
 		end
@@ -143,8 +141,16 @@ module Phlex::Rails::SGML
 		# no-op (see https://github.com/ViewComponent/view_component/issues/2207)
 	end
 
-	def capture(...)
-		super&.html_safe
+	def capture(*args, &block)
+		if capture_context
+			if args.length == 0
+				capture_context.capture { __yield_content__(&block) }
+			else
+				capture_context.capture(*args) { __yield_content_with_args__(*args, &block) }
+			end
+		else
+			super
+		end
 	end
 
 	def enable_cache_reloading?
