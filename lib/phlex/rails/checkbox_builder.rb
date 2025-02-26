@@ -1,27 +1,10 @@
 # frozen_string_literal: true
 
 class Phlex::Rails::CheckboxBuilder < Phlex::Rails::Decorator
-	def label(...)
-		@component.__raw_unless_external_block__(
-			@object.label(...)
-		)
-	end
+	def text(...) = @object.text(...)
+	def value(...) = @object.value(...)
+	def object(...) = @object.object(...)
 
-	def object(...)
-		@object.object(...)
-	end
-
-	def checkbox(...)
-		@component.__raw_unless_external_block__(
-			@object.checkbox(...)
-		)
-	end
-
-	def text(...)
-		@object.text(...)
-	end
-
-	def value(...)
-		@object.value(...)
-	end
+	output def label(...) = nil
+	output def checkbox(...) = nil
 end
