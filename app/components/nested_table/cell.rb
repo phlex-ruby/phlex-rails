@@ -3,9 +3,6 @@
 class Components::NestedTable::Cell < Phlex::HTML
 	include Phlex::Rails::Helpers::ContentTag
 
-	def initialize
-	end
-
 	def view_template(&)
 		td do
 			yield

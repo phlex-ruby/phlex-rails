@@ -94,19 +94,11 @@ module Phlex::Rails::SGML
 		end
 
 		if renderable.respond_to?(:render_in) || renderable.respond_to?(:to_partial_path)
-			output = if block
-				view_context.render(renderable) do |*yielded_args|
-					if yielded_args.length == 1 && defined?(ViewComponent::Base) && ViewComponent::Base === yielded_args[0]
-						capture(Phlex::Rails::Buffered.new(yielded_args[0], component: self), &block)
-					else
-						capture(*yielded_args, &block)
-					end
-				end
+			if block
+				raw capture_context.render(renderable) { |*a| capture(*a, &block) }
 			else
-				view_context.render(renderable)
+				raw capture_context.render(renderable)
 			end
-
-			raw(output)
 		else
 			super
 		end
@@ -150,6 +142,26 @@ module Phlex::Rails::SGML
 			end
 		else
 			super
+		end
+	end
+
+	def capture_for_external(...)
+		if __external_block__?
+			capture(...)
+		else
+			yield
+		end
+	end
+
+	def __external_block__?
+		@_content_block && !@_content_block.source_location.first.end_with?(".rb")
+	end
+
+	def __raw_unless_external_block__(value)
+		if __external_block__?
+			value
+		else
+			raw(value)
 		end
 	end
 
