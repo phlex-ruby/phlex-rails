@@ -58,11 +58,7 @@ class Phlex::Rails::FormBuilder < Phlex::Rails::Decorator
 			@object.collection_check_boxes(*, **)
 		end
 
-		if __caller_locations__(0, 1).first.path.end_with?(".rb")
-			@component.raw(output)
-		else
-			output
-		end
+		@component.raw(output)
 	end
 
 	def collection_checkboxes(*, **, &block)
@@ -74,11 +70,7 @@ class Phlex::Rails::FormBuilder < Phlex::Rails::Decorator
 			@object.collection_checkboxes(*, **)
 		end
 
-		if __caller_locations__(0, 1).first.path.end_with?(".rb")
-			@component.raw(output)
-		else
-			output
-		end
+		@component.raw(output)
 	end
 
 	def collection_radio_buttons(*, **, &block)
@@ -90,11 +82,7 @@ class Phlex::Rails::FormBuilder < Phlex::Rails::Decorator
 			@object.collection_radio_buttons(*, **)
 		end
 
-		if __caller_locations__(0, 1).first.path.end_with?(".rb")
-			@component.raw(output)
-		else
-			output
-		end
+		@component.raw(output)
 	end
 
 	def fields(*, **, &block)
@@ -106,11 +94,7 @@ class Phlex::Rails::FormBuilder < Phlex::Rails::Decorator
 			@object.fields(*, **)
 		end
 
-		if __caller_locations__(0, 1).first.path.end_with?(".rb")
-			@component.raw(output)
-		else
-			output
-		end
+		@component.raw(output)
 	end
 
 	def fields_for(*, **, &block)
@@ -122,11 +106,7 @@ class Phlex::Rails::FormBuilder < Phlex::Rails::Decorator
 			@object.fields_for(*, **)
 		end
 
-		if __caller_locations__(0, 1).first.path.end_with?(".rb")
-			@component.raw(output)
-		else
-			output
-		end
+		@component.raw(output)
 	end
 
 	def label(*, **, &block)
@@ -138,10 +118,6 @@ class Phlex::Rails::FormBuilder < Phlex::Rails::Decorator
 			@object.label(*, **)
 		end
 
-		if __caller_locations__(0, 1).first.path.end_with?(".rb")
-			@component.raw(output)
-		else
-			output
-		end
+		@component.raw(output)
 	end
 end
