@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Phlex::Rails::RadioButtonBuilder < Buffered
+class Phlex::Rails::RadioButtonBuilder < Phlex::Rails::Decorator
 	def text(...) = @object.text(...)
 	def value(...) = @object.value(...)
 	def object(...) = @object.object(...)
