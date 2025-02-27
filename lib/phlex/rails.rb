@@ -7,18 +7,18 @@ module Phlex
 		class HelpersCalledBeforeRenderError < StandardError; end
 
 		autoload :Buffered, "phlex/rails/buffered"
-		autoload :Unbuffered, "phlex/rails/unbuffered"
+		autoload :Decorator, "phlex/rails/decorator"
 
-		autoload :BufferedCheckboxBuilder, "phlex/rails/buffered_checkbox_builder"
-		autoload :BufferedFormBuilder, "phlex/rails/buffered_form_builder"
-		autoload :BufferedLabelBuilder, "phlex/rails/buffered_label_builder"
-		autoload :BufferedRadioButtonBuilder, "phlex/rails/buffered_radio_button_builder"
-
-		autoload :SGML, "phlex/rails/sgml"
-		autoload :HTML, "phlex/rails/html"
-		autoload :SVG, "phlex/rails/svg"
+		autoload :FormBuilder, "phlex/rails/form_builder"
+		autoload :LabelBuilder, "phlex/rails/label_builder"
+		autoload :CheckboxBuilder, "phlex/rails/checkbox_builder"
+		autoload :RadioButtonBuilder, "phlex/rails/radio_button_builder"
 
 		autoload :CSV, "phlex/rails/csv"
+
+		autoload :SVG, "phlex/rails/svg"
+		autoload :HTML, "phlex/rails/html"
+		autoload :SGML, "phlex/rails/sgml"
 
 		autoload :Helpers, "phlex/rails/helpers"
 		autoload :HelperMacros, "phlex/rails/helper_macros"
@@ -33,6 +33,8 @@ module Phlex
 
 	HTML.include(Phlex::Rails::HTML)
 	SVG.include(Phlex::Rails::SVG)
+
+	SGML::State.prepend(Phlex::Rails::SGML::State)
 
 	ActiveSupport::SafeBuffer.include(Phlex::SGML::SafeObject)
 end

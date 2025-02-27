@@ -8,7 +8,7 @@ module Phlex::Rails::HelperMacros
 
 			def #{method_name}(*args, **kwargs, &block)
 				output = if block
-					view_context.#{method_name}(*args, **kwargs) { capture(&block) }
+					view_context.#{method_name}(*args, **kwargs) { |*args| capture(*args, &block) }
 				else
 					view_context.#{method_name}(*args, **kwargs)
 				end
@@ -25,7 +25,7 @@ module Phlex::Rails::HelperMacros
 
 			def #{method_name}(*args, **kwargs, &block)
 				if block
-					view_context.#{method_name}(*args, **kwargs) { capture(&block) }
+					view_context.#{method_name}(*args, **kwargs) { |*args| capture(*args, &block) }
 				else
 					view_context.#{method_name}(*args, **kwargs)
 				end
@@ -39,14 +39,8 @@ module Phlex::Rails::HelperMacros
 
 			def #{method_name}(*args, **kwargs)
 				output = if block_given?
-					view_context.#{method_name}(*args, **kwargs) { |form|
-						capture do
-							yield(
-								#{builder.name}.new(form,
-									component: self
-								)
-							)
-						end
+					view_context.#{method_name}(*args, **kwargs) { |builder|
+					yield #{builder.name}.new(builder, component: self)
 					}
 				else
 					view_context.#{method_name}(*args, **kwargs)
