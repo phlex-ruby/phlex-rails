@@ -6,6 +6,7 @@ module Phlex
 	module Rails
 		class HelpersCalledBeforeRenderError < StandardError; end
 
+		autoload :Buffered, "phlex/rails/buffered"
 		autoload :Decorator, "phlex/rails/decorator"
 
 		autoload :FormBuilder, "phlex/rails/form_builder"
