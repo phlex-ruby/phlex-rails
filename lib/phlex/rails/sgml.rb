@@ -140,18 +140,12 @@ module Phlex::Rails::SGML
 		if capture_context
 			return "" unless block
 
-			original_capturing = @capturing
-			original_fragments = @fragments
-
-			begin
+			@_state.around_capture do
 				if args.length == 0
 					capture_context.capture { __yield_content__(&block) }
 				else
 					capture_context.capture(*args) { __yield_content_with_args__(*args, &block) }
 				end
-			ensure
-				@capturing = original_capturing
-				@fragments = original_fragments
 			end
 		else
 			super
