@@ -107,25 +107,28 @@ module Phlex::Rails::SGML
 	def render_in(view_context, &erb)
 		case view_context
 		when defined?(ViewComponent::Base) && ViewComponent::Base
-			context = {
-				rails_view_context: view_context.helpers,
-				capture_context: view_context,
-			}
+			rails_view_context = view_context.helpers
+			capture_context = view_context
 		else
-			context = {
-				rails_view_context: view_context,
-				capture_context: view_context,
-			}
+			rails_view_context = view_context
+			capture_context = view_context
 		end
+
+		context = {
+			rails_view_context:,
+			capture_context:,
+		}
 
 		fragments = if (request = context[:rails_view_context].request) && (fragment_header = request.headers["X-Fragments"])
 			fragment_header.split(",").map(&:strip).presence
 		end
 
-		if erb
-			call(context:, fragments:, &erb).html_safe
-		else
-			call(context:, fragments:).html_safe
+		capture_context.capture do
+			if erb
+				call(context:, fragments:, &erb).html_safe
+			else
+				call(context:, fragments:).html_safe
+			end
 		end
 	end
 

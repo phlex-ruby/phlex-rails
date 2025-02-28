@@ -1,5 +1,5 @@
 <h1>Before</h1>
-<% render Components::Table.new(rows) do |t| %>
+<%= render Components::Table.new(rows) do |t| %>
   <% t.column("Name") do |row| %>
     <span><%= row[:name] %></span>
   <% end %>
