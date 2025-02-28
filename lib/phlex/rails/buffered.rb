@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "forwardable"
-
 module Phlex::Rails
 	class Buffered < BasicObject
 		def initialize(object, component:)
