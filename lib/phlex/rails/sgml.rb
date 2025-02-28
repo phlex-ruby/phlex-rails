@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 module Phlex::Rails::SGML
+	autoload :State, "phlex/rails/sgml/state"
+
 	def self.included(base)
 		base.extend ClassMethods
 		base.extend Phlex::Rails::HelperMacros
@@ -76,7 +78,7 @@ module Phlex::Rails::SGML
 
 	# If we’re rendered from view_component, we need to capture on the view_component context.
 	def capture_context
-		context[:view_component_context] || view_context
+		context[:capture_context]
 	end
 
 	def render(renderable = nil, &block)
@@ -86,25 +88,17 @@ module Phlex::Rails::SGML
 		when Class
 			return super if renderable < Phlex::SGML
 		when Enumerable
-			return super unless ActiveRecord::Relation === renderable
+			return super unless defined?(ActiveRecord::Relation) && ActiveRecord::Relation === renderable
 		when nil
 			return super
 		end
 
 		if renderable.respond_to?(:render_in) || renderable.respond_to?(:to_partial_path)
-			output = if block
-				view_context.render(renderable) do |*yielded_args|
-					if yielded_args.length == 1 && defined?(ViewComponent::Base) && ViewComponent::Base === yielded_args[0]
-						capture(Phlex::Rails::Buffered.new(yielded_args[0], component: self), &block)
-					else
-						capture(*yielded_args, &block)
-					end
-				end
+			if block
+				raw capture_context.render(renderable) { |*a| capture(*a, &block) }
 			else
-				view_context.render(renderable)
+				raw capture_context.render(renderable)
 			end
-
-			raw(output)
 		else
 			super
 		end
@@ -113,29 +107,28 @@ module Phlex::Rails::SGML
 	def render_in(view_context, &erb)
 		case view_context
 		when defined?(ViewComponent::Base) && ViewComponent::Base
-			context = {
-				rails_view_context: view_context.helpers,
-				view_component_context: view_context,
-			}
+			rails_view_context = view_context.helpers
+			capture_context = view_context
 		else
-			context = { rails_view_context: view_context }
+			rails_view_context = view_context
+			capture_context = view_context
 		end
+
+		context = {
+			rails_view_context:,
+			capture_context:,
+		}
 
 		fragments = if (request = context[:rails_view_context].request) && (fragment_header = request.headers["X-Fragments"])
 			fragment_header.split(",").map(&:strip).presence
 		end
 
-		if erb
-			call(context:, fragments:) { |*args|
-				if args.length == 1 && Phlex::SGML === args[0] && !erb.source_location&.[](0)&.end_with?(".rb")
-					unbuffered = Phlex::Rails::Unbuffered.new(args[0])
-					raw(view_context.capture(unbuffered, &erb))
-				else
-					raw(view_context.capture(*args, &erb))
-				end
-			}.html_safe
-		else
-			call(context:, fragments:).html_safe
+		capture_context.capture do
+			if erb
+				call(context:, fragments:, &erb).html_safe
+			else
+				call(context:, fragments:).html_safe
+			end
 		end
 	end
 
@@ -143,8 +136,20 @@ module Phlex::Rails::SGML
 		# no-op (see https://github.com/ViewComponent/view_component/issues/2207)
 	end
 
-	def capture(...)
-		super&.html_safe
+	def capture(*args, &block)
+		if capture_context
+			return "" unless block
+
+			@_state.around_capture do
+				if args.length == 0
+					capture_context.capture { __yield_content__(&block) }
+				else
+					capture_context.capture(*args) { __yield_content_with_args__(*args, &block) }
+				end
+			end
+		else
+			super
+		end
 	end
 
 	def enable_cache_reloading?
