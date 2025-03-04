@@ -26,7 +26,7 @@ jobs:
         run: bundle install --jobs 4 --without development
 
       - name: Appraisals install
-        run: bundle exec appraisal install
+        run: bundle exec appraisal install --jobs 4
 
       - name: Tests
         run: bundle exec appraisal bundle exec qt -t1
