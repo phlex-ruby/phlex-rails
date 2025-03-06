@@ -49,15 +49,13 @@ module Phlex::Rails
 			if @_state
 				super
 			else
-				call(context: { rails_view_context: view_context }) do |yielded|
+				render_in(view_context) do |yielded|
 					case yielded
 					when Symbol
-						output = view_context.view_flow.get(yielded)
+						raw view_context.view_flow.get(yielded)
 					else
-						output = view_context.capture(&block)
+						yield
 					end
-
-					raw output
 				end
 			end
 		end
