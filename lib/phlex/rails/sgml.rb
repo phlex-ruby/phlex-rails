@@ -136,6 +136,11 @@ module Phlex::Rails::SGML
 		# no-op (see https://github.com/ViewComponent/view_component/issues/2207)
 	end
 
+	def vanish(...)
+		# Quick fix because we need rails to handle the capture now
+		capture(...)
+	end
+
 	def capture(*args, &block)
 		if capture_context
 			return "" unless block
