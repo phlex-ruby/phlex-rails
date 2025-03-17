@@ -16,6 +16,7 @@ class App < Rails::Application
 	config.secret_key_base = "secret-key"
 	config.action_dispatch.show_exceptions = :rescuable
 	config.active_support.to_time_preserves_timezone = :zone
+	config.action_controller.perform_caching = true
 
 	routes.append do
 		resources :posts
