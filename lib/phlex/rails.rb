@@ -28,7 +28,7 @@ module Phlex
 		autoload :Streaming, "phlex/rails/streaming"
 	end
 
-	CSV.include(Phlex::Rails::CSV)
+	CSV.prepend(Phlex::Rails::CSV)
 	CSV.extend(Phlex::Rails::HelperMacros)
 
 	HTML.include(Phlex::Rails::HTML)
