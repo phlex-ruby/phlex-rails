@@ -104,6 +104,10 @@ module Phlex::Rails::SGML
 		end
 	end
 
+	def low_level_cache(...)
+		Rails.application.config.action_controller.perform_caching ? super : yield
+	end
+
 	def render_in(view_context, &erb)
 		case view_context
 		when defined?(ViewComponent::Base) && ViewComponent::Base
