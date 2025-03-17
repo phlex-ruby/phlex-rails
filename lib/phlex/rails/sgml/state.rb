@@ -11,6 +11,8 @@ module Phlex::Rails::SGML::State
 			original_fragments = @fragments
 
 			capture_context.capture do
+				@capturing = true
+				@fragments = nil
 				yield
 			ensure
 				@capturing = original_capturing
