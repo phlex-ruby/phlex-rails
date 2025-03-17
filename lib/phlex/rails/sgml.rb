@@ -136,27 +136,6 @@ module Phlex::Rails::SGML
 		# no-op (see https://github.com/ViewComponent/view_component/issues/2207)
 	end
 
-	def vanish(...)
-		# Quick fix because we need rails to handle the capture now
-		capture(...)
-	end
-
-	def capture(*args, &block)
-		if capture_context
-			return "" unless block
-
-			@_state.around_capture do
-				if args.length == 0
-					capture_context.capture { __yield_content__(&block) }
-				else
-					capture_context.capture(*args) { __yield_content_with_args__(*args, &block) }
-				end
-			end
-		else
-			super
-		end
-	end
-
 	def enable_cache_reloading?
 		Rails.env.development?
 	end

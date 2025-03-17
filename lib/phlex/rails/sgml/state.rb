@@ -5,16 +5,21 @@ module Phlex::Rails::SGML::State
 		@user_context[:capture_context]&.output_buffer&.raw_buffer || super
 	end
 
-	def around_capture
-		original_capturing = @capturing
-		original_fragments = @fragments
+	def capture
+		if (capture_context = @user_context[:capture_context])
+			original_capturing = @capturing
+			original_fragments = @fragments
 
-		begin
-			@capturing = true
-			yield
-		ensure
-			@capturing = original_capturing
-			@fragments = original_fragments
+			capture_context.capture do
+				@capturing = true
+				@fragments = nil
+				yield
+			ensure
+				@capturing = original_capturing
+				@fragments = original_fragments
+			end
+		else
+			super
 		end
 	end
 end

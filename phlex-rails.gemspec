@@ -28,6 +28,6 @@ Gem::Specification.new do |spec|
 
 	spec.require_paths = ["lib"]
 
-	spec.add_dependency "phlex", "~> 2.1.0"
+	spec.add_dependency "phlex", "~> 2.1.2"
 	spec.add_dependency "railties", ">= 7.1", "< 9"
 end
