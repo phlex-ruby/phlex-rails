@@ -17,7 +17,7 @@ module Phlex::Rails::SGML::State
 			ensure
 				@capturing = original_capturing
 				@fragments = original_fragments
-			end
+			end || ""
 		else
 			super
 		end
