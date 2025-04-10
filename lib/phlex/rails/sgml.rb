@@ -60,7 +60,7 @@ module Phlex::Rails::SGML
 			register your own adapter via `register_output_helper` or
 			`register_value_helper`.
 
-			See https://beta.phlex.fun/rails/helpers.html
+			See https://www.phlex.fun/rails/helpers
 		MESSAGE
 
 		view_context
