@@ -7,6 +7,8 @@ module Phlex::Rails
 			@component = component
 		end
 
+		define_method :send, ::Kernel.instance_method(:send)
+
 		def respond_to_missing?(...)
 			@object.respond_to?(...)
 		end

@@ -11,6 +11,8 @@ class Phlex::Rails::Decorator < BasicObject
 		RUBY
 	end
 
+	define_method :send, ::Kernel.instance_method(:send)
+
 	def initialize(object, component:)
 		@object = object
 		@component = component
