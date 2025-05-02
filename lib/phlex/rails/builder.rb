@@ -6,6 +6,8 @@ class Phlex::Rails::Builder < BasicObject
 		@component = component
 	end
 
+	define_method :send, ::Kernel.instance_method(:send)
+
 	def respond_to_missing?(method_name, include_private = false)
 		@object.respond_to?(method_name, include_private)
 	end
