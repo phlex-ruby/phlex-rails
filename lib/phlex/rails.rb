@@ -7,12 +7,6 @@ module Phlex
 		class HelpersCalledBeforeRenderError < StandardError; end
 
 		autoload :Buffered, "phlex/rails/buffered"
-		autoload :Decorator, "phlex/rails/decorator"
-
-		autoload :FormBuilder, "phlex/rails/form_builder"
-		autoload :LabelBuilder, "phlex/rails/label_builder"
-		autoload :CheckboxBuilder, "phlex/rails/checkbox_builder"
-		autoload :RadioButtonBuilder, "phlex/rails/radio_button_builder"
 
 		autoload :CSV, "phlex/rails/csv"
 
@@ -26,6 +20,8 @@ module Phlex
 		autoload :Layout, "phlex/rails/layout"
 		autoload :Partial, "phlex/rails/partial"
 		autoload :Streaming, "phlex/rails/streaming"
+
+		autoload :Builder, "phlex/rails/builder"
 	end
 
 	CSV.prepend(Phlex::Rails::CSV)

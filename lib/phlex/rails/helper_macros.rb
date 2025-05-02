@@ -33,14 +33,14 @@ module Phlex::Rails::HelperMacros
 		RUBY
 	end
 
-	def register_builder_yielding_helper(method_name, builder)
+	def register_builder_yielding_helper(method_name)
 		class_eval(<<-RUBY, __FILE__, __LINE__ + 1)
 			# frozen_string_literal: true
 
 			def #{method_name}(*args, **kwargs)
 				output = if block_given?
 					view_context.#{method_name}(*args, **kwargs) { |builder|
-					yield #{builder.name}.new(builder, component: self)
+					yield Phlex::Rails::Builder.new(builder, component: self)
 					}
 				else
 					view_context.#{method_name}(*args, **kwargs)
