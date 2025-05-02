@@ -3,6 +3,17 @@
 class Phlex::Rails::FormBuilder < Phlex::Rails::Decorator
 	define_method :__caller_locations__, ::Object.instance_method(:caller_locations)
 
+	def method_missing(...)
+		output = @object.public_send(...)
+
+		case output
+		when ::ActiveSupport::SafeBuffer
+			@component.raw(output)
+		else
+			output
+		end
+	end
+
 	def id(...) = @object.id(...)
 	def to_model(...) = @object.to_model(...)
 	def field_id(...) = @object.field_id(...)
