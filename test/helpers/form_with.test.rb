@@ -42,3 +42,36 @@ test "form_with" do
 		</form>
 	HTML
 end
+
+class CustomFormBuilder < ActionView::Helpers::FormBuilder
+	def fancy_input(attribute, options = {})
+		@template.content_tag(:div, class: "fancy-input") do
+			"Fancy input for #{attribute}"
+		end
+	end
+end
+
+test "form_with with custom builder" do
+	component = Class.new(Phlex::HTML) do
+		include Phlex::Rails::Helpers::FormWith
+
+		define_method :view_template do
+			form_with(url: "/", builder: CustomFormBuilder) do |form|
+				form.fancy_input :bar
+				nil # important, otherwise the return value is output
+			end
+		end
+	end
+
+	controller.define_singleton_method(:form_authenticity_token) { |_| "(example form authenticity token)" }
+
+	output = render(component)
+
+	assert_equivalent_html output, <<~HTML
+		<form action="/" accept-charset="UTF-8" method="post">
+			<input name="utf8" type="hidden" value="✓" autocomplete="off">
+			<input type="hidden" name="authenticity_token" value="(example form authenticity token)" autocomplete="off">
+			<div class="fancy-input">Fancy input for bar</div>
+		</form>
+	HTML
+end
