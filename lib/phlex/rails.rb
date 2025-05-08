@@ -22,6 +22,8 @@ module Phlex
 		autoload :Streaming, "phlex/rails/streaming"
 
 		autoload :Builder, "phlex/rails/builder"
+
+		autoload :OptionsOutput, "phlex/rails/options_output"
 	end
 
 	CSV.prepend(Phlex::Rails::CSV)
