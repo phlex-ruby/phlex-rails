@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 module Phlex::Rails::SGML
-	autoload :State, "phlex/rails/sgml/state"
-
 	module ClassMethods
 		def render_in(...)
 			new.render_in(...)
