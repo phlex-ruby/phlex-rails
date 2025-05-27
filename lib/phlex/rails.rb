@@ -26,11 +26,29 @@ module Phlex
 
 	CSV.prepend(Phlex::Rails::CSV)
 	CSV.extend(Phlex::Rails::HelperMacros)
-
-	HTML.include(Phlex::Rails::HTML)
-	SVG.include(Phlex::Rails::SVG)
-
 	SGML::State.prepend(Phlex::Rails::SGML::State)
+
+	class HTML
+		extend Phlex::Rails::SGML::ClassMethods
+		extend Phlex::Rails::HelperMacros
+
+		include Phlex::Rails::SGML
+
+		def format
+			:html
+		end
+	end
+
+	class SVG
+		extend Phlex::Rails::SGML::ClassMethods
+		extend Phlex::Rails::HelperMacros
+
+		include Phlex::Rails::SGML
+
+		def format
+			:svg
+		end
+	end
 
 	ActiveSupport::SafeBuffer.include(Phlex::SGML::SafeObject)
 end

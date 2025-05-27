@@ -3,12 +3,6 @@
 module Phlex::Rails::SGML
 	autoload :State, "phlex/rails/sgml/state"
 
-	def self.included(base)
-		base.extend ClassMethods
-		base.extend Phlex::Rails::HelperMacros
-		super
-	end
-
 	module ClassMethods
 		def render_in(...)
 			new.render_in(...)
