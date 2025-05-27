@@ -9,9 +9,9 @@ module Phlex::Rails
 		include Helpers::StylesheetLinkTag
 		include Helpers::ActionCableMetaTag
 		include Helpers::AutoDiscoveryLinkTag
-		include Helpers::JavascriptIncludeTag
-		include Helpers::JavascriptImportmapTags
-		include Helpers::JavascriptImportModuleTag
+		include Helpers::JavaScriptIncludeTag
+		include Helpers::JavaScriptImportmapTags
+		include Helpers::JavaScriptImportModuleTag
 		include Helpers::TurboRefreshMethodTag
 		include Helpers::TurboRefreshScrollTag
 		include Helpers::TurboRefreshesWith

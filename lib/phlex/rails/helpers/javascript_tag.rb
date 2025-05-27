@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Phlex::Rails::Helpers::JavascriptTag
+module Phlex::Rails::Helpers::JavaScriptTag
 	extend Phlex::Rails::HelperMacros
 
 	# [Rails Docs](https://api.rubyonrails.org/classes/ActionView/Helpers/JavaScriptHelper.html#method-i-javascript_tag)

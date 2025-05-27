@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Phlex::Rails::Helpers::JavascriptImportmapTags
+module Phlex::Rails::Helpers::JavaScriptImportmapTags
 	extend Phlex::Rails::HelperMacros
 
 	# [Rails Docs](https://github.com/rails/importmap-rails)

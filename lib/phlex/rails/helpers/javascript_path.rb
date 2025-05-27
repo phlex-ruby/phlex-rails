@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Phlex::Rails::Helpers::JavascriptPath
+module Phlex::Rails::Helpers::JavaScriptPath
 	extend Phlex::Rails::HelperMacros
 
 	# [Rails Docs](https://api.rubyonrails.org/classes/ActionView/Helpers/AssetUrlHelper.html#method-i-javascript_path)
