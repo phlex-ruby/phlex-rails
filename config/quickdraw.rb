@@ -51,3 +51,5 @@ class Quickdraw::Test
 		)
 	end
 end
+
+Zeitwerk::Loader.eager_load_all
