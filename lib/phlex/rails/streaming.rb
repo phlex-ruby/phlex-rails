@@ -3,9 +3,7 @@
 module Phlex::Rails::Streaming
 	include ActionController::Live
 
-	private
-
-	def stream(view, last_modified: Time.now.httpdate, filename: nil)
+	private def stream(view, last_modified: Time.now.httpdate, filename: nil)
 		__phlex_set_stream_headers__(last_modified:)
 
 		case view
@@ -18,7 +16,7 @@ module Phlex::Rails::Streaming
 		end
 	end
 
-	def __phlex_set_stream_headers__(last_modified:)
+	private def __phlex_set_stream_headers__(last_modified:)
 		headers.delete("Content-Length")
 
 		headers["X-Accel-Buffering"] = "no"
@@ -26,7 +24,7 @@ module Phlex::Rails::Streaming
 		headers["Last-Modified"] = last_modified
 	end
 
-	def __phlex_stream_csv__(view, filename:)
+	private def __phlex_stream_csv__(view, filename:)
 		headers["Content-Type"] = "text/csv; charset=utf-8"
 		headers["Content-Disposition"] = "attachment; filename=\"#{filename || view.filename}\""
 
@@ -35,7 +33,7 @@ module Phlex::Rails::Streaming
 		end
 	end
 
-	def __phlex_stream_html__(view)
+	private def __phlex_stream_html__(view)
 		headers["Content-Type"] = "text/html; charset=utf-8"
 
 		# Ensure we have a session id.
