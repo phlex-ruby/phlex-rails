@@ -22,8 +22,6 @@ module Phlex
 		autoload :Streaming, "phlex/rails/streaming"
 
 		autoload :Builder, "phlex/rails/builder"
-
-		autoload :Never, "phlex/rails/never"
 	end
 
 	CSV.prepend(Phlex::Rails::CSV)
