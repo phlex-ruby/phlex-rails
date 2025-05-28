@@ -14,7 +14,7 @@ module Phlex::Rails::Helpers::OptionsForSelect
 		raw(output)
 
 		Phlex::Rails::Never.new do
-			raise Phlex::ArgumentError.new("You can’t use options_for_select as an argument for a select helper in Phlex. Instead, pass a block and call options_for_select inside that block.")
+			raise Phlex::ArgumentError.new("You can’t use options_for_select as an argument for a select helper in Phlex. Instead, pass a block and call options_for_select inside that block. Alternatively, you can pass your options directly to the select helper.")
 		end
 	end
 end
