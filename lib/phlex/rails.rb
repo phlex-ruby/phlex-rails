@@ -68,6 +68,10 @@ module Phlex
 
 		include Phlex::Rails::SGML
 
+		def self.format
+			:html
+		end
+
 		def format
 			:html
 		end
@@ -78,6 +82,10 @@ module Phlex
 		extend Phlex::Rails::HelperMacros
 
 		include Phlex::Rails::SGML
+
+		def self.format
+			:svg
+		end
 
 		def format
 			:svg
