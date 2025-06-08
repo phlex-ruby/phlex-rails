@@ -56,6 +56,8 @@ module Phlex
 			loader.collapse("#{__dir__}/phlex/errors")
 			loader.setup
 		end
+
+		extend Phlex::Rails::Types
 	end
 
 	CSV.prepend(Phlex::Rails::CSV)
