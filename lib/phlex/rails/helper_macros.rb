@@ -2,7 +2,7 @@
 
 module Phlex::Rails::HelperMacros
 	# Register a Rails helper that returns safe HTML to be pushed to the output buffer.
-	def register_output_helper(method_name)
+	def register_output_helper(method_name, mark_safe: false)
 		class_eval(<<-RUBY, __FILE__, __LINE__ + 1)
 			# frozen_string_literal: true
 
@@ -13,7 +13,7 @@ module Phlex::Rails::HelperMacros
 					view_context.#{method_name}(*args, **kwargs)
 				end
 
-				raw(output)
+				raw(#{mark_safe ? 'safe(output)' : 'output'})
 			end
 		RUBY
 	end
