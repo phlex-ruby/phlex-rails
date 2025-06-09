@@ -7,6 +7,16 @@ class Phlex::Rails::Builder < BasicObject
 	end
 
 	define_method :send, ::Kernel.instance_method(:send)
+	define_method :class, ::Kernel.instance_method(:class)
+	define_method :is_a?, ::Kernel.instance_method(:is_a?)
+
+	def inspect
+		"Phlex::Rails::Builder(#{@object.inspect})"
+	end
+
+	def unwrap
+		@object
+	end
 
 	def respond_to_missing?(method_name, include_private = false)
 		@object.respond_to?(method_name, include_private)

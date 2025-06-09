@@ -1,10 +1,6 @@
 # frozen_string_literal: true
 
 module Phlex::Rails
-	def Buffered(type)
-		-> (value) { Phlex::Rails::Buffered === value && type === value.unwrap }
-	end
-
 	class Buffered < BasicObject
 		def initialize(object, component:)
 			@object = object
